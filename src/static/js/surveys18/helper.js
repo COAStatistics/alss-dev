@@ -1696,7 +1696,7 @@ var AnnualIncomeHelper = {
                         .each(function(){
                             var marketTypeId = $(this).data('markettype-id');
                             var incomeRangeId = $(this).data('incomerange-id');
-                            var id = $(this).data('annualincome-id');
+                            var id = $(this).attr('data-annualincome-id');
                             var obj = AnnualIncomeHelper.AnnualIncome.Object.New(MainSurveyId, marketTypeId, incomeRangeId);
                             if(id) obj.id = id;
                             annualIncomes.push(obj);
@@ -1744,7 +1744,7 @@ var AnnualIncomeHelper = {
             },
         },
         IncomeTotal: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(2),
             Validate: function(){
                 var totalMin = 0;
                 var totalMax = 0;
@@ -1759,6 +1759,7 @@ var AnnualIncomeHelper = {
                     totalMax += max;
                 })
 
+
                 // get total input
                 $input = AnnualIncomeHelper.AnnualIncome.Container
                        .filter(':checked')
@@ -1766,9 +1767,13 @@ var AnnualIncomeHelper = {
                 checkedMin = parseInt($input.data('min'));
                 checkedMax = parseInt($input.data('max'));
 
-                var con = checkedMax <= totalMin || checkedMin > totalMax || !checkedMax;
+                var con = checkedMax <= totalMin || checkedMin > (totalMax - 1);
                 var msg = '銷售額總計之區間，應與各類別區間加總相對應';
                 Helper.LogHandler.Log(con, AnnualIncomeHelper.Alert, msg, this.Guids[0]);
+
+                var con = $input.length == 0;
+                var msg = '銷售額總計不可漏填';
+                Helper.LogHandler.Log(con, AnnualIncomeHelper.Alert, msg, this.Guids[1]);
             },
         },
         AnnualTotal: {
@@ -1792,7 +1797,7 @@ var AnnualIncomeHelper = {
                 })
 
                 var checkedMin = checkedTotal.data('min') * 10000;
-                var checkedMax = checkedTotal.data('max') * 10000;
+                var checkedMax = checkedTotal.data('max') * 10000 - 1;
 
                 var con = countTotal < checkedMin || countTotal >= checkedMax;
                 var msg = '【問項1.4】農作物產銷情形之全年產量與平均單價乘積({0}元)與勾選農作物之全年銷售額區間不符'
@@ -1811,7 +1816,7 @@ var AnnualIncomeHelper = {
                 })
 
                 var checkedMin = checkedTotal.data('min') * 10000;
-                var checkedMax = checkedTotal.data('max') * 10000;
+                var checkedMax = checkedTotal.data('max') * 10000 - 1;
 
                 var con = countTotal < checkedMin  || countTotal >= checkedMax;
                 var msg = '【問項1.5】畜禽產銷情形之全年產量與平均單價乘積({0}元)與勾選畜禽產品之全年銷售額區間不符'
@@ -2301,6 +2306,7 @@ var LongTermHireHelper = {
                     LongTermHireHelper.LongTermHire.Container[0].refreshIndex();
                     if(Helper.LogHandler.ValidationActive){
                         LongTermHireHelper.Validation.RequiredField.Validate($row);
+                        SurveyHelper.Hire.Validation.HireExist.Validate();
                     }
                 }
             })
@@ -2483,6 +2489,7 @@ var ShortTermHireHelper = {
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermHireHelper.Validation.RequiredField.Validate($row);
                         ShortTermHireHelper.Validation.Over6Month.Validate();
+                        SurveyHelper.Hire.Validation.HireExist.Validate();
                     }
                 }
             })
@@ -2550,9 +2557,10 @@ var NoSalaryHireHelper = {
     },
     NoSalaryHire: {
         Object: {
-            New: function(guid){
+            New: function(surveyId, guid){
                 guid = guid || null;
                 return {
+                    survey: surveyId,
                     guid: guid ? guid : Helper.Guid.Create(),
                 }
             },
@@ -2615,6 +2623,7 @@ var NoSalaryHireHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         NoSalaryHireHelper.Validation.RequiredField.Validate($tr);
+                        SurveyHelper.Hire.Validation.HireExist.Validate();
                     }
                 }
             })

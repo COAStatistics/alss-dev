@@ -1,5 +1,6 @@
 from django.contrib import admin
 from rangefilter.filter import DateRangeFilter
+from django.contrib.admin import SimpleListFilter
 from django.db.models import Q
 from .models import (
     BuilderFile,
@@ -45,6 +46,45 @@ from .models import (
 )
 
 
+class ProductFilter(SimpleListFilter):
+    title = 'Product'
+    parameter_name = 'product'
+
+    def lookups(self, request, model_admin):
+        """
+        Returns a list of tuples. The first element in each
+        tuple is the coded value for the option that will
+        appear in the URL query. The second element is the
+        human-readable name for the option that will appear
+        in the right sidebar.
+        """
+        list_tuple = []
+        crops = CropMarketing.objects.values_list('product__id', flat=True).distinct()
+        livestocks = LivestockMarketing.objects.values_list('product__id', flat=True).distinct()
+        for product in Product.objects.filter(
+            Q(id__in=crops) |
+            Q(id__in=livestocks)
+        ).all():
+            list_tuple.append((product.id, product.name))
+        return list_tuple
+
+    def queryset(self, request, queryset):
+        """
+        Returns the filtered queryset based on the value
+        provided in the query string and retrievable via
+        `self.value()`.
+        """
+        if self.value():
+            crop_related_surveys = CropMarketing.objects.filter(product__id=self.value()).values_list('survey__id', flat=True)
+            livestock_related_surveys = LivestockMarketing.objects.filter(product__id=self.value()).values_list('survey__id', flat=True)
+            return queryset.filter(
+                Q(id__in=crop_related_surveys) |
+                Q(id__in=livestock_related_surveys)
+            )
+        else:
+            return queryset
+
+
 class SurveyAdmin(admin.ModelAdmin):
     list_display = ('id',
                     'farmer_id',
@@ -57,6 +97,7 @@ class SurveyAdmin(admin.ModelAdmin):
     list_filter = ('is_updated',
                    'readonly',
                    'page',
+                    ProductFilter,
                    ('update_time', DateRangeFilter),)
     search_fields = (
         'farmer_id',

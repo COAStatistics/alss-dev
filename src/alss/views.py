@@ -41,7 +41,7 @@ class Surveys2018Index(LoginRequiredMixin, TemplateView):
         context['farm_related_businesses'] = FarmRelatedBusiness.objects.all()
         context['management_types'] = ManagementType.objects.all()
         context['land_types'] = LandType.objects.all()
-        context['income_ranges'] = IncomeRange.objects.all()
+        context['income_ranges'] = IncomeRange.objects.all().order_by('minimum')
         context['market_types'] = MarketType.objects.all()
         context['genders'] = Gender.objects.all()
         context['population_age_scopes'] = AgeScope.objects.filter(group=2)

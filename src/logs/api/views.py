@@ -9,6 +9,7 @@ from rest_framework import (
 )
 from rest_framework.generics import (
     UpdateAPIView,
+    ListAPIView,
 )
 
 from rest_framework.permissions import (
@@ -17,8 +18,10 @@ from rest_framework.permissions import (
 
 from .serializers import (
     ReviewLogListSerializer,
-    ReviewLogUpdateSerializer
+    ReviewLogUpdateSerializer,
 )
+
+from . import serializers_singleton
 
 from logs.models import ReviewLog, query_by_args
 
@@ -72,3 +75,8 @@ class ReviewLogUpdateAPIView(UpdateAPIView):
             })
             return JsonResponse(data=serializer.errors, safe=False)
 
+
+class ReviewLogSingletonListAPIView(ListAPIView):
+    serializer_class = serializers_singleton.ReviewLogSerializer
+    queryset = ReviewLog.objects.all()
+    permission_classes = [IsAuthenticated]
