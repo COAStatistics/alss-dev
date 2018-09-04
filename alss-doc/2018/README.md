@@ -8,32 +8,32 @@ surveys18
 
 ### Land
 
-![image](alss-doc/2018/diagram-land.png?raw=true)
+![image](diagram-land.png)
 
 ### Management
 
-![image](alss-doc/2018/diagram-management.png?raw=true)
+![image](diagram-management.png)
 
 ### Marketing
 
-![image](alss-doc/2018/diagram-marketing.png?raw=true)
+![image](diagram-marketing.png)
 
 ### Income
 
-![image](alss-doc/2018/diagram-income.png?raw=true)
+![image](diagram-income.png)
 
 ### Population
 
-![image](alss-doc/2018/diagram-population.png?raw=true)
+![image](diagram-population.png)
 
 ### Hire
 
-![image](alss-doc/2018/diagram-hire.png?raw=true)
+![image](diagram-hire.png)
 
 ### Lack
 
-![image](alss-doc/2018/diagram-lack.png?raw=true)
+![image](diagram-lack.png)
 
 ### Other
 
-![image](alss-doc/2018/diagram-other.png?raw=true)
+![image](diagram-other.png)
