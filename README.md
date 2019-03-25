@@ -1,12 +1,31 @@
-# alss-dev
-Labor shortage survey: Provide online survey creation and edition with error examination alerts for investgators and reviewers
+# Agriculture Labor Shortage Survey
+Provide online survey creation and edition with error examination alerts for investgators and reviewers
 
-# Document
+## Development with Docker
 
-[2018](alss-doc/2018/README.md)
+Setup `src/dashboard/settings/local.py`, with following configurations:
+```
+from .base import *
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
+        'PORT': '5432',
+    },
+}
+```
 
-# Demo
+Use `--build` to rebuild image, `-d` to run containers in the background :
+```
+$ docker-compose up
+```
 
-![image](img/alss-2018.png)
+Use `-v` to clean volume while stop containers:
+```
+$ docker-compose down -v
+```
 
 
