@@ -25,12 +25,162 @@ from apps.surveys18.models import (
     Refuse,
     Product,
     Month,
+    Unit,
+    AgeScope,
+    WorkType,
+    RefuseReason,
+    FarmerWorkDay,
+    OtherFarmWork,
+    Relationship,
+    EducationLevel,
+    LifeStyle,
+    Gender,
+    Loss,
+    Facility,
+    ProductType,
+    Contract,
+    Lack,
+    IncomeRange,
+    MarketType,
 )
+
+
+class MarketTypeSerializer(ModelSerializer):
+
+    class Meta:
+        model = MarketType
+        fields = '__all__'
+
+
+class IncomeRangeSerializer(ModelSerializer):
+
+    class Meta:
+        model = IncomeRange
+        fields = '__all__'
+
+
+class LackSerializer(ModelSerializer):
+
+    class Meta:
+        model = Lack
+        fields = '__all__'
+
+
+class ContractSerializer(ModelSerializer):
+
+    class Meta:
+        model = Contract
+        fields = '__all__'
+
+
+class ProductTypeSerializer(ModelSerializer):
+
+    class Meta:
+        model = ProductType
+        fields = '__all__'
+
+
+class FacilitySerializer(ModelSerializer):
+
+    class Meta:
+        model = Facility
+        fields = '__all__'
+
+
+class LossSerializer(ModelSerializer):
+
+    class Meta:
+        model = Loss
+        fields = '__all__'
+
+
+class GenderSerializer(ModelSerializer):
+
+    class Meta:
+        model = Gender
+        fields = '__all__'
+
+
+class LifeStyleSerializer(ModelSerializer):
+
+    class Meta:
+        model = LifeStyle
+        fields = '__all__'
+
+
+class ContentTypeSerializer(ModelSerializer):
+
+    class Meta:
+        model = ContentType
+        fields = '__all__'
+
+
+class UnitSerializer(ModelSerializer):
+
+    class Meta:
+        model = Unit
+        fields = '__all__'
+
+
+class ProductSerializer(ModelSerializer):
+
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+
+class WorkTypeSerializer(ModelSerializer):
+
+    class Meta:
+        model = WorkType
+        fields = '__all__'
+
+
+class AgeScopeSerializer(ModelSerializer):
+
+    class Meta:
+        model = AgeScope
+        fields = '__all__'
+
+
+class RefuseReasonSerializer(ModelSerializer):
+
+    class Meta:
+        model = RefuseReason
+        fields = '__all__'
+
+
+class FarmerWorkDaySerializer(ModelSerializer):
+
+    class Meta:
+        model = FarmerWorkDay
+        fields = '__all__'
+
+
+class OtherFarmWorkSerializer(ModelSerializer):
+
+    class Meta:
+        model = OtherFarmWork
+        fields = '__all__'
+
+
+class RelationshipSerializer(ModelSerializer):
+
+    class Meta:
+        model = Relationship
+        fields = '__all__'
+
+
+class EducationLevelSerializer(ModelSerializer):
+
+    class Meta:
+        model = EducationLevel
+        fields = '__all__'
 
 
 class AnnualIncomeSerializer(ModelSerializer):
     id = IntegerField(read_only=False)
-    
+
     class Meta:
         model = AnnualIncome
         fields = '__all__'
@@ -374,11 +524,11 @@ class SurveySerializer(ModelSerializer):
                     land_number=item['land_number'] if 'land_number' in item else None,
                     land_area=item['land_area'] if 'land_area' in item else None,
                     plant_times=item['plant_times'] if 'plant_times' in item else None,
-                    total_yield=item['total_yield']if 'total_yield' in item else None,
+                    total_yield=item['total_yield'] if 'total_yield' in item else None,
                     unit_price=item['unit_price'] if 'unit_price' in item else None,
                     has_facility=item['has_facility'] if 'has_facility' in item else None
                 )
-                
+
         '''LivestockMarketing'''
         livestock_marketing_ids = [item['id'] for item in validated_data['livestock_marketings'] if 'id' in item]
         # Delete not included in the request
@@ -411,7 +561,7 @@ class SurveySerializer(ModelSerializer):
                     unit_price=item['unit_price'] if 'unit_price' in item else None,
                     contract=item['contract'] if 'contract' in item else None
                 )
-                
+
         '''AnnualIncome'''
         annual_income_ids = [item['id'] for item in validated_data['annual_incomes'] if 'id' in item]
         # Delete not included in the request
@@ -668,7 +818,7 @@ class SurveySerializer(ModelSerializer):
                 if 'months' in item:
                     for month in item['months']:
                         obj.months.add(month)
-                        
+
         '''ShortTermLack'''
         short_term_lack_ids = [item['id'] for item in validated_data['short_term_lacks'] if 'id' in item]
         # Delete not included in the request
@@ -736,10 +886,3 @@ class SurveySerializer(ModelSerializer):
             instance.subsidy.save()
 
         return instance
-
-
-
-
-
-
-

@@ -45,9 +45,9 @@
                                placeholder="請輸入農戶編號">
                         <div class="btn-group-vertical flex mt-1" role="group" aria-label="" style="width:100%;">
                             <button type="button" class="btn btn-success btn-lg js-get-survey"
-                                    data-readonly="false" data-url="{% url 'surveys18:api:list' %}">查詢</button>
+                                    data-readonly="false" data-url="{% url 'surveys18:api:survey-list' %}">查詢</button>
                             <button type="button" class="btn btn-success btn-lg js-get-survey"
-                                    data-readonly="true" data-url="{% url 'surveys18:api:list' %}">查詢原始資料</button>
+                                    data-readonly="true" data-url="{% url 'surveys18:api:survey-list' %}">查詢原始資料</button>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <a href="#" class="list-group-item js-tabs-control small" data-target="#panel3">戶內人口組成狀況</a>
                         <a href="#" class="list-group-item js-tabs-control small" data-target="#panel4">農業外僱人力</a>
                         <button type="button" class="btn btn-info btn-lg btn-block mt-1 js-set-survey"
-                                    data-url="{% url 'surveys18:api:update' %}">更新調查表</button>
+                                    data-url="{% url 'surveys18:api:survey-patch' %}">更新調查表</button>
                     </div>
                 </div>
 

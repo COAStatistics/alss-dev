@@ -1,12 +1,10 @@
 import json
 
 from django.contrib.contenttypes.models import ContentType
-from django.http import JsonResponse
 from django.db.models import Q
 
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.pagination import PageNumberPagination
 
 from apps.surveys19.models import (
     Survey,
@@ -98,10 +96,6 @@ from .serializers import (
 )
 
 
-class ThirtyPagination(PageNumberPagination):
-    page_size = 30
-
-
 class ContentTypeViewSet(ReadOnlyModelViewSet):
     serializer_class = ContentTypeSerializer
     queryset = ContentType.objects.all()
@@ -118,16 +112,14 @@ class SurveyViewSet(ModelViewSet):
     queryset = Survey.objects.all()
     serializer_class = SurveySerializer
     permission_classes = [IsAuthenticated]
-    pagination_class = ThirtyPagination
 
     def get_queryset(self, *args, **kwargs):
         fid = self.request.GET.get('fid')
         readonly = json.loads(self.request.GET.get('readonly', 'false'))
+        queryset = self.queryset
         if fid:
-            queryset_list = self.queryset.filter(
-                    Q(farmer_id=fid) & Q(readonly=readonly)
-                    ).distinct()
-        return queryset_list
+            queryset = self.queryset.filter(Q(farmer_id=fid) & Q(readonly=readonly)).distinct()
+        return queryset
 
 
 class PhoneViewSet(ModelViewSet):

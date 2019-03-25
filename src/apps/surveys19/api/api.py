@@ -49,7 +49,7 @@ api = DefaultRouter()
 api.trailing_slash = '/?'
 
 api.register(r'contenttype', ContentTypeViewSet)
-api.register(r'Survey', SurveyViewSet)
+api.register(r'survey', SurveyViewSet)
 api.register(r'phone', PhoneViewSet)
 api.register(r'addressmatch', AddressMatchViewSet)
 api.register(r'citytowncode', CityTownCodeViewSet)
