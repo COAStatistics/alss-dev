@@ -54,26 +54,37 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='BuilderFile',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('create_time', models.DateTimeField(auto_now_add=True, verbose_name='Create Time')),
+                ('token', models.TextField(blank=True, null=True, verbose_name='Token String')),
+                ('datafile', models.FileField(blank=True, null=True, upload_to='surveys18/builders/', verbose_name='DataFile')),
+            ],
+            options={
+                'verbose_name': 'BuilderFile',
+                'verbose_name_plural': 'BuilderFile',
+            },
+        ),
+        migrations.CreateModel(
+            name='BuilderFileType',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=50, unique=True, verbose_name='Name')),
+                ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
+            ],
+            options={
+                'verbose_name': 'BuilderFileType',
+                'verbose_name_plural': 'BuilderFileType',
+            },
+        ),
+        migrations.CreateModel(
             name='Business',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('extra', models.CharField(blank=True, max_length=50, null=True, verbose_name='Extra')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
             ],
-        ),
-        migrations.CreateModel(
-            name='CityTownCode',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('city', models.CharField(blank=True, max_length=20, null=True, verbose_name='City')),
-                ('town', models.CharField(blank=True, max_length=20, null=True, verbose_name='Town')),
-                ('code', models.CharField(blank=True, max_length=20, null=True, verbose_name='Code')),
-                ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-            ],
-            options={
-                'verbose_name': 'City',
-                'verbose_name_plural': 'City',
-            },
         ),
         migrations.CreateModel(
             name='Contract',
@@ -92,11 +103,11 @@ class Migration(migrations.Migration):
             name='CropMarketing',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=50, null=True, verbose_name='Product Name')),
                 ('land_number', models.IntegerField(blank=True, null=True, verbose_name='Land Number')),
                 ('land_area', models.IntegerField(blank=True, null=True, verbose_name='Land Area')),
                 ('plant_times', models.IntegerField(blank=True, null=True, verbose_name='Plant Times')),
-                ('year_sales', models.IntegerField(blank=True, null=True, verbose_name='Year Sales')),
+                ('total_yield', models.IntegerField(blank=True, null=True, verbose_name='Total Yield')),
+                ('unit_price', models.IntegerField(blank=True, null=True, verbose_name='Unit Price')),
                 ('has_facility', models.IntegerField(blank=True, choices=[(0, 'No'), (1, 'Yes')], null=True, verbose_name='Has Facility')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
             ],
@@ -121,6 +132,19 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='Facility',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('code', models.IntegerField(verbose_name='Code')),
+                ('name', models.CharField(blank=True, max_length=10, null=True, verbose_name='Name')),
+                ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
+            ],
+            options={
+                'verbose_name': 'Facility',
+                'verbose_name_plural': 'Facility',
+            },
+        ),
+        migrations.CreateModel(
             name='FarmerWorkDay',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -131,20 +155,6 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name': 'FarmerWorkDay',
                 'verbose_name_plural': 'FarmerWorkDay',
-            },
-        ),
-        migrations.CreateModel(
-            name='FarmLocation',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('city', models.CharField(blank=True, max_length=20, null=True, verbose_name='City')),
-                ('town', models.CharField(blank=True, max_length=20, null=True, verbose_name='Town')),
-                ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('code', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='farmlocation', to='surveys19.CityTownCode', verbose_name='Code')),
-            ],
-            options={
-                'verbose_name': 'FarmLocation',
-                'verbose_name_plural': 'FarmLocation',
             },
         ),
         migrations.CreateModel(
@@ -233,7 +243,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(blank=True, max_length=20, null=True, verbose_name='Name')),
                 ('has_land', models.BooleanField(default=True, verbose_name='Has Land')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('statuses', models.ManyToManyField(blank=True, related_name='land_type', to='surveys19.LandStatus', verbose_name='Land Statuses')),
+                ('statuses', models.ManyToManyField(blank=True, related_name='land_type', to='surveys18.LandStatus', verbose_name='Land Statuses')),
             ],
             options={
                 'verbose_name': 'LandType',
@@ -257,11 +267,11 @@ class Migration(migrations.Migration):
             name='LivestockMarketing',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=50, null=True, verbose_name='Product Name')),
                 ('raising_number', models.IntegerField(blank=True, null=True, verbose_name='Raising Number')),
-                ('year_sales', models.IntegerField(blank=True, null=True, verbose_name='Year Sales')),
+                ('total_yield', models.IntegerField(blank=True, null=True, verbose_name='Total Yield')),
+                ('unit_price', models.IntegerField(blank=True, null=True, verbose_name='Unit Price')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('contract', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='contract', to='surveys19.Contract', verbose_name='Contract')),
+                ('contract', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='contract', to='surveys18.Contract', verbose_name='Contract')),
             ],
             options={
                 'verbose_name': 'LivestockMarketing',
@@ -287,7 +297,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('count', models.IntegerField(blank=True, null=True, verbose_name='Number Of People')),
-                ('avg_lack_day', models.FloatField(blank=True, null=True, verbose_name='Average Lack Day')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
             ],
             options={
@@ -352,7 +361,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('count', models.IntegerField(blank=True, null=True, verbose_name='Number Of People')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('month', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.Month', verbose_name='Month')),
+                ('month', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.Month', verbose_name='Month')),
             ],
             options={
                 'verbose_name': 'NoSalaryHire',
@@ -367,12 +376,24 @@ class Migration(migrations.Migration):
                 ('object_id', models.PositiveIntegerField()),
                 ('count', models.IntegerField(blank=True, null=True, verbose_name='Count')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('age_scope', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='number_workers', to='surveys19.AgeScope', verbose_name='Age Scope')),
-                ('content_type', models.ForeignKey(limit_choices_to=models.Q(models.Q(('app_label', 'surveys19'), ('model', 'longtermhire')), models.Q(('app_label', 'surveys19'), ('model', 'shorttermhire')), _connector='OR'), on_delete=django.db.models.deletion.CASCADE, related_name='number_workers', to='contenttypes.ContentType')),
+                ('age_scope', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='number_workers', to='surveys18.AgeScope', verbose_name='Age Scope')),
+                ('content_type', models.ForeignKey(limit_choices_to=models.Q(models.Q(('app_label', 'surveys18'), ('model', 'longtermhire')), models.Q(('app_label', 'surveys18'), ('model', 'shorttermhire')), _connector='OR'), on_delete=django.db.models.deletion.CASCADE, to='contenttypes.ContentType')),
             ],
             options={
                 'verbose_name': 'NumberWorkers',
                 'verbose_name_plural': 'NumberWorkers',
+            },
+        ),
+        migrations.CreateModel(
+            name='OtherFarmWork',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(blank=True, max_length=20, null=True, verbose_name='Name')),
+                ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
+            ],
+            options={
+                'verbose_name': 'OtherFarmWork',
+                'verbose_name_plural': 'OtherFarmWork',
             },
         ),
         migrations.CreateModel(
@@ -393,10 +414,11 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('birth_year', models.IntegerField(blank=True, null=True, verbose_name='Birth Year')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('education_level', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='education_level', to='surveys19.EducationLevel', verbose_name='Education Level')),
-                ('farmer_work_day', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='farmer_work_day', to='surveys19.FarmerWorkDay', verbose_name='Farmer Work Day')),
-                ('gender', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='relationship', to='surveys19.Gender', verbose_name='Gender')),
-                ('life_style', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='life_style', to='surveys19.LifeStyle', verbose_name='Life Style')),
+                ('education_level', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='education_level', to='surveys18.EducationLevel', verbose_name='Education Level')),
+                ('farmer_work_day', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='farmer_work_day', to='surveys18.FarmerWorkDay', verbose_name='Farmer Work Day')),
+                ('gender', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='relationship', to='surveys18.Gender', verbose_name='Gender')),
+                ('life_style', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='life_style', to='surveys18.LifeStyle', verbose_name='Life Style')),
+                ('other_farm_work', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='other_farm_work', to='surveys18.OtherFarmWork', verbose_name='Other Farm Work')),
             ],
             options={
                 'verbose_name': 'Population',
@@ -410,8 +432,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('count', models.IntegerField(blank=True, null=True, verbose_name='Count')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('age_scope', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.AgeScope', verbose_name='Age Scope')),
-                ('gender', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.Gender', verbose_name='Gender')),
+                ('age_scope', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.AgeScope', verbose_name='Age Scope')),
+                ('gender', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.Gender', verbose_name='Gender')),
             ],
             options={
                 'verbose_name': 'PopulationAge',
@@ -483,7 +505,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('avg_work_day', models.FloatField(blank=True, null=True, verbose_name='Average Work Day')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('month', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.Month', verbose_name='Month')),
+                ('month', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.Month', verbose_name='Month')),
             ],
             options={
                 'verbose_name': 'ShortTermHire',
@@ -495,12 +517,10 @@ class Migration(migrations.Migration):
             name='ShortTermLack',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=50, null=True, verbose_name='Product Name')),
                 ('count', models.IntegerField(blank=True, null=True, verbose_name='Number Of People')),
-                ('avg_lack_day', models.FloatField(blank=True, null=True, verbose_name='Average Lack Day')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('months', models.ManyToManyField(blank=True, related_name='short_term_lacks', to='surveys19.Month', verbose_name='Months')),
-                ('product', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='short_term_lacks', to='surveys19.Product', verbose_name='Product')),
+                ('months', models.ManyToManyField(blank=True, related_name='short_term_lacks', to='surveys18.Month', verbose_name='Months')),
+                ('product', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='short_term_lacks', to='surveys18.Product', verbose_name='Product')),
             ],
             options={
                 'verbose_name': 'ShortTermLack',
@@ -516,6 +536,7 @@ class Migration(migrations.Migration):
                 ('count', models.IntegerField(blank=True, null=True, verbose_name='Number Of People')),
                 ('month_delta', models.IntegerField(blank=True, null=True, verbose_name='Month Delta')),
                 ('day_delta', models.IntegerField(blank=True, null=True, verbose_name='Day Delta')),
+                ('hour_delta', models.IntegerField(blank=True, null=True, verbose_name='Hour Delta')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
             ],
             options={
@@ -532,8 +553,6 @@ class Migration(migrations.Migration):
                 ('total_pages', models.IntegerField(verbose_name='Total Pages')),
                 ('page', models.IntegerField(verbose_name='Page')),
                 ('origin_class', models.IntegerField(blank=True, null=True, verbose_name='Origin Class')),
-                ('second', models.BooleanField(default=False, verbose_name='Second')),
-                ('non_second', models.BooleanField(default=False, verbose_name='Non Second')),
                 ('hire', models.BooleanField(default=False, verbose_name='Hire')),
                 ('non_hire', models.BooleanField(default=False, verbose_name='Non Hire')),
                 ('note', models.TextField(blank=True, null=True, verbose_name='Note')),
@@ -543,9 +562,9 @@ class Migration(migrations.Migration):
                 ('distance', models.IntegerField(blank=True, null=True, verbose_name='Investigation Distance(km)')),
                 ('period', models.IntegerField(blank=True, null=True, verbose_name='Investigation Period')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('investigator', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='surveys19', to=settings.AUTH_USER_MODEL, verbose_name='Investigator')),
-                ('lacks', models.ManyToManyField(blank=True, related_name='surveys', to='surveys19.Lack', verbose_name='Lack')),
-                ('management_types', models.ManyToManyField(blank=True, related_name='surveys', to='surveys19.ManagementType', verbose_name='Management Types')),
+                ('investigator', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='surveys18', to=settings.AUTH_USER_MODEL, verbose_name='Investigator')),
+                ('lacks', models.ManyToManyField(blank=True, related_name='surveys18', to='surveys18.Lack', verbose_name='Lack')),
+                ('management_types', models.ManyToManyField(blank=True, related_name='surveys', to='surveys18.ManagementType', verbose_name='Management Types')),
             ],
             options={
                 'verbose_name': 'Survey',
@@ -559,7 +578,7 @@ class Migration(migrations.Migration):
                 ('code', models.IntegerField(verbose_name='Code')),
                 ('name', models.CharField(blank=True, max_length=10, null=True, verbose_name='Name')),
                 ('update_time', models.DateTimeField(auto_now=True, null=True, verbose_name='Updated')),
-                ('type', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.ProductType', verbose_name='Product Type')),
+                ('type', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.ProductType', verbose_name='Product Type')),
             ],
             options={
                 'verbose_name': 'Unit',
@@ -582,196 +601,201 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='subsidy',
             name='survey',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='subsidy', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='subsidy', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='shorttermlack',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='short_term_lacks', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='short_term_lacks', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='shorttermlack',
             name='work_type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='short_term_lacks', to='surveys19.WorkType', verbose_name='Work Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='short_term_lacks', to='surveys18.WorkType', verbose_name='Work Type'),
         ),
         migrations.AddField(
             model_name='shorttermhire',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='short_term_hires', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='short_term_hires', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='shorttermhire',
             name='work_types',
-            field=models.ManyToManyField(blank=True, related_name='short_term_hires', to='surveys19.WorkType', verbose_name='Work Types'),
+            field=models.ManyToManyField(blank=True, related_name='short_term_hires', to='surveys18.WorkType', verbose_name='Work Types'),
         ),
         migrations.AddField(
             model_name='refuse',
             name='reason',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='refuse', to='surveys19.RefuseReason', verbose_name='Refuse'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='refuse', to='surveys18.RefuseReason', verbose_name='Refuse'),
         ),
         migrations.AddField(
             model_name='refuse',
             name='subsidy',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='refuses', to='surveys19.Subsidy', verbose_name='Subsidy'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='refuses', to='surveys18.Subsidy', verbose_name='Subsidy'),
         ),
         migrations.AddField(
             model_name='product',
             name='type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.ProductType', verbose_name='Product Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.ProductType', verbose_name='Product Type'),
         ),
         migrations.AddField(
             model_name='populationage',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='population_ages', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='population_ages', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='population',
             name='relationship',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='relationship', to='surveys19.Relationship', verbose_name='Relationship'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='relationship', to='surveys18.Relationship', verbose_name='Relationship'),
         ),
         migrations.AddField(
             model_name='population',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='populations', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='populations', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='phone',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='phones', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='phones', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='nosalaryhire',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='no_salary_hires', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='no_salary_hires', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='loss',
             name='type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.ProductType', verbose_name='Product Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.ProductType', verbose_name='Product Type'),
         ),
         migrations.AddField(
             model_name='longtermlack',
             name='months',
-            field=models.ManyToManyField(blank=True, related_name='long_term_lacks', to='surveys19.Month', verbose_name='Months'),
+            field=models.ManyToManyField(blank=True, related_name='long_term_lacks', to='surveys18.Month', verbose_name='Months'),
         ),
         migrations.AddField(
             model_name='longtermlack',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='long_term_lacks', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='long_term_lacks', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='longtermlack',
             name='work_type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='long_term_lacks', to='surveys19.WorkType', verbose_name='Work Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='long_term_lacks', to='surveys18.WorkType', verbose_name='Work Type'),
         ),
         migrations.AddField(
             model_name='longtermhire',
             name='months',
-            field=models.ManyToManyField(blank=True, related_name='long_term_hires', to='surveys19.Month', verbose_name='Months'),
+            field=models.ManyToManyField(blank=True, related_name='long_term_hires', to='surveys18.Month', verbose_name='Months'),
         ),
         migrations.AddField(
             model_name='longtermhire',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='long_term_hires', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='long_term_hires', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='longtermhire',
             name='work_type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='long_term_hires', to='surveys19.WorkType', verbose_name='Work Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='long_term_hires', to='surveys18.WorkType', verbose_name='Work Type'),
         ),
         migrations.AddField(
             model_name='livestockmarketing',
             name='loss',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketing_loss', to='surveys19.Loss', verbose_name='Loss'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketing_loss', to='surveys18.Loss', verbose_name='Loss'),
         ),
         migrations.AddField(
             model_name='livestockmarketing',
             name='product',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketing_product', to='surveys19.Product', verbose_name='Product'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketing_product', to='surveys18.Product', verbose_name='Product'),
         ),
         migrations.AddField(
             model_name='livestockmarketing',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketings', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketings', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='livestockmarketing',
             name='unit',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketing_unit', to='surveys19.Unit', verbose_name='Unit'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='livestock_marketing_unit', to='surveys18.Unit', verbose_name='Unit'),
         ),
         migrations.AddField(
             model_name='landtype',
             name='unit',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='land_type', to='surveys19.Unit', verbose_name='Unit'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='land_type', to='surveys18.Unit', verbose_name='Unit'),
         ),
         migrations.AddField(
             model_name='landarea',
             name='status',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='land_areas', to='surveys19.LandStatus', verbose_name='Status'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='land_areas', to='surveys18.LandStatus', verbose_name='Status'),
         ),
         migrations.AddField(
             model_name='landarea',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='land_areas', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='land_areas', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='landarea',
             name='type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='land_areas', to='surveys19.LandType', verbose_name='Type'),
-        ),
-        migrations.AddField(
-            model_name='farmlocation',
-            name='survey',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='farm_location', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='land_areas', to='surveys18.LandType', verbose_name='Type'),
         ),
         migrations.AddField(
             model_name='cropmarketing',
             name='loss',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='crop_marketing_loss', to='surveys19.Loss', verbose_name='Loss'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='crop_marketing_loss', to='surveys18.Loss', verbose_name='Loss'),
         ),
         migrations.AddField(
             model_name='cropmarketing',
             name='product',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='products', to='surveys19.Product', verbose_name='Product Code'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='products', to='surveys18.Product', verbose_name='Product Code'),
         ),
         migrations.AddField(
             model_name='cropmarketing',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='crop_marketings', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='crop_marketings', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='cropmarketing',
             name='unit',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='crop_marketing_unit', to='surveys19.Unit', verbose_name='Unit'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='crop_marketing_unit', to='surveys18.Unit', verbose_name='Unit'),
         ),
         migrations.AddField(
             model_name='business',
             name='farm_related_business',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='business', to='surveys19.FarmRelatedBusiness', verbose_name='Farm Related Business'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='business', to='surveys18.FarmRelatedBusiness', verbose_name='Farm Related Business'),
         ),
         migrations.AddField(
             model_name='business',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='businesses', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='businesses', to='surveys18.Survey', verbose_name='Survey'),
+        ),
+        migrations.AddField(
+            model_name='builderfile',
+            name='type',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.BuilderFileType', verbose_name='BuilderFileType'),
+        ),
+        migrations.AddField(
+            model_name='builderfile',
+            name='user',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='files', to=settings.AUTH_USER_MODEL, verbose_name='User'),
         ),
         migrations.AddField(
             model_name='annualincome',
             name='income_range',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.IncomeRange', verbose_name='Income Range'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.IncomeRange', verbose_name='Income Range'),
         ),
         migrations.AddField(
             model_name='annualincome',
             name='market_type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys19.MarketType', verbose_name='Market Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys18.MarketType', verbose_name='Market Type'),
         ),
         migrations.AddField(
             model_name='annualincome',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='annual_incomes', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='annual_incomes', to='surveys18.Survey', verbose_name='Survey'),
         ),
         migrations.AddField(
             model_name='addressmatch',
             name='survey',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='address_match', to='surveys19.Survey', verbose_name='Survey'),
+            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='address_match', to='surveys18.Survey', verbose_name='Survey'),
         ),
     ]
