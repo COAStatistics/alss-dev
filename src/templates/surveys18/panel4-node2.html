@@ -1,0 +1,21 @@
+<h4>3.2 短缺情形</h4>
+
+<div class="form-group">
+    <label class="control-label">1. 貴戶是否有自家農牧業工作外僱人力</label>
+    <div name="lack" class="alert alert-danger"></div>
+    <div>
+        {% for lack in lacks %}
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="lack" data-lack-id="{{ lack.id }}" data-islack="{{ lack.is_lack|yesno:'true,false' }}">{{ lack.name }}
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    <hr/>
+    {% include 'surveys18/panel4-node2-node1.html' %}
+    <hr />
+    {% include 'surveys18/panel4-node2-node2.html' %}
+    <hr />
+    {% include 'surveys18/panel4-node2-node3.html' %}
+</div>

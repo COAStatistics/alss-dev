@@ -32,7 +32,7 @@ from apps.surveys19.models import (
 class Surveys2019Index(LoginRequiredMixin, TemplateView):
     login_url = '/users/login/'
     redirect_field_name = 'redirect_to'
-    template_name = 's19/index.html'
+    template_name = 'surveys19/index.html'
 
     def get_context_data(self, **kwargs):
         context = super(Surveys2019Index, self).get_context_data(**kwargs)
@@ -68,14 +68,14 @@ class Surveys2019Index(LoginRequiredMixin, TemplateView):
 
         # ui elements
         ui = {
-            'cropmarketing': render_to_string('s19/row-ui/crop-marketing.html', context),
-            'livestockmarketing': render_to_string('s19/row-ui/livestock-marketing.html', context),
-            'population': render_to_string('s19/row-ui/population.html', context),
-            'longtermhire': render_to_string('s19/row-ui/long-term-hire.html', context),
-            'longtermlack': render_to_string('s19/row-ui/long-term-lack.html', context),
-            'shorttermhire': render_to_string('s19/row-ui/short-term-hire.html', context),
-            'shorttermlack': render_to_string('s19/row-ui/short-term-lack.html', context),
-            'nosalaryhire': render_to_string('s19/row-ui/no-salary-hire.html', context),
+            'cropmarketing': render_to_string('surveys19/row-ui/crop-marketing.html', context),
+            'livestockmarketing': render_to_string('surveys19/row-ui/livestock-marketing.html', context),
+            'population': render_to_string('surveys19/row-ui/population.html', context),
+            'longtermhire': render_to_string('surveys19/row-ui/long-term-hire.html', context),
+            'longtermlack': render_to_string('surveys19/row-ui/long-term-lack.html', context),
+            'shorttermhire': render_to_string('surveys19/row-ui/short-term-hire.html', context),
+            'shorttermlack': render_to_string('surveys19/row-ui/short-term-lack.html', context),
+            'nosalaryhire': render_to_string('surveys19/row-ui/no-salary-hire.html', context),
         }
         context['ui'] = json.dumps(ui)
         context['fid'] = json.dumps(list(Survey.objects.values_list('farmer_id', flat=True).distinct()))
