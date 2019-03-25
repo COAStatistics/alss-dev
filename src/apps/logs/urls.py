@@ -1,5 +1,8 @@
-from django.conf.urls import url, include
+from django.urls import path
+from django.conf.urls import include
+
+app_name = 'logs'
 
 urlpatterns = [
-    url(r'^api/', include('apps.logs.api.urls', namespace='api')),
+    path('api/', include('apps.logs.api.urls', namespace='api')),
 ]

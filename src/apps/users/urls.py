@@ -1,17 +1,12 @@
-from django.conf.urls import url, include
+from django.urls import path
 from .views import (
     login_view,
     logout_view,
-    register_view,
-    forget_password_view,
-    reset_password_view,
-    edit_info_view,
-    user_activate,
-    resend_mail_view,
-    reset_email_view
 )
 
+app_name = 'users'
+
 urlpatterns = [
-    url(r'^login/', login_view, name='login'),
-    url(r'^logout/', logout_view, name='logout'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
 ]

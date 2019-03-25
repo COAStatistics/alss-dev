@@ -4,6 +4,7 @@ from django.db.models import (
     PositiveIntegerField,
     ForeignKey,
     DateTimeField,
+    CASCADE,
     Q,
 )
 from model_utils import Choices
@@ -26,8 +27,8 @@ ORDER_COLUMN_CHOICES = Choices(
 
 
 class ReviewLog(Model):
-    user = ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='review_logs', verbose_name=_('User'))
-    content_type = ForeignKey(ContentType, limit_choices_to=SURVEY_CHOICES)
+    user = ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=CASCADE, related_name='review_logs', verbose_name=_('User'))
+    content_type = ForeignKey(ContentType, limit_choices_to=SURVEY_CHOICES, on_delete=CASCADE)
     object_id = PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
     initial_errors = IntegerField(null=True, blank=True, verbose_name=_('Initialed Error Count'))

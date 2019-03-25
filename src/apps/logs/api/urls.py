@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .views import (
     ReviewLogViewSet,
@@ -6,8 +6,10 @@ from .views import (
     ReviewLogSingletonListAPIView,
 )
 
+app_name = 'logs'
+
 urlpatterns = [
-    url(r'^$', ReviewLogViewSet.as_view({'get': 'list'}), name='list'),
-    url(r'^update/$', ReviewLogUpdateAPIView.as_view(), name='update'),
-    url(r'^reviewlog/$', ReviewLogSingletonListAPIView.as_view(), name='list_singleton_reviewlog'),
+    path('', ReviewLogViewSet.as_view({'get': 'list'}), name='list'),
+    path('update/', ReviewLogUpdateAPIView.as_view(), name='update'),
+    path('reviewlog/', ReviewLogSingletonListAPIView.as_view(), name='list_singleton_reviewlog'),
 ]

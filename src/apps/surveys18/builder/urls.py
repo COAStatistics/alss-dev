@@ -1,5 +1,8 @@
-from django.conf.urls import url, include
+from django.urls import path
+from django.urls.conf import include
+
+app_name = 'surveys18'
 
 urlpatterns = [
-    url(r'^api/', include('apps.surveys18.builder.api.urls', namespace='api')),
+    path('api/', include('apps.surveys18.builder.api.urls', namespace='api')),
 ]

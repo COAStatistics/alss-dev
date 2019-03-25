@@ -52,10 +52,22 @@ class BuilderFileType(Model):
 
 
 class BuilderFile(Model):
-    create_time = DateTimeField(auto_now_add=True, verbose_name=_('Create Time'))
-    user = ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True,  related_name='files', verbose_name=_('User'))
+    create_time = DateTimeField(
+        auto_now_add=True,
+        verbose_name=_('Create Time'))
+    user = ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='files',
+        verbose_name=_('User'))
     token = TextField(null=True, blank=True, verbose_name=_('Token String'))
-    datafile = FileField(null=True, blank=True, upload_to='surveys18/builders/', verbose_name=_('DataFile'))
+    datafile = FileField(
+        null=True,
+        blank=True,
+        upload_to='surveys18/builders/',
+        verbose_name=_('DataFile'))
     type = ForeignKey('surveys18.BuilderFileType', null=True,
                       blank=True, on_delete=CASCADE,
                       verbose_name=_('BuilderFileType'))
@@ -129,12 +141,15 @@ class Survey(Model):
 class ShortTermLack(Model):
     survey = ForeignKey('surveys18.Survey',
                         related_name='short_term_lacks',
+                        on_delete=CASCADE,
                         verbose_name=_('Survey'))
     product = ForeignKey('surveys18.Product',
                          related_name='short_term_lacks', null=True,
+                         on_delete=CASCADE,
                          blank=True, verbose_name=_('Product'))
     work_type = ForeignKey('surveys18.WorkType', null=True,
                            related_name='short_term_lacks', blank=True,
+                           on_delete=CASCADE,
                            verbose_name=_('Work Type'))
     count = IntegerField(null=True, blank=True,
                          verbose_name=_('Number Of People'))
@@ -158,11 +173,11 @@ class ShortTermLack(Model):
 
 
 class LongTermLack(Model):
-    survey = ForeignKey('surveys18.Survey', related_name='long_term_lacks'
-                        , verbose_name=_('Survey'))
+    survey = ForeignKey('surveys18.Survey', related_name='long_term_lacks',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     work_type = ForeignKey('surveys18.WorkType', null=True,
                            related_name='long_term_lacks', blank=True,
-                           verbose_name=_('Work Type'))
+                           on_delete=CASCADE, verbose_name=_('Work Type'))
     count = IntegerField(null=True, blank=True,
                          verbose_name=_('Number Of People'))
     months = ManyToManyField('surveys18.Month',
@@ -185,10 +200,10 @@ class LongTermLack(Model):
 
 
 class NoSalaryHire(Model):
-    survey = ForeignKey('surveys18.Survey', related_name='no_salary_hires'
-                        , verbose_name=_('Survey'))
+    survey = ForeignKey('surveys18.Survey', related_name='no_salary_hires',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     month = ForeignKey('surveys18.Month', null=True, blank=True,
-                       verbose_name=_('Month'))
+                       on_delete=CASCADE, verbose_name=_('Month'))
     count = IntegerField(null=True, blank=True,
                          verbose_name=_('Number Of People'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
@@ -209,10 +224,11 @@ class NoSalaryHire(Model):
 
 class NumberWorkers(Model):
     content_type = ForeignKey(ContentType,
+                              on_delete=CASCADE,
                               limit_choices_to=NUMBER_WORKERS_CHOICES)
     object_id = PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
-    age_scope = ForeignKey('surveys18.AgeScope',
+    age_scope = ForeignKey('surveys18.AgeScope', on_delete=CASCADE,
                            related_name='number_workers', null=True,
                            blank=True, verbose_name=_('Age Scope'))
     count = IntegerField(null=True, blank=True, verbose_name=_('Count'))
@@ -272,11 +288,12 @@ class WorkType(Model):
 class ShortTermHire(Model):
     survey = ForeignKey('surveys18.Survey',
                         related_name='short_term_hires',
+                        on_delete=CASCADE,
                         verbose_name=_('Survey'))
     avg_work_day = FloatField(null=True, blank=True,
                               verbose_name=_('Average Work Day'))
     month = ForeignKey('surveys18.Month', null=True, blank=True,
-                       verbose_name=_('Month'))
+                       on_delete=CASCADE, verbose_name=_('Month'))
     work_types = ManyToManyField('surveys18.WorkType',
                                  blank=True,
                                  related_name='short_term_hires',
@@ -300,12 +317,13 @@ class ShortTermHire(Model):
 
 
 class LongTermHire(Model):
-    survey = ForeignKey('surveys18.Survey', related_name='long_term_hires'
-                        , verbose_name=_('Survey'))
+    survey = ForeignKey('surveys18.Survey', related_name='long_term_hires',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     avg_work_day = FloatField(null=True, blank=True,
                               verbose_name=_('Average Work Day'))
     work_type = ForeignKey('surveys18.WorkType',
                            null=True, blank=True,
+                           on_delete=CASCADE,
                            related_name='long_term_hires',
                            verbose_name=_('Work Type'))
     months = ManyToManyField('surveys18.Month',
@@ -332,7 +350,7 @@ class LongTermHire(Model):
 
 class Subsidy(Model):
     survey = OneToOneField('surveys18.Survey', related_name='subsidy',
-                           verbose_name=_('Survey'))
+                           on_delete=CASCADE, verbose_name=_('Survey'))
     has_subsidy = BooleanField(default=False, verbose_name=_('Has Subsidy'))
     none_subsidy = BooleanField(default=False, verbose_name=_('None Subsidy'))
     count = IntegerField(null=True, blank=True,
@@ -359,10 +377,11 @@ class Subsidy(Model):
 
 
 class Refuse(Model):
-    subsidy = ForeignKey('surveys18.Subsidy', related_name='refuses'
-                         , verbose_name=_('Subsidy'))
+    subsidy = ForeignKey('surveys18.Subsidy', related_name='refuses',
+                         on_delete=CASCADE, verbose_name=_('Subsidy'))
     reason = ForeignKey('surveys18.RefuseReason', related_name='refuse',
                         null=True, blank=True,
+                        on_delete=CASCADE,
                         verbose_name=_('Refuse'))
     extra = CharField(max_length=100, null=True, blank=True,
                       verbose_name=_('Extra'))
@@ -402,29 +421,39 @@ class RefuseReason(Model):
 
 class Population(Model):
     survey = ForeignKey('surveys18.Survey', related_name='populations',
+                        on_delete=CASCADE,
                         verbose_name=_('Survey'))
     relationship = ForeignKey('surveys18.Relationship',
                               related_name='relationship', null=True,
-                              blank=True, verbose_name=_('Relationship'
-                                                         ))
-    gender = ForeignKey('surveys18.Gender', related_name='relationship',
-                        null=True, blank=True, verbose_name=_('Gender'))
+                              on_delete=CASCADE,
+                              blank=True, verbose_name=_('Relationship'))
+    gender = ForeignKey(
+        'surveys18.Gender',
+        related_name='relationship',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Gender'))
     birth_year = IntegerField(null=True, blank=True,
                               verbose_name=_('Birth Year'))
     education_level = ForeignKey('surveys18.EducationLevel',
                                  related_name='education_level',
+                                 on_delete=CASCADE,
                                  null=True, blank=True,
                                  verbose_name=_('Education Level'))
     farmer_work_day = ForeignKey('surveys18.FarmerWorkDay',
                                  related_name='farmer_work_day',
+                                 on_delete=CASCADE,
                                  null=True, blank=True,
                                  verbose_name=_('Farmer Work Day'))
     life_style = ForeignKey('surveys18.LifeStyle',
                             related_name='life_style', null=True,
-                            blank=True, verbose_name=_('Life Style'))
+                            on_delete=CASCADE, blank=True,
+                            verbose_name=_('Life Style'))
     other_farm_work = ForeignKey('surveys18.OtherFarmWork',
                                  related_name='other_farm_work',
                                  null=True, blank=True,
+                                 on_delete=CASCADE,
                                  verbose_name=_('Other Farm Work'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -557,12 +586,12 @@ class Gender(Model):
 
 
 class PopulationAge(Model):
-    survey = ForeignKey('surveys18.Survey', related_name='population_ages'
-                        , verbose_name=_('Survey'))
+    survey = ForeignKey('surveys18.Survey', related_name='population_ages',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     gender = ForeignKey('surveys18.Gender', verbose_name=_('Gender'),
-                        null=True, blank=True)
+                        on_delete=CASCADE, null=True, blank=True)
     age_scope = ForeignKey('surveys18.AgeScope', null=True, blank=True,
-                           verbose_name=_('Age Scope'))
+                           on_delete=CASCADE, verbose_name=_('Age Scope'))
     count = IntegerField(null=True, blank=True, verbose_name=_('Count'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -580,15 +609,25 @@ class PopulationAge(Model):
 
 
 class CropMarketing(Model):
-    survey = ForeignKey('surveys18.Survey', related_name='crop_marketings'
-                        , verbose_name=_('Survey'))
+    survey = ForeignKey('surveys18.Survey', related_name='crop_marketings',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     product = ForeignKey('surveys18.Product', related_name='products',
-                         null=True, blank=True,
+                         null=True, blank=True, on_delete=CASCADE,
                          verbose_name=_('Product Code'))
-    loss = ForeignKey('surveys18.Loss', related_name='crop_marketing_loss'
-                      , null=True, blank=True, verbose_name=_('Loss'))
-    unit = ForeignKey('surveys18.Unit', related_name='crop_marketing_unit'
-                      , null=True, blank=True, verbose_name=_('Unit'))
+    loss = ForeignKey(
+        'surveys18.Loss',
+        related_name='crop_marketing_loss',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Loss'))
+    unit = ForeignKey(
+        'surveys18.Unit',
+        related_name='crop_marketing_unit',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Unit'))
     land_number = IntegerField(null=True, blank=True,
                                verbose_name=_('Land Number'))
     land_area = IntegerField(null=True, blank=True,
@@ -621,18 +660,23 @@ class CropMarketing(Model):
 class LivestockMarketing(Model):
     survey = ForeignKey('surveys18.Survey',
                         related_name='livestock_marketings',
+                        on_delete=CASCADE,
                         verbose_name=_('Survey'))
     product = ForeignKey('surveys18.Product',
                          related_name='livestock_marketing_product',
+                         on_delete=CASCADE,
                          null=True, blank=True, verbose_name=_('Product'))
     loss = ForeignKey('surveys18.Loss',
                       related_name='livestock_marketing_loss',
+                      on_delete=CASCADE,
                       null=True, blank=True, verbose_name=_('Loss'))
     unit = ForeignKey('surveys18.Unit',
                       related_name='livestock_marketing_unit',
+                      on_delete=CASCADE,
                       null=True, blank=True, verbose_name=_('Unit'))
     contract = ForeignKey('surveys18.Contract', related_name='contract',
                           null=True, blank=True,
+                          on_delete=CASCADE,
                           verbose_name=_('Contract'))
     raising_number = IntegerField(null=True, blank=True,
                                   verbose_name=_('Raising Number'))
@@ -661,6 +705,7 @@ class Loss(Model):
     name = CharField(max_length=10, null=True, blank=True,
                      verbose_name=_('Name'))
     type = ForeignKey('surveys18.ProductType', null=True, blank=True,
+                      on_delete=CASCADE,
                       verbose_name=_('Product Type'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -701,6 +746,7 @@ class Unit(Model):
     name = CharField(max_length=10, null=True, blank=True,
                      verbose_name=_('Name'))
     type = ForeignKey('surveys18.ProductType', null=True, blank=True,
+                      on_delete=CASCADE,
                       verbose_name=_('Product Type'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -736,6 +782,7 @@ class Product(Model):
                      verbose_name=_('Name'))
     code = CharField(max_length=50, verbose_name=_('Code'))
     type = ForeignKey('surveys18.ProductType', null=True, blank=True,
+                      on_delete=CASCADE,
                       verbose_name=_('Product Type'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -792,11 +839,12 @@ class ManagementType(Model):
 
 class Business(Model):
     survey = ForeignKey('surveys18.Survey', related_name='businesses',
-                        verbose_name=_('Survey'))
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     farm_related_business = \
         ForeignKey('surveys18.FarmRelatedBusiness',
                    null=True, blank=True,
                    related_name='business',
+                   on_delete=CASCADE,
                    verbose_name=_('Farm Related Business'))
     extra = CharField(max_length=50, null=True, blank=True,
                       verbose_name=_('Extra'))
@@ -851,8 +899,9 @@ class LandType(Model):
                                blank=True,
                                related_name='land_type',
                                verbose_name=_('Land Statuses'))
-    unit = ForeignKey('surveys18.Unit', related_name='land_type'
-                      , null=True, blank=True, verbose_name=_('Unit'))
+    unit = ForeignKey('surveys18.Unit', related_name='land_type',
+                      on_delete=CASCADE, null=True,
+                      blank=True, verbose_name=_('Unit'))
     has_land = BooleanField(default=True, verbose_name=_('Has Land'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -872,12 +921,15 @@ class LandType(Model):
 class LandArea(Model):
     survey = ForeignKey('surveys18.Survey',
                         related_name='land_areas',
+                        on_delete=CASCADE,
                         verbose_name=_('Survey'))
     type = ForeignKey('surveys18.LandType',
                       related_name='land_areas', null=True,
+                      on_delete=CASCADE,
                       blank=True, verbose_name=_('Type'))
     status = ForeignKey('surveys18.LandStatus',
                         related_name='land_areas', null=True,
+                        on_delete=CASCADE,
                         blank=True, verbose_name=_('Status'))
     value = IntegerField(null=True, blank=True,
                          verbose_name=_('Area Value'))
@@ -898,7 +950,7 @@ class LandArea(Model):
 
 class Phone(Model):
     survey = ForeignKey('surveys18.Survey', related_name='phones',
-                        verbose_name=_('Survey'))
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     phone = CharField(max_length=100, null=True, blank=True,
                       verbose_name=_('Phone'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
@@ -938,6 +990,7 @@ class Lack(Model):
 class AddressMatch(Model):
     survey = OneToOneField('surveys18.Survey',
                            related_name='address_match',
+                           on_delete=CASCADE,
                            verbose_name=_('Survey'))
     match = BooleanField(default=False, verbose_name=_('Address Match'))
     mismatch = BooleanField(default=False, verbose_name=_('Address MisMatch'))
@@ -995,13 +1048,15 @@ class MarketType(Model):
 
 
 class AnnualIncome(Model):
-    survey = ForeignKey('surveys18.Survey', related_name='annual_incomes'
-                        , verbose_name=_('Survey'))
+    survey = ForeignKey('surveys18.Survey', related_name='annual_incomes',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     market_type = ForeignKey('surveys18.MarketType',
                              null=True, blank=True,
+                             on_delete=CASCADE,
                              verbose_name=_('Market Type'))
     income_range = ForeignKey('surveys18.IncomeRange',
                               null=True, blank=True,
+                              on_delete=CASCADE,
                               verbose_name=_('Income Range'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,

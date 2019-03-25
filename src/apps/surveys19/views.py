@@ -30,7 +30,7 @@ from apps.surveys19.models import (
 
 
 class Surveys2019Index(LoginRequiredMixin, TemplateView):
-    login_url = '/accounts/login/'
+    login_url = '/users/login/'
     redirect_field_name = 'redirect_to'
     template_name = 's19/index.html'
 

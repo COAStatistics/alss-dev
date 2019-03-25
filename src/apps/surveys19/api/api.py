@@ -45,7 +45,6 @@ from .views import (
     MonthViewSet,
 )
 
-
 api = DefaultRouter()
 api.trailing_slash = '/?'
 

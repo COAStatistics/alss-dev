@@ -12,7 +12,6 @@ from apps.surveys18.models import (
     IncomeRange,
     MarketType,
     AgeScope,
-    Gender,
     Lack,
     Contract,
     Product,
@@ -31,7 +30,7 @@ from apps.surveys18.models import (
 
 
 class Surveys2018Index(LoginRequiredMixin, TemplateView):
-    login_url = '/accounts/login/'
+    login_url = '/users/login/'
     redirect_field_name = 'redirect_to'
     template_name = 'index.html'
 

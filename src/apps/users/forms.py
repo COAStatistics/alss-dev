@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import ugettext as _
 

@@ -1,7 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .views import BuilderFileCreateAPIView
 
+app_name = 'surveys18'
+
 urlpatterns = [
-    url(r'^create/$', BuilderFileCreateAPIView.as_view(), name='create'),
+    path('create/', BuilderFileCreateAPIView.as_view(), name='create'),
 ]

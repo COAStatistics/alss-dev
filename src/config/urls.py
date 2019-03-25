@@ -14,19 +14,20 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url, include
+from django.urls import path
+from django.conf.urls import include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import Surveys2018Index
+from apps.surveys18.views import Surveys2018Index
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', Surveys2018Index.as_view(), name='index'),
-    url(r'^logs/', include('apps.logs.urls', namespace='logs')),
-    url(r'^2018/$', Surveys2018Index.as_view(), name='surveys18_index'),
-    url(r'^surveys18/', include('apps.surveys18.urls', namespace='surveys18')),
-    url(r'^2019/', include('apps.surveys19.urls', namespace='surveys19')),
+    path('admin/', admin.site.urls),
+    path('', Surveys2018Index.as_view(), name='index'),
+    path('logs/', include('apps.logs.urls', namespace='logs')),
+    path('users/', include('apps.users.urls', namespace='users')),
+    path('surveys18/', include('apps.surveys18.urls', namespace='surveys18')),
+    path('surveys19/', include('apps.surveys19.urls', namespace='surveys19')),
 ]
 
 if settings.DEBUG:

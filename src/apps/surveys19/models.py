@@ -18,7 +18,6 @@ from django.db.models import (
     PositiveIntegerField,
     FloatField,
     Q,
-    FileField,
 )
 
 
@@ -40,31 +39,58 @@ class Survey(Model):
     """
 
     farmer_id = CharField(max_length=12, verbose_name=_('Farmer Id'))
-    farmer_name = CharField(null=True, blank=True, max_length=10, verbose_name=_('Name'))
+    farmer_name = CharField(
+        null=True,
+        blank=True,
+        max_length=10,
+        verbose_name=_('Name'))
     total_pages = IntegerField(verbose_name=_('Total Pages'))
     page = IntegerField(verbose_name=_('Page'))
-    origin_class = IntegerField(null=True, blank=True, verbose_name=_('Origin Class'))
+    origin_class = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Origin Class'))
     second = BooleanField(default=False, verbose_name=_('Second'))
     non_second = BooleanField(default=False, verbose_name=_('Non Second'))
     hire = BooleanField(default=False, verbose_name=_('Hire'))
     non_hire = BooleanField(default=False, verbose_name=_('Non Hire'))
     lacks = ManyToManyField('surveys19.Lack', blank=True,
-                                related_name='surveys', verbose_name=_('Lack'))
-    management_types = ManyToManyField('surveys19.ManagementType', blank=True,
-                                        related_name='surveys', verbose_name=_('Management Types'))
+                            related_name='surveys', verbose_name=_('Lack'))
+    management_types = ManyToManyField(
+        'surveys19.ManagementType',
+        blank=True,
+        related_name='surveys',
+        verbose_name=_('Management Types'))
     note = TextField(null=True, blank=True, verbose_name=_('Note'))
     is_updated = BooleanField(default=False, verbose_name=_('Is Updated'))
     readonly = BooleanField(default=True, verbose_name=_('Read Only'))
 
-    investigator = ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=CASCADE,
-                                related_name='surveys19', verbose_name=_('Investigator'))
-    date = DateField(null=True, blank=True, verbose_name=_('Investigation Date'))
-    distance = IntegerField(null=True, blank=True, verbose_name=_('Investigation Distance(km)'))
-    period = IntegerField(null=True, blank=True, verbose_name=_('Investigation Period'))
+    investigator = ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='surveys19',
+        verbose_name=_('Investigator'))
+    date = DateField(
+        null=True,
+        blank=True,
+        verbose_name=_('Investigation Date'))
+    distance = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Investigation Distance(km)'))
+    period = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Investigation Period'))
 
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
-
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Survey')
@@ -78,10 +104,22 @@ class Phone(Model):
     """
     Contact phone number
     """
-    survey = ForeignKey('surveys19.Survey', related_name='phones', verbose_name=_('Survey'))
-    phone = CharField(max_length=100, null=True, blank=True, verbose_name=_('Phone'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey(
+        'surveys19.Survey',
+        related_name='phones',
+        on_delete=CASCADE,
+        verbose_name=_('Survey'))
+    phone = CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        verbose_name=_('Phone'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Phone')
@@ -96,10 +134,14 @@ class AddressMatch(Model):
     Contact address
     """
     survey = OneToOneField('surveys19.Survey', related_name='address_match',
-                            verbose_name=_('Survey'))
+                           on_delete=CASCADE, verbose_name=_('Survey'))
     match = BooleanField(default=False, verbose_name=_('Address Match'))
     mismatch = BooleanField(default=False, verbose_name=_('Address MisMatch'))
-    address = CharField(max_length=100, null=True, blank=True, verbose_name=_('Address'))
+    address = CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        verbose_name=_('Address'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -117,9 +159,21 @@ class CityTownCode(Model):
     CityTown code
     Has yaml
     """
-    city = CharField(max_length=20, null=True, blank=True, verbose_name=_('City'))
-    town = CharField(max_length=20, null=True, blank=True, verbose_name=_('Town'))
-    code = CharField(max_length=20, null=True, blank=True, verbose_name=_('Code'))
+    city = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('City'))
+    town = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Town'))
+    code = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Code'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -137,11 +191,24 @@ class FarmLocation(Model):
     Check city town equal to code
     """
     survey = OneToOneField('surveys19.Survey', related_name='farm_location',
-                            verbose_name=_('Survey'))
-    city = CharField(max_length=20, null=True, blank=True, verbose_name=_('City'))
-    town = CharField(max_length=20, null=True, blank=True, verbose_name=_('Town'))
-    code = ForeignKey('surveys19.CityTownCode', null=True, blank=True,
-                        related_name='farmlocation', verbose_name=_('Code'))
+                           on_delete=CASCADE, verbose_name=_('Survey'))
+    city = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('City'))
+    town = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Town'))
+    code = ForeignKey(
+        'surveys19.CityTownCode',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='farmlocation',
+        verbose_name=_('Code'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -158,7 +225,11 @@ class LandStatus(Model):
     Table 1.1
     Has yaml
     """
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -175,11 +246,18 @@ class LandType(Model):
     Table 1.1
     Has yaml
     """
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
-    statuses = ManyToManyField('surveys19.LandStatus', blank=True,
-                                related_name='land_type', verbose_name=_('Land Statuses'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
+    statuses = ManyToManyField(
+        'surveys19.LandStatus',
+        blank=True,
+        related_name='land_type',
+        verbose_name=_('Land Statuses'))
     unit = ForeignKey('surveys19.Unit', related_name='land_type', null=True,
-                        blank=True, verbose_name=_('Unit'))
+                      on_delete=CASCADE, blank=True, verbose_name=_('Unit'))
     has_land = BooleanField(default=True, verbose_name=_('Has Land'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
@@ -196,14 +274,32 @@ class LandArea(Model):
     """
     Table 1.1
     """
-    survey = ForeignKey('surveys19.Survey', related_name='land_areas', verbose_name=_('Survey'))
-    type = ForeignKey('surveys19.LandType', null=True, blank=True,
-                        related_name='land_areas', verbose_name=_('Type'))
-    status = ForeignKey('surveys19.LandStatus', related_name='land_areas',
-                            null=True, blank=True, verbose_name=_('Status'))
+    survey = ForeignKey(
+        'surveys19.Survey',
+        related_name='land_areas',
+        on_delete=CASCADE,
+        verbose_name=_('Survey'))
+    type = ForeignKey(
+        'surveys19.LandType',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='land_areas',
+        verbose_name=_('Type'))
+    status = ForeignKey(
+        'surveys19.LandStatus',
+        related_name='land_areas',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Status'))
     value = IntegerField(null=True, blank=True, verbose_name=_('Area Value'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('LandArea')
@@ -218,11 +314,20 @@ class Business(Model):
     Table 1.2
     Survey data
     """
-    survey = ForeignKey('surveys19.Survey', related_name='businesses', verbose_name=_('Survey'))
-    farm_related_business = ForeignKey('surveys19.FarmRelatedBusiness', null=True, blank=True,
-                                        related_name='business',
-                                        verbose_name=_('Farm Related Business'))
-    extra = CharField(max_length=50, null=True, blank=True, verbose_name=_('Extra'))
+    survey = ForeignKey('surveys19.Survey', related_name='businesses',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    farm_related_business = ForeignKey(
+        'surveys19.FarmRelatedBusiness',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='business',
+        verbose_name=_('Farm Related Business'))
+    extra = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Extra'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -234,7 +339,11 @@ class FarmRelatedBusiness(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     has_extra = BooleanField(default=False, verbose_name=_('Has Extra'))
     has_business = BooleanField(default=True, verbose_name=_('Has Business'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
@@ -254,7 +363,11 @@ class ManagementType(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -266,22 +379,6 @@ class ManagementType(Model):
         return str(self.name)
 
 
-# class SecondGeneration(Model):
-#     """
-#     New 107
-#     Table 1.4
-#     """
-#     name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
-#     has_second = BooleanField(verbose_name=_('Has Second'))
-#
-#     class Meta:
-#         verbose_name = _('SecondGeneration')
-#         verbose_name_plural = _('SecondGeneration')
-#
-#     def __str__(self):
-#         return str(self.name)
-
-
 class CropMarketing(Model):
     """
     Changed 107
@@ -290,18 +387,49 @@ class CropMarketing(Model):
     Table 1.5
     """
     survey = ForeignKey('surveys19.Survey', related_name='crop_marketings',
-                            verbose_name=_('Survey'))
-    product = ForeignKey('surveys19.Product', related_name='products', null=True,
-                            blank=True, verbose_name=_('Product Code'))
-    loss = ForeignKey('surveys19.Loss', related_name='crop_marketing_loss',
-                        null=True, blank=True, verbose_name=_('Loss'))
-    unit = ForeignKey('surveys19.Unit', related_name='crop_marketing_unit',
-                        null=True, blank=True, verbose_name=_('Unit'))
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Product Name'))
-    land_number = IntegerField(null=True, blank=True, verbose_name=_('Land Number'))
-    land_area = IntegerField(null=True, blank=True, verbose_name=_('Land Area'))
-    plant_times = IntegerField(null=True, blank=True, verbose_name=_('Plant Times'))
-    year_sales = IntegerField(null=True, blank=True, verbose_name=_('Year Sales'))
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    product = ForeignKey(
+        'surveys19.Product',
+        related_name='products',
+        null=True,
+        on_delete=CASCADE,
+        blank=True,
+        verbose_name=_('Product Code'))
+    loss = ForeignKey(
+        'surveys19.Loss',
+        related_name='crop_marketing_loss',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Loss'))
+    unit = ForeignKey(
+        'surveys19.Unit',
+        related_name='crop_marketing_unit',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Unit'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Product Name'))
+    land_number = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Land Number'))
+    land_area = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Land Area'))
+    plant_times = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Plant Times'))
+    year_sales = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Year Sales'))
     has_facility = IntegerField(null=True, blank=True, choices=YES_NO_CHOICES,
                                 verbose_name=_('Has Facility'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
@@ -323,19 +451,52 @@ class LivestockMarketing(Model):
     Add name field for product_name
     Table 1.6
     """
-    survey = ForeignKey('surveys19.Survey', related_name='livestock_marketings',
-                            verbose_name=_('Survey'))
-    product = ForeignKey('surveys19.Product', related_name='livestock_marketing_product',
-                            null=True, blank=True, verbose_name=_('Product'))
-    loss = ForeignKey('surveys19.Loss', related_name='livestock_marketing_loss',
-                        null=True, blank=True, verbose_name=_('Loss'))
-    unit = ForeignKey('surveys19.Unit', related_name='livestock_marketing_unit',
-                        null=True, blank=True, verbose_name=_('Unit'))
-    contract = ForeignKey('surveys19.Contract', related_name='contract',
-                            null=True, blank=True, verbose_name=_('Contract'))
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Product Name'))
-    raising_number = IntegerField(null=True, blank=True, verbose_name=_('Raising Number'))
-    year_sales = IntegerField(null=True, blank=True, verbose_name=_('Year Sales'))
+    survey = ForeignKey(
+        'surveys19.Survey',
+        related_name='livestock_marketings',
+        on_delete=CASCADE,
+        verbose_name=_('Survey'))
+    product = ForeignKey(
+        'surveys19.Product',
+        related_name='livestock_marketing_product',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Product'))
+    loss = ForeignKey(
+        'surveys19.Loss',
+        related_name='livestock_marketing_loss',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Loss'))
+    unit = ForeignKey(
+        'surveys19.Unit',
+        related_name='livestock_marketing_unit',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Unit'))
+    contract = ForeignKey(
+        'surveys19.Contract',
+        related_name='contract',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Contract'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Product Name'))
+    raising_number = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Raising Number'))
+    year_sales = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Year Sales'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -353,33 +514,16 @@ class ProductType(Model):
     Table 1.5, 1.6
     Has yaml
     """
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
     def __str__(self):
         return str(self.name)
-
-
-# class ProductCode(Model):
-#     """
-#     New 107
-#     Table 1.5, 1.6
-#     Parent level has code and name
-#     """
-#     name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Name'))
-#     code = CharField(max_length=50, verbose_name=_('Code'))
-#     type = ForeignKey('surveys19.ProductType', null=True, blank=True,
-#                         verbose_name=_('Product Type'))
-#     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
-#                                 blank=True, verbose_name=_('Updated'))
-#
-#     class Meta:
-#         verbose_name = _('Product')
-#         verbose_name_plural = _('Product')
-#
-#     def __str__(self):
-#         return str(self.name)
 
 
 class Product(Model):
@@ -388,10 +532,14 @@ class Product(Model):
     Table 1.5, 1.6
     Display code frontend
     """
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     code = CharField(max_length=50, verbose_name=_('Code'))
     type = ForeignKey('surveys19.ProductType', null=True, blank=True,
-                        verbose_name=_('Product Type'))
+                      on_delete=CASCADE, verbose_name=_('Product Type'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -409,9 +557,13 @@ class Unit(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=10, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=10,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     type = ForeignKey('surveys19.ProductType', null=True, blank=True,
-                        verbose_name=_('Product Type'))
+                      on_delete=CASCADE, verbose_name=_('Product Type'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -429,9 +581,13 @@ class Loss(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=10, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=10,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     type = ForeignKey('surveys19.ProductType', null=True, blank=True,
-                        verbose_name=_('Product Type'))
+                      on_delete=CASCADE, verbose_name=_('Product Type'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -443,30 +599,17 @@ class Loss(Model):
         return str(self.name)
 
 
-# class Facility(Model):
-#     """
-#     Table 1.5
-#     """
-#     code = IntegerField(verbose_name=_('Code'))
-#     name = CharField(max_length=10, null=True, blank=True, verbose_name=_('Name'))
-#     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
-#                                 blank=True, verbose_name=_('Updated'))
-#
-#     class Meta:
-#         verbose_name = _('Facility')
-#         verbose_name_plural = _('Facility')
-#
-#     def __str__(self):
-#         return str(self.name)
-
-
 class Contract(Model):
     """
     Table 1.6
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=10, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=10,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -483,11 +626,15 @@ class AnnualIncome(Model):
     Table 1.7
     """
     survey = ForeignKey('surveys19.Survey', related_name='annual_incomes',
-                            verbose_name=_('Survey'))
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     market_type = ForeignKey('surveys19.MarketType', null=True, blank=True,
-                                verbose_name=_('Market Type'))
-    income_range = ForeignKey('surveys19.IncomeRange', null=True, blank=True,
-                                verbose_name=_('Income Range'))
+                             on_delete=CASCADE, verbose_name=_('Market Type'))
+    income_range = ForeignKey(
+        'surveys19.IncomeRange',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        verbose_name=_('Income Range'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
 
@@ -540,7 +687,11 @@ class AgeScope(Model):
     Table 2.1, 3.1.2, 3.1.3
     Has yaml
     """
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     group = IntegerField(verbose_name=_('Group'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
@@ -558,11 +709,11 @@ class PopulationAge(Model):
     Table 2.1
     """
     survey = ForeignKey('surveys19.Survey', related_name='population_ages',
-                            verbose_name=_('Survey'))
+                        on_delete=CASCADE, verbose_name=_('Survey'))
     gender = ForeignKey('surveys19.Gender', verbose_name=_('Gender'),
-                            null=True, blank=True)
+                        on_delete=CASCADE, null=True, blank=True)
     age_scope = ForeignKey('surveys19.AgeScope', null=True, blank=True,
-                            verbose_name=_('Age Scope'))
+                           on_delete=CASCADE, verbose_name=_('Age Scope'))
     count = IntegerField(null=True, blank=True, verbose_name=_('Count'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False, null=True,
                                 blank=True, verbose_name=_('Updated'))
@@ -579,22 +730,53 @@ class Population(Model):
     """
     Table 2.2
     """
-    survey = ForeignKey('surveys19.Survey', related_name='populations', verbose_name=_('Survey'))
-    relationship = ForeignKey('surveys19.Relationship', null=True, blank=True,
-                                related_name='relationship', verbose_name=_('Relationship'))
-    gender = ForeignKey('surveys19.Gender', null=True, blank=True,
-                            related_name='relationship', verbose_name=_('Gender'))
-    birth_year = IntegerField(null=True, blank=True, verbose_name=_('Birth Year'))
-    education_level = ForeignKey('surveys19.EducationLevel', null=True, blank=True,
-                                    related_name='education_level', verbose_name=_('Education Level'))
-    farmer_work_day = ForeignKey('surveys19.FarmerWorkDay', null=True, blank=True,
-                                    related_name='farmer_work_day', verbose_name=_('Farmer Work Day'))
-    life_style = ForeignKey('surveys19.LifeStyle', null=True, blank=True,
-                                related_name='life_style', verbose_name=_('Life Style'))
-    # other_farm_work = ForeignKey('surveys19.OtherFarmWork', null=True, blank=True,
-    #                                 related_name='other_farm_work', verbose_name=_('Other Farm Work'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey('surveys19.Survey', related_name='populations',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    relationship = ForeignKey(
+        'surveys19.Relationship',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='relationship',
+        verbose_name=_('Relationship'))
+    gender = ForeignKey(
+        'surveys19.Gender',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='relationship',
+        verbose_name=_('Gender'))
+    birth_year = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Birth Year'))
+    education_level = ForeignKey(
+        'surveys19.EducationLevel',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='education_level',
+        verbose_name=_('Education Level'))
+    farmer_work_day = ForeignKey(
+        'surveys19.FarmerWorkDay',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='farmer_work_day',
+        verbose_name=_('Farmer Work Day'))
+    life_style = ForeignKey(
+        'surveys19.LifeStyle',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='life_style',
+        verbose_name=_('Life Style'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Population')
@@ -611,9 +793,17 @@ class Relationship(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Relationship')
@@ -629,9 +819,17 @@ class Gender(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=10, null=True, blank=True, verbose_name=_('Name'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    name = CharField(
+        max_length=10,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Gender')
@@ -647,10 +845,18 @@ class EducationLevel(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     age = IntegerField(null=True, blank=True, verbose_name=_('Age'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('EducationLevel')
@@ -666,9 +872,17 @@ class FarmerWorkDay(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('FarmerWorkDay')
@@ -684,9 +898,17 @@ class LifeStyle(Model):
     Has yaml
     """
     code = IntegerField(verbose_name=_('Code'))
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('LifeStyle')
@@ -700,15 +922,36 @@ class LongTermHire(Model):
     """
     Table 3.1.2
     """
-    survey = ForeignKey('surveys19.Survey', related_name='long_term_hires', verbose_name=_('Survey'))
-    avg_work_day = FloatField(null=True, blank=True, verbose_name=_('Average Work Day'))
-    work_type = ForeignKey('surveys19.WorkType', null=True, blank=True,
-                            related_name='long_term_hires', verbose_name=_('Work Type'))
-    months = ManyToManyField('surveys19.Month', blank=True,
-                                related_name='long_term_hires', verbose_name=_('Months'))
-    number_workers = GenericRelation('surveys19.NumberWorkers', related_query_name='long_term_hires')
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey(
+        'surveys19.Survey',
+        related_name='long_term_hires',
+        on_delete=CASCADE,
+        verbose_name=_('Survey'))
+    avg_work_day = FloatField(
+        null=True,
+        blank=True,
+        verbose_name=_('Average Work Day'))
+    work_type = ForeignKey(
+        'surveys19.WorkType',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='long_term_hires',
+        verbose_name=_('Work Type'))
+    months = ManyToManyField(
+        'surveys19.Month',
+        blank=True,
+        related_name='long_term_hires',
+        verbose_name=_('Months'))
+    number_workers = GenericRelation(
+        'surveys19.NumberWorkers',
+        related_query_name='long_term_hires')
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('LongTermHire')
@@ -723,14 +966,28 @@ class ShortTermHire(Model):
     """
     Table 3.1.3
     """
-    survey = ForeignKey('surveys19.Survey', related_name='short_term_hires', verbose_name=_('Survey'))
-    avg_work_day = FloatField(null=True, blank=True, verbose_name=_('Average Work Day'))
-    month = ForeignKey('surveys19.Month', null=True, blank=True, verbose_name=_('Month'))
-    work_types = ManyToManyField('surveys19.WorkType', blank=True,
-                                    related_name='short_term_hires', verbose_name=_('Work Types'))
-    number_workers = GenericRelation('surveys19.NumberWorkers', related_query_name='short_term_hires')
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey('surveys19.Survey', related_name='short_term_hires',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    avg_work_day = FloatField(
+        null=True,
+        blank=True,
+        verbose_name=_('Average Work Day'))
+    month = ForeignKey('surveys19.Month', null=True, blank=True,
+                       on_delete=CASCADE, verbose_name=_('Month'))
+    work_types = ManyToManyField(
+        'surveys19.WorkType',
+        blank=True,
+        related_name='short_term_hires',
+        verbose_name=_('Work Types'))
+    number_workers = GenericRelation(
+        'surveys19.NumberWorkers',
+        related_query_name='short_term_hires')
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('ShortTermHire')
@@ -745,11 +1002,20 @@ class NoSalaryHire(Model):
     """
     Table 3.1.4
     """
-    survey = ForeignKey('surveys19.Survey', related_name='no_salary_hires', verbose_name=_('Survey'))
-    month = ForeignKey('surveys19.Month', null=True, blank=True, verbose_name=_('Month'))
-    count = IntegerField(null=True, blank=True, verbose_name=_('Number Of People'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey('surveys19.Survey', related_name='no_salary_hires',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    month = ForeignKey('surveys19.Month', null=True, blank=True,
+                       on_delete=CASCADE, verbose_name=_('Month'))
+    count = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Number Of People'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('NoSalaryHire')
@@ -764,13 +1030,20 @@ class NumberWorkers(Model):
     """
     Table 3.1.2, 3.1.3
     """
-    content_type = ForeignKey(ContentType, limit_choices_to=NUMBER_WORKERS_CHOICES,
-                                related_name='number_workers')
+    content_type = ForeignKey(
+        ContentType,
+        limit_choices_to=NUMBER_WORKERS_CHOICES,
+        on_delete=CASCADE,
+        related_name='number_workers')
     object_id = PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
-    age_scope = ForeignKey('surveys19.AgeScope',
-                           related_name='number_workers', null=True,
-                           blank=True, verbose_name=_('Age Scope'))
+    age_scope = ForeignKey(
+        'surveys19.AgeScope',
+        related_name='number_workers',
+        null=True,
+        on_delete=CASCADE,
+        blank=True,
+        verbose_name=_('Age Scope'))
     count = IntegerField(null=True, blank=True, verbose_name=_('Count'))
     update_time = DateTimeField(auto_now=True, auto_now_add=False,
                                 null=True, blank=True,
@@ -789,10 +1062,18 @@ class Lack(Model):
     Table 3.2.1
     Has yaml
     """
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     is_lack = BooleanField(default=False, verbose_name=_('Is Lack'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Lack')
@@ -808,15 +1089,34 @@ class LongTermLack(Model):
     Add avg_lack_day field
     Table 3.2.2
     """
-    survey = ForeignKey('surveys19.Survey', related_name='long_term_lacks', verbose_name=_('Survey'))
-    work_type = ForeignKey('surveys19.WorkType', null=True, blank=True,
-                            related_name='long_term_lacks', verbose_name=_('Work Type'))
-    count = IntegerField(null=True, blank=True, verbose_name=_('Number Of People'))
-    months = ManyToManyField('surveys19.Month', blank=True,
-                                related_name='long_term_lacks', verbose_name=_('Months'))
-    avg_lack_day = FloatField(null=True, blank=True, verbose_name=_('Average Lack Day'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey('surveys19.Survey', related_name='long_term_lacks',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    work_type = ForeignKey(
+        'surveys19.WorkType',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='long_term_lacks',
+        verbose_name=_('Work Type'))
+    count = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Number Of People'))
+    months = ManyToManyField(
+        'surveys19.Month',
+        blank=True,
+        related_name='long_term_lacks',
+        verbose_name=_('Months'))
+    avg_lack_day = FloatField(
+        null=True,
+        blank=True,
+        verbose_name=_('Average Lack Day'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('LongTermLack')
@@ -833,18 +1133,46 @@ class ShortTermLack(Model):
     Add name field for product name
     Table 3.2.3
     """
-    survey = ForeignKey('surveys19.Survey', related_name='short_term_lacks', verbose_name=_('Survey'))
-    product = ForeignKey('surveys19.Product', null=True, blank=True,
-                            related_name='short_term_lacks', verbose_name=_('Product'))
-    work_type = ForeignKey('surveys19.WorkType', null=True, blank=True,
-                            related_name='short_term_lacks', verbose_name=_('Work Type'))
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_('Product Name'))
-    count = IntegerField(null=True, blank=True, verbose_name=_('Number Of People'))
-    months = ManyToManyField('surveys19.Month', blank=True,
-                                related_name='short_term_lacks', verbose_name=_('Months'))
-    avg_lack_day = FloatField(null=True, blank=True, verbose_name=_('Average Lack Day'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    survey = ForeignKey('surveys19.Survey', related_name='short_term_lacks',
+                        on_delete=CASCADE, verbose_name=_('Survey'))
+    product = ForeignKey(
+        'surveys19.Product',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='short_term_lacks',
+        verbose_name=_('Product'))
+    work_type = ForeignKey(
+        'surveys19.WorkType',
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+        related_name='short_term_lacks',
+        verbose_name=_('Work Type'))
+    name = CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        verbose_name=_('Product Name'))
+    count = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Number Of People'))
+    months = ManyToManyField(
+        'surveys19.Month',
+        blank=True,
+        related_name='short_term_lacks',
+        verbose_name=_('Months'))
+    avg_lack_day = FloatField(
+        null=True,
+        blank=True,
+        verbose_name=_('Average Lack Day'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('ShortTermLack')
@@ -860,9 +1188,17 @@ class WorkType(Model):
     Has yaml
     """
     code = IntegerField(null=True, blank=True, verbose_name=_('Code'))
-    name = CharField(max_length=30, null=True, blank=True, verbose_name=_('Name'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    name = CharField(
+        max_length=30,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('WorkType')
@@ -876,14 +1212,31 @@ class Subsidy(Model):
     """
     Table 3.3.1
     """
-    survey = OneToOneField('surveys19.Survey', related_name='subsidy', verbose_name=_('Survey'))
+    survey = OneToOneField(
+        'surveys19.Survey',
+        related_name='subsidy',
+        on_delete=CASCADE,
+        verbose_name=_('Survey'))
     has_subsidy = BooleanField(default=False, verbose_name=_('Has Subsidy'))
     none_subsidy = BooleanField(default=False, verbose_name=_('None Subsidy'))
-    count = IntegerField(null=True, blank=True, verbose_name=_('Number Of People'))
-    month_delta = IntegerField(null=True, blank=True, verbose_name=_('Month Delta'))
-    day_delta = IntegerField(null=True, blank=True, verbose_name=_('Day Delta'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    count = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Number Of People'))
+    month_delta = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Month Delta'))
+    day_delta = IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_('Day Delta'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Subsidy')
@@ -897,12 +1250,26 @@ class Refuse(Model):
     """
     Table 3.3.2
     """
-    subsidy = ForeignKey('surveys19.Subsidy', related_name='refuses', verbose_name=_('Subsidy'))
-    reason = ForeignKey('surveys19.RefuseReason', related_name='refuse',
-                            null=True, blank=True, verbose_name=_('Refuse'))
-    extra = CharField(max_length=100, null=True, blank=True, verbose_name=_('Extra'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    subsidy = ForeignKey('surveys19.Subsidy', related_name='refuses',
+                         on_delete=CASCADE, verbose_name=_('Subsidy'))
+    reason = ForeignKey(
+        'surveys19.RefuseReason',
+        related_name='refuse',
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('Refuse'))
+    extra = CharField(
+        max_length=100,
+        null=True,
+        blank=True,
+        verbose_name=_('Extra'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('Refuse')
@@ -917,10 +1284,18 @@ class RefuseReason(Model):
     Table 3.3.2
     Has yaml
     """
-    name = CharField(max_length=20, null=True, blank=True, verbose_name=_('Name'))
+    name = CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('Name'))
     has_extra = BooleanField(default=False, verbose_name=_('Has Extra'))
-    update_time = DateTimeField(auto_now=True, auto_now_add=False,
-                                null=True, blank=True, verbose_name=_('Updated'))
+    update_time = DateTimeField(
+        auto_now=True,
+        auto_now_add=False,
+        null=True,
+        blank=True,
+        verbose_name=_('Updated'))
 
     class Meta:
         verbose_name = _('RefuseReason')
@@ -928,7 +1303,6 @@ class RefuseReason(Model):
 
     def __str__(self):
         return str(self.name)
-
 
 
 class Month(Model):
@@ -947,18 +1321,3 @@ class Month(Model):
 
     def __str__(self):
         return str(self.name)
-
-
-# class OtherFarmWork(Model):
-#     name = CharField(max_length=20, null=True, blank=True,
-#                      verbose_name=_('Name'))
-#     update_time = DateTimeField(auto_now=True, auto_now_add=False,
-#                                 null=True, blank=True,
-#                                 verbose_name=_('Updated'))
-#
-#     class Meta:
-#         verbose_name = _('OtherFarmWork')
-#         verbose_name_plural = _('OtherFarmWork')
-#
-#     def __str__(self):
-#         return str(self.name)
