@@ -65,13 +65,18 @@ class Survey(Model):
     is_updated = BooleanField(default=False, verbose_name=_('Is Updated'))
     readonly = BooleanField(default=True, verbose_name=_('Read Only'))
 
-    investigator = ForeignKey(
-        settings.AUTH_USER_MODEL,
+    investigator = CharField(
         null=True,
         blank=True,
-        on_delete=CASCADE,
-        related_name='surveys19',
+        max_length=10,
         verbose_name=_('Investigator'))
+
+    reviewer = CharField(
+        null=True,
+        blank=True,
+        max_length=10,
+        verbose_name=_('Reviewer'))
+
     date = DateField(
         null=True,
         blank=True,
