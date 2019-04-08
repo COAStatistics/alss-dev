@@ -3,7 +3,7 @@
   fields:
     survey: 1
     match: False
-    different: False
+    mismatch: False
     address:
 
 - model: surveys18.AddressMatch
@@ -11,5 +11,5 @@
   fields:
     survey: 2
     match: False
-    different: True
+    mismatch: True
     address: 台北市

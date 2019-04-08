@@ -1,28 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys18.models import Survey, NoSalaryHire, Month
 
 
 class ModelTestCase(TestCase):
-    """
-    models: Survey, NoSalaryHire
-    reference models : WorkType, Month
-    data: nosalaryhire.yaml, survey.yaml, month.yaml
-    main: NoSalaryHire associate other models, the one farmer has many employee.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "test/survey.yaml", verbosity=0)
-        call_command("loaddata", "month.yaml", verbosity=0)
-        call_command("loaddata", "test/nosalaryhire.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        nosalaryhire_list = NoSalaryHire.objects.all()
-        self.assertEquals(len(nosalaryhire_list), 5)
+        setup_fixtures()
 
     def test_create_population(self):
         survey_id = Survey.objects.get(id=3)

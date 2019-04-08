@@ -3,7 +3,7 @@
   fields:
     survey: 1
     product: 4
-    work_types: [3, 4]
+    work_type: 3
     count: 5
     months: [5, 6, 7]
 
@@ -12,7 +12,7 @@
   fields:
     survey: 1
     product: 100
-    work_types: [4]
+    work_type: 4
     count: 8
     months: [6, 7, 9]
 
@@ -21,6 +21,6 @@
   fields:
     survey: 1
     product: 250
-    work_types: [6,7]
+    work_type: 6
     count: 10
     months: [11, 12, 1]

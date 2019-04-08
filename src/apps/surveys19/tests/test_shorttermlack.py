@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys19.models import (
     Survey,
     ShortTermLack,
@@ -11,28 +11,10 @@ from apps.surveys19.models import (
 
 
 class ShortTermLackTestCase(TestCase):
-    """
-    models: Survey, ShortTermLack
-    reference models : s19-work-type.yaml, s19-month.yaml, s19-product.yaml, s19-product-type.yaml
-    data: s19-test-shorttermlack.yaml, s19-test-survey.yaml,
-    main: ShortTermLack associate other models, the one farmer has many employee.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
-        call_command("loaddata", "s19-work-type.yaml", verbosity=0)
-        call_command("loaddata", "s19-month.yaml", verbosity=0)
-        call_command("loaddata", "s19-product-type.yaml", verbosity=0)
-        call_command("loaddata", "s19-product.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-shorttermlack.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        shorttermlack_list = ShortTermLack.objects.all()
-        self.assertEquals(len(shorttermlack_list), 3)
+        setup_fixtures()
 
     def test_create_shorttermlack(self):
         survey_id = Survey.objects.get(id=3)

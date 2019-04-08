@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys18.models import (
     Survey,
     Population,
@@ -13,31 +13,10 @@ from apps.surveys18.models import (
 
 
 class ModelTestCase(TestCase):
-    """
-    models: Population, Survey
-    reference models : LifeStyle, FarmerWorkDay, OtherFarmWork, EducationLevel, Relationship, Gender
-    data: population.yaml, survey.yaml, life-style.yaml, farmer-work-day.yaml, other-farm-work.yaml, education-level.yaml
-    main: Population associate other models, the one farmer has many population.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "test/survey.yaml", verbosity=0)
-        call_command("loaddata", "education-level.yaml", verbosity=0)
-        call_command("loaddata", "farmer-work-day.yaml", verbosity=0)
-        call_command("loaddata", "life-style.yaml", verbosity=0)
-        call_command("loaddata", "other-farm-work.yaml", verbosity=0)
-        call_command("loaddata", "relationship.yaml", verbosity=0)
-        call_command("loaddata", "education-level.yaml", verbosity=0)
-        call_command("loaddata", "gender.yaml", verbosity=0)
-        call_command("loaddata", "test/population.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        population_list = Population.objects.all()
-        self.assertEquals(len(population_list), 4)
+        setup_fixtures()
 
     def test_create_population(self):
         survey_id = Survey.objects.get(id=3)

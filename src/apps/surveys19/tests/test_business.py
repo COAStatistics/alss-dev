@@ -1,31 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys19.models import Survey, Business, FarmRelatedBusiness
 
 
 class BusinessTestCase(TestCase):
-    """
-    models: Business, Survey
-    reference models : s19-farm-related-business.yaml
-    data: s19-test-business.yaml, s19-test-survey.yaml
-    main: Busniess associate other models, the one farmer has many businesses.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
-        call_command("loaddata", "s19-farm-related-business.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-business.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        business_list = Business.objects.all()
-        self.assertEquals(len(business_list), 2)
-
-        farm_ralated_business_list = FarmRelatedBusiness.objects.all()
-        self.assertEquals(len(farm_ralated_business_list), 9)
+        setup_fixtures()
 
     def test_create_business(self):
         survey_id = Survey.objects.get(id=3)
