@@ -1,6 +1,13 @@
 from django.test import TestCase
 from django.core.management import call_command
-from apps.surveys19.models import Survey, CropMarketing, Product, Loss, Unit, ProductType
+from apps.surveys19.models import (
+    Survey,
+    CropMarketing,
+    Product,
+    Loss,
+    Unit,
+    ProductType,
+)
 
 
 class CropMarketingTestCase(TestCase):
@@ -13,13 +20,12 @@ class CropMarketingTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-product-type.yaml', verbosity=0)
-        call_command('loaddata', 's19-product.yaml', verbosity=0)
-        call_command('loaddata', 's19-loss.yaml', verbosity=0)
-        call_command('loaddata', 's19-unit.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-cropmarketing.yaml', verbosity=0)
-
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-product-type.yaml", verbosity=0)
+        call_command("loaddata", "s19-product.yaml", verbosity=0)
+        call_command("loaddata", "s19-loss.yaml", verbosity=0)
+        call_command("loaddata", "s19-unit.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-cropmarketing.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -46,12 +52,21 @@ class CropMarketingTestCase(TestCase):
 
         crop_marketing_list_before_size = len(CropMarketing.objects.all())
 
-        #new value
-        CropMarketing.objects.create(survey=survey_id, product=product_a, loss=loss_a, unit=unit_a, land_number=0, has_facility=1)
+        # new value
+        CropMarketing.objects.create(
+            survey=survey_id,
+            product=product_a,
+            loss=loss_a,
+            unit=unit_a,
+            land_number=0,
+            has_facility=1,
+        )
         CropMarketing.objects.create(survey=survey_id, product=product_b)
 
         crop_marketing_list_after_size = len(CropMarketing.objects.all())
-        self.assertEquals(crop_marketing_list_after_size, crop_marketing_list_before_size + 2)
+        self.assertEquals(
+            crop_marketing_list_after_size, crop_marketing_list_before_size + 2
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()

@@ -13,9 +13,8 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'test/phone.yaml', verbosity=0)
-
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "test/phone.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -28,15 +27,13 @@ class ModelTestCase(TestCase):
         survey_id = Survey.objects.get(id=3)
         phone_list_before_size = len(Phone.objects.all())
 
-        #new value
+        # new value
         Phone.objects.create(survey=survey_id, phone=22222222)
 
         phone_list_after_size = len(Phone.objects.all())
-        self.assertEquals(phone_list_after_size, phone_list_before_size+1)
+        self.assertEquals(phone_list_after_size, phone_list_before_size + 1)
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()
         phone_list = Phone.objects.filter(survey__id=1)
         self.assertEquals(phone_list.count(), 0)
-
-

@@ -3,7 +3,6 @@ from apps.logs import models
 
 
 class ReviewLogSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = models.ReviewLog
-        fields = '__all__'
+        fields = "__all__"

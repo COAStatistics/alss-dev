@@ -1,7 +1,11 @@
 from django.test import TestCase
 from django.core.management import call_command
 from apps.surveys18.builder.tokenizer_specialty import Builder
-from apps.surveys18.builder.exceptions import SignError, StringLengthError, CreateModelError
+from apps.surveys18.builder.exceptions import (
+    SignError,
+    StringLengthError,
+    CreateModelError,
+)
 from apps.surveys18.models import (
     MarketType,
     IncomeRange,
@@ -42,31 +46,30 @@ from apps.surveys18.models import (
     ProductType,
     Relationship,
     Month,
-    Refuse
+    Refuse,
 )
 
 
 class ModelTestCase(TestCase):
     def setUp(self):
-        call_command('loaddata', 'land-status.yaml', verbosity=0)
-        call_command('loaddata', 'farm-related-business.yaml', verbosity=0)
-        call_command('loaddata', 'management-type.yaml', verbosity=0)
-        call_command('loaddata', 'product-type.yaml', verbosity=0)
-        call_command('loaddata', 'product.yaml', verbosity=0)
-        call_command('loaddata', 'loss.yaml', verbosity=0)
-        call_command('loaddata', 'unit.yaml', verbosity=0)
-        call_command('loaddata', 'land-type.yaml', verbosity=0)
-        call_command('loaddata', 'contract.yaml', verbosity=0)
-        call_command('loaddata', 'age-scope.yaml', verbosity=0)
-        call_command('loaddata', 'gender.yaml', verbosity=0)
-        call_command('loaddata', 'relationship.yaml', verbosity=0)
-        call_command('loaddata', 'education-level.yaml', verbosity=0)
-        call_command('loaddata', 'farmer-work-day.yaml', verbosity=0)
-        call_command('loaddata', 'life-style.yaml', verbosity=0)
-        call_command('loaddata', 'other-farm-work.yaml', verbosity=0)
+        call_command("loaddata", "land-status.yaml", verbosity=0)
+        call_command("loaddata", "farm-related-business.yaml", verbosity=0)
+        call_command("loaddata", "management-type.yaml", verbosity=0)
+        call_command("loaddata", "product-type.yaml", verbosity=0)
+        call_command("loaddata", "product.yaml", verbosity=0)
+        call_command("loaddata", "loss.yaml", verbosity=0)
+        call_command("loaddata", "unit.yaml", verbosity=0)
+        call_command("loaddata", "land-type.yaml", verbosity=0)
+        call_command("loaddata", "contract.yaml", verbosity=0)
+        call_command("loaddata", "age-scope.yaml", verbosity=0)
+        call_command("loaddata", "gender.yaml", verbosity=0)
+        call_command("loaddata", "relationship.yaml", verbosity=0)
+        call_command("loaddata", "education-level.yaml", verbosity=0)
+        call_command("loaddata", "farmer-work-day.yaml", verbosity=0)
+        call_command("loaddata", "life-style.yaml", verbosity=0)
+        call_command("loaddata", "other-farm-work.yaml", verbosity=0)
 
         self.string = "279,106,100091101020,1,3,,2,廖見興　　,0912308329 ,55989438 ,否,雲林縣二崙鄉楊賢村８鄰楊賢路５４號,,0,360,0,0,0,0,1,A001,蓬萊米(梗稻)1期,1   ,300,1,1,28800,17,2,,1,,,,,,,,,,,0, , , , , , ,, ,,1,1,1,05500 ,4,6,1. 稻作"
-
 
         self.builder = Builder(self.string)
         self.builder.build_survey()
@@ -123,16 +126,15 @@ class ModelTestCase(TestCase):
         self.builder.build_crop_marketing()
         obj = CropMarketing.objects.filter(survey=self.builder.survey).all()
         self.assertEquals(len(obj), 1)
-        self.assertEquals(obj[0].product.code, 'A001')
+        self.assertEquals(obj[0].product.code, "A001")
         self.assertEquals(obj[0].land_number, 1)
         self.assertEquals(obj[0].land_area, 300)
         self.assertEquals(obj[0].plant_times, 1)
-        self.assertEquals(obj[0].unit.name, '公斤')
+        self.assertEquals(obj[0].unit.name, "公斤")
         self.assertEquals(obj[0].total_yield, 28800)
         self.assertEquals(obj[0].unit_price, 17)
         self.assertEquals(obj[0].has_facility, 0)
-        self.assertEquals(obj[0].loss.name, '災害')
-
+        self.assertEquals(obj[0].loss.name, "災害")
 
     def test_build_livestock_marketing(self):
         self.builder.build_livestock_marketing()
@@ -148,7 +150,3 @@ class ModelTestCase(TestCase):
         self.assertEquals(obj[0].birth_year, 55)
         self.assertEquals(obj[0].education_level.code, 4)
         self.assertEquals(obj[0].farmer_work_day.code, 7)
-
-
-
-

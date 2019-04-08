@@ -3,8 +3,6 @@ from django.urls.conf import include
 
 from .api import api
 
-app_name = 'surveys19'
+app_name = "surveys19"
 
-urlpatterns = [
-    path('', include(api.urls)),
-]
+urlpatterns = [path("", include(api.urls))]

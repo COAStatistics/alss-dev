@@ -6,19 +6,12 @@ from django.db.models import Q
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
 
-from rest_framework.exceptions import (
-    ValidationError,
-)
+from rest_framework.exceptions import ValidationError
 
-from rest_framework.filters import (
-    SearchFilter,
-    OrderingFilter,
-)
-from rest_framework.permissions import (
-    IsAuthenticated,
-)
+from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.permissions import IsAuthenticated
 
-from apps.surveys18.models import(
+from apps.surveys18.models import (
     Survey,
     ShortTermHire,
     LongTermHire,
@@ -70,28 +63,30 @@ class SurveyViewSet(ModelViewSet):
     serializer_class = serializers.SurveySerializer
     filter_backends = [SearchFilter, OrderingFilter]
     permission_classes = [IsAuthenticated]
-    search_fields = ['farmer_id']
+    search_fields = ["farmer_id"]
 
     def get_queryset(self, *args, **kwargs):
-        fid = self.request.GET.get('fid')
-        readonly = json.loads(self.request.GET.get('readonly', 'false'))
+        fid = self.request.GET.get("fid")
+        readonly = json.loads(self.request.GET.get("readonly", "false"))
         queryset = self.queryset
         if fid:
-            queryset = queryset.filter(Q(farmer_id=fid) & Q(readonly=readonly)).distinct()
+            queryset = queryset.filter(
+                Q(farmer_id=fid) & Q(readonly=readonly)
+            ).distinct()
         return queryset
 
     def get_object(self, pk):
         return Survey.objects.get(id=pk)
 
-    @action(methods=['PATCH'], detail=False)
+    @action(methods=["PATCH"], detail=False)
     def patch(self, request):
         try:
-            data = json.loads(request.data.get('data'))
-            pk = data.get('id')
+            data = json.loads(request.data.get("data"))
+            pk = data.get("id")
             survey = self.get_object(pk)
-            serializer = serializers.SurveySerializer(survey,
-                                                      data=data,
-                                                      partial=True)  # set partial=True to update a data partially
+            serializer = serializers.SurveySerializer(
+                survey, data=data, partial=True
+            )  # set partial=True to update a data partially
             if serializer.is_valid():
                 serializer.save()
                 return JsonResponse(data=serializer.data)
@@ -109,8 +104,8 @@ class ContentTypeViewSet(ModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(
-            Q(app_label='surveys18', model='longtermhire') |
-            Q(app_label='surveys18', model='shorttermhire')
+            Q(app_label="surveys18", model="longtermhire")
+            | Q(app_label="surveys18", model="shorttermhire")
         )
 
 

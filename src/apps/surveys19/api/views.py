@@ -92,7 +92,7 @@ from .serializers import (
     SubsidySerializer,
     RefuseSerializer,
     RefuseReasonSerializer,
-    MonthSerializer
+    MonthSerializer,
 )
 
 
@@ -103,8 +103,8 @@ class ContentTypeViewSet(ReadOnlyModelViewSet):
 
     def get_queryset(self):
         return self.queryset.filter(
-            Q(app_label='surveys18', model='longtermhire') |
-            Q(app_label='surveys18', model='shorttermhire')
+            Q(app_label="surveys18", model="longtermhire")
+            | Q(app_label="surveys18", model="shorttermhire")
         )
 
 
@@ -114,11 +114,13 @@ class SurveyViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self, *args, **kwargs):
-        fid = self.request.GET.get('fid')
-        readonly = json.loads(self.request.GET.get('readonly', 'false'))
+        fid = self.request.GET.get("fid")
+        readonly = json.loads(self.request.GET.get("readonly", "false"))
         queryset = self.queryset
         if fid:
-            queryset = self.queryset.filter(Q(farmer_id=fid) & Q(readonly=readonly)).distinct()
+            queryset = self.queryset.filter(
+                Q(farmer_id=fid) & Q(readonly=readonly)
+            ).distinct()
         return queryset
 
 

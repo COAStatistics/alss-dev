@@ -1,7 +1,11 @@
 from django.test import TestCase
 from django.core.management import call_command
 from apps.surveys18.builder.tokenizer_labor import Builder
-from apps.surveys18.builder.exceptions import SignError, StringLengthError, CreateModelError
+from apps.surveys18.builder.exceptions import (
+    SignError,
+    StringLengthError,
+    CreateModelError,
+)
 from apps.surveys18.models import (
     MarketType,
     IncomeRange,
@@ -42,35 +46,35 @@ from apps.surveys18.models import (
     ProductType,
     Relationship,
     Month,
-    Refuse
+    Refuse,
 )
 
 
 class ModelTestCase(TestCase):
     def setUp(self):
-        call_command('loaddata', 'product-type.yaml', verbosity=0)
-        call_command('loaddata', 'unit.yaml', verbosity=0)
-        call_command('loaddata', 'land-type.yaml', verbosity=0)
-        call_command('loaddata', 'land-status.yaml', verbosity=0)
-        call_command('loaddata', 'farm-related-business.yaml', verbosity=0)
-        call_command('loaddata', 'management-type.yaml', verbosity=0)
-        call_command('loaddata', 'product.yaml', verbosity=0)
-        call_command('loaddata', 'loss.yaml', verbosity=0)
-        call_command('loaddata', 'contract.yaml', verbosity=0)
-        call_command('loaddata', 'income-range.yaml', verbosity=0)
-        call_command('loaddata', 'market-type.yaml', verbosity=0)
-        call_command('loaddata', 'age-scope.yaml', verbosity=0)
-        call_command('loaddata', 'gender.yaml', verbosity=0)
-        call_command('loaddata', 'relationship.yaml', verbosity=0)
-        call_command('loaddata', 'education-level.yaml', verbosity=0)
-        call_command('loaddata', 'farmer-work-day.yaml', verbosity=0)
-        call_command('loaddata', 'life-style.yaml', verbosity=0)
-        call_command('loaddata', 'other-farm-work.yaml', verbosity=0)
-        call_command('loaddata', 'month.yaml', verbosity=0)
-        call_command('loaddata', 'work-type.yaml', verbosity=0)
-        call_command('loaddata', 'age-scope.yaml', verbosity=0)
-        call_command('loaddata', 'lack.yaml', verbosity=0)
-        call_command('loaddata', 'refuse-reason.yaml', verbosity=0)
+        call_command("loaddata", "product-type.yaml", verbosity=0)
+        call_command("loaddata", "unit.yaml", verbosity=0)
+        call_command("loaddata", "land-type.yaml", verbosity=0)
+        call_command("loaddata", "land-status.yaml", verbosity=0)
+        call_command("loaddata", "farm-related-business.yaml", verbosity=0)
+        call_command("loaddata", "management-type.yaml", verbosity=0)
+        call_command("loaddata", "product.yaml", verbosity=0)
+        call_command("loaddata", "loss.yaml", verbosity=0)
+        call_command("loaddata", "contract.yaml", verbosity=0)
+        call_command("loaddata", "income-range.yaml", verbosity=0)
+        call_command("loaddata", "market-type.yaml", verbosity=0)
+        call_command("loaddata", "age-scope.yaml", verbosity=0)
+        call_command("loaddata", "gender.yaml", verbosity=0)
+        call_command("loaddata", "relationship.yaml", verbosity=0)
+        call_command("loaddata", "education-level.yaml", verbosity=0)
+        call_command("loaddata", "farmer-work-day.yaml", verbosity=0)
+        call_command("loaddata", "life-style.yaml", verbosity=0)
+        call_command("loaddata", "other-farm-work.yaml", verbosity=0)
+        call_command("loaddata", "month.yaml", verbosity=0)
+        call_command("loaddata", "work-type.yaml", verbosity=0)
+        call_command("loaddata", "age-scope.yaml", verbosity=0)
+        call_command("loaddata", "lack.yaml", verbosity=0)
+        call_command("loaddata", "refuse-reason.yaml", verbosity=0)
         # self.string = "6700500100020101####林阿忠0912345678/###29911110501屏東縣屏東市屏東路2號#+00250000000003001000000000100000001農所實驗#00000000000100+A001104201100210000002321D011103001100072000007520+F00230000900000150500000F001300100000150009750031010000410020101030201+010110300200000010100000001000202203202000001001000000010001+120040020010011010000000000005220040020010011111111111111113+0100900000500412130000000000001004010001005004142100000000000285+01002070050011+2200110100000000014001111111111111+A60213002110000000000C50612001000110000000+1012120000101時間太忙#1勞工不穩定#+稻受雨害影響#005260035"
         self.string = "0000000000010201####林阿忠0912345678/###29911110501屏東縣屏東市屏東路2號#+00250000000003001000000000100000001農所實驗#00000000000100+A001104201100210000002321D011103001100072000007520+F00230000900000150500000F001300100000150009750031010000410020101030201+010110300200000010100000001000202203202000001001000000010001+120040020010011010000000000005220040020010011111111111111113+0100900000500412130000000000001004010001005004142100000000000285+01002070050011+2200110100000000014001111111111111+A60213002110000000000C50612001000110000000+1012120000101時間太忙#1勞工不穩定#+稻受雨害影響#005260035"
         self.builder = Builder(self.string)
@@ -92,7 +96,6 @@ class ModelTestCase(TestCase):
         self.assertEquals(self.builder.survey.distance, 35)
 
         # check survey query string
-
 
     def test_build_phone(self):
         self.builder.build_phone()
@@ -180,7 +183,7 @@ class ModelTestCase(TestCase):
         # self.assertEquals(self.builder.livestock_marketing[1].unit_price, 9750)
         # self.assertEquals(self.builder.livestock_marketing[1].contract.code, 0)
         # self.assertEquals(self.builder.livestock_marketing[1].loss.code, 3)
-        #....種豬 頭 90 15 5000 無 無 /肉豬 頭 1000 1500 9750 無 疫病
+        # ....種豬 頭 90 15 5000 無 無 /肉豬 頭 1000 1500 9750 無 疫病
 
     def test_build_annual_income(self):
         self.builder.build_annual_income()
@@ -271,29 +274,3 @@ class ModelTestCase(TestCase):
         # print(self.builder.refuse[0].extra)
         # print(self.builder.refuse[1].reason)
         # print(self.builder.refuse[1].extra)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

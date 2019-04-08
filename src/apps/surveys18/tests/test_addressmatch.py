@@ -13,9 +13,8 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'test/addressmatch.yaml', verbosity=0)
-
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "test/addressmatch.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -28,15 +27,17 @@ class ModelTestCase(TestCase):
         survey_id = Survey.objects.get(id=3)
         address_match_list_before_size = len(AddressMatch.objects.all())
 
-        #new value
-        AddressMatch.objects.create(survey=survey_id, match=True, different=False, address="")
+        # new value
+        AddressMatch.objects.create(
+            survey=survey_id, match=True, different=False, address=""
+        )
 
         address_match_list_after_size = len(AddressMatch.objects.all())
-        self.assertEquals(address_match_list_after_size, address_match_list_before_size+1)
+        self.assertEquals(
+            address_match_list_after_size, address_match_list_before_size + 1
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()
         address_match_list = AddressMatch.objects.filter(survey__id=1)
         self.assertEquals(address_match_list.count(), 0)
-
-

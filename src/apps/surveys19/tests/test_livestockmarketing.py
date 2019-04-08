@@ -1,6 +1,14 @@
 from django.test import TestCase
 from django.core.management import call_command
-from apps.surveys19.models import Survey, LivestockMarketing, Product, Loss, Unit, ProductType, Contract
+from apps.surveys19.models import (
+    Survey,
+    LivestockMarketing,
+    Product,
+    Loss,
+    Unit,
+    ProductType,
+    Contract,
+)
 
 
 class LivestockMarketingTestCase(TestCase):
@@ -13,14 +21,13 @@ class LivestockMarketingTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-product-type.yaml', verbosity=0)
-        call_command('loaddata', 's19-product.yaml', verbosity=0)
-        call_command('loaddata', 's19-loss.yaml', verbosity=0)
-        call_command('loaddata', 's19-unit.yaml', verbosity=0)
-        call_command('loaddata', 's19-contract.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-livestockmarketing.yaml', verbosity=0)
-
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-product-type.yaml", verbosity=0)
+        call_command("loaddata", "s19-product.yaml", verbosity=0)
+        call_command("loaddata", "s19-loss.yaml", verbosity=0)
+        call_command("loaddata", "s19-unit.yaml", verbosity=0)
+        call_command("loaddata", "s19-contract.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-livestockmarketing.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -51,13 +58,22 @@ class LivestockMarketingTestCase(TestCase):
 
         livestock_marketing_list_before_size = len(LivestockMarketing.objects.all())
 
-        #new value
-        LivestockMarketing.objects.create(survey=survey_id, product=product_a, loss=loss_a, unit=unit_a,
-                                          contract=contract_a, raising_number=200)
+        # new value
+        LivestockMarketing.objects.create(
+            survey=survey_id,
+            product=product_a,
+            loss=loss_a,
+            unit=unit_a,
+            contract=contract_a,
+            raising_number=200,
+        )
         LivestockMarketing.objects.create(survey=survey_id, product=product_b)
 
         livestock_marketing_list_after_size = len(LivestockMarketing.objects.all())
-        self.assertEquals(livestock_marketing_list_after_size, livestock_marketing_list_before_size + 2)
+        self.assertEquals(
+            livestock_marketing_list_after_size,
+            livestock_marketing_list_before_size + 2,
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()

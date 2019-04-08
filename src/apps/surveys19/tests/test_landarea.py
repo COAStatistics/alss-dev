@@ -1,6 +1,13 @@
 from django.test import TestCase
 from django.core.management import call_command
-from apps.surveys19.models import Survey, LandArea, LandType, LandStatus, Unit, ProductType
+from apps.surveys19.models import (
+    Survey,
+    LandArea,
+    LandType,
+    LandStatus,
+    Unit,
+    ProductType,
+)
 
 
 class LandAreaTestCase(TestCase):
@@ -13,13 +20,12 @@ class LandAreaTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-product-type.yaml', verbosity=0)
-        call_command('loaddata', 's19-unit.yaml', verbosity=0)
-        call_command('loaddata', 's19-land-status.yaml', verbosity=0)
-        call_command('loaddata', 's19-land-type.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-landarea.yaml', verbosity=0)
-
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-product-type.yaml", verbosity=0)
+        call_command("loaddata", "s19-unit.yaml", verbosity=0)
+        call_command("loaddata", "s19-land-status.yaml", verbosity=0)
+        call_command("loaddata", "s19-land-type.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-landarea.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -41,8 +47,10 @@ class LandAreaTestCase(TestCase):
 
         land_area_list_before_size = len(LandArea.objects.all())
 
-        #new value
-        LandArea.objects.create(survey=survey_id, type=land_type_a, status=land_status_a, value=70)
+        # new value
+        LandArea.objects.create(
+            survey=survey_id, type=land_type_a, status=land_status_a, value=70
+        )
 
         land_area_list_after_size = len(LandArea.objects.all())
         self.assertEquals(land_area_list_after_size, land_area_list_before_size + 1)

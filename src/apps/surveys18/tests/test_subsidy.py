@@ -13,9 +13,9 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'refuse-reason.yaml', verbosity=0)
-        call_command('loaddata', 'test/subsidy.yaml', verbosity=0)
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "refuse-reason.yaml", verbosity=0)
+        call_command("loaddata", "test/subsidy.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -41,7 +41,7 @@ class ModelTestCase(TestCase):
         new_subsidy.save()
 
         subsidy_list_after_size = len(Subsidy.objects.all())
-        self.assertEquals(subsidy_list_after_size, subsidy_list_before_size+1)
+        self.assertEquals(subsidy_list_after_size, subsidy_list_before_size + 1)
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()
@@ -56,6 +56,3 @@ class ModelTestCase(TestCase):
 
         self.assertEquals(len(subsidy_list), 0)
         self.assertEquals(refuse_reason_list_after_size, refuse_reason_list_before_size)
-
-
-

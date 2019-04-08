@@ -13,9 +13,8 @@ class PhoneTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-phone.yaml', verbosity=0)
-
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-phone.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -28,7 +27,7 @@ class PhoneTestCase(TestCase):
         survey_id = Survey.objects.get(id=3)
         phone_list_before_size = len(Phone.objects.all())
 
-        #new value
+        # new value
         Phone.objects.create(survey=survey_id, phone=22222222)
 
         phone_list_after_size = len(Phone.objects.all())

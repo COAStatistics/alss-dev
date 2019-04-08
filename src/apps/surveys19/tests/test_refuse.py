@@ -13,10 +13,10 @@ class RefuseTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-subsidy.yaml', verbosity=0)
-        call_command('loaddata', 's19-refuse-reason.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-refuse.yaml', verbosity=0)
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-subsidy.yaml", verbosity=0)
+        call_command("loaddata", "s19-refuse-reason.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-refuse.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()

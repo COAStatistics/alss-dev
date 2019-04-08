@@ -13,10 +13,9 @@ class LongTermHireTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-work-type.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-longtermhire.yaml', verbosity=0)
-
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-work-type.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-longtermhire.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -34,11 +33,15 @@ class LongTermHireTestCase(TestCase):
 
         longtermhire_list_before_size = len(LongTermHire.objects.all())
 
-        #new value
-        LongTermHire.objects.create(survey=survey_id, work_type=work_type_code, avg_work_day=30)
+        # new value
+        LongTermHire.objects.create(
+            survey=survey_id, work_type=work_type_code, avg_work_day=30
+        )
 
         longtermhire_list_after_size = len(LongTermHire.objects.all())
-        self.assertEquals(longtermhire_list_after_size, longtermhire_list_before_size + 1)
+        self.assertEquals(
+            longtermhire_list_after_size, longtermhire_list_before_size + 1
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()

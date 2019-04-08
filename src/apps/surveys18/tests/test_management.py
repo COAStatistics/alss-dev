@@ -13,9 +13,9 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'test/management.yaml', verbosity=0)
-        call_command('loaddata', 'management-type.yaml', verbosity=0)
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "test/management.yaml", verbosity=0)
+        call_command("loaddata", "management-type.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -34,14 +34,14 @@ class ModelTestCase(TestCase):
 
         management_list_before_size = len(Management.objects.all())
 
-        #new value
+        # new value
         Management.objects.create(survey=survey_id)
         new_management = Management.objects.get(survey=survey_id)
         new_management.types.add(management_type_a, management_type_b)
         new_management.save()
 
         management_list_after_size = len(Management.objects.all())
-        self.assertEquals(management_list_after_size, management_list_before_size+1)
+        self.assertEquals(management_list_after_size, management_list_before_size + 1)
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()
@@ -55,4 +55,6 @@ class ModelTestCase(TestCase):
         management_type_list_after_size = len(ManagementType.objects.all())
 
         self.assertEquals(len(management_list), 0)
-        self.assertEquals(management_type_list_after_size, management_type_list_before_size)
+        self.assertEquals(
+            management_type_list_after_size, management_type_list_before_size
+        )

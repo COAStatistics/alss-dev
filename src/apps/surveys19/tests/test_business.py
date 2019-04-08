@@ -13,9 +13,9 @@ class BusinessTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-farm-related-business.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-business.yaml', verbosity=0)
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-farm-related-business.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-business.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -34,13 +34,13 @@ class BusinessTestCase(TestCase):
 
         business_list_before_size = len(Business.objects.all())
 
-        #new value
+        # new value
         Business.objects.create(survey=survey_id)
         new_business = Business.objects.filter(survey=survey_id).last()
         new_business.farm_related_business = relatedbusiness_a
         new_business.save()
 
-        #new value
+        # new value
         Business.objects.create(survey=survey_id)
         new_business = Business.objects.filter(survey=survey_id).last()
         new_business.farm_related_business = relatedbusiness_b
@@ -61,4 +61,6 @@ class BusinessTestCase(TestCase):
         relatedbusiness_list_after = FarmRelatedBusiness.objects.all()
 
         self.assertEquals(len(business_list), 0)
-        self.assertEquals(len(relatedbusiness_list_before), len(relatedbusiness_list_after))
+        self.assertEquals(
+            len(relatedbusiness_list_before), len(relatedbusiness_list_after)
+        )

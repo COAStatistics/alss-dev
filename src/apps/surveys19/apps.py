@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class Surveys19Config(AppConfig):
-    name = 'surveys19'
+    name = "surveys19"

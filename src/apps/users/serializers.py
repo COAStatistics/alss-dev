@@ -6,7 +6,7 @@ from apps.users.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    registered_at = serializers.DateTimeField(format='%H:%M %d.%m.%Y', read_only=True)
+    registered_at = serializers.DateTimeField(format="%H:%M %d.%m.%Y", read_only=True)
 
     full_name = serializers.SerializerMethodField(read_only=True)
 
@@ -15,11 +15,10 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'full_name', 'registered_at']
+        fields = ["email", "full_name", "registered_at"]
 
 
 class UserWriteSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
-        fields = ['email', 'password']
+        fields = ["email", "password"]

@@ -6,10 +6,14 @@ from .views import (
     ReviewLogSingletonListAPIView,
 )
 
-app_name = 'logs'
+app_name = "logs"
 
 urlpatterns = [
-    path('', ReviewLogViewSet.as_view({'get': 'list'}), name='list'),
-    path('update/', ReviewLogUpdateAPIView.as_view(), name='update'),
-    path('reviewlog/', ReviewLogSingletonListAPIView.as_view(), name='list_singleton_reviewlog'),
+    path("", ReviewLogViewSet.as_view({"get": "list"}), name="list"),
+    path("update/", ReviewLogUpdateAPIView.as_view(), name="update"),
+    path(
+        "reviewlog/",
+        ReviewLogSingletonListAPIView.as_view(),
+        name="list_singleton_reviewlog",
+    ),
 ]

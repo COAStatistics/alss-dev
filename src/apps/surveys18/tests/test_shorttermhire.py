@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.core.management import call_command
 from apps.surveys18.models import Survey, ShortTermHire, WorkType, Month
 
+
 class ModelTestCase(TestCase):
     """
     models: Survey, ShortTermHire
@@ -12,10 +13,10 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'work-type.yaml', verbosity=0)
-        call_command('loaddata', 'month.yaml', verbosity=0)
-        call_command('loaddata', 'test/shorttermhire.yaml', verbosity=0)
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "work-type.yaml", verbosity=0)
+        call_command("loaddata", "month.yaml", verbosity=0)
+        call_command("loaddata", "test/shorttermhire.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -32,14 +33,16 @@ class ModelTestCase(TestCase):
 
         shorttermhire_list_before_size = len(ShortTermHire.objects.all())
 
-        #new value
+        # new value
         ShortTermHire.objects.create(survey=survey_id, avg_work_day=20, month=month)
         new_shorttermhire = ShortTermHire.objects.get(survey=survey_id)
         new_shorttermhire.work_types.add(work_type_code_a, work_type_code_b)
         new_shorttermhire.save()
 
         shorttermhire_list_after_size = len(ShortTermHire.objects.all())
-        self.assertEquals(shorttermhire_list_after_size, shorttermhire_list_before_size+1)
+        self.assertEquals(
+            shorttermhire_list_after_size, shorttermhire_list_before_size + 1
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()

@@ -7,3 +7,4 @@ PyYAML>=4.2b1
 Markdown==2.6.11
 django-admin-rangefilter==0.3.14
 psycopg2==2.7.3.2
+flake8==3.7.7

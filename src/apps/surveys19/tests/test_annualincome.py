@@ -13,10 +13,10 @@ class AnnualIncomeTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 's19-test-survey.yaml', verbosity=0)
-        call_command('loaddata', 's19-market-type.yaml', verbosity=0)
-        call_command('loaddata', 's19-income-range.yaml', verbosity=0)
-        call_command('loaddata', 's19-test-annualincome.yaml', verbosity=0)
+        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
+        call_command("loaddata", "s19-market-type.yaml", verbosity=0)
+        call_command("loaddata", "s19-income-range.yaml", verbosity=0)
+        call_command("loaddata", "s19-test-annualincome.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -43,12 +43,20 @@ class AnnualIncomeTestCase(TestCase):
         annual_income_list_before_size = len(AnnualIncome.objects.all())
 
         # new value
-        AnnualIncome.objects.create(survey=survey_id, market_type=market_type_a, income_range=income_range_a)
-        AnnualIncome.objects.create(survey=survey_id, market_type=market_type_b, income_range=income_range_b)
-        AnnualIncome.objects.create(survey=survey_id, market_type=market_type_c, income_range=income_range_c)
+        AnnualIncome.objects.create(
+            survey=survey_id, market_type=market_type_a, income_range=income_range_a
+        )
+        AnnualIncome.objects.create(
+            survey=survey_id, market_type=market_type_b, income_range=income_range_b
+        )
+        AnnualIncome.objects.create(
+            survey=survey_id, market_type=market_type_c, income_range=income_range_c
+        )
 
         annual_income_list_after_size = len(AnnualIncome.objects.all())
-        self.assertEquals(annual_income_list_after_size, annual_income_list_before_size + 3)
+        self.assertEquals(
+            annual_income_list_after_size, annual_income_list_before_size + 3
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()

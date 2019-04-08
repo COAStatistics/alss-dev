@@ -13,11 +13,10 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'land-type.yaml', verbosity=0)
-        call_command('loaddata', 'land-status.yaml', verbosity=0)
-        call_command('loaddata', 'test/landarea.yaml', verbosity=0)
-
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "land-type.yaml", verbosity=0)
+        call_command("loaddata", "land-status.yaml", verbosity=0)
+        call_command("loaddata", "test/landarea.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -39,11 +38,13 @@ class ModelTestCase(TestCase):
 
         land_area_list_before_size = len(LandArea.objects.all())
 
-        #new value
-        LandArea.objects.create(survey=survey_id, type=land_type_a, status=land_status_a, value=70)
+        # new value
+        LandArea.objects.create(
+            survey=survey_id, type=land_type_a, status=land_status_a, value=70
+        )
 
         land_area_list_after_size = len(LandArea.objects.all())
-        self.assertEquals(land_area_list_after_size, land_area_list_before_size+1)
+        self.assertEquals(land_area_list_after_size, land_area_list_before_size + 1)
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()
@@ -61,4 +62,3 @@ class ModelTestCase(TestCase):
         self.assertEquals(len(land_area_list), 0)
         self.assertEquals(land_type_list_after_size, land_type_list_before_size)
         self.assertEquals(land_status_list_after_size, land_status_list_before_size)
-

@@ -13,10 +13,10 @@ class ModelTestCase(TestCase):
 
     def setUp(self):
         # load fixtures
-        call_command('loaddata', 'test/survey.yaml', verbosity=0)
-        call_command('loaddata', 'market-type.yaml', verbosity=0)
-        call_command('loaddata', 'income-range.yaml', verbosity=0)
-        call_command('loaddata', 'test/annualincome.yaml', verbosity=0)
+        call_command("loaddata", "test/survey.yaml", verbosity=0)
+        call_command("loaddata", "market-type.yaml", verbosity=0)
+        call_command("loaddata", "income-range.yaml", verbosity=0)
+        call_command("loaddata", "test/annualincome.yaml", verbosity=0)
 
     def test_loaddata(self):
         survey_list = Survey.objects.all()
@@ -43,12 +43,20 @@ class ModelTestCase(TestCase):
         annual_income_list_before_size = len(AnnualIncome.objects.all())
 
         # new value
-        AnnualIncome.objects.create(survey=survey_id, market_type=market_type_a, income_range=income_range_a)
-        AnnualIncome.objects.create(survey=survey_id, market_type=market_type_b, income_range=income_range_b)
-        AnnualIncome.objects.create(survey=survey_id, market_type=market_type_c, income_range=income_range_c)
+        AnnualIncome.objects.create(
+            survey=survey_id, market_type=market_type_a, income_range=income_range_a
+        )
+        AnnualIncome.objects.create(
+            survey=survey_id, market_type=market_type_b, income_range=income_range_b
+        )
+        AnnualIncome.objects.create(
+            survey=survey_id, market_type=market_type_c, income_range=income_range_c
+        )
 
         annual_income_list_after_size = len(AnnualIncome.objects.all())
-        self.assertEquals(annual_income_list_after_size, annual_income_list_before_size + 3)
+        self.assertEquals(
+            annual_income_list_after_size, annual_income_list_before_size + 3
+        )
 
     def test_survey_delete(self):
         Survey.objects.filter(id=1).delete()
@@ -66,6 +74,3 @@ class ModelTestCase(TestCase):
         self.assertEquals(len(annual_income_list), 0)
         self.assertEquals(market_type_list_after_size, market_type_list_before_size)
         self.assertEquals(income_range_list_after_size, income_range_list_before_size)
-
-
-
