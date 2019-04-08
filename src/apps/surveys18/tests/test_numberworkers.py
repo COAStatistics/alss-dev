@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys18.models import (
     Survey,
     NumberWorkers,
@@ -12,28 +12,10 @@ from django.contrib.contenttypes.models import ContentType
 
 
 class ModelTestCase(TestCase):
-    """
-    models: Survey, NumberWorkers
-    reference models : AgeScope, NumberWorkers, LongTermHire
-    data: numberworkers.yaml, survey.yaml, age-scope.yaml, longtermhire.yaml
-    main: NumberWorkers associate other models.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "test/survey.yaml", verbosity=0)
-        call_command("loaddata", "work-type.yaml", verbosity=0)
-        call_command("loaddata", "month.yaml", verbosity=0)
-        call_command("loaddata", "test/longtermhire.yaml", verbosity=0)
-        call_command("loaddata", "age-scope.yaml", verbosity=0)
-        call_command("loaddata", "test/numberworkers.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        numberworkers_list = NumberWorkers.objects.all()
-        self.assertEquals(len(numberworkers_list), 2)
+        setup_fixtures()
 
     def test_create_population(self):
         content_type = ContentType.objects.get(
@@ -44,7 +26,7 @@ class ModelTestCase(TestCase):
 
         # new value
         NumberWorkers.objects.create(
-            value=20, content_type=content_type, object_id=3, age_scope=age_scope
+            content_type=content_type, object_id=3, age_scope=age_scope
         )
 
         numberworkers_list_after_size = len(NumberWorkers.objects.all())

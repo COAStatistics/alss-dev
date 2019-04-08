@@ -1,27 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys19.models import Survey, Phone
 
 
 class PhoneTestCase(TestCase):
-    """
-    models: Phone, Survey
-    reference models :
-    data: s19-test-phone.yaml, s19-test-survey.yaml
-    main: Phone associate survey, the one farmer has many phones.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-phone.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        phone_list = Phone.objects.all()
-        self.assertEquals(len(phone_list), 3)
+        setup_fixtures()
 
     def test_create_phone(self):
         survey_id = Survey.objects.get(id=3)

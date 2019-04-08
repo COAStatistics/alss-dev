@@ -1,28 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys18.models import Survey, LongTermHire, WorkType
 
 
 class ModelTestCase(TestCase):
-    """
-    models: LongTermHire, Survey
-    reference models : WorkType
-    data: longtermhire.yaml, survey.yaml, work-type.yaml
-    main: LongTermHire associate other models, the one farmer has many employee.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "test/survey.yaml", verbosity=0)
-        call_command("loaddata", "work-type.yaml", verbosity=0)
-        call_command("loaddata", "test/longtermhire.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        longtermhire_list = LongTermHire.objects.all()
-        self.assertEquals(len(longtermhire_list), 3)
+        setup_fixtures()
 
     def test_create_longtermhire(self):
         survey_id = Survey.objects.get(id=3)

@@ -1,27 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys19.models import Survey, Subsidy
 
 
 class SubsidyTestCase(TestCase):
-    """
-    models: Subsidy, Survey
-    reference models :
-    data: s19-test-subsidy.yaml, s19-test-survey.yaml
-    main: Subsidy associate other models, the one farmer has one subsidy.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-subsidy.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        subsidy_list = Subsidy.objects.all()
-        self.assertEquals(len(subsidy_list), 2)
+        setup_fixtures()
 
     def test_create_subsidy(self):
         survey_id = Survey.objects.get(id=3)

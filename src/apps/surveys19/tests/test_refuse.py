@@ -1,35 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys19.models import Survey, Subsidy, Refuse, RefuseReason
 
 
 class RefuseTestCase(TestCase):
-    """
-    models: Refuse, Survey
-    reference models : s19-refuse-reason.yaml
-    data: s19-test-subsidy.yaml, s19-test-survey.yaml, s19-test-refuse.yaml
-    main: Subsidy associate other models, the one farmer has one subsidy.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-subsidy.yaml", verbosity=0)
-        call_command("loaddata", "s19-refuse-reason.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-refuse.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        subsidy_list = Subsidy.objects.all()
-        self.assertEquals(len(subsidy_list), 2)
-
-        refuse_list = Refuse.objects.all()
-        self.assertEquals(len(refuse_list), 2)
-
-        refusereason_list = RefuseReason.objects.all()
-        self.assertEquals(len(refusereason_list), 3)
+        setup_fixtures()
 
     def test_create_refuse(self):
         subsidy_id = Subsidy.objects.first()

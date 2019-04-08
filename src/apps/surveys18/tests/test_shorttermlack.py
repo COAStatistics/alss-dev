@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys18.models import (
     Survey,
     ShortTermLack,
@@ -11,33 +11,14 @@ from apps.surveys18.models import (
 
 
 class ModelTestCase(TestCase):
-    """
-    models: Survey, ShortTermLack
-    reference models : WorkType, Month, Product
-    data: shorttermlack.yaml, survey.yaml, work-type.yaml, month.yaml, product.yaml, product-type.yaml
-    main: ShortTermLack associate other models, the one farmer has many employee.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "test/survey.yaml", verbosity=0)
-        call_command("loaddata", "work-type.yaml", verbosity=0)
-        call_command("loaddata", "month.yaml", verbosity=0)
-        call_command("loaddata", "product-type.yaml", verbosity=0)
-        call_command("loaddata", "product.yaml", verbosity=0)
-        call_command("loaddata", "test/shorttermlack.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        shorttermlack_list = ShortTermLack.objects.all()
-        self.assertEquals(len(shorttermlack_list), 3)
+        setup_fixtures()
 
     def test_create_population(self):
         survey_id = Survey.objects.get(id=3)
-        work_type_code_a = WorkType.objects.get(id=5)
-        work_type_code_b = WorkType.objects.get(id=4)
+        work_type_code_a = WorkType.objects.get(id=4)
         month_a = Month.objects.get(id=4)
         month_b = Month.objects.get(id=5)
         month_c = Month.objects.get(id=6)
@@ -48,7 +29,7 @@ class ModelTestCase(TestCase):
         # new value
         ShortTermLack.objects.create(survey=survey_id, count=20, product=product)
         new_shorttermlack = ShortTermLack.objects.get(survey=survey_id)
-        new_shorttermlack.work_types.add(work_type_code_a, work_type_code_b)
+        new_shorttermlack.work_type = work_type_code_a
         new_shorttermlack.months.add(month_a, month_b, month_c)
         new_shorttermlack.save()
 

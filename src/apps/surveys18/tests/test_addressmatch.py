@@ -1,27 +1,13 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys18.models import Survey, AddressMatch
 
 
 class ModelTestCase(TestCase):
-    """
-    models: AddressMatch, Survey
-    reference models :
-    data: addressmatch.yaml, survey.yaml
-    main: AddressMatch associate survey, the one farmer has one address match info.
-    """
-
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "test/survey.yaml", verbosity=0)
-        call_command("loaddata", "test/addressmatch.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        address_match_list = AddressMatch.objects.all()
-        self.assertEquals(len(address_match_list), 2)
+        setup_fixtures()
 
     def test_create_address_match(self):
         survey_id = Survey.objects.get(id=3)
@@ -29,7 +15,7 @@ class ModelTestCase(TestCase):
 
         # new value
         AddressMatch.objects.create(
-            survey=survey_id, match=True, different=False, address=""
+            survey=survey_id, match=True, mismatch=False, address=""
         )
 
         address_match_list_after_size = len(AddressMatch.objects.all())

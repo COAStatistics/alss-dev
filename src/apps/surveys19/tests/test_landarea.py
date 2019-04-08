@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.core.management import call_command
+from .setup import setup_fixtures
 from apps.surveys19.models import (
     Survey,
     LandArea,
@@ -18,27 +18,10 @@ class LandAreaTestCase(TestCase):
     main: LandArea associate other models, the one farmer has many land types/status.
     """
 
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # load fixtures
-        call_command("loaddata", "s19-test-survey.yaml", verbosity=0)
-        call_command("loaddata", "s19-product-type.yaml", verbosity=0)
-        call_command("loaddata", "s19-unit.yaml", verbosity=0)
-        call_command("loaddata", "s19-land-status.yaml", verbosity=0)
-        call_command("loaddata", "s19-land-type.yaml", verbosity=0)
-        call_command("loaddata", "s19-test-landarea.yaml", verbosity=0)
-
-    def test_loaddata(self):
-        survey_list = Survey.objects.all()
-        self.assertEquals(len(survey_list), 3)
-
-        land_area_list = LandArea.objects.all()
-        self.assertEquals(len(land_area_list), 2)
-
-        land_type_list = LandType.objects.all()
-        self.assertEquals(len(land_type_list), 3)
-
-        land_status_list = LandStatus.objects.all()
-        self.assertEquals(len(land_status_list), 3)
+        setup_fixtures()
 
     def test_create_land_area(self):
         survey_id = Survey.objects.get(id=3)

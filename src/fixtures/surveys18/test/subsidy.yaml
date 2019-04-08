@@ -2,22 +2,18 @@
   pk: 1
   fields:
     survey: 1
-    is_subsidy: 1
+    has_subsidy: True
     count: 5
     month_delta: 0
     day_delta: 25
     hour_delta: 0
-    remark:
-    reasons: []
 
 - model: surveys18.Subsidy
   pk: 2
   fields:
     survey: 2
-    is_subsidy: 0
+    none_subsidy: True
     count: 0
     month_delta: 0
     day_delta: 0
     hour_delta: 0
-    remark: 沒興趣
-    reasons: [1, 2]
