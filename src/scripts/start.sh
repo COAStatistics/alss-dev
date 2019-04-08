@@ -6,6 +6,7 @@ set -o nounset
 set -o xtrace
 
 python manage.py migrate
+python manage.py compilemessages
 python manage.py collectstatic --noinput --verbosity 0
 
 echo "from apps.users.tests import initial" | python manage.py shell

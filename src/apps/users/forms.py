@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.utils.translation import ugettext as _
 
 from apps.users.models import User
 
@@ -12,8 +11,8 @@ class UserLoginForm(forms.Form):
     Login user.
     """
 
-    username = forms.CharField(label=_("帳號"))
-    password = forms.CharField(widget=forms.PasswordInput, label=_("密碼"))
+    username = forms.CharField(label="帳號")
+    password = forms.CharField(widget=forms.PasswordInput, label="密碼")
     # This field just for identity validate inactive error in views.py
     is_active = forms.BooleanField(
         widget=forms.HiddenInput, required=False, initial=True
@@ -26,10 +25,10 @@ class UserLoginForm(forms.Form):
         if username and password:
             user = authenticate(username=username, password=password)
             if not user:
-                raise forms.ValidationError(_("您輸入的帳號或密碼不正確，請重試"))
+                raise forms.ValidationError("您輸入的帳號或密碼不正確，請重試")
             if not user.is_active:
                 self.cleaned_data["is_active"] = False
-                raise forms.ValidationError(_("請先啟用您的帳戶"))
+                raise forms.ValidationError("請先啟用您的帳戶")
 
         return super(UserLoginForm, self).clean(*args, **kwargs)
 

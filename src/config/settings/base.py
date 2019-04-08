@@ -133,9 +133,6 @@ TIME_ZONE = "Asia/Taipei"
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
-# Languages we provide translations for, out of the box.
-LANGUAGES = [("zh-hant", _("Traditional Chinese")), ("en", _("English"))]
-
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True

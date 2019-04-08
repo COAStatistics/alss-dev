@@ -1,0 +1,723 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-09 00:55+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps/logs/models.py:37 apps/surveys18/models.py:62 apps/users/models.py:69
+msgid "User"
+msgstr "使用者"
+
+#: apps/logs/models.py:45
+msgid "Initialed Error Count"
+msgstr "原始錯誤數量"
+
+#: apps/logs/models.py:48
+msgid "Current Error Count"
+msgstr "目前錯誤數量"
+
+#: apps/logs/models.py:55 apps/surveys18/models.py:40
+#: apps/surveys18/models.py:136 apps/surveys18/models.py:187
+#: apps/surveys18/models.py:228 apps/surveys18/models.py:262
+#: apps/surveys18/models.py:297 apps/surveys18/models.py:319
+#: apps/surveys18/models.py:341 apps/surveys18/models.py:384
+#: apps/surveys18/models.py:429 apps/surveys18/models.py:462
+#: apps/surveys18/models.py:497 apps/surveys18/models.py:519
+#: apps/surveys18/models.py:594 apps/surveys18/models.py:617
+#: apps/surveys18/models.py:638 apps/surveys18/models.py:660
+#: apps/surveys18/models.py:683 apps/surveys18/models.py:705
+#: apps/surveys18/models.py:727 apps/surveys18/models.py:768
+#: apps/surveys18/models.py:826 apps/surveys18/models.py:890
+#: apps/surveys18/models.py:920 apps/surveys18/models.py:942
+#: apps/surveys18/models.py:971 apps/surveys18/models.py:992
+#: apps/surveys18/models.py:1017 apps/surveys18/models.py:1039
+#: apps/surveys18/models.py:1061 apps/surveys18/models.py:1096
+#: apps/surveys18/models.py:1110 apps/surveys18/models.py:1131
+#: apps/surveys18/models.py:1167 apps/surveys18/models.py:1210
+#: apps/surveys18/models.py:1237 apps/surveys18/models.py:1259
+#: apps/surveys18/models.py:1290 apps/surveys18/models.py:1313
+#: apps/surveys18/models.py:1334 apps/surveys18/models.py:1374
+#: apps/surveys18/models.py:1396 apps/surveys19/models.py:80
+#: apps/surveys19/models.py:108 apps/surveys19/models.py:140
+#: apps/surveys19/models.py:166 apps/surveys19/models.py:204
+#: apps/surveys19/models.py:227 apps/surveys19/models.py:265
+#: apps/surveys19/models.py:309 apps/surveys19/models.py:346
+#: apps/surveys19/models.py:366 apps/surveys19/models.py:390
+#: apps/surveys19/models.py:454 apps/surveys19/models.py:524
+#: apps/surveys19/models.py:548 apps/surveys19/models.py:576
+#: apps/surveys19/models.py:607 apps/surveys19/models.py:638
+#: apps/surveys19/models.py:662 apps/surveys19/models.py:703
+#: apps/surveys19/models.py:726 apps/surveys19/models.py:751
+#: apps/surveys19/models.py:775 apps/surveys19/models.py:817
+#: apps/surveys19/models.py:885 apps/surveys19/models.py:910
+#: apps/surveys19/models.py:934 apps/surveys19/models.py:959
+#: apps/surveys19/models.py:983 apps/surveys19/models.py:1007
+#: apps/surveys19/models.py:1052 apps/surveys19/models.py:1097
+#: apps/surveys19/models.py:1133 apps/surveys19/models.py:1172
+#: apps/surveys19/models.py:1196 apps/surveys19/models.py:1241
+#: apps/surveys19/models.py:1298 apps/surveys19/models.py:1322
+#: apps/surveys19/models.py:1354 apps/surveys19/models.py:1390
+#: apps/surveys19/models.py:1414 apps/surveys19/models.py:1437
+msgid "Updated"
+msgstr "上次更新"
+
+#: apps/logs/models.py:59
+msgid "ReviewLog"
+msgstr "檢誤紀錄"
+
+#: apps/logs/models.py:60
+msgid "ReviewLogs"
+msgstr "檢誤紀錄"
+
+#: apps/surveys18/models.py:34 apps/surveys18/models.py:97
+#: apps/surveys18/models.py:312 apps/surveys18/models.py:335
+#: apps/surveys18/models.py:512 apps/surveys18/models.py:611
+#: apps/surveys18/models.py:632 apps/surveys18/models.py:654
+#: apps/surveys18/models.py:676 apps/surveys18/models.py:699
+#: apps/surveys18/models.py:721 apps/surveys18/models.py:907
+#: apps/surveys18/models.py:936 apps/surveys18/models.py:958
+#: apps/surveys18/models.py:986 apps/surveys18/models.py:1003
+#: apps/surveys18/models.py:1033 apps/surveys18/models.py:1055
+#: apps/surveys18/models.py:1102 apps/surveys18/models.py:1125
+#: apps/surveys18/models.py:1146 apps/surveys18/models.py:1252
+#: apps/surveys18/models.py:1305 apps/surveys18/models.py:1328
+#: apps/surveys18/models.py:1389 apps/surveys19/models.py:39
+#: apps/surveys19/models.py:221 apps/surveys19/models.py:244
+#: apps/surveys19/models.py:358 apps/surveys19/models.py:384
+#: apps/surveys19/models.py:542 apps/surveys19/models.py:562
+#: apps/surveys19/models.py:594 apps/surveys19/models.py:625
+#: apps/surveys19/models.py:656 apps/surveys19/models.py:720
+#: apps/surveys19/models.py:743 apps/surveys19/models.py:768
+#: apps/surveys19/models.py:904 apps/surveys19/models.py:928
+#: apps/surveys19/models.py:952 apps/surveys19/models.py:977
+#: apps/surveys19/models.py:1001 apps/surveys19/models.py:1189
+#: apps/surveys19/models.py:1316 apps/surveys19/models.py:1407
+#: apps/surveys19/models.py:1430
+msgid "Name"
+msgstr "名稱"
+
+#: apps/surveys18/models.py:44 apps/surveys18/models.py:45
+#: apps/surveys18/models.py:76
+msgid "BuilderFileType"
+msgstr "資料匯入類型"
+
+#: apps/surveys18/models.py:55
+msgid "Create Time"
+msgstr "新增時間"
+
+#: apps/surveys18/models.py:64
+msgid "Token String"
+msgstr "匯入字串"
+
+#: apps/surveys18/models.py:69
+msgid "DataFile"
+msgstr "檔案"
+
+#: apps/surveys18/models.py:80 apps/surveys18/models.py:81
+msgid "BuilderFile"
+msgstr "匯入檔案"
+
+#: apps/surveys18/models.py:95 apps/surveys19/models.py:37
+msgid "Farmer Id"
+msgstr "農戶編號"
+
+#: apps/surveys18/models.py:99 apps/surveys19/models.py:41
+msgid "Total Pages"
+msgstr "總頁數"
+
+#: apps/surveys18/models.py:100 apps/surveys19/models.py:42
+msgid "Page"
+msgstr "頁面"
+
+#: apps/surveys18/models.py:101 apps/surveys19/models.py:43
+msgid "Origin Class"
+msgstr ""
+
+#: apps/surveys18/models.py:102 apps/surveys19/models.py:46
+msgid "Hire"
+msgstr ""
+
+#: apps/surveys18/models.py:103 apps/surveys19/models.py:47
+msgid "Non Hire"
+msgstr ""
+
+#: apps/surveys18/models.py:105 apps/surveys18/models.py:1263
+#: apps/surveys18/models.py:1264 apps/surveys19/models.py:49
+#: apps/surveys19/models.py:1200 apps/surveys19/models.py:1201
+msgid "Lack"
+msgstr ""
+
+#: apps/surveys18/models.py:111 apps/surveys19/models.py:55
+msgid "Management Types"
+msgstr ""
+
+#: apps/surveys18/models.py:113 apps/surveys19/models.py:57
+msgid "Note"
+msgstr ""
+
+#: apps/surveys18/models.py:114 apps/surveys19/models.py:58
+msgid "Is Updated"
+msgstr ""
+
+#: apps/surveys18/models.py:115 apps/surveys19/models.py:59
+msgid "Read Only"
+msgstr "唯獨"
+
+#: apps/surveys18/models.py:123 apps/surveys19/models.py:62
+msgid "Investigator"
+msgstr ""
+
+#: apps/surveys18/models.py:125 apps/surveys19/models.py:69
+msgid "Investigation Date"
+msgstr ""
+
+#: apps/surveys18/models.py:127 apps/surveys19/models.py:71
+msgid "Investigation Distance(km)"
+msgstr ""
+
+#: apps/surveys18/models.py:129 apps/surveys19/models.py:73
+msgid "Investigation Period"
+msgstr ""
+
+#: apps/surveys18/models.py:142 apps/surveys18/models.py:143
+#: apps/surveys18/models.py:157 apps/surveys18/models.py:206
+#: apps/surveys18/models.py:247 apps/surveys18/models.py:360
+#: apps/surveys18/models.py:404 apps/surveys18/models.py:449
+#: apps/surveys18/models.py:538 apps/surveys18/models.py:746
+#: apps/surveys18/models.py:787 apps/surveys18/models.py:846
+#: apps/surveys18/models.py:1080 apps/surveys18/models.py:1186
+#: apps/surveys18/models.py:1229 apps/surveys18/models.py:1278
+#: apps/surveys18/models.py:1353 apps/surveys19/models.py:84
+#: apps/surveys19/models.py:85 apps/surveys19/models.py:100
+#: apps/surveys19/models.py:128 apps/surveys19/models.py:187
+#: apps/surveys19/models.py:285 apps/surveys19/models.py:330
+#: apps/surveys19/models.py:413 apps/surveys19/models.py:478
+#: apps/surveys19/models.py:682 apps/surveys19/models.py:795
+#: apps/surveys19/models.py:837 apps/surveys19/models.py:1027
+#: apps/surveys19/models.py:1073 apps/surveys19/models.py:1118
+#: apps/surveys19/models.py:1218 apps/surveys19/models.py:1264
+#: apps/surveys19/models.py:1342
+msgid "Survey"
+msgstr "調查表"
+
+#: apps/surveys18/models.py:165 apps/surveys18/models.py:854
+#: apps/surveys18/models.py:1021 apps/surveys18/models.py:1022
+#: apps/surveys19/models.py:486 apps/surveys19/models.py:580
+#: apps/surveys19/models.py:581 apps/surveys19/models.py:1272
+msgid "Product"
+msgstr ""
+
+#: apps/surveys18/models.py:173 apps/surveys18/models.py:214
+#: apps/surveys18/models.py:413 apps/surveys19/models.py:1036
+#: apps/surveys19/models.py:1226 apps/surveys19/models.py:1280
+msgid "Work Type"
+msgstr ""
+
+#: apps/surveys18/models.py:175 apps/surveys18/models.py:216
+#: apps/surveys18/models.py:256 apps/surveys18/models.py:453
+#: apps/surveys19/models.py:1127 apps/surveys19/models.py:1228
+#: apps/surveys19/models.py:1285 apps/surveys19/models.py:1346
+msgid "Number Of People"
+msgstr ""
+
+#: apps/surveys18/models.py:180 apps/surveys18/models.py:221
+#: apps/surveys18/models.py:419 apps/surveys19/models.py:1042
+#: apps/surveys19/models.py:1233 apps/surveys19/models.py:1290
+msgid "Months"
+msgstr ""
+
+#: apps/surveys18/models.py:191 apps/surveys18/models.py:192
+#: apps/surveys19/models.py:1302 apps/surveys19/models.py:1303
+msgid "ShortTermLack"
+msgstr ""
+
+#: apps/surveys18/models.py:232 apps/surveys18/models.py:233
+#: apps/surveys19/models.py:1245 apps/surveys19/models.py:1246
+msgid "LongTermLack"
+msgstr ""
+
+#: apps/surveys18/models.py:254 apps/surveys18/models.py:368
+#: apps/surveys18/models.py:1400 apps/surveys18/models.py:1401
+#: apps/surveys19/models.py:1081 apps/surveys19/models.py:1125
+#: apps/surveys19/models.py:1441 apps/surveys19/models.py:1442
+msgid "Month"
+msgstr ""
+
+#: apps/surveys18/models.py:266 apps/surveys18/models.py:267
+#: apps/surveys19/models.py:1137 apps/surveys19/models.py:1138
+msgid "NoSalaryHire"
+msgstr ""
+
+#: apps/surveys18/models.py:289 apps/surveys18/models.py:760
+#: apps/surveys19/models.py:809 apps/surveys19/models.py:1164
+msgid "Age Scope"
+msgstr ""
+
+#: apps/surveys18/models.py:291 apps/surveys18/models.py:762
+#: apps/surveys19/models.py:811 apps/surveys19/models.py:1166
+msgid "Count"
+msgstr ""
+
+#: apps/surveys18/models.py:301 apps/surveys18/models.py:302
+#: apps/surveys19/models.py:1176 apps/surveys19/models.py:1177
+msgid "NumberWorkers"
+msgstr ""
+
+#: apps/surveys18/models.py:313 apps/surveys19/models.py:769
+msgid "Group"
+msgstr ""
+
+#: apps/surveys18/models.py:323 apps/surveys18/models.py:324
+#: apps/surveys19/models.py:779 apps/surveys19/models.py:780
+msgid "AgeScope"
+msgstr ""
+
+#: apps/surveys18/models.py:334 apps/surveys18/models.py:610
+#: apps/surveys18/models.py:653 apps/surveys18/models.py:675
+#: apps/surveys18/models.py:698 apps/surveys18/models.py:720
+#: apps/surveys18/models.py:906 apps/surveys18/models.py:935
+#: apps/surveys18/models.py:957 apps/surveys18/models.py:1004
+#: apps/surveys18/models.py:1032 apps/surveys18/models.py:1054
+#: apps/surveys18/models.py:1101 apps/surveys19/models.py:160
+#: apps/surveys19/models.py:197 apps/surveys19/models.py:357
+#: apps/surveys19/models.py:383 apps/surveys19/models.py:563
+#: apps/surveys19/models.py:593 apps/surveys19/models.py:624
+#: apps/surveys19/models.py:655 apps/surveys19/models.py:903
+#: apps/surveys19/models.py:927 apps/surveys19/models.py:951
+#: apps/surveys19/models.py:976 apps/surveys19/models.py:1000
+#: apps/surveys19/models.py:1315
+msgid "Code"
+msgstr ""
+
+#: apps/surveys18/models.py:345 apps/surveys18/models.py:346
+#: apps/surveys19/models.py:1326 apps/surveys19/models.py:1327
+msgid "WorkType"
+msgstr ""
+
+#: apps/surveys18/models.py:362 apps/surveys18/models.py:406
+#: apps/surveys19/models.py:1029 apps/surveys19/models.py:1075
+msgid "Average Work Day"
+msgstr ""
+
+#: apps/surveys18/models.py:374 apps/surveys19/models.py:1087
+msgid "Work Types"
+msgstr ""
+
+#: apps/surveys18/models.py:388 apps/surveys18/models.py:389
+#: apps/surveys19/models.py:1101 apps/surveys19/models.py:1102
+msgid "ShortTermHire"
+msgstr ""
+
+#: apps/surveys18/models.py:433 apps/surveys18/models.py:434
+#: apps/surveys19/models.py:1056 apps/surveys19/models.py:1057
+msgid "LongTermHire"
+msgstr ""
+
+#: apps/surveys18/models.py:451 apps/surveys19/models.py:1344
+msgid "Has Subsidy"
+msgstr ""
+
+#: apps/surveys18/models.py:452 apps/surveys19/models.py:1345
+msgid "None Subsidy"
+msgstr ""
+
+#: apps/surveys18/models.py:454 apps/surveys19/models.py:1347
+msgid "Month Delta"
+msgstr ""
+
+#: apps/surveys18/models.py:455 apps/surveys19/models.py:1348
+msgid "Day Delta"
+msgstr ""
+
+#: apps/surveys18/models.py:456
+msgid "Hour Delta"
+msgstr ""
+
+#: apps/surveys18/models.py:466 apps/surveys18/models.py:467
+#: apps/surveys18/models.py:481 apps/surveys19/models.py:1358
+#: apps/surveys19/models.py:1359 apps/surveys19/models.py:1374
+msgid "Subsidy"
+msgstr ""
+
+#: apps/surveys18/models.py:489 apps/surveys18/models.py:501
+#: apps/surveys18/models.py:502 apps/surveys19/models.py:1382
+#: apps/surveys19/models.py:1394 apps/surveys19/models.py:1395
+msgid "Refuse"
+msgstr ""
+
+#: apps/surveys18/models.py:491 apps/surveys18/models.py:1090
+#: apps/surveys19/models.py:340 apps/surveys19/models.py:1384
+msgid "Extra"
+msgstr ""
+
+#: apps/surveys18/models.py:513 apps/surveys18/models.py:1103
+#: apps/surveys19/models.py:359 apps/surveys19/models.py:1408
+msgid "Has Extra"
+msgstr ""
+
+#: apps/surveys18/models.py:523 apps/surveys18/models.py:524
+#: apps/surveys19/models.py:1418 apps/surveys19/models.py:1419
+msgid "RefuseReason"
+msgstr ""
+
+#: apps/surveys18/models.py:546 apps/surveys18/models.py:664
+#: apps/surveys18/models.py:665 apps/surveys19/models.py:845
+#: apps/surveys19/models.py:914 apps/surveys19/models.py:915
+msgid "Relationship"
+msgstr ""
+
+#: apps/surveys18/models.py:554 apps/surveys18/models.py:731
+#: apps/surveys18/models.py:732 apps/surveys18/models.py:750
+#: apps/surveys19/models.py:799 apps/surveys19/models.py:853
+#: apps/surveys19/models.py:938 apps/surveys19/models.py:939
+msgid "Gender"
+msgstr ""
+
+#: apps/surveys18/models.py:556 apps/surveys19/models.py:855
+msgid "Birth Year"
+msgstr ""
+
+#: apps/surveys18/models.py:563 apps/surveys19/models.py:862
+msgid "Education Level"
+msgstr ""
+
+#: apps/surveys18/models.py:571 apps/surveys19/models.py:870
+msgid "Farmer Work Day"
+msgstr ""
+
+#: apps/surveys18/models.py:579 apps/surveys19/models.py:878
+msgid "Life Style"
+msgstr ""
+
+#: apps/surveys18/models.py:587
+msgid "Other Farm Work"
+msgstr ""
+
+#: apps/surveys18/models.py:598 apps/surveys18/models.py:599
+#: apps/surveys19/models.py:889 apps/surveys19/models.py:890
+msgid "Population"
+msgstr ""
+
+#: apps/surveys18/models.py:621 apps/surveys18/models.py:622
+#: apps/surveys19/models.py:987 apps/surveys19/models.py:988
+msgid "FarmerWorkDay"
+msgstr ""
+
+#: apps/surveys18/models.py:642 apps/surveys18/models.py:643
+msgid "OtherFarmWork"
+msgstr ""
+
+#: apps/surveys18/models.py:677 apps/surveys19/models.py:953
+msgid "Age"
+msgstr ""
+
+#: apps/surveys18/models.py:687 apps/surveys18/models.py:688
+#: apps/surveys19/models.py:963 apps/surveys19/models.py:964
+msgid "EducationLevel"
+msgstr ""
+
+#: apps/surveys18/models.py:709 apps/surveys18/models.py:710
+#: apps/surveys19/models.py:1011 apps/surveys19/models.py:1012
+msgid "LifeStyle"
+msgstr ""
+
+#: apps/surveys18/models.py:772 apps/surveys18/models.py:773
+#: apps/surveys19/models.py:821 apps/surveys19/models.py:822
+msgid "PopulationAge"
+msgstr ""
+
+#: apps/surveys18/models.py:795 apps/surveys19/models.py:421
+msgid "Product Code"
+msgstr ""
+
+#: apps/surveys18/models.py:803 apps/surveys18/models.py:862
+#: apps/surveys18/models.py:924 apps/surveys18/models.py:925
+#: apps/surveys19/models.py:429 apps/surveys19/models.py:494
+#: apps/surveys19/models.py:642 apps/surveys19/models.py:643
+msgid "Loss"
+msgstr ""
+
+#: apps/surveys18/models.py:811 apps/surveys18/models.py:870
+#: apps/surveys18/models.py:975 apps/surveys18/models.py:976
+#: apps/surveys18/models.py:1159 apps/surveys19/models.py:257
+#: apps/surveys19/models.py:437 apps/surveys19/models.py:502
+#: apps/surveys19/models.py:611 apps/surveys19/models.py:612
+msgid "Unit"
+msgstr ""
+
+#: apps/surveys18/models.py:813 apps/surveys19/models.py:442
+msgid "Land Number"
+msgstr ""
+
+#: apps/surveys18/models.py:814 apps/surveys19/models.py:443
+msgid "Land Area"
+msgstr ""
+
+#: apps/surveys18/models.py:815 apps/surveys19/models.py:444
+msgid "Plant Times"
+msgstr ""
+
+#: apps/surveys18/models.py:816 apps/surveys18/models.py:883
+msgid "Total Yield"
+msgstr ""
+
+#: apps/surveys18/models.py:817 apps/surveys18/models.py:884
+msgid "Unit Price"
+msgstr ""
+
+#: apps/surveys18/models.py:819 apps/surveys19/models.py:447
+msgid "Has Facility"
+msgstr ""
+
+#: apps/surveys18/models.py:830 apps/surveys18/models.py:831
+#: apps/surveys19/models.py:458 apps/surveys19/models.py:459
+msgid "CropMarketing"
+msgstr ""
+
+#: apps/surveys18/models.py:878 apps/surveys19/models.py:510
+msgid "Contract"
+msgstr ""
+
+#: apps/surveys18/models.py:881 apps/surveys19/models.py:516
+msgid "Raising Number"
+msgstr ""
+
+#: apps/surveys18/models.py:894 apps/surveys18/models.py:895
+#: apps/surveys19/models.py:528 apps/surveys19/models.py:529
+msgid "LivestockMarketing"
+msgstr ""
+
+#: apps/surveys18/models.py:913 apps/surveys18/models.py:964
+#: apps/surveys18/models.py:1010 apps/surveys19/models.py:569
+#: apps/surveys19/models.py:600 apps/surveys19/models.py:631
+msgid "Product Type"
+msgstr ""
+
+#: apps/surveys18/models.py:946 apps/surveys18/models.py:947
+msgid "Facility"
+msgstr ""
+
+#: apps/surveys18/models.py:1043 apps/surveys18/models.py:1044
+#: apps/surveys19/models.py:666 apps/surveys19/models.py:667
+msgid "LivestockUnit"
+msgstr ""
+
+#: apps/surveys18/models.py:1065 apps/surveys18/models.py:1066
+#: apps/surveys19/models.py:394 apps/surveys19/models.py:395
+msgid "ManagementType"
+msgstr ""
+
+#: apps/surveys18/models.py:1088 apps/surveys19/models.py:338
+msgid "Farm Related Business"
+msgstr ""
+
+#: apps/surveys18/models.py:1104 apps/surveys19/models.py:360
+msgid "Has Business"
+msgstr ""
+
+#: apps/surveys18/models.py:1114 apps/surveys18/models.py:1115
+#: apps/surveys19/models.py:370 apps/surveys19/models.py:371
+msgid "FarmRelatedBusiness"
+msgstr ""
+
+#: apps/surveys18/models.py:1135 apps/surveys18/models.py:1136
+#: apps/surveys19/models.py:231 apps/surveys19/models.py:232
+msgid "LandStatus"
+msgstr ""
+
+#: apps/surveys18/models.py:1151 apps/surveys19/models.py:249
+msgid "Land Statuses"
+msgstr ""
+
+#: apps/surveys18/models.py:1161 apps/surveys19/models.py:259
+msgid "Has Land"
+msgstr ""
+
+#: apps/surveys18/models.py:1171 apps/surveys18/models.py:1172
+#: apps/surveys19/models.py:269 apps/surveys19/models.py:270
+msgid "LandType"
+msgstr ""
+
+#: apps/surveys18/models.py:1194 apps/surveys19/models.py:293
+msgid "Type"
+msgstr ""
+
+#: apps/surveys18/models.py:1202 apps/surveys19/models.py:301
+msgid "Status"
+msgstr ""
+
+#: apps/surveys18/models.py:1204 apps/surveys19/models.py:303
+msgid "Area Value"
+msgstr ""
+
+#: apps/surveys18/models.py:1214 apps/surveys18/models.py:1215
+#: apps/surveys19/models.py:313 apps/surveys19/models.py:314
+msgid "LandArea"
+msgstr ""
+
+#: apps/surveys18/models.py:1231 apps/surveys18/models.py:1241
+#: apps/surveys18/models.py:1242 apps/surveys19/models.py:102
+#: apps/surveys19/models.py:112 apps/surveys19/models.py:113
+msgid "Phone"
+msgstr ""
+
+#: apps/surveys18/models.py:1253 apps/surveys19/models.py:1190
+msgid "Is Lack"
+msgstr ""
+
+#: apps/surveys18/models.py:1280 apps/surveys19/models.py:130
+msgid "Address Match"
+msgstr ""
+
+#: apps/surveys18/models.py:1281 apps/surveys19/models.py:131
+msgid "Address MisMatch"
+msgstr ""
+
+#: apps/surveys18/models.py:1283 apps/surveys19/models.py:133
+msgid "Address"
+msgstr ""
+
+#: apps/surveys18/models.py:1294 apps/surveys18/models.py:1295
+#: apps/surveys19/models.py:144 apps/surveys19/models.py:145
+msgid "AddressMatch"
+msgstr ""
+
+#: apps/surveys18/models.py:1306 apps/surveys19/models.py:744
+msgid "Minimum Income"
+msgstr ""
+
+#: apps/surveys18/models.py:1307 apps/surveys19/models.py:745
+msgid "Maximum Income"
+msgstr ""
+
+#: apps/surveys18/models.py:1317 apps/surveys19/models.py:755
+msgid "IncomeRange"
+msgstr ""
+
+#: apps/surveys18/models.py:1318 apps/surveys19/models.py:756
+msgid "IncomeRanges"
+msgstr ""
+
+#: apps/surveys18/models.py:1338 apps/surveys19/models.py:730
+msgid "MarketType"
+msgstr ""
+
+#: apps/surveys18/models.py:1339 apps/surveys19/models.py:731
+msgid "MarketTypes"
+msgstr ""
+
+#: apps/surveys18/models.py:1360 apps/surveys19/models.py:689
+msgid "Market Type"
+msgstr ""
+
+#: apps/surveys18/models.py:1367 apps/surveys19/models.py:696
+msgid "Income Range"
+msgstr ""
+
+#: apps/surveys18/models.py:1378 apps/surveys19/models.py:707
+msgid "AnnualIncome"
+msgstr ""
+
+#: apps/surveys18/models.py:1379 apps/surveys19/models.py:708
+msgid "AnnualIncomes"
+msgstr ""
+
+#: apps/surveys19/models.py:44
+msgid "Second"
+msgstr ""
+
+#: apps/surveys19/models.py:45
+msgid "Non Second"
+msgstr ""
+
+#: apps/surveys19/models.py:66
+msgid "Reviewer"
+msgstr "審表人"
+
+#: apps/surveys19/models.py:158 apps/surveys19/models.py:170
+#: apps/surveys19/models.py:171 apps/surveys19/models.py:189
+msgid "City"
+msgstr ""
+
+#: apps/surveys19/models.py:159 apps/surveys19/models.py:190
+msgid "Town"
+msgstr ""
+
+#: apps/surveys19/models.py:208 apps/surveys19/models.py:209
+msgid "FarmLocation"
+msgstr ""
+
+#: apps/surveys19/models.py:440 apps/surveys19/models.py:513
+#: apps/surveys19/models.py:1283
+msgid "Product Name"
+msgstr ""
+
+#: apps/surveys19/models.py:445 apps/surveys19/models.py:518
+msgid "Year Sales"
+msgstr ""
+
+#: apps/surveys19/models.py:1235 apps/surveys19/models.py:1292
+msgid "Average Lack Day"
+msgstr ""
+
+#: apps/users/admin.py:18
+msgid "Auth"
+msgstr "帳戶驗證"
+
+#: apps/users/admin.py:19
+msgid "Personal info"
+msgstr "個人資訊"
+
+#: apps/users/admin.py:21
+msgid "Settings"
+msgstr "設定"
+
+#: apps/users/admin.py:24
+msgid "Important dates"
+msgstr "活動紀錄"
+
+#: apps/users/models.py:47
+msgid "Email"
+msgstr "電子信箱"
+
+#: apps/users/models.py:49
+msgid "Mobile"
+msgstr "手機"
+
+#: apps/users/models.py:53
+msgid "Full Name"
+msgstr "全名"
+
+#: apps/users/models.py:53
+msgid "Unknown User"
+msgstr "未知的使用者"
+
+#: apps/users/models.py:56
+msgid "Active"
+msgstr "已啟用"
+
+#: apps/users/models.py:57
+msgid "Staff"
+msgstr "內部工作人員"
+
+#: apps/users/models.py:59
+msgid "Registered At"
+msgstr "註冊時間"
+
+#: apps/users/models.py:70
+msgid "Users"
+msgstr "使用者"
