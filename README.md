@@ -18,12 +18,17 @@ DATABASES = {
 }
 ```
 
-Use `--build` to rebuild image, `-d` to run containers in the background :
+Use `--build` to rebuild image(if requires changes, you must add this), `-d` to run containers in the background:
 ```
 $ docker-compose up
 ```
 
-Use `-v` to clean volume while stop containers:
+Run a command in a running container with bash, `web` is the `container_name` defined in `docker-compose.yaml`:
+```
+$ docker exec -it web bash
+```
+
+Use `-v` to clean volume while stop containers(if migrations files have been rewired, you must add this):
 ```
 $ docker-compose down -v
 ```
