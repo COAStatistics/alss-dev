@@ -167,7 +167,7 @@ $(document).ready(function() {
                             initial_errors: Helper.LogHandler.CollectError.InitialErrors,
                             current_errors: Helper.LogHandler.CollectError.GetCurrent(),
                             object_id: CloneData[MainSurveyId].id,
-                            app_label: 'surveys18',
+                            app_label: 'surveys19',
                             model: 'survey',
                         }
                         var ajax = SetLogData(JSON.stringify(data));

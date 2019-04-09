@@ -406,6 +406,7 @@ var SurveyHelper = {
         this.Warning = new Helper.Alert($('.alert-warning[name="survey"]'));
         this.Hire.Setup();
         this.Lack.Setup();
+        this.Second.Setup();
 
         this.FarmerName.Bind();
         this.Phone.Bind();
@@ -414,6 +415,7 @@ var SurveyHelper = {
         this.Hire.Bind();
         this.Lack.Bind();
         this.Note.Bind();
+        this.Second.Bind();
     },
     Reset: function () {
         if (this.Alert) { this.Alert.reset(); }
@@ -426,6 +428,7 @@ var SurveyHelper = {
         this.Hire.Reset();
         this.Lack.Reset();
         this.Note.Reset();
+        this.Second.Reset();
     },
     Set: function (obj) {
         this.FarmerId.Set(obj);
@@ -436,6 +439,7 @@ var SurveyHelper = {
         this.Hire.Set(obj);
         this.Lack.Set(obj);
         this.Note.Set(obj);
+        this.Second.Set(obj);
         this.IsUpdated.Validation.IsUpdated.Validate(obj);
     },
     IsUpdated: {
@@ -804,6 +808,78 @@ var SurveyHelper = {
                 },
             },
         }
+    },
+    Second: {
+        Alert: null,
+        Setup: function(){
+            this.Alert = new Helper.Alert($('.alert-danger[name="second"]'));
+        },
+        Container: $('#panel2 input[name="second"]'),
+        Bind: function(){
+            this.Container.change(function(){
+                if(CloneData) {
+                    var field = $(this).data('field');
+                    if(field == 'second')
+                        CloneData[MainSurveyId].second = this.checked;
+                    else if(field == 'nonsecond')
+                        CloneData[MainSurveyId].non_second = this.checked;
+
+                    if(Helper.LogHandler.ValidationActive){
+                        SurveyHelper.Second.Validation.Empty.Validate();
+                        SurveyHelper.Second.Validation.Duplicate.Validate();
+                        SurveyHelper.Second.Validation.SecondExist.Validate();
+                    }
+                }
+            })
+        },
+        Set: function (obj) {
+            this.Container.filter('[data-field="second"]').prop('checked', obj.second);
+            this.Container.filter('[data-field="nonsecond"]').prop('checked', obj.non_second);
+
+            if(Helper.LogHandler.ValidationActive){
+                SurveyHelper.Second.Validation.Empty.Validate();
+                SurveyHelper.Second.Validation.Duplicate.Validate();
+            }
+        },
+        Reset: function(){
+            if (this.Alert) { this.Alert.reset(); }
+            this.Container.prop('checked', false);
+        },
+        Validation: {
+            Empty: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.Second.Container.filter(':checked').length == 0;
+                    var msg = '不可漏填此問項';
+                    Helper.LogHandler.Log(con, SurveyHelper.Second.Alert, msg, this.Guids[0]);
+                },
+            },
+            Duplicate: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.Second.Container.filter(':checked').length > 1;
+                    var msg = '戶內是否有二代青農不得重複勾選';
+                    Helper.LogHandler.Log(con, SurveyHelper.Second.Alert, msg, this.Guids[0]);
+                },
+            },
+            SecondExist: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var checked = SurveyHelper.Second.Container.filter('[data-field="second"]').prop('checked');
+                    var exists = false;
+                    PopulationHelper.Population.Container.find('tr').each(function(){
+                        var birthYear = $(this).find('[name="birthyear"]').val();
+                        var lifeStyleId = $(this).find('[name="lifestyle"]').val();
+                        if(birthYear <= 89 && birthYear >= 62 && Helper.NumberValidate(birthYear) && lifeStyleId == 1){
+                            exists = true;
+                        }
+                    })
+                    var con = checked && !exists;
+                    var msg = '勾選「有」者，【問項2.2】戶內人口應有「出生年次」介於62年至89年之間且「主要生活型態」勾選「自營農牧業工作」';
+                    Helper.LogHandler.Log(con, SurveyHelper.Second.Alert, msg, this.Guids[0]);
+                },
+            },
+        },
     },
     NumberWorker : {
         Object: {
@@ -2010,6 +2086,7 @@ var PopulationHelper = {
                             Helper.LogHandler.DeleteRow(PopulationHelper.Alert, $tr, $nextAll);
                             PopulationAgeHelper.Validation.MemberCount.Validate();
                             PopulationHelper.Validation.AtLeastOne65Worker.Validate();
+                            SurveyHelper.Second.Validation.SecondExist.Validate();
                         }
                     })
                 }
@@ -2040,6 +2117,7 @@ var PopulationHelper = {
                         PopulationHelper.Validation.AtLeastOne65Worker.Validate();
                         PopulationHelper.Validation.MarketType3Checked.Validate();
                         PopulationAgeHelper.Validation.MemberCount.Validate();
+                        SurveyHelper.Second.Validation.SecondExist.Validate();
                     }
                 }
             })
@@ -2064,6 +2142,7 @@ var PopulationHelper = {
                         PopulationHelper.Validation.RequiredField.Validate($row);
                         PopulationAgeHelper.Validation.MemberCount.Validate();
                         PopulationHelper.Validation.AtLeastOne65Worker.Validate();
+                        SurveyHelper.Second.Validation.SecondExist.Validate();
                     }
                 }
             })
