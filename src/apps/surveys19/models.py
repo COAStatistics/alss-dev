@@ -55,7 +55,6 @@ class Survey(Model):
         verbose_name=_("Management Types"),
     )
     note = TextField(null=True, blank=True, verbose_name=_("Note"))
-    is_updated = BooleanField(default=False, verbose_name=_("Is Updated"))
     readonly = BooleanField(default=True, verbose_name=_("Read Only"))
 
     investigator = CharField(
