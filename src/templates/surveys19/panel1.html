@@ -44,9 +44,9 @@
                 <div class="col-xs-12">
                     <label class="control-label">可耕作地或畜牧用地（場址）所在地區</label>
                     <div class="form-inline">
-                        <input type="text" class="small form-control">縣（市）
-                        <input type="text" class="small form-control">鄉（鎮市區）
-                        代號（見手冊）<input type="text" class="small form-control">
+                        <input type="text" class="small form-control" name="city">縣（市）
+                        <input type="text" class="small form-control" name="town">鄉（鎮市區）
+                        代號（見手冊）{% include 'surveys19/dropdown-ui/city-town-code.html' %}
                     </div>
                 </div>
             </div>

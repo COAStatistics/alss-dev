@@ -63,8 +63,7 @@ class Surveys2019Index(LoginRequiredMixin, TemplateView):
         context["life_styles"] = LifeStyle.objects.all()
         context["work_types"] = WorkType.objects.all()
         context["refuse_reasons"] = RefuseReason.objects.all()
-
-        context["citytowncode"] = CityTownCode.objects.all()
+        context["citytowncodes"] = CityTownCode.objects.all()
 
         # ui elements
         ui = {
