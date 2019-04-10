@@ -22,16 +22,16 @@ from django.conf.urls.static import static
 from apps.surveys18.views import Surveys2018Index
 from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title='Pastebin API',)
+schema_view = get_swagger_view(title='農業勞動力調查平台應用程式介面',)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", Surveys2018Index.as_view(), name="index"),
     path("logs/", include("apps.logs.urls", namespace="logs")),
     path("users/", include("apps.users.urls", namespace="users")),
-    path("surveys18/", include("apps.surveys18.urls", namespace="surveys18")),
-    path("surveys19/", include("apps.surveys19.urls", namespace="surveys19")),
-    path('api/docs/', schema_view),
+    path("106/", include("apps.surveys18.urls", namespace="surveys18")),
+    path("107/", include("apps.surveys19.urls", namespace="surveys19")),
+    path('swagger/', schema_view),
 ]
 
 if settings.DEBUG:
