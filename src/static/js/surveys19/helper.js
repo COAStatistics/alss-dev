@@ -20,6 +20,7 @@ $(document).ready(function () {
 
 var Reset = function () {
     SurveyHelper.Reset();
+    FarmLocationHelper.Reset();
     LandAreaHelper.Reset();
     BusinessHelper.Reset();
     ManagementTypeHelper.Reset();
@@ -39,6 +40,7 @@ var Set = function (data, surveyId) {
     if (data.page == 1) {
         MainSurveyId = surveyId;
         SurveyHelper.Set(data);
+        if(data.farm_location) FarmLocationHelper.Set(data.farm_location)
         if(data.land_areas) LandAreaHelper.Set(data.land_areas);
         if(data.businesses) BusinessHelper.Set(data.businesses);
         if(data.management_types) ManagementTypeHelper.Set(data.management_types);
@@ -75,6 +77,7 @@ var Setup = function(globalUI){
     Helper.LogHandler.Setup();
 
     SurveyHelper.Setup();
+    FarmLocationHelper.Setup();
     LandAreaHelper.Setup();
     BusinessHelper.Setup();
     ManagementTypeHelper.Setup();
@@ -189,7 +192,7 @@ var Helper = {
             <p data-guid="" data-group-guid="" style="line-height:30px;">\
                 <span></span>\
                 <button type="button" class="btn btn-warning btn-sm pull-right">\
-                    <i class="fa fa-remove" aria-hidden="true"></i>這是特殊情形\
+                    <i class="fa fa-remove" aria-hidden="true"></i>例外\
                 </button>\
             </p>\
         ',
@@ -886,6 +889,91 @@ var SurveyHelper = {
             },
         }
     }
+}
+var FarmLocationHelper = {
+    Alert: null,
+    Setup: function(){
+        this.Alert = SurveyHelper.Alert;
+        this.Bind();
+    },
+    Container: {
+        City: $('#panel1 input[name="city"]'),
+        Town: $('#panel1 input[name="town"]'),
+        CityTownCode: $('#panel1 select[name="citytowncode"]'),
+    },
+    Set: function(obj){
+        this.Container.City.val(obj.city);
+        this.Container.Town.val(obj.town);
+        this.Container.CityTownCode.selectpicker('val', obj.code);
+        if(Helper.LogHandler.ValidationActive){
+            this.Validation.Empty.Validate();
+            this.Validation.SameName.Validate();
+        }
+    },
+    Reset: function(){
+        this.Container.City.val('');
+        this.Container.Town.val('');
+        this.Container.CityTownCode.selectpicker('val', '');
+    },
+    Bind: function(){
+        this.Container.City.change(function(){
+            if(CloneData){
+                CloneData[MainSurveyId].farm_location.city = $(this).val();
+                if(Helper.LogHandler.ValidationActive){
+                    FarmLocationHelper.Validation.Empty.Validate();
+                    FarmLocationHelper.Validation.SameName.Validate();
+                }
+            }
+        })
+        this.Container.Town.change(function(){
+            if(CloneData){
+                CloneData[MainSurveyId].farm_location.town = $(this).val();
+                if(Helper.LogHandler.ValidationActive){
+                    FarmLocationHelper.Validation.Empty.Validate();
+                    FarmLocationHelper.Validation.SameName.Validate();
+                }
+            }
+        })
+        this.Container.CityTownCode.change(function(){
+            if(CloneData){
+                CloneData[MainSurveyId].farm_location.code = parseInt($(this).val());
+                if(Helper.LogHandler.ValidationActive){
+                    FarmLocationHelper.Validation.Empty.Validate();
+                    FarmLocationHelper.Validation.SameName.Validate();
+                }
+            }
+        })
+    },
+    Validation: {
+        Empty: {
+            Guids: Helper.Guid.CreateMulti(2),
+            Validate: function(){
+                var con = FarmLocationHelper.Container.City.val() == '';
+                var msg = '不可漏填可耕作地或畜牧用地所在縣市';
+                Helper.LogHandler.Log(con, FarmLocationHelper.Alert, msg, this.Guids[0]);
+
+                var con = FarmLocationHelper.Container.Town.val() == '';
+                var msg = '不可漏填可耕作地或畜牧用地所在鄉鎮';
+                Helper.LogHandler.Log(con, FarmLocationHelper.Alert, msg, this.Guids[1]);
+
+                var con = FarmLocationHelper.Container.CityTownCode.val() == '';
+                var msg = '不可漏填可耕作地或畜牧用地代號';
+                Helper.LogHandler.Log(con, FarmLocationHelper.Alert, msg, this.Guids[2]);
+            },
+        },
+        SameName: {
+            Guids: Helper.Guid.CreateMulti(2),
+            Validate: function(){
+                var city = FarmLocationHelper.Container.City.val().replace('台', '臺');
+                var town = FarmLocationHelper.Container.Town.val();
+                var selectedData = FarmLocationHelper.Container.CityTownCode.find('option:selected').data();
+
+                var con = !$.isEmptyObject(selectedData) && (city != selectedData.cityName || town != selectedData.townName);
+                var msg = '可耕作地或畜牧用地所在地區之中文與所選代號({0}/{1})不一致'.format(selectedData.cityName, selectedData.townName);
+                Helper.LogHandler.Log(con, FarmLocationHelper.Alert, msg, this.Guids[0]);
+            },
+        },
+    },
 }
 var LandAreaHelper = {
     Alert: null,

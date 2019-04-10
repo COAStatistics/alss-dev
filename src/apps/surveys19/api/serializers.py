@@ -355,6 +355,7 @@ class SurveySerializer(ModelSerializer):
     no_salary_hires = NoSalaryHireSerializer(many=True)
     long_term_lacks = LongTermLackSerializer(many=True)
     short_term_lacks = ShortTermLackSerializer(many=True)
+    farm_location = FarmLocationSerializer(required=False, allow_null=True)
 
     class Meta:
         model = Survey

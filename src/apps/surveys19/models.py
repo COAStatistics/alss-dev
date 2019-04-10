@@ -206,6 +206,7 @@ class FarmLocation(Model):
     class Meta:
         verbose_name = _("FarmLocation")
         verbose_name_plural = _("FarmLocation")
+        ordering = ("id", "code")
 
     def __str__(self):
         return str(self.survey)

@@ -1,5 +1,7 @@
 <select class="form-control selectpicker" data-width="100" title="請選擇" name="citytowncode">
     {% for citytowncode in citytowncodes %}
-    <option value="{{ citytowncode.id }}">{{ citytowncode.code }}</option>
+    <option value="{{ citytowncode.id }}" data-city-name="{{ citytowncode.city }}" data-town-name="{{ citytowncode.town }}">
+        {{ citytowncode.code }}
+    </option>
     {% endfor %}
 </select>
