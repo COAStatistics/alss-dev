@@ -1436,6 +1436,7 @@ var CropMarketingHelper = {
         if(Helper.LogHandler.ValidationActive){
             CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
                 CropMarketingHelper.Validation.RequiredField.Validate($(this));
+                CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(this));
             })
         }
     },
@@ -1462,12 +1463,12 @@ var CropMarketingHelper = {
                 var $row = CropMarketingHelper.CropMarketing.$Row.clone(true, true);
 
                 $row.find('select[name="product"]').selectpicker('val', crop_marketing.product);
+                $row.find('input[name="name"]').val(crop_marketing.name);
                 $row.find('input[name="landnumber"]').val(crop_marketing.land_number);
                 $row.find('input[name="landarea"]').val(crop_marketing.land_area);
                 $row.find('input[name="planttimes"]').val(crop_marketing.plant_times);
                 $row.find('select[name="unit"]').selectpicker('val', crop_marketing.unit);
-                $row.find('input[name="totalyield"]').val(crop_marketing.total_yield);
-                $row.find('input[name="unitprice"]').val(crop_marketing.unit_price);
+                $row.find('input[name="yearsales"]').val(crop_marketing.year_sales);
                 $row.find('select[name="hasfacility"]').selectpicker('val', crop_marketing.has_facility);
                 $row.find('select[name="loss"]').selectpicker('val', crop_marketing.loss);
 
@@ -1519,17 +1520,17 @@ var CropMarketingHelper = {
                     }
                     var obj = CropMarketingHelper.CropMarketing.Object.Filter(surveyId, guid);
                     obj.product = parseInt($tr.find('[name="product"]').val());
+                    obj.name = $tr.find('[name="name"]').val();
                     obj.land_number = parseInt($tr.find('[name="landnumber"]').val());
                     obj.loss = parseInt($tr.find('[name="loss"]').val());
                     obj.plant_times = parseInt($tr.find('[name="planttimes"]').val());
                     obj.unit = parseInt($tr.find('[name="unit"]').val());
                     obj.has_facility = parseInt($tr.find('[name="hasfacility"]').val());
-                    obj.unit_price = parseInt($tr.find('[name="unitprice"]').val());
-                    obj.land_area = parseInt($tr.find('[name="landarea"]').val());
-                    obj.total_yield = parseInt($tr.find('[name="totalyield"]').val());
+                    obj.year_sales = parseInt($tr.find('[name="yearsales"]').val());
 
                     if(Helper.LogHandler.ValidationActive){
                         CropMarketingHelper.Validation.RequiredField.Validate($tr);
+                        CropMarketingHelper.Validation.GreaterThanZeroField.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                     }
                 }
@@ -1554,6 +1555,7 @@ var CropMarketingHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         CropMarketingHelper.Validation.RequiredField.Validate($row);
+                        CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(row));
                         CropMarketingHelper.Validation.IncomeChecked.Validate();
                     }
                 }
@@ -1569,15 +1571,28 @@ var CropMarketingHelper = {
                 function makeString(name){
                     return '第<i class="row-index">{0}</i>列{1}不可空白'.format(index, name);
                 }
-                Helper.LogHandler.Log(!$row.find('[name="product"]').val(), CropMarketingHelper.Alert, makeString('作物名稱'), this.Guids[0], guid);
-                Helper.LogHandler.Log(!$row.find('[name="landnumber"]').val(), CropMarketingHelper.Alert, makeString('耕作地代號'), this.Guids[1], guid);
-                Helper.LogHandler.Log(!$row.find('[name="landarea"]').val(), CropMarketingHelper.Alert, makeString('種植面積'), this.Guids[2], guid);
-                Helper.LogHandler.Log(!$row.find('[name="planttimes"]').val(), CropMarketingHelper.Alert, makeString('種植次數'), this.Guids[3], guid);
-                Helper.LogHandler.Log(!$row.find('[name="unit"]').val(), CropMarketingHelper.Alert, makeString('單位'), this.Guids[4], guid);
-                Helper.LogHandler.Log(!$row.find('[name="totalyield"]').val(), CropMarketingHelper.Alert, makeString('全年產量'), this.Guids[5], guid);
-                Helper.LogHandler.Log(!$row.find('[name="unitprice"]').val(), CropMarketingHelper.Alert, makeString('平均單價'), this.Guids[6], guid);
+                Helper.LogHandler.Log(!$row.find('[name="product"]').val(), CropMarketingHelper.Alert, makeString('作物代碼'), this.Guids[0], guid);
+                Helper.LogHandler.Log(!$row.find('[name="name"]').val(), CropMarketingHelper.Alert, makeString('作物名稱'), this.Guids[1], guid);
+                Helper.LogHandler.Log(!$row.find('[name="landnumber"]').val(), CropMarketingHelper.Alert, makeString('耕作地代號'), this.Guids[2], guid);
+                Helper.LogHandler.Log(!$row.find('[name="landarea"]').val(), CropMarketingHelper.Alert, makeString('種植面積'), this.Guids[3], guid);
+                Helper.LogHandler.Log(!$row.find('[name="planttimes"]').val(), CropMarketingHelper.Alert, makeString('種植次數'), this.Guids[4], guid);
+                Helper.LogHandler.Log(!$row.find('[name="unit"]').val(), CropMarketingHelper.Alert, makeString('計量單位'), this.Guids[5], guid);
+                Helper.LogHandler.Log(!$row.find('[name="yearsales"]').val(), CropMarketingHelper.Alert, makeString('全年銷售額'), this.Guids[6], guid);
                 Helper.LogHandler.Log(!$row.find('[name="hasfacility"]').val(), CropMarketingHelper.Alert, makeString('是否使用農業設施'), this.Guids[7], guid);
                 Helper.LogHandler.Log(!$row.find('[name="loss"]').val(), CropMarketingHelper.Alert, makeString('特殊情形'), this.Guids[8], guid);
+            },
+        },
+        GreaterThanZeroField: {
+            Guids: Helper.Guid.CreateMulti(2),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = CropMarketingHelper.CropMarketing.Container.find('tr').index($row) + 1;
+                function makeString(name){
+                    return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name);
+                }
+                Helper.LogHandler.Log($row.find('[name="landnumber"]').val() == 0, CropMarketingHelper.Alert, makeString('耕作地代號'), this.Guids[0], guid);
+                Helper.LogHandler.Log($row.find('[name="landarea"]').val() == 0, CropMarketingHelper.Alert, makeString('種植面積'), this.Guids[1], guid);
+                Helper.LogHandler.Log($row.find('[name="planttimes"]').val() == 0, CropMarketingHelper.Alert, makeString('種植次數'), this.Guids[2], guid);
             },
         },
         IncomeChecked: {
@@ -1613,6 +1628,7 @@ var LivestockMarketingHelper = {
         if(Helper.LogHandler.ValidationActive){
             LivestockMarketingHelper.LivestockMarketing.Container.find('tr').each(function(){
                 LivestockMarketingHelper.Validation.RequiredField.Validate($(this));
+                LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($(this));
             })
         }
     },
@@ -1639,10 +1655,10 @@ var LivestockMarketingHelper = {
                 var $row = LivestockMarketingHelper.LivestockMarketing.$Row.clone(true, true);
 
                 $row.find('select[name="product"]').selectpicker('val', livestock_marketing.product);
+                $row.find('input[name="name"]').val(livestock_marketing.name);
                 $row.find('select[name="unit"]').selectpicker('val', livestock_marketing.unit);
                 $row.find('input[name="raisingnumber"]').val(livestock_marketing.raising_number);
-                $row.find('input[name="totalyield"]').val(livestock_marketing.total_yield);
-                $row.find('input[name="unitprice"]').val(livestock_marketing.unit_price);
+                $row.find('input[name="yearsales"]').val(livestock_marketing.year_sales);
                 $row.find('select[name="contract"]').selectpicker('val', livestock_marketing.contract);
                 $row.find('select[name="loss"]').selectpicker('val', livestock_marketing.loss);
 
@@ -1691,15 +1707,16 @@ var LivestockMarketingHelper = {
                     }
                     var obj = LivestockMarketingHelper.LivestockMarketing.Object.Filter(surveyId, guid);
                     obj.product = parseInt($tr.find('[name="product"]').val());
+                    obj.product = parseInt($tr.find('[name="name"]').val());
                     obj.contract = parseInt($tr.find('[name="contract"]').val());
                     obj.loss = parseInt($tr.find('[name="loss"]').val());
                     obj.raising_number = parseInt($tr.find('[name="raisingnumber"]').val());
-                    obj.total_yield = parseInt($tr.find('[name="totalyield"]').val());
+                    obj.year_sales = parseInt($tr.find('[name="yearsales"]').val());
                     obj.unit = parseInt($tr.find('[name="unit"]').val());
-                    obj.unit_price = parseInt($tr.find('[name="unitprice"]').val());
 
                     if(Helper.LogHandler.ValidationActive){
                         LivestockMarketingHelper.Validation.RequiredField.Validate($tr);
+                        LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                     }
                 }
@@ -1724,6 +1741,7 @@ var LivestockMarketingHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         LivestockMarketingHelper.Validation.RequiredField.Validate($row);
+                        LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($row);
                         LivestockMarketingHelper.Validation.IncomeChecked.Validate();
                     }
                 }
@@ -1732,21 +1750,30 @@ var LivestockMarketingHelper = {
     },
     Validation: {
         RequiredField: {
-            Guids: Helper.Guid.CreateMulti(7),
+            Guids: Helper.Guid.CreateMulti(4),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = LivestockMarketingHelper.LivestockMarketing.Container.find('tr').index($row) + 1;
                 function makeString(name){
                     return '第<i class="row-index">{0}</i>列{1}不可空白'.format(index, name)
                 }
-                Helper.LogHandler.Log(!$row.find('[name="product"]').val(), LivestockMarketingHelper.Alert, makeString('作物名稱'), this.Guids[0], guid);
-                Helper.LogHandler.Log(!$row.find('[name="unit"]').val(), LivestockMarketingHelper.Alert, makeString('單位'), this.Guids[1], guid);
-                Helper.LogHandler.Log(!$row.find('[name="raisingnumber"]').val(), LivestockMarketingHelper.Alert, makeString('年底在養數量'), this.Guids[2], guid);
-                Helper.LogHandler.Log(!$row.find('[name="totalyield"]').val(), LivestockMarketingHelper.Alert, makeString('全年銷售數量'), this.Guids[3], guid);
-                Helper.LogHandler.Log(!$row.find('[name="unit"]').val(), LivestockMarketingHelper.Alert, makeString('單位'), this.Guids[4], guid);
-                Helper.LogHandler.Log(!$row.find('[name="unitprice"]').val(), LivestockMarketingHelper.Alert, makeString('平均單價'), this.Guids[5], guid);
-                Helper.LogHandler.Log(!$row.find('[name="contract"]').val(), LivestockMarketingHelper.Alert, makeString('契約飼養'), this.Guids[6], guid);
-                Helper.LogHandler.Log(!$row.find('[name="loss"]').val(), LivestockMarketingHelper.Alert, makeString('特殊情形'), this.Guids[7], guid);
+                Helper.LogHandler.Log(!$row.find('[name="product"]').val(), LivestockMarketingHelper.Alert, makeString('畜禽代碼'), this.Guids[0], guid);
+                Helper.LogHandler.Log(!$row.find('[name="name"]').val(), LivestockMarketingHelper.Alert, makeString('畜禽名稱'), this.Guids[1], guid);
+                Helper.LogHandler.Log(!$row.find('[name="unit"]').val(), LivestockMarketingHelper.Alert, makeString('計量單位'), this.Guids[2], guid);
+                Helper.LogHandler.Log(!$row.find('[name="contract"]').val(), LivestockMarketingHelper.Alert, makeString('契約飼養'), this.Guids[3], guid);
+                Helper.LogHandler.Log(!$row.find('[name="loss"]').val(), LivestockMarketingHelper.Alert, makeString('特殊情形'), this.Guids[4], guid);
+            },
+        },
+        RaiseNumberYearSalesChecked: {
+            Guids: Helper.Guid.CreateMulti(),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = LivestockMarketingHelper.LivestockMarketing.Container.find('tr').index($row) + 1;
+                var msg = '第<i class="row-index">{0}</i>列年底在養數量及全年銷售額不可同時空白或為0'.format(index)
+                var raisingNumber = $row.find('[name="raisingnumber"]').val();
+                var yearSales = $row.find('[name="yearsales"]').val();
+                var con = (raisingNumber == 0 && yearSales == 0) || (raisingNumber == '' && yearSales == '');
+                Helper.LogHandler.Log(con, LivestockMarketingHelper.Alert, msg, this.Guids[0], guid);
             },
         },
         IncomeChecked: {
@@ -1907,11 +1934,10 @@ var AnnualIncomeHelper = {
         AnnualTotal: {
             Guids: Helper.Guid.CreateMulti(3),
             Validate: function(){
-                function getSum($row){
-                    var totalYield = $row.find('[name="totalyield"]').val();
-                    var unitPrice = $row.find('[name="unitprice"]').val();
-                    if(Helper.NumberValidate(totalYield) && Helper.NumberValidate(unitPrice)){
-                        return totalYield * unitPrice;
+                function getYearSales($row){
+                    var value = parseInt($row.find('[name="yearsales"]').val());
+                    if(Helper.NumberValidate(value)){
+                        return value;
                     }
                     else return 0;
                 }
@@ -1921,7 +1947,7 @@ var AnnualIncomeHelper = {
                 // check total
                 var countTotal = 0;
                 CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
-                    countTotal += getSum($(this));
+                    countTotal += getYearSales($(this));
                 })
 
                 var checkedMin = checkedTotal.data('min') * 10000;
@@ -1940,7 +1966,7 @@ var AnnualIncomeHelper = {
                 // check total
                 var countTotal = 0;
                 LivestockMarketingHelper.LivestockMarketing.Container.find('tr').each(function(){
-                    countTotal += getSum($(this));
+                    countTotal += getYearSales($(this));
                 })
 
                 var checkedMin = checkedTotal.data('min') * 10000;

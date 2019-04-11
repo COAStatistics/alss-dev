@@ -104,7 +104,7 @@
     land_area: 420
     plant_times: 1
     year_sales: 483000
-    has_facility: 2
+    has_facility: 1
 
 - model: surveys19.CropMarketing
   pk: 2
@@ -118,7 +118,7 @@
     land_area: 150
     plant_times: 1
     year_sales: 44000
-    has_facility: 2
+    has_facility: 0
 
 - model: surveys19.CropMarketing
   pk: 3
@@ -132,7 +132,7 @@
     land_area: 100
     plant_times: 1
     year_sales: 0
-    has_facility: 2
+    has_facility: 1
 
 - model: surveys19.CropMarketing
   pk: 4
@@ -146,7 +146,7 @@
     land_area: 40
     plant_times: 1
     year_sales: 168000
-    has_facility: 2
+    has_facility: 1
 
 - model: surveys19.CropMarketing
   pk: 5
@@ -160,14 +160,14 @@
     land_area: 90
     plant_times: 1
     year_sales: 648000
-    has_facility: 2
+    has_facility: 0
 
 - model: surveys19.LivestockMarketing
   pk: 1
   fields:
     survey: 1
     product: 141
-    loss: 5
+    loss: 6
     unit: 13
     name: 泌乳牛
     contract: 4
@@ -179,7 +179,7 @@
   fields:
     survey: 1
     product: 142
-    loss: 5
+    loss: 7
     unit: 13
     name: 不泌乳牛
     contract: 4
@@ -191,7 +191,7 @@
   fields:
     survey: 1
     product: 150
-    loss: 5
+    loss: 8
     unit: 13
     name: 肉牛
     contract: 4
@@ -203,7 +203,7 @@
   fields:
     survey: 1
     product: 143
-    loss: 5
+    loss: 9
     unit: 11
     name: 牛乳
     contract: 4
