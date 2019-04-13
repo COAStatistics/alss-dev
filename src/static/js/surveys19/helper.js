@@ -1005,6 +1005,7 @@ var LandAreaHelper = {
                 LandAreaHelper.Validation.Empty.Validate();
                 LandAreaHelper.Validation.LandStatusEmpty.Validate();
                 LandAreaHelper.Validation.Duplicate.Validate();
+                LandAreaHelper.Validation.SumAreaCheck.Validate();
             }
         },
         Reset: function(){
@@ -1026,6 +1027,7 @@ var LandAreaHelper = {
                         LandAreaHelper.Validation.Empty.Validate();
                         LandAreaHelper.Validation.LandStatusEmpty.Validate();
                         LandAreaHelper.Validation.Duplicate.Validate();
+                        LandAreaHelper.Validation.SumAreaCheck.Validate();
                     }
                 }
             })
@@ -1044,6 +1046,7 @@ var LandAreaHelper = {
             if(Helper.LogHandler.ValidationActive){
                 LandAreaHelper.Validation.Empty.Validate();
                 LandAreaHelper.Validation.LandStatusEmpty.Validate();
+                LandAreaHelper.Validation.SumAreaCheck.Validate();
             }
         },
         Reset: function(){
@@ -1068,6 +1071,7 @@ var LandAreaHelper = {
                     if(Helper.LogHandler.ValidationActive){
                         LandAreaHelper.Validation.Empty.Validate();
                         LandAreaHelper.Validation.LandStatusEmpty.Validate();
+                        LandAreaHelper.Validation.SumAreaCheck.Validate();
                     }
                 }
             })
@@ -1169,6 +1173,35 @@ var LandAreaHelper = {
                     Helper.LogHandler.Log(con, LandAreaHelper.Alert, msg, guid);
                 })
             }
+        },
+        SumAreaCheck: {
+            Guids: Helper.Guid.Create(),
+            Validate: function(){
+                var landAreaSum = 0;
+                LandAreaHelper.LandStatus.Container.each(function(){
+                    var landTypeId = $(this).data('landtype-id');
+                    var value = parseInt($(this).val());
+                    if(Helper.NumberValidate(value)) {
+                        if(landTypeId == 2) value = value * 0.03306
+                        landAreaSum += value;
+                    }
+                })
+
+                var cropMarketingAreaMap = {};
+                CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
+                    var landNumber = $(this).find('input[name="landnumber"]').val();
+                    var landArea = parseInt($(this).find('input[name="landarea"]').val());
+                    if(landNumber in cropMarketingAreaMap){
+                        if(landArea && cropMarketingAreaMap[landNumber] < landArea) cropMarketingAreaMap[landNumber] = landArea;
+                    }
+                    else cropMarketingAreaMap[landNumber] = landArea;
+                })
+                var cropMarketingAreaSum = Object.values(cropMarketingAreaMap).length > 0 ? Object.values(cropMarketingAreaMap).reduce((a,b)=>a+b) : 0;
+
+                var con = landAreaSum < cropMarketingAreaSum;
+                var msg = '【問項1.1】年底耕作地面積總和({0}公頃)應大於或等於【問項1.5】總種植面積({1}公頃)'.format(landAreaSum, cropMarketingAreaSum);
+                Helper.LogHandler.Log(con, LandAreaHelper.Alert, msg, this.Guids[0]);
+            },
         },
     },
 }
@@ -1437,6 +1470,7 @@ var CropMarketingHelper = {
             CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
                 CropMarketingHelper.Validation.RequiredField.Validate($(this));
                 CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(this));
+                LandAreaHelper.Validation.SumAreaCheck.Validate();
             })
         }
     },
@@ -1503,6 +1537,7 @@ var CropMarketingHelper = {
                             Helper.LogHandler.DeleteRow(CropMarketingHelper.Alert, $tr, $nextAll);
                             AnnualIncomeHelper.Validation.CropMarketingExist.Validate();
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
+                            LandAreaHelper.Validation.SumAreaCheck.Validate();
                         }
 
                     })
@@ -1532,6 +1567,7 @@ var CropMarketingHelper = {
                         CropMarketingHelper.Validation.RequiredField.Validate($tr);
                         CropMarketingHelper.Validation.GreaterThanZeroField.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
+                        LandAreaHelper.Validation.SumAreaCheck.Validate();
                     }
                 }
             })
@@ -1557,6 +1593,7 @@ var CropMarketingHelper = {
                         CropMarketingHelper.Validation.RequiredField.Validate($row);
                         CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(row));
                         CropMarketingHelper.Validation.IncomeChecked.Validate();
+                        LandAreaHelper.Validation.SumAreaCheck.Validate();
                     }
                 }
             })
@@ -2616,7 +2653,7 @@ var ShortTermHireHelper = {
                     obj.number_workers = SurveyHelper.NumberWorker.Object.Collect($tr.find('[name="numberworker"]'));
                     obj.month = parseInt($tr.find('[name="month"]').val());
                     obj.avg_work_day = parseFloat($tr.find('[name="avgworkday"]').val());
-                    
+
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermHireHelper.Validation.RequiredField.Validate($tr);
                         ShortTermHireHelper.Validation.AvgWorkDay.Validate($tr);
@@ -2870,7 +2907,7 @@ var LongTermLackHelper = {
                 $row.find('input[name="count"]').val(long_term_lack.count);
                 $row.find('select[name="month"]').selectpicker('val', long_term_lack.months);
                 $row.attr('data-survey-id', surveyId);
-                
+
                 long_term_lack.guid = Helper.Guid.Create();
                 $row.attr('data-guid', long_term_lack.guid);
 
@@ -3074,7 +3111,7 @@ var ShortTermLackHelper = {
                     obj.work_type = $tr.find('[name="worktype"]').val();
                     obj.months = $tr.find('[name="month"]').val();
                     obj.count = parseInt($tr.find('[name="count"]').val());
-                    
+
                     if(Helper.LogHandler.ValidationActive){
                          ShortTermLackHelper.Validation.RequiredField.Validate($tr);
                          ShortTermLackHelper.Validation.Over6Month.Validate($tr);
@@ -3309,7 +3346,3 @@ var SubsidyHelper = {
         },
     },
 }
-
-
-
-
