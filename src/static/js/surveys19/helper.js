@@ -1406,6 +1406,7 @@ var ManagementTypeHelper = {
             if(Helper.LogHandler.ValidationActive){
                 ManagementTypeHelper.Validation.Empty.Validate();
                 ManagementTypeHelper.Validation.Duplicate.Validate();
+                ManagementTypeHelper.Validation.MostValuedProduct.Validate();
             }
         },
         Reset: function(){
@@ -1426,6 +1427,7 @@ var ManagementTypeHelper = {
                     if(Helper.LogHandler.ValidationActive){
                         ManagementTypeHelper.Validation.Empty.Validate();
                         ManagementTypeHelper.Validation.Duplicate.Validate();
+                        ManagementTypeHelper.Validation.MostValuedProduct.Validate();
                     }
                 }
             })
@@ -1446,7 +1448,37 @@ var ManagementTypeHelper = {
                 var con = CloneData[MainSurveyId].management_types.length > 1;
                 var msg = '限註記一個項目';
                 Helper.LogHandler.Log(con, ManagementTypeHelper.Alert, msg, this.Guids[0]);
-            }
+            },
+        },
+        MostValuedProduct: {
+            Guids: Helper.Guid.CreateMulti(),
+            Validate: function(){
+                var checkedManagementType = ManagementTypeHelper.ManagementType.Container.filter(':checked');
+                var checkedManagementTypeId = checkedManagementType.data('managementtype-id');
+
+                var highestSales = 0;
+                var highestSalesNames = [];
+                var highestSalesManagementTypeIds = [];
+
+                var rows = $.merge(CropMarketingHelper.CropMarketing.Container.find('tr'), LivestockMarketingHelper.LivestockMarketing.Container.find('tr'));
+                rows.each(function(){
+                    var yearSales = parseInt($(this).find('[name="yearsales"]').val());
+                    var productName = $(this).find('[name="product"] > option:selected').data('name');
+                    var managementTypeId = $(this).find('[name="product"] > option:selected').data('managementtype-id');
+                    if(!managementTypeId) return;
+                    if(yearSales > highestSales){
+                        highestSales = yearSales;
+                        highestSalesNames = [productName];
+                        highestSalesManagementTypeIds = [managementTypeId];
+                    }else if(yearSales == highestSales){
+                        highestSalesNames.push(productName);
+                        highestSalesManagementTypeIds.push(managementTypeId);
+                    }
+                })
+                var con = checkedManagementType.length == 1 && highestSalesManagementTypeIds.indexOf(checkedManagementTypeId) == -1;
+                var msg = '全年主要經營型態應與【問項1.5及1.６】生產價值最高者({0})相符'.format(highestSalesNames.join(','));
+                Helper.LogHandler.Log(con, ManagementTypeHelper.Alert, msg, this.Guids[0]);
+            },
         },
     },
 }
@@ -1538,6 +1570,7 @@ var CropMarketingHelper = {
                             AnnualIncomeHelper.Validation.CropMarketingExist.Validate();
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                             LandAreaHelper.Validation.SumAreaCheck.Validate();
+                            ManagementTypeHelper.Validation.MostValuedProduct.Validate();
                         }
 
                     })
@@ -1568,6 +1601,7 @@ var CropMarketingHelper = {
                         CropMarketingHelper.Validation.GreaterThanZeroField.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                         LandAreaHelper.Validation.SumAreaCheck.Validate();
+                        ManagementTypeHelper.Validation.MostValuedProduct.Validate();
                     }
                 }
             })
@@ -1593,7 +1627,6 @@ var CropMarketingHelper = {
                         CropMarketingHelper.Validation.RequiredField.Validate($row);
                         CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(row));
                         CropMarketingHelper.Validation.IncomeChecked.Validate();
-                        LandAreaHelper.Validation.SumAreaCheck.Validate();
                     }
                 }
             })
@@ -1666,6 +1699,7 @@ var LivestockMarketingHelper = {
             LivestockMarketingHelper.LivestockMarketing.Container.find('tr').each(function(){
                 LivestockMarketingHelper.Validation.RequiredField.Validate($(this));
                 LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($(this));
+                ManagementTypeHelper.Validation.MostValuedProduct.Validate();
             })
         }
     },
@@ -1728,6 +1762,7 @@ var LivestockMarketingHelper = {
                             Helper.LogHandler.DeleteRow(LivestockMarketingHelper.Alert, $tr, $nextAll);
                             AnnualIncomeHelper.Validation.LivestockMarketingExist.Validate();
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
+                            ManagementTypeHelper.Validation.MostValuedProduct.Validate();
                         }
                     })
                 }
@@ -1755,6 +1790,7 @@ var LivestockMarketingHelper = {
                         LivestockMarketingHelper.Validation.RequiredField.Validate($tr);
                         LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
+                        ManagementTypeHelper.Validation.MostValuedProduct.Validate();
                     }
                 }
             })
