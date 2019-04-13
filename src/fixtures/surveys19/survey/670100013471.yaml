@@ -166,7 +166,7 @@
   pk: 1
   fields:
     survey: 1
-    product: 141
+    product: 160
     loss: 6
     unit: 13
     name: 泌乳牛
@@ -178,7 +178,7 @@
   pk: 2
   fields:
     survey: 1
-    product: 142
+    product: 161
     loss: 7
     unit: 13
     name: 不泌乳牛
@@ -190,7 +190,7 @@
   pk: 3
   fields:
     survey: 1
-    product: 150
+    product: 169
     loss: 8
     unit: 13
     name: 肉牛
@@ -202,7 +202,7 @@
   pk: 4
   fields:
     survey: 1
-    product: 143
+    product: 162
     loss: 9
     unit: 11
     name: 牛乳

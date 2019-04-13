@@ -7,6 +7,7 @@
     max_hour: 
     display: True
     type: 1
+    management_type: 1
 
 - model: surveys19.Product
   pk: 2
@@ -17,6 +18,7 @@
     max_hour: 133
     display: True
     type: 1
+    management_type: 1
 
 - model: surveys19.Product
   pk: 3
@@ -27,6 +29,7 @@
     max_hour: 144
     display: True
     type: 1
+    management_type: 1
 
 - model: surveys19.Product
   pk: 4
@@ -37,6 +40,8 @@
     max_hour: 118
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 5
@@ -47,6 +52,8 @@
     max_hour: 379
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 6
@@ -57,6 +64,8 @@
     max_hour:
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 7
@@ -67,6 +76,8 @@
     max_hour:
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 8
@@ -77,6 +88,8 @@
     max_hour: 72
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 9
@@ -87,6 +100,8 @@
     max_hour: 111
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 10
@@ -97,6 +112,8 @@
     max_hour:
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 11
@@ -107,6 +124,8 @@
     max_hour: 119
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 12
@@ -117,6 +136,8 @@
     max_hour:
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 13
@@ -127,6 +148,8 @@
     max_hour: 486
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 14
@@ -137,6 +160,8 @@
     max_hour: 261
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 15
@@ -147,6 +172,8 @@
     max_hour: 223
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 16
@@ -157,6 +184,8 @@
     max_hour:
     display: True
     type: 1
+    management_type: 2
+    management_type: 1
 
 - model: surveys19.Product
   pk: 17
@@ -167,6 +196,7 @@
     max_hour: 1944
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 18
@@ -177,6 +207,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 19
@@ -187,6 +218,7 @@
     max_hour: 951
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 20
@@ -197,6 +229,7 @@
     max_hour: 530
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 21
@@ -207,6 +240,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 22
@@ -217,6 +251,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 23
@@ -227,6 +262,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 24
@@ -237,6 +273,7 @@
     max_hour: 6352
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 25
@@ -247,6 +284,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 26
@@ -257,6 +295,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 27
@@ -267,6 +306,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 28
@@ -277,6 +317,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 29
@@ -287,6 +328,7 @@
     max_hour: 1834
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 30
@@ -297,6 +339,7 @@
     max_hour: 2855
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 31
@@ -307,6 +350,7 @@
     max_hour: 1114
     display: True
     type: 1
+    management_type: 3
 
 - model: surveys19.Product
   pk: 32
@@ -317,6 +361,7 @@
     max_hour: 2158
     display: True
     type: 1
+    management_type: 4
 
 - model: surveys19.Product
   pk: 33
@@ -327,6 +372,7 @@
     max_hour: 530
     display: True
     type: 1
+    management_type: 4
 
 - model: surveys19.Product
   pk: 34
@@ -337,6 +383,7 @@
     max_hour: 425
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 35
@@ -347,6 +394,7 @@
     max_hour: 787
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 36
@@ -357,6 +405,7 @@
     max_hour: 3011
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 37
@@ -367,6 +416,7 @@
     max_hour: 678
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 38
@@ -377,6 +427,7 @@
     max_hour: 438
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 39
@@ -387,6 +438,7 @@
     max_hour: 661
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 40
@@ -397,6 +449,7 @@
     max_hour: 1952
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 41
@@ -407,6 +460,7 @@
     max_hour: 972
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 42
@@ -417,6 +471,7 @@
     max_hour: 1057
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 43
@@ -427,6 +482,7 @@
     max_hour: 1099
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 44
@@ -437,6 +493,7 @@
     max_hour: 869
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 45
@@ -447,6 +504,7 @@
     max_hour: 972
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 46
@@ -457,6 +515,7 @@
     max_hour: 7270
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 47
@@ -467,6 +526,7 @@
     max_hour: 572
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 48
@@ -477,6 +537,7 @@
     max_hour: 1859
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 49
@@ -487,6 +548,7 @@
     max_hour: 3384
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 50
@@ -497,6 +559,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 51
@@ -507,6 +570,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 52
@@ -517,6 +581,7 @@
     max_hour: 1402
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 53
@@ -527,6 +592,7 @@
     max_hour: 815
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 54
@@ -537,6 +603,7 @@
     max_hour: 697
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 55
@@ -547,6 +614,7 @@
     max_hour: 864
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 56
@@ -557,6 +625,7 @@
     max_hour: 549
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 57
@@ -567,6 +636,7 @@
     max_hour: 599
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 58
@@ -577,6 +647,7 @@
     max_hour: 897
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 59
@@ -587,6 +658,7 @@
     max_hour: 694
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 60
@@ -597,6 +669,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 61
@@ -607,6 +680,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 62
@@ -617,6 +691,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 63
@@ -627,6 +702,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 64
@@ -637,6 +713,7 @@
     max_hour: 1808
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 65
@@ -647,6 +724,7 @@
     max_hour: 1249
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 66
@@ -657,6 +735,7 @@
     max_hour: 1926
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 67
@@ -667,6 +746,7 @@
     max_hour: 700
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 68
@@ -677,6 +757,7 @@
     max_hour: 1882
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 69
@@ -687,6 +768,7 @@
     max_hour: 1786
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 70
@@ -697,6 +779,7 @@
     max_hour: 3395
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 71
@@ -707,6 +790,7 @@
     max_hour: 10109
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 72
@@ -717,6 +801,7 @@
     max_hour: 1710
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 73
@@ -727,6 +812,7 @@
     max_hour: 159
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 74
@@ -737,6 +823,7 @@
     max_hour: 1575
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 75
@@ -747,6 +834,7 @@
     max_hour: 2341
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 76
@@ -757,6 +845,7 @@
     max_hour: 520
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 77
@@ -767,6 +856,7 @@
     max_hour: 773
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 78
@@ -777,6 +867,7 @@
     max_hour: 773
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 79
@@ -787,6 +878,7 @@
     max_hour: 773
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 80
@@ -797,6 +889,7 @@
     max_hour: 3512
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 81
@@ -807,6 +900,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 82
@@ -817,6 +911,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 83
@@ -827,6 +922,7 @@
     max_hour: 1249
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 84
@@ -837,6 +933,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 85
@@ -847,6 +944,7 @@
     max_hour: 972
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 86
@@ -857,6 +955,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 87
@@ -867,6 +966,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 88
@@ -877,6 +977,7 @@
     max_hour: 1271
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 89
@@ -887,6 +988,7 @@
     max_hour: 896
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 90
@@ -897,6 +999,7 @@
     max_hour: 831
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 91
@@ -907,6 +1010,7 @@
     max_hour: 748
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 92
@@ -917,6 +1021,7 @@
     max_hour: 1066
     display: True
     type: 1
+    management_type: 5
 
 - model: surveys19.Product
   pk: 93
@@ -927,6 +1032,7 @@
     max_hour: 1119
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 94
@@ -937,6 +1043,7 @@
     max_hour: 1278
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 95
@@ -947,6 +1054,7 @@
     max_hour: 1230
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 96
@@ -957,6 +1065,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 97
@@ -967,6 +1076,7 @@
     max_hour: 701
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 98
@@ -977,6 +1087,7 @@
     max_hour: 1081
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 99
@@ -987,6 +1098,7 @@
     max_hour: 2753
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 100
@@ -997,6 +1109,7 @@
     max_hour: 3054
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 101
@@ -1007,6 +1120,7 @@
     max_hour: 3386
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 102
@@ -1017,6 +1131,7 @@
     max_hour: 2474
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 103
@@ -1027,6 +1142,7 @@
     max_hour: 814
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 104
@@ -1037,6 +1153,7 @@
     max_hour: 1832
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 105
@@ -1047,6 +1164,7 @@
     max_hour: 1924
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 106
@@ -1057,6 +1175,7 @@
     max_hour: 744
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 107
@@ -1067,6 +1186,7 @@
     max_hour: 1177
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 108
@@ -1077,6 +1197,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 109
@@ -1087,6 +1208,7 @@
     max_hour: 3131
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 110
@@ -1097,6 +1219,7 @@
     max_hour: 2142
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 111
@@ -1107,6 +1230,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 112
@@ -1117,6 +1241,7 @@
     max_hour: 2292
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 113
@@ -1127,6 +1252,7 @@
     max_hour: 2037
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 114
@@ -1137,6 +1263,7 @@
     max_hour: 1259
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 115
@@ -1147,6 +1274,7 @@
     max_hour: 1496
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 116
@@ -1157,6 +1285,7 @@
     max_hour: 696
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 117
@@ -1167,6 +1296,7 @@
     max_hour: 621
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 118
@@ -1177,6 +1307,7 @@
     max_hour: 2348
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 119
@@ -1187,6 +1318,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 120
@@ -1197,6 +1329,7 @@
     max_hour: 1168
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 121
@@ -1207,6 +1340,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 122
@@ -1217,6 +1351,7 @@
     max_hour: 914
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 123
@@ -1227,6 +1362,7 @@
     max_hour: 1230
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 124
@@ -1237,6 +1373,7 @@
     max_hour: 1149
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 125
@@ -1247,6 +1384,7 @@
     max_hour: 1230
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 126
@@ -1257,6 +1395,7 @@
     max_hour: 886
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 127
@@ -1267,6 +1406,7 @@
     max_hour: 975
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 128
@@ -1277,6 +1417,7 @@
     max_hour: 1388
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 129
@@ -1287,6 +1428,7 @@
     max_hour: 809
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 130
@@ -1297,6 +1439,7 @@
     max_hour: 1777
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 131
@@ -1307,6 +1450,7 @@
     max_hour: 1605
     display: False
     type: 1
+    management_type: 6
 
 - model: surveys19.Product
   pk: 132
@@ -1317,6 +1461,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 7
 
 - model: surveys19.Product
   pk: 133
@@ -1327,6 +1472,7 @@
     max_hour: 11313
     display: True
     type: 1
+    management_type: 7
 
 - model: surveys19.Product
   pk: 134
@@ -1337,6 +1483,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 7
 
 - model: surveys19.Product
   pk: 135
@@ -1347,6 +1494,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 7
 
 - model: surveys19.Product
   pk: 136
@@ -1357,6 +1505,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 7
 
 - model: surveys19.Product
   pk: 137
@@ -1367,6 +1516,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 7
 
 - model: surveys19.Product
   pk: 138
@@ -1377,6 +1527,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 139
@@ -1387,6 +1538,7 @@
     max_hour: 1151
     display: True
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 140
@@ -1397,6 +1549,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 141
@@ -1407,6 +1560,7 @@
     max_hour: 5323
     display: True
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 142
@@ -1417,6 +1571,7 @@
     max_hour: 1648
     display: True
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 143
@@ -1427,6 +1582,7 @@
     max_hour: 3174
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 144
@@ -1437,6 +1593,7 @@
     max_hour: 1582
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 145
@@ -1447,6 +1604,7 @@
     max_hour: 4811
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 146
@@ -1457,6 +1615,7 @@
     max_hour: 4947
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 147
@@ -1467,6 +1626,7 @@
     max_hour: 5679
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 148
@@ -1477,6 +1637,7 @@
     max_hour: 6837
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 149
@@ -1487,6 +1648,7 @@
     max_hour: 2666
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 150
@@ -1497,6 +1659,7 @@
     max_hour: 3038
     display: False
     type: 1
+    management_type: 8
 
 - model: surveys19.Product
   pk: 151
@@ -1507,6 +1670,7 @@
     max_hour: 1700
     display: True
     type: 1
+    management_type: 9
 
 - model: surveys19.Product
   pk: 152
@@ -1517,6 +1681,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 9
 
 - model: surveys19.Product
   pk: 153
@@ -1527,6 +1692,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 9
 
 - model: surveys19.Product
   pk: 154
@@ -1537,6 +1703,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 9
 
 - model: surveys19.Product
   pk: 155
@@ -1547,6 +1714,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 10
 
 - model: surveys19.Product
   pk: 156
@@ -1557,6 +1725,7 @@
     max_hour:
     display: True
     type: 1
+    management_type: 10
 
 - model: surveys19.Product
   pk: 157
@@ -1567,6 +1736,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 12  
 
 - model: surveys19.Product
   pk: 158
@@ -1577,6 +1747,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 12  
 
 - model: surveys19.Product
   pk: 159
@@ -1587,6 +1758,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 12  
 
 - model: surveys19.Product
   pk: 160
@@ -1597,6 +1769,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 11
 
 - model: surveys19.Product
   pk: 161
@@ -1607,6 +1780,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 11
 
 - model: surveys19.Product
   pk: 162
@@ -1617,6 +1791,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 11
 
 - model: surveys19.Product
   pk: 163
@@ -1627,6 +1802,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 13
 
 - model: surveys19.Product
   pk: 164
@@ -1637,6 +1813,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 13
 
 - model: surveys19.Product
   pk: 165
@@ -1647,6 +1824,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 13
 
 - model: surveys19.Product
   pk: 166
@@ -1657,6 +1835,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 13
 
 - model: surveys19.Product
   pk: 167
@@ -1667,6 +1846,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 13
 
 - model: surveys19.Product
   pk: 168
@@ -1677,6 +1857,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 13
 
 - model: surveys19.Product
   pk: 169
@@ -1687,6 +1868,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 11
 
 - model: surveys19.Product
   pk: 170
@@ -1697,6 +1879,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 171
@@ -1707,6 +1890,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 172
@@ -1717,6 +1901,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 173
@@ -1727,6 +1912,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 174
@@ -1737,6 +1923,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 175
@@ -1747,6 +1934,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 176
@@ -1757,6 +1945,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 177
@@ -1767,6 +1956,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 178
@@ -1777,6 +1967,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 179
@@ -1787,6 +1978,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 180
@@ -1797,6 +1989,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 181
@@ -1807,6 +2000,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 182
@@ -1817,6 +2011,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 183
@@ -1827,6 +2022,7 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14
 
 - model: surveys19.Product
   pk: 184
@@ -1837,3 +2033,4 @@
     max_hour:
     display: True
     type: 2
+    management_type: 14

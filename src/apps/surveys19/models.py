@@ -584,6 +584,11 @@ class Product(Model):
         on_delete=CASCADE,
         verbose_name=_("Product Type"),
     )
+    management_type = ForeignKey(
+        "surveys19.ManagementType",
+        on_delete=CASCADE,
+        verbose_name=_("Management Type"),
+    )
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,
