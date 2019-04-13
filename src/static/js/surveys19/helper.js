@@ -1367,7 +1367,7 @@ var BusinessHelper = {
                     }
                 })
                 var con = !marketType4Checked && farmRelatedBusiness357Checked;
-                var msg = '若勾選3、5、7之農業相關事業，應有勾選【問項1.6】全年銷售額之『休閒、餐飲及相關事業』';
+                var msg = '若勾選3、5、7之農業相關事業，應有勾選【問項1.7】全年銷售額之『休閒、餐飲及相關事業』';
                 Helper.LogHandler.Log(con, BusinessHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -1375,7 +1375,7 @@ var BusinessHelper = {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function(){
                 var con = BusinessHelper.FarmRelatedBusiness.Container.filter('[data-farmrelatedbusiness-id="2"]').prop('checked');
-                var msg = '勾選『農產品加工』者，應於【問項1.6】之『農產品』或『畜禽產品』之銷售額計入其加工收入';
+                var msg = '勾選『農產品加工』者，應於【問項1.7】之『農產品』或『畜禽產品』之銷售額計入其加工收入';
                 Helper.LogHandler.Log(con, BusinessHelper.Info, msg, this.Guids[0], null, false);
             },
         }
@@ -1476,7 +1476,7 @@ var ManagementTypeHelper = {
                     }
                 })
                 var con = checkedManagementType.length == 1 && highestSalesManagementTypeIds.indexOf(checkedManagementTypeId) == -1;
-                var msg = '全年主要經營型態應與【問項1.5及1.６】生產價值最高者({0})相符'.format(highestSalesNames.join(','));
+                var msg = '全年主要經營型態應與【問項1.5及1.6】生產價值最高者({0})相符'.format(highestSalesNames.join(','));
                 Helper.LogHandler.Log(con, ManagementTypeHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -1673,7 +1673,7 @@ var CropMarketingHelper = {
                               .filter(':checked').length > 0;
                 var exists = CropMarketingHelper.CropMarketing.Container.find('tr').length > 0;
                 var con = !checked && exists;
-                var msg = '有生產農產品，【問項1.6】應有勾選『農作物及其製品』之銷售額區間';
+                var msg = '有生產農產品，【問項1.7】應有勾選『農作物及其製品』之銷售額區間';
                 Helper.LogHandler.Log(con, CropMarketingHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -1857,7 +1857,7 @@ var LivestockMarketingHelper = {
                               .filter(':checked').length > 0;
                 var exists = LivestockMarketingHelper.LivestockMarketing.Container.find('tr').length > 0;
                 var con = !checked && exists;
-                var msg = '有生產畜產品，【問項1.6】應有勾選『畜禽作物及其製品』之銷售額區間';
+                var msg = '有生產畜產品，【問項1.7】應有勾選『畜禽作物及其製品』之銷售額區間';
                 Helper.LogHandler.Log(con, LivestockMarketingHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -1955,7 +1955,7 @@ var AnnualIncomeHelper = {
                               .filter(':checked').length > 0;
                 var exists = CropMarketingHelper.CropMarketing.Container.find('tr').length > 0;
                 var con = checked && !exists;
-                var msg = '有勾選『農作物及其製品』之銷售額區間，【問項1.4】應有生產農產品';
+                var msg = '有勾選『農作物及其製品』之銷售額區間，【問項1.5】應有生產農產品';
                 Helper.LogHandler.Log(con, AnnualIncomeHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -1967,7 +1967,7 @@ var AnnualIncomeHelper = {
                               .filter(':checked').length > 0;
                 var exists = LivestockMarketingHelper.LivestockMarketing.Container.find('tr').length > 0;
                 var con = checked && !exists;
-                var msg = '有勾選『畜禽作物及其製品』之銷售額區間，【問項1.5】應有生產畜產品';
+                var msg = '有勾選『畜禽作物及其製品』之銷售額區間，【問項1.6】應有生產畜產品';
                 Helper.LogHandler.Log(con, AnnualIncomeHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -2027,8 +2027,7 @@ var AnnualIncomeHelper = {
                 var checkedMax = checkedTotal.data('max') * 10000 - 1;
 
                 var con = countTotal < checkedMin || countTotal >= checkedMax;
-                var msg = '【問項1.4】農作物產銷情形之全年產量與平均單價乘積({0}元)與勾選農作物之全年銷售額區間不符'
-                          .format(numberWithCommas(countTotal));
+                var msg = '【問項1.5】農作物產銷情形之全年銷售額總計({0}元)與勾選農作物之全年銷售額區間不符'.format(numberWithCommas(countTotal));
                 Helper.LogHandler.Log(checkedTotal.length == 1 && con, AnnualIncomeHelper.Alert, msg, this.Guids[0]);
                 // show total
                 var msg ='目前農作物產銷情形之全年產量與平均單價乘積：{0}元'.format(numberWithCommas(countTotal));
@@ -2046,8 +2045,7 @@ var AnnualIncomeHelper = {
                 var checkedMax = checkedTotal.data('max') * 10000 - 1;
 
                 var con = countTotal < checkedMin  || countTotal >= checkedMax;
-                var msg = '【問項1.5】畜禽產銷情形之全年產量與平均單價乘積({0}元)與勾選畜禽產品之全年銷售額區間不符'
-                            .format(numberWithCommas(countTotal));
+                var msg = '【問項1.6】畜禽產銷情形之全年銷售額總計({0}元)與勾選畜禽產品之全年銷售額區間不符'.format(numberWithCommas(countTotal));
                 Helper.LogHandler.Log(checkedTotal.length == 1 && con, AnnualIncomeHelper.Alert, msg, this.Guids[2]);
                 // show total
                 var msg ='目前畜禽產銷情形之全年產量與平均單價乘積：{0}元'.format(numberWithCommas(countTotal));
@@ -2386,7 +2384,7 @@ var PopulationHelper = {
                 var lifeStyleChecked = PopulationHelper.Population.Container.find('[name="lifestyle"] > option[value="3"]:selected').length > 0;
                 var marketTypeChecked = AnnualIncomeHelper.AnnualIncome.Container.filter('[data-markettype-id="3"]:checked').length > 0;
                 var con = lifeStyleChecked && !marketTypeChecked;
-                var msg = '戶內人口主要生活型態有勾選『受託提供農事及畜牧服務』，【問項1.6】應有勾選『受託提供農事及畜牧服務』之銷售額區間';
+                var msg = '戶內人口主要生活型態有勾選『受託提供農事及畜牧服務』，【問項1.7】應有勾選『受託提供農事及畜牧服務』之銷售額區間';
                 Helper.LogHandler.Log(con, PopulationHelper.Alert, msg, this.Guids[0]);
             },
         },
