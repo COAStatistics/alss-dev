@@ -372,7 +372,7 @@ var Helper = {
                 array.push(Helper.Guid.Create())
             }
             return array;
-        },     
+        },
     },
     BindInterOnly: function($obj){
         $obj.keydown(function (e) {
@@ -689,11 +689,11 @@ var SurveyHelper = {
                     var exists = LongTermLackHelper.LongTermLack.Container.find('tr').length +
                                  ShortTermLackHelper.ShortTermLack.Container.find('tr').length > 0;
                     var con = checked && exists;
-                    msg = '勾選無短缺人力，【問項3.2.2及3.2.3】應為空白';
+                    msg = '若勾選「107年人力已足」，【問項3.2.2及3.2.3】應為空白';
                     Helper.LogHandler.Log(con, SurveyHelper.Lack.Alert, msg, this.Guids[0]);
 
                     var con = !checked && !exists;
-                    msg = '若全年無短缺人力，應勾選無';
+                    msg = '若勾選「107年有缺工」，【問項3.2.2及3.2.3】不應為空白';
                     Helper.LogHandler.Log(con, SurveyHelper.Lack.Alert, msg, this.Guids[1]);
                 },
             },
@@ -863,7 +863,7 @@ var SurveyHelper = {
             },
         },
     },
-    NumberWorker : {
+    NumberWorker: {
         Object: {
             New: function(ageScopeId, count, id){
                 var obj = {
@@ -1501,7 +1501,7 @@ var CropMarketingHelper = {
         if(Helper.LogHandler.ValidationActive){
             CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
                 CropMarketingHelper.Validation.Required.Validate($(this));
-                CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(this));
+                CropMarketingHelper.Validation.GreaterThanZero.Validate($(this));
                 LandAreaHelper.Validation.SumAreaCheck.Validate();
             })
         }
@@ -1598,7 +1598,7 @@ var CropMarketingHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         CropMarketingHelper.Validation.Required.Validate($tr);
-                        CropMarketingHelper.Validation.GreaterThanZeroField.Validate($tr);
+                        CropMarketingHelper.Validation.GreaterThanZero.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                         LandAreaHelper.Validation.SumAreaCheck.Validate();
                         ManagementTypeHelper.Validation.MostValuedProduct.Validate();
@@ -1625,7 +1625,7 @@ var CropMarketingHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         CropMarketingHelper.Validation.Required.Validate($row);
-                        CropMarketingHelper.Validation.GreaterThanZeroField.Validate($(row));
+                        CropMarketingHelper.Validation.GreaterThanZero.Validate($(row));
                         CropMarketingHelper.Validation.IncomeChecked.Validate();
                     }
                 }
@@ -1652,7 +1652,7 @@ var CropMarketingHelper = {
                 Helper.LogHandler.Log(!$row.find('[name="loss"]').val(), CropMarketingHelper.Alert, makeString('特殊情形'), this.Guids[8], guid, false);
             },
         },
-        GreaterThanZeroField: {
+        GreaterThanZero: {
             Guids: Helper.Guid.CreateMulti(2),
             Validate: function($row){
                 var guid = $row.data('guid');
@@ -1660,9 +1660,9 @@ var CropMarketingHelper = {
                 function makeString(name){
                     return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name);
                 }
-                Helper.LogHandler.Log($row.find('[name="landnumber"]').val() == 0, CropMarketingHelper.Alert, makeString('耕作地代號'), this.Guids[0], guid);
-                Helper.LogHandler.Log($row.find('[name="landarea"]').val() == 0, CropMarketingHelper.Alert, makeString('種植面積'), this.Guids[1], guid);
-                Helper.LogHandler.Log($row.find('[name="planttimes"]').val() == 0, CropMarketingHelper.Alert, makeString('種植次數'), this.Guids[2], guid);
+                Helper.LogHandler.Log(parseInt($row.find('[name="landnumber"]').val()) === 0, CropMarketingHelper.Alert, makeString('耕作地代號'), this.Guids[0], guid);
+                Helper.LogHandler.Log(parseFloat($row.find('[name="landarea"]').val()) === 0, CropMarketingHelper.Alert, makeString('種植面積'), this.Guids[1], guid);
+                Helper.LogHandler.Log(parseInt($row.find('[name="planttimes"]').val()) === 0, CropMarketingHelper.Alert, makeString('種植次數'), this.Guids[2], guid);
             },
         },
         IncomeChecked: {
@@ -2402,8 +2402,10 @@ var PopulationHelper = {
 }
 var LongTermHireHelper = {
     Alert: null,
+    Info: null,
     Setup: function(row){
         this.Alert = new Helper.Alert($('.alert-danger[name="longtermhire"]'));
+        this.Info = new Helper.Alert($('.alert-info[name="longtermhire"]'));
         $row = $(row);
         $row.find('select[name="month"]').attr('multiple', '');
         this.LongTermHire.Bind($row);
@@ -2413,6 +2415,7 @@ var LongTermHireHelper = {
     },
     Reset: function () {
         if (this.Alert) { this.Alert.reset(); }
+        if (this.Info) { this.Info.reset(); }
         this.LongTermHire.Reset();
     },
     Set: function(array, surveyId){
@@ -2420,6 +2423,7 @@ var LongTermHireHelper = {
         if(Helper.LogHandler.ValidationActive){
             LongTermHireHelper.LongTermHire.Container.find('tr').each(function(){
                 LongTermHireHelper.Validation.Required.Validate($(this));
+                LongTermHireHelper.Validation.GreaterThanZero.Validate($(this));
                 LongTermHireHelper.Validation.AvgWorkDay.Validate($(this));
                 LongTermHireHelper.Validation.LongTerm.Validate($(this));
             })
@@ -2479,6 +2483,13 @@ var LongTermHireHelper = {
                     if(parse == $(this).val()) sumCount += parse;
                 })
                 $(this).closest('tr').find('input[name="sumcount"]').val(sumCount);
+
+                if(Helper.LogHandler.ValidationActive){
+                    LongTermHireHelper.LongTermHire.Container.find('tr').each(function(){
+                        LongTermHireHelper.Validation.Required.Validate($(this));
+                        LongTermHireHelper.Validation.GreaterThanZero.Validate($(this));
+                    })
+                }
             })
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
@@ -2517,6 +2528,7 @@ var LongTermHireHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         LongTermHireHelper.Validation.Required.Validate($tr);
+                        LongTermHireHelper.Validation.GreaterThanZero.Validate($tr);
                         LongTermHireHelper.Validation.AvgWorkDay.Validate($tr);
                         LongTermHireHelper.Validation.LongTerm.Validate($tr);
                     }
@@ -2562,8 +2574,20 @@ var LongTermHireHelper = {
                 Helper.LogHandler.Log(!$row.find('[name="avgworkday"]').val(), LongTermHireHelper.Alert, makeString('平均每月工作日數'), this.Guids[3], guid, false);
             },
         },
+        GreaterThanZero: {
+            Guids: Helper.Guid.CreateMulti(1),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = LongTermHireHelper.LongTermHire.Container.find('tr').index($row) + 1;
+                function makeString(name){
+                    return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name)
+                }
+                Helper.LogHandler.Log(parseInt($row.find('[name="sumcount"]').val()) === 0, LongTermHireHelper.Alert, makeString('人數'), this.Guids[0], guid, false);
+                Helper.LogHandler.Log(parseFloat($row.find('[name="avgworkday"]').val()) === 0, LongTermHireHelper.Alert, makeString('平均每月工作日數'), this.Guids[1], guid, false);
+            },
+        },
         AvgWorkDay: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(2),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = LongTermHireHelper.LongTermHire.Container.find('tr').index($row) + 1;
@@ -2571,8 +2595,13 @@ var LongTermHireHelper = {
                 var con = avgWorkDay > 30 && Helper.NumberValidate(avgWorkDay);
                 var msg = '第<i class="row-index">{0}</i>列每月工作日數應小於30日'.format(index);
                 Helper.LogHandler.Log(con, LongTermHireHelper.Alert, msg, this.Guids[0], guid);
+
+                var con = avgWorkDay >= 26;
+                var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認是否其合理性'.format(index);
+                Helper.LogHandler.Log(con, LongTermHireHelper.Info, msg, this.Guids[2], null, false);
             },
         },
+
         LongTerm: {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function($row){
@@ -2608,6 +2637,7 @@ var ShortTermHireHelper = {
         if(Helper.LogHandler.ValidationActive){
             ShortTermHireHelper.ShortTermHire.Container.find('tr').each(function(){
                 ShortTermHireHelper.Validation.Required.Validate($(this));
+                ShortTermHireHelper.Validation.GreaterThanZero.Validate($(this));
                 ShortTermHireHelper.Validation.AvgWorkDay.Validate($(this));
             })
             ShortTermHireHelper.Validation.Over6Month.Validate();
@@ -2664,6 +2694,11 @@ var ShortTermHireHelper = {
                     if(parse == $(this).val()) sumCount += parse;
                 })
                 $(this).closest('tr').find('input[name="sumcount"]').val(sumCount);
+
+                ShortTermHireHelper.ShortTermHire.Container.find('tr').each(function(){
+                    ShortTermHireHelper.Validation.Required.Validate($(this));
+                    ShortTermHireHelper.Validation.GreaterThanZero.Validate($(this));
+                })
             })
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
@@ -2700,6 +2735,7 @@ var ShortTermHireHelper = {
 
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermHireHelper.Validation.Required.Validate($tr);
+                        ShortTermHireHelper.Validation.GreaterThanZero.Validate($tr);
                         ShortTermHireHelper.Validation.AvgWorkDay.Validate($tr);
                     }
                 }
@@ -2723,6 +2759,7 @@ var ShortTermHireHelper = {
                     ShortTermHireHelper.ShortTermHire.Container[0].refreshIndex();
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermHireHelper.Validation.Required.Validate($row);
+                        ShortTermHireHelper.Validation.GreaterThanZero.Validate($row);
                         ShortTermHireHelper.Validation.Over6Month.Validate();
                         SurveyHelper.Hire.Validation.HireExist.Validate();
                     }
@@ -2745,14 +2782,26 @@ var ShortTermHireHelper = {
                 Helper.LogHandler.Log(!$row.find('[name="avgworkday"]').val(), ShortTermHireHelper.Alert, makeString('平均每月工作日數'), this.Guids[3], guid, false);
             },
         },
+        GreaterThanZero: {
+            Guids: Helper.Guid.CreateMulti(1),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = ShortTermHireHelper.ShortTermHire.Container.find('tr').index($row) + 1;
+                function makeString(name){
+                    return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name)
+                }
+                Helper.LogHandler.Log(parseInt($row.find('[name="sumcount"]').val()) === 0, ShortTermHireHelper.Alert, makeString('人數'), this.Guids[0], guid, false);
+                Helper.LogHandler.Log(parseFloat($row.find('[name="avgworkday"]').val()) === 0, ShortTermHireHelper.Alert, makeString('平均每月工作日數'), this.Guids[1], guid, false);
+            },
+        },
         AvgWorkDay: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = ShortTermHireHelper.ShortTermHire.Container.find('tr').index($row) + 1;
                 var avgWorkDay = $row.find('[name="avgworkday"]').val();
                 var con = avgWorkDay > 30 && Helper.NumberValidate(avgWorkDay);
-                var msg = '第<i class="row-index">{0}</i>列每月工作日數應小於30日'.format(index);
+                var msg = '第<i class="row-index">{0}</i>列平均每月工作日數應小於30日'.format(index);
                 Helper.LogHandler.Log(con, ShortTermHireHelper.Alert, msg, this.Guids[0], guid);
             },
         },
@@ -2921,6 +2970,8 @@ var LongTermLackHelper = {
         if(Helper.LogHandler.ValidationActive){
             LongTermLackHelper.LongTermLack.Container.find('tr').each(function(){
                 LongTermLackHelper.Validation.Required.Validate($(this));
+                LongTermLackHelper.Validation.GreaterThanZero.Validate($(this));
+                LongTermLackHelper.Validation.AvgLackDay.Validate($(this));
                 LongTermLackHelper.Validation.LongTerm.Validate($(this));
             })
         }
@@ -2950,6 +3001,7 @@ var LongTermLackHelper = {
                 $row.find('select[name="worktype"]').selectpicker('val', long_term_lack.work_type);
                 $row.find('input[name="count"]').val(long_term_lack.count);
                 $row.find('select[name="month"]').selectpicker('val', long_term_lack.months);
+                $row.find('input[name="avglackday"]').val(long_term_lack.avg_lack_day);
                 $row.attr('data-survey-id', surveyId);
 
                 long_term_lack.guid = Helper.Guid.Create();
@@ -2996,9 +3048,12 @@ var LongTermLackHelper = {
                     obj.work_type = parseInt($tr.find('[name="worktype"]').val());
                     obj.months = $tr.find('[name="month"]').val();
                     obj.count = parseInt($tr.find('[name="count"]').val());
+                    obj.avg_lack_day = parseInt($tr.find('[name="avglackday"]').val());
 
                     if(Helper.LogHandler.ValidationActive){
                         LongTermLackHelper.Validation.Required.Validate($tr);
+                        LongTermLackHelper.Validation.GreaterThanZero.Validate($tr);
+                        LongTermLackHelper.Validation.AvgLackDay.Validate($tr);
                         LongTermLackHelper.Validation.LongTerm.Validate($tr);
                     }
                 }
@@ -3022,6 +3077,8 @@ var LongTermLackHelper = {
                     LongTermLackHelper.LongTermLack.Container[0].refreshIndex();
                     if(Helper.LogHandler.ValidationActive){
                         LongTermLackHelper.Validation.Required.Validate($row);
+                        LongTermLackHelper.Validation.GreaterThanZero.Validate($row);
+                        LongTermLackHelper.Validation.AvgLackDay.Validate($row);
                         SurveyHelper.Lack.Validation.LackExist.Validate();
                     }
                 }
@@ -3030,7 +3087,7 @@ var LongTermLackHelper = {
     },
     Validation: {
         Required: {
-            Guids: Helper.Guid.CreateMulti(2),
+            Guids: Helper.Guid.CreateMulti(3),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = LongTermLackHelper.LongTermLack.Container.find('tr').index($row) + 1;
@@ -3040,7 +3097,30 @@ var LongTermLackHelper = {
                 Helper.LogHandler.Log(!$row.find('[name="worktype"]').val(), LongTermLackHelper.Alert, makeString('主要短缺工作類型'), this.Guids[0], guid, false);
                 Helper.LogHandler.Log(!$row.find('[name="count"]').val(), LongTermLackHelper.Alert, makeString('人數'), this.Guids[1], guid, false);
                 Helper.LogHandler.Log($row.find('[name="month"]').val().length == 0, LongTermLackHelper.Alert, makeString('缺工月份'), this.Guids[2], guid, false);
+                Helper.LogHandler.Log(!$row.find('[name="avglackday"]').val(), LongTermLackHelper.Alert, makeString('平均每月短缺日數'), this.Guids[3], guid, false);
             },
+        },
+        GreaterThanZero: {
+            Guids: Helper.Guid.CreateMulti(1),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = LongTermLackHelper.LongTermLack.Container.find('tr').index($row) + 1;
+                function makeString(name){
+                    return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name)
+                }
+                Helper.LogHandler.Log(parseInt($row.find('[name="count"]').val()) === 0, LongTermLackHelper.Alert, makeString('人數'), this.Guids[0], guid, false);
+                Helper.LogHandler.Log(parseFloat($row.find('[name="avglackday"]').val()) === 0, LongTermLackHelper.Alert, makeString('平均每月短缺日數'), this.Guids[1], guid, false);
+            },
+        },
+        AvgLackDay: {
+            Guids: Helper.Guid.CreateMulti(),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = LongTermLackHelper.LongTermLack.Container.find('tr').index($row) + 1;
+                var con = parseInt($row.find('[name="avglackday"]').val()) > 30;
+                var msg = '第<i class="row-index">{0}</i>列平均每月短缺日數應小於等於30'.format(index);
+                Helper.LogHandler.Log(con, LongTermLackHelper.Alert, msg, this.Guids[0], guid);
+            }
         },
         LongTerm: {
             Guids: Helper.Guid.CreateMulti(),
@@ -3077,6 +3157,8 @@ var ShortTermLackHelper = {
         if(Helper.LogHandler.ValidationActive){
             ShortTermLackHelper.ShortTermLack.Container.find('tr').each(function(){
                 ShortTermLackHelper.Validation.Required.Validate($(this));
+                ShortTermLackHelper.Validation.GreaterThanZero.Validate($(this));
+                ShortTermLackHelper.Validation.AvgLackDay.Validate($(this));
                 ShortTermLackHelper.Validation.Over6Month.Validate($(this));
             })
         }
@@ -3107,6 +3189,8 @@ var ShortTermLackHelper = {
                 $row.find('select[name="worktype"]').selectpicker('val', short_term_lack.work_type);
                 $row.find('input[name="count"]').val(short_term_lack.count);
                 $row.find('select[name="month"]').selectpicker('val', short_term_lack.months);
+                $row.find('input[name="avglackday"]').val(short_term_lack.avg_lack_day);
+                $row.find('input[name="name"]').val(short_term_lack.name);
 
                 $row.attr('data-survey-id', surveyId);
 
@@ -3155,9 +3239,13 @@ var ShortTermLackHelper = {
                     obj.work_type = $tr.find('[name="worktype"]').val();
                     obj.months = $tr.find('[name="month"]').val();
                     obj.count = parseInt($tr.find('[name="count"]').val());
+                    obj.avg_lack_day = parseInt($tr.find('[name="avglackday"]').val());
+                    obj.name = $tr.find('[name="name"]').val();
 
                     if(Helper.LogHandler.ValidationActive){
                          ShortTermLackHelper.Validation.Required.Validate($tr);
+                         ShortTermLackHelper.Validation.GreaterThanZero.Validate($tr);
+                         ShortTermLackHelper.Validation.AvgLackDay.Validate($tr);
                          ShortTermLackHelper.Validation.Over6Month.Validate($tr);
                     }
                 }
@@ -3181,6 +3269,8 @@ var ShortTermLackHelper = {
                     ShortTermLackHelper.ShortTermLack.Container[0].refreshIndex();
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermLackHelper.Validation.Required.Validate($row);
+                        ShortTermLackHelper.Validation.GreaterThanZero.Validate($row);
+                        ShortTermLackHelper.Validation.AvgLackDay.Validate($row);
                     }
                 }
             })
@@ -3188,18 +3278,42 @@ var ShortTermLackHelper = {
     },
     Validation: {
         Required: {
-            Guids: Helper.Guid.CreateMulti(3),
+            Guids: Helper.Guid.CreateMulti(5),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = ShortTermLackHelper.ShortTermLack.Container.find('tr').index($row) + 1;
                 function makeString(name){
                     return '第<i class="row-index">{0}</i>列{1}不可空白'.format(index, name)
                 }
-                Helper.LogHandler.Log(!$row.find('[name="product"]').val(), ShortTermLackHelper.Alert, makeString('農畜產品名稱'), this.Guids[0], guid, false);
-                Helper.LogHandler.Log(!$row.find('[name="worktype"]').val(), ShortTermLackHelper.Alert, makeString('主要短缺工作類型'), this.Guids[1], guid, false);
-                Helper.LogHandler.Log(!$row.find('[name="count"]').val(), ShortTermLackHelper.Alert, makeString('人數'), this.Guids[2], guid, false);
-                Helper.LogHandler.Log($row.find('[name="month"]').val().length == 0, ShortTermLackHelper.Alert, makeString('缺工月份'), this.Guids[3], guid, false);
+                Helper.LogHandler.Log(!$row.find('[name="product"]').val(), ShortTermLackHelper.Alert, makeString('農畜產品代碼'), this.Guids[0], guid, false);
+                Helper.LogHandler.Log(!$row.find('[name="name"]').val(), ShortTermLackHelper.Alert, makeString('農畜產品名稱'), this.Guids[1], guid, false);
+                Helper.LogHandler.Log(!$row.find('[name="worktype"]').val(), ShortTermLackHelper.Alert, makeString('主要短缺工作類型'), this.Guids[2], guid, false);
+                Helper.LogHandler.Log(!$row.find('[name="count"]').val(), ShortTermLackHelper.Alert, makeString('人數'), this.Guids[3], guid, false);
+                Helper.LogHandler.Log($row.find('[name="month"]').val().length == 0, ShortTermLackHelper.Alert, makeString('缺工月份'), this.Guids[4], guid, false);
+                Helper.LogHandler.Log(!$row.find('[name="avglackday"]').val(), ShortTermLackHelper.Alert, makeString('平均每月短缺日數'), this.Guids[5], guid, false);
             },
+        },
+        GreaterThanZero: {
+            Guids: Helper.Guid.CreateMulti(1),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = ShortTermLackHelper.ShortTermLack.Container.find('tr').index($row) + 1;
+                function makeString(name){
+                    return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name)
+                }
+                Helper.LogHandler.Log(parseInt($row.find('[name="count"]').val()) == 0, ShortTermLackHelper.Alert, makeString('人數'), this.Guids[0], guid, false);
+                Helper.LogHandler.Log(parseFloat($row.find('[name="avglackday"]').val()) == 0, ShortTermLackHelper.Alert, makeString('平均每月短缺日數'), this.Guids[1], guid, false);
+            },
+        },
+        AvgLackDay: {
+            Guids: Helper.Guid.CreateMulti(),
+            Validate: function($row){
+                var guid = $row.data('guid');
+                var index = ShortTermLackHelper.ShortTermLack.Container.find('tr').index($row) + 1;
+                var con = parseInt($row.find('[name="avglackday"]').val()) > 30;
+                var msg = '第<i class="row-index">{0}</i>列平均每月短缺日數應小於等於30'.format(index);
+                Helper.LogHandler.Log(con, ShortTermLackHelper.Alert, msg, this.Guids[0], guid);
+            }
         },
         Over6Month: {
             Guids: Helper.Guid.CreateMulti(),
