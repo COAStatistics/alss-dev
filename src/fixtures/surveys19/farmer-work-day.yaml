@@ -8,40 +8,54 @@
   pk: 2
   fields:
     code: 2
+    min_day: 1
+    max_day: 29
     name: 1～29日
 
 - model: surveys19.FarmerWorkDay
   pk: 3
   fields:
     code: 3
+    min_day: 30
+    max_day: 59
     name: 30～59日
 
 - model: surveys19.FarmerWorkDay
   pk: 4
   fields:
     code: 4
+    min_day: 60
+    max_day: 89
     name: 60～89日
 
 - model: surveys19.FarmerWorkDay
   pk: 5
   fields:
     code: 5
+    min_day: 90
+    max_day: 149
     name: 90～149日
 
 - model: surveys19.FarmerWorkDay
   pk: 6
   fields:
     code: 6
+    min_day: 150
+    max_day: 179
     name: 150～179日
 
 - model: surveys19.FarmerWorkDay
   pk: 7
   fields:
     code: 7
+    min_day: 180
+    max_day: 249
     name: 180～249日
 
 - model: surveys19.FarmerWorkDay
   pk: 8
   fields:
     code: 8
+    min_day: 250
+    max_day: 9999
     name: 250日以上

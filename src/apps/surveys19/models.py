@@ -600,6 +600,7 @@ class Product(Model):
     class Meta:
         verbose_name = _("Product")
         verbose_name_plural = _("Product")
+        ordering = ('id', 'code',)
 
     def __str__(self):
         return str(self.name)
@@ -996,6 +997,8 @@ class FarmerWorkDay(Model):
 
     code = IntegerField(verbose_name=_("Code"))
     name = CharField(max_length=20, null=True, blank=True, verbose_name=_("Name"))
+    min_day = IntegerField(null=True, blank=True, verbose_name=_("Min Day"))
+    max_day = IntegerField(null=True, blank=True, verbose_name=_("Max Day"))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,

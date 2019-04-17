@@ -1,5 +1,7 @@
 <select class="form-control selectpicker" data-width="100%" title="請選擇" name="farmerworkday">
     {% for farmer_work_day in farmer_work_days %}
-    <option value="{{ farmer_work_day.id }}">{{ farmer_work_day.name }}</option>
+    <option value="{{ farmer_work_day.id }}"
+            data-min-day="{{ farmer_work_day.min_day }}"
+            data-max-day="{{ farmer_work_day.max_day }}">{{ farmer_work_day.name }}</option>
     {% endfor %}
 </select>

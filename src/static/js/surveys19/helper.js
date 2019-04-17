@@ -398,6 +398,14 @@ var Helper = {
             })
         }
     },
+    ClearString: function(s){
+        var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&;|{}【】‘；：”“'。，、？]")
+        var rs = "";
+        for (var i = 0; i < s.length; i++) {
+            rs = rs+s.substr(i, 1).replace(pattern, '');
+        }
+        return rs;
+    },
 }
 
 
@@ -548,7 +556,9 @@ var SurveyHelper = {
     },
     Hire: {
         Alert: null,
+        Info: null,
         Setup: function(){
+            this.Info = new Helper.Alert($('.alert-info[name="hire"]'));
             this.Alert = new Helper.Alert($('.alert-danger[name="hire"]'));
         },
         Container: $('#panel4 input[name="hire"]'),
@@ -580,6 +590,7 @@ var SurveyHelper = {
         },
         Reset: function(){
             if (this.Alert) { this.Alert.reset(); }
+            if (this.Info) { this.Info.reset(); }
             this.Container.prop('checked', false);
         },
         Validation: {
@@ -1504,6 +1515,7 @@ var CropMarketingHelper = {
                 CropMarketingHelper.Validation.GreaterThanZero.Validate($(this));
                 LandAreaHelper.Validation.SumAreaCheck.Validate();
             })
+            CropMarketingHelper.Validation.WorkHourRange.Validate();
         }
     },
     CropMarketing: {
@@ -1571,6 +1583,7 @@ var CropMarketingHelper = {
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                             LandAreaHelper.Validation.SumAreaCheck.Validate();
                             ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                            CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
 
                     })
@@ -1602,6 +1615,7 @@ var CropMarketingHelper = {
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                         LandAreaHelper.Validation.SumAreaCheck.Validate();
                         ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                        CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
             })
@@ -1675,6 +1689,110 @@ var CropMarketingHelper = {
                 var con = !checked && exists;
                 var msg = '有生產農產品，【問項1.7】應有勾選『農作物及其製品』之銷售額區間';
                 Helper.LogHandler.Log(con, CropMarketingHelper.Alert, msg, this.Guids[0]);
+            },
+        },
+        WorkHourRange: {
+            Guids: Helper.Guid.CreateMulti(),
+            Validate: function(){
+
+                var selfWorkHour = 0;
+                var longTermWorkHour = 0;
+                var shortTermWorkHour = 0;
+
+                PopulationHelper.Population.Container.find('tr').each(function(){
+                    var farmerWorkday = $(this).find('[name="farmerworkday"] > option:selected').data('minDay');
+                    if(farmerWorkday > 0){
+                        result = parseInt(farmerWorkday) * 8
+                        selfWorkHour += result;
+                    }
+                })
+                LongTermHireHelper.LongTermHire.Container.find('tr').each(function(){
+                    var sumCount = $(this).find('[name="sumcount"]').val();
+                    var month = $(this).find('[name="month"]').val().length;
+                    var avgWorkDay = $(this).find('[name="avgworkday"]').val();
+
+                    if(sumCount > 0 && month > 0 && avgWorkDay > 0){
+                        result = parseInt(sumCount) * month * parseFloat(avgWorkDay) * 8;
+                        longTermWorkHour += result;
+                    }
+                })
+                LongTermLackHelper.LongTermLack.Container.find('tr').each(function(){
+                    var sumCount = $(this).find('[name="sumcount"]').val();
+                    var avgWorkDay = $(this).find('[name="avgworkday"]').val();
+
+                    if(sumCount > 0 && avgWorkDay > 0){
+                        result = parseInt(sumCount) * parseFloat(avgWorkDay) * 8;
+                        shortTermWorkHour += result;
+                    }
+                })
+
+                var workHours = selfWorkHour + longTermWorkHour + shortTermWorkHour;
+
+                /* Count from crops */
+
+                var reasonableWorkHourMin = 0;
+                var reasonableWorkHourMax = 0;
+
+                var minMsgs = [];
+                var maxMsgs = [];
+
+                var hourNotFound = false;
+
+                CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
+
+                    var landArea = $(this).find('[name="landarea"]').val();
+                    var plantTimes = $(this).find('[name="planttimes"]').val();
+                    var minHour = $(this).find('[name="product"] > option:selected').data('minHour');
+                    var maxHour = $(this).find('[name="product"] > option:selected').data('maxHour');
+                    var productName = $(this).find('[name="product"] > option:selected').data('name');
+                    var userInputProductName = $(this).find('[name="name"]').val();
+
+                    var matchingRate = 0.6;
+
+                    /* Replace min, max if user input product name match sub-product */
+                    /* Sub-product not display in dropdown UI */
+                    $(this).find('[name="product"] > option[style="display:none;"]').each(function(){
+                        var name = $(this).data('name');
+                        if(!name) return;
+                        mr = compareTwoStrings(Helper.ClearString(name), Helper.ClearString(userInputProductName));
+
+                        if(mr > matchingRate){
+                            console.log('Find sub product {0} for {1}'.format(userInputProductName, name));
+                            minHour = $(this).data('minHour');
+                            maxHour = $(this).data('maxHour');
+                            matchingRate = mr;
+                        }
+                    })
+
+                    if(!minHour || !maxHour){
+                        hourNotFound = true;
+                        console.log('Min or max work hour for {0} is not found.'.format(productName));
+                        return false;
+                    }
+
+                    if(landArea > 0 && plantTimes > 0){
+                        if(minHour > 0) reasonableWorkHourMin += parseFloat(landArea)/100 * parseFloat(plantTimes) * parseInt(minHour);
+                        if(maxHour > 0) reasonableWorkHourMax += parseFloat(landArea)/100 * parseFloat(plantTimes) * parseInt(maxHour);
+
+                        minMsgs.push('{0}({1})'.format(productName, minHour));
+                        maxMsgs.push('{0}({1})'.format(productName, maxHour));
+                    }
+                })
+
+                var con = !hourNotFound && (reasonableWorkHourMin > workHours || reasonableWorkHourMax < workHours);
+                var msg = '\
+                    填列之自家工與僱工工作時數不在合理工作時數區間，請確認：</br>\
+                    自家工與僱工工作時數：自家工({0}) + 常僱工({1}) + 臨時工({2}) = {3}小時</br>\
+                    農作物合理工作時數下限：{4} = {5}小時</br>\
+                    農作物合理工作時數上限：{6} = {7}小時</br>\
+                ';
+                msg = msg.format(selfWorkHour, longTermWorkHour, shortTermWorkHour,
+                                 workHours,
+                                 minMsgs.join(' + '),
+                                 reasonableWorkHourMin,
+                                 maxMsgs.join(' + '),
+                                 reasonableWorkHourMax);
+                Helper.LogHandler.Log(con, SurveyHelper.Hire.Info, msg, this.Guids[0], null, false);
             },
         },
     },
@@ -2177,6 +2295,7 @@ var PopulationHelper = {
             })
             PopulationHelper.Validation.AtLeastOne65Worker.Validate();
             PopulationHelper.Validation.FarmerWorkDayOver150.Validate();
+            CropMarketingHelper.Validation.WorkHourRange.Validate();
         }
     },
     Population: {
@@ -2236,6 +2355,7 @@ var PopulationHelper = {
                             PopulationHelper.Validation.AtLeastOne65Worker.Validate();
                             PopulationHelper.Validation.FarmerWorkDayOver150.Validate();
                             SurveyHelper.Second.Validation.SecondExist.Validate();
+                            CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
                     })
                 }
@@ -2266,6 +2386,7 @@ var PopulationHelper = {
                         PopulationHelper.Validation.FarmerWorkDayOver150.Validate();
                         PopulationAgeHelper.Validation.MemberCount.Validate();
                         SurveyHelper.Second.Validation.SecondExist.Validate();
+                        CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
             })
@@ -2289,8 +2410,6 @@ var PopulationHelper = {
                     if(Helper.LogHandler.ValidationActive){
                         PopulationHelper.Validation.Required.Validate($row);
                         PopulationAgeHelper.Validation.MemberCount.Validate();
-                        PopulationHelper.Validation.AtLeastOne65Worker.Validate();
-                        SurveyHelper.Second.Validation.SecondExist.Validate();
                     }
                 }
             })
@@ -2427,6 +2546,7 @@ var LongTermHireHelper = {
                 LongTermHireHelper.Validation.AvgWorkDay.Validate($(this));
                 LongTermHireHelper.Validation.LongTerm.Validate($(this));
             })
+            CropMarketingHelper.Validation.WorkHourRange.Validate();
         }
     },
     LongTermHire: {
@@ -2489,6 +2609,7 @@ var LongTermHireHelper = {
                         LongTermHireHelper.Validation.Required.Validate($(this));
                         LongTermHireHelper.Validation.GreaterThanZero.Validate($(this));
                     })
+                    CropMarketingHelper.Validation.WorkHourRange.Validate();
                 }
             })
             $row.find('button[name="remove"]').click(function(){
@@ -2506,6 +2627,7 @@ var LongTermHireHelper = {
                             Helper.LogHandler.DeleteRow(LongTermHireHelper.Alert, $tr, $nextAll);
                             LongTermHireHelper.Alert.alert();
                             SurveyHelper.Hire.Validation.HireExist.Validate();
+                            CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
                     })
                 }
@@ -2531,6 +2653,7 @@ var LongTermHireHelper = {
                         LongTermHireHelper.Validation.GreaterThanZero.Validate($tr);
                         LongTermHireHelper.Validation.AvgWorkDay.Validate($tr);
                         LongTermHireHelper.Validation.LongTerm.Validate($tr);
+                        CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
             })
@@ -2641,6 +2764,7 @@ var ShortTermHireHelper = {
                 ShortTermHireHelper.Validation.AvgWorkDay.Validate($(this));
             })
             ShortTermHireHelper.Validation.Over6Month.Validate();
+            CropMarketingHelper.Validation.WorkHourRange.Validate();
         }
     },
     ShortTermHire: {
@@ -2695,10 +2819,14 @@ var ShortTermHireHelper = {
                 })
                 $(this).closest('tr').find('input[name="sumcount"]').val(sumCount);
 
-                ShortTermHireHelper.ShortTermHire.Container.find('tr').each(function(){
-                    ShortTermHireHelper.Validation.Required.Validate($(this));
-                    ShortTermHireHelper.Validation.GreaterThanZero.Validate($(this));
-                })
+                if(Helper.LogHandler.ValidationActive){
+                    ShortTermHireHelper.ShortTermHire.Container.find('tr').each(function(){
+                        ShortTermHireHelper.Validation.Required.Validate($(this));
+                        ShortTermHireHelper.Validation.GreaterThanZero.Validate($(this));
+                    })
+                    CropMarketingHelper.Validation.WorkHourRange.Validate();
+                }
+
             })
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
@@ -2714,6 +2842,7 @@ var ShortTermHireHelper = {
                             Helper.LogHandler.DeleteRow(ShortTermHireHelper.Alert, $tr, $nextAll);
                             SurveyHelper.Hire.Validation.HireExist.Validate();
                             ShortTermHireHelper.Validation.Over6Month.Validate();
+                            CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
                     })
                 }
@@ -2737,6 +2866,7 @@ var ShortTermHireHelper = {
                         ShortTermHireHelper.Validation.Required.Validate($tr);
                         ShortTermHireHelper.Validation.GreaterThanZero.Validate($tr);
                         ShortTermHireHelper.Validation.AvgWorkDay.Validate($tr);
+                        CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
             })
