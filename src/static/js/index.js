@@ -167,8 +167,8 @@ $(document).ready(function() {
                             initial_errors: Helper.LogHandler.CollectError.InitialErrors,
                             current_errors: Helper.LogHandler.CollectError.GetCurrent(),
                             object_id: CloneData[MainSurveyId].id,
-                            app_label: 'surveys18',
-                            model: 'survey',
+                            app_label: CloneData[MainSurveyId].app_label,
+                            model: CloneData[MainSurveyId].model,
                         }
                         var ajax = SetLogData(JSON.stringify(data));
                         Helper.DataTable.ReviewLogRetrieve.Reload();
@@ -243,7 +243,7 @@ var SetFarmerData = function (url, data) {
 
 var SetLogData = function (data) {
     return $.ajax({
-        url: 'logs/api/update/',
+        url: 'logs/api/reviewlog/',
         async: false,
         type: 'PATCH',
         data: {

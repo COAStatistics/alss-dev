@@ -8,6 +8,7 @@ from rest_framework.serializers import (
 from apps.logs.models import ReviewLog
 from logging import INFO
 from apps.surveys18.models import Survey as Survey18
+from apps.surveys19.models import Survey as Survey19
 
 
 class ContentObjectRelatedField(RelatedField):
@@ -20,6 +21,8 @@ class ContentObjectRelatedField(RelatedField):
         Serialize content objects to a simple textual representation.
         """
         if isinstance(value, Survey18):
+            return value.farmer_id
+        if isinstance(value, Survey19):
             return value.farmer_id
         raise Exception("Unexpected type of content object")
 
@@ -95,3 +98,9 @@ class ReviewLogUpdateSerializer(ModelSerializer):
             instance.save()
 
         return instance
+
+
+class ReviewLogSerializer(ModelSerializer):
+    class Meta:
+        model = ReviewLog
+        fields = "__all__"
