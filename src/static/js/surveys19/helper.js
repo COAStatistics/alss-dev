@@ -1736,8 +1736,6 @@ var CropMarketingHelper = {
                 var minMsgs = [];
                 var maxMsgs = [];
 
-                var hourNotFound = false;
-
                 CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
 
                     var landArea = $(this).find('[name="landarea"]').val();
@@ -1765,9 +1763,10 @@ var CropMarketingHelper = {
                     })
 
                     if(!minHour || !maxHour){
-                        hourNotFound = true;
                         console.log('Min or max work hour for {0} is not found.'.format(productName));
-                        return false;
+                        minMsgs.push('{0}({1})'.format(productName, 0));
+                        maxMsgs.push('{0}({1})'.format(productName, 0));
+                        return;
                     }
 
                     if(landArea > 0 && plantTimes > 0){
@@ -1777,9 +1776,10 @@ var CropMarketingHelper = {
                         minMsgs.push('{0}({1})'.format(productName, minHour));
                         maxMsgs.push('{0}({1})'.format(productName, maxHour));
                     }
+
                 })
 
-                var con = !hourNotFound && (reasonableWorkHourMin > workHours || reasonableWorkHourMax < workHours);
+                var con = (reasonableWorkHourMin > workHours || reasonableWorkHourMax < workHours);
                 var msg = '\
                     填列之自家工與僱工工作時數不在合理工作時數區間，請確認：</br>\
                     自家工與僱工工作時數：自家工({0}) + 常僱工({1}) + 臨時工({2}) = {3}小時</br>\

@@ -148,6 +148,20 @@
     year_sales: 168000
     has_facility: 1
 
+- model: surveys19.CropMarketing
+  pk: 5
+  fields:
+    survey: 1
+    product: 21
+    loss: 5
+    unit: 2
+    name: 盤固拉草
+    land_number: 4
+    land_area: 90
+    plant_times: 1
+    year_sales: 648000
+    has_facility: 0
+
 - model: surveys19.LivestockMarketing
   pk: 1
   fields:
