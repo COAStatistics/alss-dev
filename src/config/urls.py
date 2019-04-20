@@ -31,7 +31,7 @@ urlpatterns = [
     path("users/", include("apps.users.urls", namespace="users")),
     path("106/", include("apps.surveys18.urls", namespace="surveys18")),
     path("107/", include("apps.surveys19.urls", namespace="surveys19")),
-    path('swagger/', schema_view),
+    path('swagger/', schema_view, name="swagger"),
 ]
 
 if settings.DEBUG:
