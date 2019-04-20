@@ -184,7 +184,7 @@ class Builder(object):
                 second_str = self.string[1][-2]
                 non_second_str = self.string[1][-1]
                 second = second_str == "1"
-                non_second = non_second_str == "0"
+                non_second = non_second_str == "1"
 
         except ValueError as e:
             raise StringLengthError(target="Survey", msg=e)

@@ -24,7 +24,7 @@ class ModelTestCase(TestCase):
         self.assertEquals(self.builder.survey.investigator, "宋中積")
         self.assertEquals(self.builder.survey.reviewer, "宋會喬")
         self.assertEquals(self.builder.survey.second, True)
-        self.assertEquals(self.builder.survey.non_second, True)
+        self.assertEquals(self.builder.survey.non_second, False)
 
         # check survey query string
 
