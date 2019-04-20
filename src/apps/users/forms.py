@@ -11,7 +11,7 @@ class UserLoginForm(forms.Form):
     Login user.
     """
 
-    username = forms.CharField(label="帳號")
+    username = forms.CharField(label="電子信箱")
     password = forms.CharField(widget=forms.PasswordInput, label="密碼")
     # This field just for identity validate inactive error in views.py
     is_active = forms.BooleanField(
