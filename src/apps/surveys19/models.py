@@ -575,8 +575,8 @@ class Product(Model):
 
     name = CharField(max_length=50, null=True, blank=True, verbose_name=_("Name"))
     code = CharField(max_length=50, verbose_name=_("Code"))
-    min_hour = IntegerField(null=True, blank=True, verbose_name=_("Min Hour"))
-    max_hour = IntegerField(null=True, blank=True, verbose_name=_("Max Hour"))
+    min_hour = FloatField(null=True, blank=True, verbose_name=_("Min Hour"))
+    max_hour = FloatField(null=True, blank=True, verbose_name=_("Max Hour"))
     display = BooleanField(default=False, verbose_name=_("Display"))
     type = ForeignKey(
         "surveys19.ProductType",

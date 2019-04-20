@@ -1732,8 +1732,8 @@
   fields:
     name: 肉豬
     code: F01
-    min_hour:
-    max_hour:
+    min_hour: 0.5
+    max_hour: 3
     display: True
     type: 2
     management_type: 12  
@@ -1743,8 +1743,8 @@
   fields:
     name: 種豬
     code: F02
-    min_hour:
-    max_hour:
+    min_hour: 0.5
+    max_hour: 3
     display: True
     type: 2
     management_type: 12  
@@ -1754,8 +1754,8 @@
   fields:
     name: 小豬
     code: F04
-    min_hour:
-    max_hour:
+    min_hour: 0.5
+    max_hour: 3
     display: True
     type: 2
     management_type: 12  
@@ -1765,8 +1765,8 @@
   fields:
     name: 泌乳牛
     code: J01
-    min_hour:
-    max_hour:
+    min_hour: 30
+    max_hour: 100
     display: True
     type: 2
     management_type: 11
@@ -1776,8 +1776,8 @@
   fields:
     name: 不泌乳牛
     code: J03
-    min_hour:
-    max_hour:
+    min_hour: 30
+    max_hour: 100
     display: True
     type: 2
     management_type: 11
@@ -1798,8 +1798,8 @@
   fields:
     name: 蛋雞
     code: G01
-    min_hour:
-    max_hour:
+    min_hour: 10
+    max_hour: 25
     display: True
     type: 2
     management_type: 13
@@ -1809,8 +1809,8 @@
   fields:
     name: 白肉雞
     code: G02
-    min_hour:
-    max_hour:
+    min_hour: 1
+    max_hour: 6
     display: True
     type: 2
     management_type: 13
@@ -1820,8 +1820,8 @@
   fields:
     name: 有色肉雞
     code: G03
-    min_hour:
-    max_hour:
+    min_hour: 1
+    max_hour: 6
     display: True
     type: 2
     management_type: 13
@@ -1831,8 +1831,8 @@
   fields:
     name: 肉種雞
     code: G04
-    min_hour:
-    max_hour:
+    min_hour: 1
+    max_hour: 6
     display: True
     type: 2
     management_type: 13
@@ -1842,8 +1842,8 @@
   fields:
     name: 蛋種雞
     code: G05
-    min_hour:
-    max_hour:
+    min_hour: 10
+    max_hour: 25
     display: True
     type: 2
     management_type: 13

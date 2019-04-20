@@ -324,4 +324,12 @@ var Helper = {
     NumberWithCommas: function(num){
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     },
+    Round: function(value, precision){
+        if (Number.isInteger(precision)) {
+            var shift = Math.pow(10, precision);
+            return Math.round(value * shift) / shift;
+        } else {
+            return Math.round(value);
+        }
+    },
 }

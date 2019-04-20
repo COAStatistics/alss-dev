@@ -879,7 +879,7 @@ var LandAreaHelper = {
                     var landTypeId = $(this).data('landtype-id');
                     var value = parseInt($(this).val());
                     if(Helper.NumberValidate(value)) {
-                        if(landTypeId == 2) value = value * 0.03306
+                        if(landTypeId == 2) value = Helper.Round(value * 0.03306, 1);
                         landAreaSum += value;
                     }
                 })
@@ -1414,13 +1414,13 @@ var CropMarketingHelper = {
 
                 var workHours = selfWorkHour + longTermWorkHour + shortTermWorkHour;
 
-                /* Count from crops */
-
                 var reasonableWorkHourMin = 0;
                 var reasonableWorkHourMax = 0;
 
                 var minMsgs = [];
                 var maxMsgs = [];
+                
+                /* Count from crops */
 
                 CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
 
@@ -1450,34 +1450,66 @@ var CropMarketingHelper = {
 
                     if(!minHour || !maxHour){
                         console.log('Min or max work hour for {0} is not found.'.format(productName));
-                        minMsgs.push('{0}({1})'.format(productName, 0));
-                        maxMsgs.push('{0}({1})'.format(productName, 0));
+                        minMsgs.push('<b class="text-primary">{0}({1})</b>'.format(productName, 0));
+                        maxMsgs.push('<b class="text-primary">{0}({1})</b>)'.format(productName, 0));
                         return;
                     }
 
                     if(landArea > 0 && plantTimes > 0){
-                        if(minHour > 0) reasonableWorkHourMin += parseFloat(landArea)/100 * parseFloat(plantTimes) * parseInt(minHour);
-                        if(maxHour > 0) reasonableWorkHourMax += parseFloat(landArea)/100 * parseFloat(plantTimes) * parseInt(maxHour);
+                        var resultMin = Helper.Round(parseFloat(landArea)/100 * parseFloat(plantTimes) * parseInt(minHour), 1);
+                        var resultMax = Helper.Round(parseFloat(landArea)/100 * parseFloat(plantTimes) * parseInt(maxHour), 1);
 
-                        minMsgs.push('{0}({1})'.format(productName, minHour));
-                        maxMsgs.push('{0}({1})'.format(productName, maxHour));
+                        if(minHour > 0) reasonableWorkHourMin += resultMin;
+                        if(maxHour > 0) reasonableWorkHourMax += resultMax;
+
+                        minMsgs.push('<b class="text-primary">{0}({1})</b>'.format(productName, resultMin));
+                        maxMsgs.push('<b class="text-primary">{0}({1})</b>'.format(productName, resultMax));
+                    }
+
+                })
+                
+                /* Count from livestocks */
+
+                LivestockMarketingHelper.LivestockMarketing.Container.find('tr').each(function(){
+
+                    var raisingNumber = $(this).find('[name="raisingnumber"]').val();
+                    var minHour = $(this).find('[name="product"] > option:selected').data('minHour');
+                    var maxHour = $(this).find('[name="product"] > option:selected').data('maxHour');
+                    var productName = $(this).find('[name="product"] > option:selected').data('name');
+
+                    if(!minHour || !maxHour){
+                        console.log('Min or max work hour for {0} is not found.'.format(productName));
+                        minMsgs.push('<b class="text-warning">{0}({1})</b>'.format(productName, 0));
+                        maxMsgs.push('<b class="text-warning">{0}({1})</b>'.format(productName, 0));
+                        return;
+                    }
+
+                    if(raisingNumber > 0){
+                        var resultMin = Helper.Round(parseFloat(raisingNumber) * parseInt(minHour), 1);
+                        var resultMax = Helper.Round(parseFloat(raisingNumber) * parseInt(maxHour), 1);
+
+                        if(minHour > 0) reasonableWorkHourMin += resultMin;
+                        if(maxHour > 0) reasonableWorkHourMax += resultMax;
+
+                        minMsgs.push('<b class="text-warning">{0}({1})</b>'.format(productName, resultMin));
+                        maxMsgs.push('<b class="text-warning">{0}({1})</b>'.format(productName, resultMax));
                     }
 
                 })
 
-                var con = (reasonableWorkHourMin > workHours || reasonableWorkHourMax < workHours);
+                var con = reasonableWorkHourMin > workHours || reasonableWorkHourMax + reasonableWorkHourMax < workHours;
                 var msg = '\
                     填列之自家工與僱工工作時數不在合理工作時數區間，請確認：</br>\
                     自家工與僱工工作時數：自家工({0}) + 常僱工({1}) + 臨時工({2}) = {3}小時</br>\
-                    農作物合理工作時數下限：{4} = {5}小時</br>\
-                    農作物合理工作時數上限：{6} = {7}小時</br>\
+                    合理工作時數下限：{4} = {5}小時</br>\
+                    合理工作時數上限：{6} = {7}小時</br>\
                 ';
                 msg = msg.format(selfWorkHour, longTermWorkHour, shortTermWorkHour,
                                  workHours,
                                  minMsgs.join(' + '),
                                  reasonableWorkHourMin,
                                  maxMsgs.join(' + '),
-                                 reasonableWorkHourMax);
+                                 reasonableWorkHourMax)
                 Helper.LogHandler.Log(con, SurveyHelper.Hire.Info, msg, this.Guids[0], null, false);
             },
         },
