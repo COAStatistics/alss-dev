@@ -1,0 +1,18 @@
+- model: logs.reviewlog
+  pk: 1
+  fields:
+    user: 1
+    content_type: 31
+    object_id: 1
+    initial_errors: 6
+    current_errors: 6
+    update_datetime: 2019-04-20 09:05:21.709899+00:00
+- model: logs.reviewlog
+  pk: 2
+  fields:
+    user: 1
+    content_type: 72
+    object_id: 1
+    initial_errors: 4
+    current_errors: 4
+    update_datetime: 2019-04-20 09:05:42.561095+00:00

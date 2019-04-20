@@ -29,15 +29,12 @@ class ContentObjectRelatedField(RelatedField):
 
 class ReviewLogListSerializer(ModelSerializer):
     id = IntegerField(read_only=False)
-    user = SerializerMethodField()
+    user = SerializerMethodField(read_only=True)
     content_object = ContentObjectRelatedField(read_only=True)
-    update_datetime = SerializerMethodField()
+    update_datetime = SerializerMethodField(read_only=True)
 
     def get_user(self, instance):
-        if instance.user.first_name:
-            return instance.user.first_name + instance.user.last_name
-        else:
-            return instance.user.username
+        return instance.user.full_name or instance.user.email
 
     def get_update_datetime(self, instance):
         return timezone.localtime(instance.update_datetime).strftime(
@@ -83,7 +80,6 @@ class ReviewLogUpdateSerializer(ModelSerializer):
             )
 
             instance = ReviewLog.objects.create(
-                level=INFO,
                 user=validated_data["user"],
                 content_type=content_type,
                 object_id=object_id,

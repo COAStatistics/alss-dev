@@ -12,6 +12,7 @@
 {% endblock external_css %}
 
 {% block external_js %}
+<script src="{% static 'js/utils.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
 <script src="{% static 'js/surveys19/helper.js' %}"></script>
 {% endblock external_js %}
@@ -77,7 +78,7 @@
                 {% include 'surveys19/panel4.html' %}
             </div>
             <div data-partial="datatable">
-                {% include 'surveys19/panel-review-dt.html' %}
+                {% include 'reviewlog.html'%}
             </div>
         </div>
         <!-- /.col-lg-9 -->

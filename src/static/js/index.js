@@ -243,7 +243,7 @@ var SetFarmerData = function (url, data) {
 
 var SetLogData = function (data) {
     return $.ajax({
-        url: 'logs/api/reviewlog/',
+        url: '/logs/api/reviewlog/',
         async: false,
         type: 'PATCH',
         data: {

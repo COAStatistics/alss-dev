@@ -61,12 +61,13 @@ class ReviewLog(Model):
 
 
 def query_by_args(request, **kwargs):
-    draw = int(kwargs.get("draw", None)[0])
-    length = int(kwargs.get("length", None)[0])
-    start = int(kwargs.get("start", None)[0])
-    order_column = kwargs.get("order[0][column]", None)[0]
-    order = kwargs.get("order[0][dir]", None)[0]
-    search_value = kwargs.get("search[value]", None)[0]
+    app_label = kwargs.get("app_label")[0]
+    draw = int(kwargs.get("draw")[0])
+    length = int(kwargs.get("length")[0])
+    start = int(kwargs.get("start")[0])
+    order_column = kwargs.get("order[0][column]")[0]
+    order = kwargs.get("order[0][dir]")[0]
+    search_value = kwargs.get("search[value]")[0]
 
     order_column = ORDER_COLUMN_CHOICES[order_column]
     # django orm '-' -> desc
@@ -78,16 +79,18 @@ def query_by_args(request, **kwargs):
     else:
         queryset = ReviewLog.objects.filter(user=request.user).all()
 
+    if app_label:
+        queryset = queryset.filter(content_type__app_label=app_label)
+
     total = queryset.count()
 
     if search_value:
         queryset = queryset.filter(
             Q(survey__farmer_id__icontains=search_value)
-            | Q(user__username__icontains=search_value)
-            | Q(user__first_name__icontains=search_value)
-            | Q(user__last_name__icontains=search_value)
+            | Q(user__full_name__icontains=search_value)
+            | Q(user__email__icontains=search_value)
         )
 
     count = queryset.count()
-    queryset = queryset.order_by(order_column)[start : start + length]
+    queryset = queryset.order_by(order_column)[start: start + length]
     return {"items": queryset, "count": count, "total": total, "draw": draw}
