@@ -444,6 +444,12 @@ class SurveySerializer(ModelSerializer):
 
         instance.save()
 
+        """Farm Location"""
+        instance.farm_location.city = validated_data['farm_location']['city']
+        instance.farm_location.town = validated_data['farm_location']['town']
+        instance.farm_location.code = validated_data['farm_location']['code']
+        instance.farm_location.save()
+
         """Phone"""
         phone_ids = [item["id"] for item in validated_data["phones"] if "id" in item]
         # Delete not included in the request

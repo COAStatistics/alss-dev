@@ -149,6 +149,7 @@ $(document).ready(function() {
                     Object.keys(CloneData).forEach(function(pk, i){
                         var ajax = SetFarmerData(url, JSON.stringify(CloneData[pk])).fail(function(){
                             Helper.Dialog.ShowInfo('很抱歉，更新時發生錯誤，請稍後重試或與我們聯繫！');
+                            $btn.data('ajax-sending', false);
                         });
                         jobs.push(ajax);
                     })
