@@ -448,7 +448,7 @@ class CropMarketing(Model):
         max_length=50, null=True, blank=True, verbose_name=_("Product Name")
     )
     land_number = IntegerField(null=True, blank=True, verbose_name=_("Land Number"))
-    land_area = IntegerField(null=True, blank=True, verbose_name=_("Land Area"))
+    land_area = FloatField(null=True, blank=True, verbose_name=_("Land Area"))
     plant_times = IntegerField(null=True, blank=True, verbose_name=_("Plant Times"))
     year_sales = IntegerField(null=True, blank=True, verbose_name=_("Year Sales"))
     has_facility = IntegerField(

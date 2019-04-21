@@ -1300,6 +1300,7 @@ var CropMarketingHelper = {
                     obj.product = parseInt($tr.find('[name="product"]').val());
                     obj.name = $tr.find('[name="name"]').val();
                     obj.land_number = parseInt($tr.find('[name="landnumber"]').val());
+                    obj.land_area = parseFloat($tr.find('[name="landarea"]').val());
                     obj.loss = parseInt($tr.find('[name="loss"]').val());
                     obj.plant_times = parseInt($tr.find('[name="planttimes"]').val());
                     obj.unit = parseInt($tr.find('[name="unit"]').val());
