@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block external_css %}
+<!-- Pace -->
+<link href="{% static 'vendor/pace/pace-theme-loading-bar.css' %}" rel="stylesheet">
+{% endblock external_css %}
+
+{% block internal_css %}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#masterhead {
+  position: relative;
+  height: 100vh;
+  background: transparent;
+  z-index: 3;
+}
+
+#masterhead .masterhead {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.masterhead {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+.masterhead .masterhead-bg {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: -1;
+}
+
+.masterhead .masterhead-bg > div {
+  width: 100%;
+  background: #fff;
+  border-radius: 90px;
+  height: 125px;
+}
+
+.masterhead .masterhead-bg > div:nth-child(1) {
+  -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+          box-shadow: 5px 5px 0px 0px #f3f3f3;
+}
+
+.masterhead .masterhead-bg > div:nth-child(2) {
+  -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+          box-shadow: 5px 5px 0px 0px #f3f3f3;
+  position: relative;
+  z-index: 10;
+}
+
+.masterhead .masterhead-bg > div:nth-child(3) {
+  -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+          box-shadow: 5px 5px 0px 0px #f3f3f3;
+  position: relative;
+  z-index: 90;
+}
+
+.masterhead h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 86px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #151515;
+}
+
+.masterhead h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 26px;
+  margin: 0;
+  font-weight: 700;
+  color: #151515;
+}
+
+.masterhead a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #18e06f;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.masterhead-social {
+  margin-top: 20px;
+}
+
+.masterhead-social>a {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #dedede;
+  margin: 3px;
+  padding: 0px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.masterhead-social>a:hover {
+  background-color: #18e06f;
+}
+
+@media only screen and (max-width: 767px) {
+    .masterhead .masterhead-bg {
+      width: 287px;
+      margin: auto;
+    }
+
+    .masterhead .masterhead-bg > div {
+      height: 85px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .masterhead h1 {
+    font-size: 68px;
+  }
+
+  .masterhead h2 {
+    font-size: 18px;
+  }
+}
+
+html {
+  height:100%;
+  background:#63D0FF;
+}
+
+body{
+  margin:0;
+  padding:0;
+  background:#63D0FF;
+  height:100%;
+}
+
+#wrapper {
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+#clouds{
+  background:url("/static/img/bg-cloud.png?ver=20190421") repeat-x 0 bottom #ACE6FF;
+  width:100%;
+  height:300px;
+  min-height:230px;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  -webkit-transform:translate3d(0,0,0.01);
+  transform:translate3d(0,0,0.01);
+}
+
+#ground {
+  background:url("/static/img/bg-grass.png?ver=20190421") repeat-x 0 0 transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index:2;
+  width: 100%;
+  height: 192px;
+  min-height:192px;
+  border:0 none transparent;
+  outline:0 none transparent;
+  -webkit-transform:translate3d(0,0,0.01);
+  transform:translate3d(0,0,0.01);
+  will-change: transform;
+}
+{% endblock internal_css %}
+
+{% block external_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+{% endblock external_js %}
+
+{% block internal_js %}
+
+$(document).ready(function(){
+
+  Pace.on('done',function(){
+      $('#wrapper').fadeIn(300);
+  });
+
+})
+
+// wait until DOM is ready
+document.addEventListener("DOMContentLoaded", function(event) {
+
+  function ground() {
+
+    var tl = new TimelineMax({
+      repeat: -1
+    });
+
+    tl.to("#ground", 20, {
+        backgroundPosition: "1301px 0px",
+        force3D:true,
+        rotation:0.01,
+        z:0.01,
+        autoRound:false,
+        ease: Linear.easeNone
+      });
+
+    return tl;
+  }
+
+  function clouds() {
+
+    var tl = new TimelineMax({
+      repeat: -1
+    });
+
+    tl.to("#clouds", 52, {
+      backgroundPosition: "-2247px bottom",
+      force3D:true,
+      rotation:0.01,
+      z:0.01,
+      //autoRound:false,
+      ease: Linear.easeNone
+    });
+
+    return tl;
+  }
+
+  var masterTL = new TimelineMax({
+    repeat: -1
+  });
+
+  // window load event makes sure image is
+// loaded before running animation
+window.onload = function() {
+
+  masterTL
+  .add(ground(),0)
+  .add(clouds(),0)
+  .timeScale(0.7)
+  .progress(1).progress(0)
+  .play();
+
+};
+
+});
+
+{% endblock internal_js %}
+
+{% block content %}
+
+<div id="wrapper" class="wrapper container" style="display:none;">
+  <!-- Navigation-->
+  {% include 'navbar.html' %}
+  <div id="masterhead">
+      <div class="masterhead">
+        <div class="masterhead-bg">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h2 style="padding: 15px;">歡迎來到</h2>
+        <h1>勞動力</h1>
+        <h1>調查平台</h1>
+        {% if perms.surveys18.view_survey %}
+        <a href="{% url 'surveys18:surveys18_index' %}">106年</a>
+        {% endif %}
+        {% if perms.surveys19.view_survey %}
+        <a href="{% url 'surveys19:surveys19_index' %}">107年</a>
+        {% endif %}
+      </div>
+  </div>
+  <div id="clouds"></div>
+  <div id="ground"></div>
+</div>
+
+{% endblock content %}

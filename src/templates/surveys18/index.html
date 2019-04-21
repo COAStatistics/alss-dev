@@ -7,14 +7,17 @@
 {% endblock head_title%}
 
 {% block external_css %}
-<link href="{% static 'vendor/pace/pace-theme-loading-bar.css' %}" rel="stylesheet">
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
+<!-- Pace -->
+<link href="{% static 'vendor/pace/pace-theme-loading-bar.css' %}" rel="stylesheet">
 {% endblock external_css %}
 
 {% block external_js %}
 <script src="{% static 'js/utils.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
+{% if perms.surveys18.view_survey %}
 <script src="{% static 'js/surveys18/helper.js' %}"></script>
+{% endif %}
 {% endblock external_js %}
 
 {% block content %}
@@ -28,17 +31,11 @@
     {% include 'navbar.html' %}
     <!-- Page Content -->
     <div class="row">
+        {% if perms.surveys18.view_survey %}
         <div class="col-md-3 col-lg-2">
             <div class="affix" data-spy="affix">
                 <div>
-                    <h4 class="my-3 bold">選擇年份</h4>
-                    <div class="list-group">
-                        <a href="{% url 'surveys18:surveys18_index' %}" class="list-group-item active">106</a>
-                        <a href="{% url 'surveys19:surveys19_index' %}" class="list-group-item">107</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="my-3 bold">查詢106年調查表</h4>
+                    <h4 class="my-3 bold">106年調查表</h4>
                     <div class="list-group">
                         <input type="text" class="form-control input-lg" id="farmerId" data-provide="typehead"
                                placeholder="請輸入農戶編號" autocomplete="off">
@@ -64,7 +61,15 @@
                                     data-url="{% url 'surveys18:survey-patch' %}">更新調查表</button>
                     </div>
                 </div>
-
+                <div>
+                    <h4 class="my-3 bold">106年審表紀錄</h4>
+                    <div class="list-group">
+                        <div class="btn-group-vertical flex mt-1" role="group" aria-label="" style="width:100%;">
+                            <button type="button" class="btn btn-danger btn-lg js-partial-control"
+                                    data-target="datatable">檢視紀錄</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-9 col-lg-10 js-panel-contents">
@@ -78,10 +83,13 @@
                 {% include 'surveys18/panel4.html' %}
             </div>
             <div data-partial="datatable">
-                {% include 'reviewlog.html'%}
+                {% include 'reviewlog.html' with year=106 %}
             </div>
         </div>
         <!-- /.col-lg-9 -->
+        {% else %}
+        {% include 'permission-deny.html' with permission='檢視106年調查表' %}
+        {% endif %}
     </div>
     <!-- /.row -->
 </div>

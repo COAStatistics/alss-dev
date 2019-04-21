@@ -45,13 +45,6 @@ $(document).ready(function() {
     /* jQuery Spinner */
     var Loading = $.loading();
 
-    /* autocomplete */
-    $("#farmerId").typeahead({
-        source: FarmerIds,
-        autoSelect: true,
-        fitToElement: true,
-    })
-
     /* panel control */
     $('.js-tabs-control').on('click', function() {
         $(this).siblings().removeClass('active');

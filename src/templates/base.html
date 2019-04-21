@@ -33,6 +33,11 @@
 
     {% block external_css %}
     {% endblock external_css %}
+
+    <style>
+        {% block internal_css %}
+        {% endblock internal_css %}
+    </style>
 </head>
 
 <body>
@@ -55,12 +60,8 @@
     {% endblock external_js %}
 
     <script type="text/javascript">
-        (function($) {
-            $(document).ready(function() {
-                {% block internal_js %}
-                {% endblock internal_js %}
-            });
-        })(jQuery);
+        {% block internal_js %}
+        {% endblock internal_js %}
     </script>
 </body>
 </html>

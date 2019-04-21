@@ -11,6 +11,13 @@ $(document).ready(function () {
     var Loading = $.loading();
     /* setup*/
     Setup(GlobalUI);
+
+    /* autocomplete */
+    $("#farmerId").typeahead({
+        source: FarmerIds,
+        autoSelect: true,
+        fitToElement: true,
+    })
 })
 
 var Reset = function () {

@@ -19,14 +19,14 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from apps.surveys19.views import Surveys2019Index
+from .views import Index
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title='農業勞動力調查平台應用程式介面',)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", Surveys2019Index.as_view(), name="index"),
+    path("", Index.as_view(), name="index"),
     path("logs/", include("apps.logs.urls", namespace="logs")),
     path("users/", include("apps.users.urls", namespace="users")),
     path("106/", include("apps.surveys18.urls", namespace="surveys18")),
