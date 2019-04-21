@@ -7,6 +7,11 @@ Pace.options = {
 $.loading.default.tip = '請稍後';
 $.loading.default.imgPath = '../static/vendor/ajax-loading/img/ajax-loading.gif';
 
+/* BootstrapDialog settings */
+BootstrapDialog.DEFAULT_TEXTS['OK'] = '確定';
+BootstrapDialog.DEFAULT_TEXTS['CANCEL'] = '取消';
+BootstrapDialog.DEFAULT_TEXTS['CONFIRM'] = '確認';
+
 
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
@@ -136,49 +141,52 @@ $(document).ready(function() {
         if(CloneData){
             if(!CloneData[MainSurveyId].readonly){
                 var url = $(this).data('url');
-                $.when(
-                    $btn.data('ajax-sending', true),
-                    $.Deferred(showLoading)
-                ).done(function(){
+                $.when($.Deferred(Helper.Dialog.UpdateSurvey)).then(function(){
 
-                    // it resolves itself after 1 seconds
-                    var timer = $.Deferred();
-                    setTimeout(timer.resolve, 1000);
-
-                    var jobs = [timer]
-                    Object.keys(CloneData).forEach(function(pk, i){
-                        var ajax = SetFarmerData(url, JSON.stringify(CloneData[pk])).fail(function(){
-                            Helper.Dialog.ShowInfo('很抱歉，更新時發生錯誤，請稍後重試或與我們聯繫！');
-                            $btn.data('ajax-sending', false);
-                        });
-                        jobs.push(ajax);
-                    })
-
-                    $.when.apply(
-                        undefined,
-                        jobs
+                    $.when(
+                        $btn.data('ajax-sending', true),
+                        $.Deferred(showLoading),
                     ).done(function(){
-                        // this won't be called until *all* the AJAX and the timer have finished
-                        Reset();
-                        Object.keys(CloneData).forEach(function(key, i){
-                            Set(CloneData[key], CloneData[key].id);
-                        });
-                        // create or update review log
-                        data = {
-                            initial_errors: Helper.LogHandler.CollectError.InitialErrors,
-                            current_errors: Helper.LogHandler.CollectError.GetCurrent(),
-                            object_id: CloneData[MainSurveyId].id,
-                            app_label: CloneData[MainSurveyId].app_label,
-                            model: CloneData[MainSurveyId].model,
-                        }
-                        var ajax = SetLogData(JSON.stringify(data));
-                        Helper.DataTable.ReviewLogRetrieve.Reload();
-                        Helper.Dialog.ShowInfo('成功更新調查表！');
 
-                        $btn.data('ajax-sending', false);
+                        // it resolves itself after 1 seconds
+                        var timer = $.Deferred();
+                        setTimeout(timer.resolve, 1000);
+
+                        var jobs = [timer]
+                        Object.keys(CloneData).forEach(function(pk, i){
+                            var ajax = SetFarmerData(url, JSON.stringify(CloneData[pk])).fail(function(){
+                                Helper.Dialog.ShowInfo('很抱歉，更新時發生錯誤，請稍後重試或與我們聯繫！');
+                                $btn.data('ajax-sending', false);
+                            });
+                            jobs.push(ajax);
+                        })
+
+                        $.when.apply(
+                            undefined,
+                            jobs
+                        ).done(function(){
+                            // this won't be called until *all* the AJAX and the timer have finished
+                            Reset();
+                            Object.keys(CloneData).forEach(function(key, i){
+                                Set(CloneData[key], CloneData[key].id);
+                            });
+                            // create or update review log
+                            data = {
+                                initial_errors: Helper.LogHandler.CollectError.InitialErrors,
+                                current_errors: Helper.LogHandler.CollectError.GetCurrent(),
+                                object_id: CloneData[MainSurveyId].id,
+                                app_label: CloneData[MainSurveyId].app_label,
+                                model: CloneData[MainSurveyId].model,
+                            }
+                            var ajax = SetLogData(JSON.stringify(data));
+                            Helper.DataTable.ReviewLogRetrieve.Reload();
+                            Helper.Dialog.ShowInfo('成功更新調查表！');
+
+                            $btn.data('ajax-sending', false);
+                        })
+                    }).done(function(){
+                        Loading.close();
                     })
-                }).done(function(){
-                    Loading.close();
                 })
             }
         }
@@ -209,10 +217,12 @@ var GetFarmerData = function (url, fid, readonly) {
                     })
                 } else {
                     Helper.Dialog.ShowInfo('查無農戶資料！');
+                    $('#nav-about').click();
                 }
             }
             else {
                 Helper.Dialog.ShowInfo('查無農戶資料！');
+                $('#nav-about').click();
             }
         },
     });

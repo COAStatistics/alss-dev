@@ -6,11 +6,6 @@ var FarmerIds = $.parseJSON($('#fid').val());
 var CloneData = null;
 var MainSurveyId = 0;
 
-/* BootstrapDialog settings */
-BootstrapDialog.DEFAULT_TEXTS['OK'] = '確定';
-BootstrapDialog.DEFAULT_TEXTS['CANCEL'] = '取消';
-BootstrapDialog.DEFAULT_TEXTS['CONFIRM'] = '確認';
-
 $(document).ready(function () {
     /* jQuery Spinner */
     var Loading = $.loading();

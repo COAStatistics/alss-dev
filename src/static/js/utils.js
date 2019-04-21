@@ -170,6 +170,9 @@ var Helper = {
             alert.alert();
         },
         CollectError: {
+            GetContainers: function(){
+                return $('.alert-block.alert-danger');
+            },
             InitialErrors: null,
             Init: function(){
                 // init only once after get survey
@@ -177,15 +180,32 @@ var Helper = {
             },
             GetCurrent: function(){
                 var counter = 0;
-                $('.alert-block.alert-danger').each(function(){
-                    counter += this.alert.currentErrors;
+                this.GetContainers().each(function(){
+                    counter += this.alert.currentMessages;
                 })
                 return counter;
             },
             GetSkipped: function(){
                 var counter = 0;
-                $('.alert-block.alert-danger').each(function(){
+                this.GetContainers().each(function(){
                     counter += this.alert.skippedErrorGuids.length;
+                })
+                return counter;
+            },
+        },
+        CollectInfo: {
+            GetContainers: function(){
+                return $('.alert-block.alert-info');
+            },
+            InitialInfos: null,
+            Init: function(){
+                // init only once after get survey
+                this.InitialInfos = this.GetCurrent();
+            },
+            GetCurrent: function(){
+                var counter = 0;
+                this.GetContainers().each(function(){
+                    counter += this.alert.currentMessages;
                 })
                 return counter;
             },
@@ -193,7 +213,7 @@ var Helper = {
     },
     Alert: function ($obj) {
         /* store skippedErrorGuids */
-        this.currentErrors = 0;
+        this.currentMessages = 0;
         this.skippedErrorGuids = [];
         this.$object = $obj.addClass('alert-block');
         this.message = $('<div>');
@@ -207,11 +227,11 @@ var Helper = {
         this.reset = function () {
             this.message = $('<div>');
             this.$object.html(this.message).hide();
-            this.currentErrors = 0;
+            this.currentMessages = 0;
         }
         this.count = function(){
             /* count for self */
-            this.currentErrors = this.message.find('p[data-guid]').length;
+            this.currentMessages = this.message.find('p[data-guid]').length;
             /* count for panel */
             var panelId = $obj.closest('.panel').attr('id');
             var $tab = $('.js-tabs-control[data-target="#{0}"]'.format(panelId));
@@ -223,7 +243,6 @@ var Helper = {
                 var errorCount = $('#{0} .alert-danger p[data-guid]'.format(panelId)).length;
                 $ui.trigger('set', errorCount);
             }
-
         },
         this.$object[0].alert = this;
         this.$object.hide();
@@ -268,6 +287,44 @@ var Helper = {
                 },
                 type: BootstrapDialog.TYPE_WARNING,
             });
+            return deferred.promise();
+        },
+        UpdateSurvey: function(deferred){
+
+            var currentErrors = Helper.LogHandler.CollectError.GetCurrent();
+            var currentInfos = Helper.LogHandler.CollectInfo.GetCurrent();
+
+            if(currentErrors + currentInfos > 0) {
+                var msg = '';
+
+                Helper.LogHandler.CollectInfo.GetContainers().not('[name="annualincome"]').each(function(){
+                    if(!$(this).is(':visible')) return;
+                    msg += $(this).closest('.panel').find('.panel-heading').text();
+                    msg += $(this)[0].outerHTML;
+                })
+
+                Helper.LogHandler.CollectError.GetContainers().each(function(){
+                    if(!$(this).is(':visible')) return;
+                    msg += $(this).closest('.panel').find('.panel-heading').text();
+                    var $obj = $($(this)[0].outerHTML);
+                    $obj.find('.btn-warning').remove();
+                    msg += $obj[0].outerHTML;
+                })
+
+                BootstrapDialog.confirm({
+                    size: BootstrapDialog.SIZE_WIDE,
+                    title: '調查表尚有提醒或錯誤，確定要更新調查表嗎？',
+                    message: msg,
+                    callback: function(result){
+                        if(result){
+                            deferred.resolve();
+                        };
+                    },
+                    btnOKLabel: '更新',
+                    btnCancelLabel: '讓我再檢查一下',
+                    type: BootstrapDialog.TYPE_INFO,
+                });
+            }
             return deferred.promise();
         },
     },
