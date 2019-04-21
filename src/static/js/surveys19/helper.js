@@ -427,6 +427,7 @@ var SurveyHelper = {
                 if(Helper.LogHandler.ValidationActive) {
                     SurveyHelper.Address.Validation.AddressRequire.Validate();
                     SurveyHelper.AddressMatch.Validation.Duplicate.Validate();
+                    SurveyHelper.AddressMatch.Validation.Required.Validate();
                 }
             })
         },
@@ -436,12 +437,21 @@ var SurveyHelper = {
             if(Helper.LogHandler.ValidationActive){
                 SurveyHelper.Address.Validation.AddressRequire.Validate();
                 SurveyHelper.AddressMatch.Validation.Duplicate.Validate();
+                SurveyHelper.AddressMatch.Validation.Required.Validate();
             }
         },
         Reset: function(){
             this.Container.prop('checked', false);
         },
         Validation: {
+            Required: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.AddressMatch.Container.filter(':checked').length == 0;
+                    var msg = '地址與調查名冊是否相同不可透填';
+                    Helper.LogHandler.Log(con, SurveyHelper.Alert, msg, this.Guids[0], null, false);
+                },
+            },
             Duplicate: {
                 Guids: Helper.Guid.CreateMulti(),
                 Validate: function(){

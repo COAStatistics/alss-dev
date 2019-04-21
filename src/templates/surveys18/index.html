@@ -1,4 +1,4 @@
- autocomplete="off"{% extends 'base.html' %} {% load i18n %}
+{% extends 'base.html' %} {% load i18n %}
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 
@@ -9,8 +9,6 @@
 {% block external_css %}
 <link href="{% static 'vendor/pace/pace-theme-loading-bar.css' %}" rel="stylesheet">
 <link href="{% static 'css/index.css' %}" rel="stylesheet">
-<!-- Color Theme -->
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-blue.css">
 {% endblock external_css %}
 
 {% block external_js %}
