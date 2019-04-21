@@ -528,6 +528,7 @@ var SurveyHelper = {
             if(Helper.LogHandler.ValidationActive){
                 SurveyHelper.Second.Validation.Empty.Validate();
                 SurveyHelper.Second.Validation.Duplicate.Validate();
+                SurveyHelper.Second.Validation.SecondExist.Validate();
             }
         },
         Reset: function(){
