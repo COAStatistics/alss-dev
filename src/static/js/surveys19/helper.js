@@ -1074,8 +1074,8 @@ var BusinessHelper = {
                     }
                 })
                 var con = !marketType4Checked && farmRelatedBusiness357Checked;
-                var msg = '若勾選3、5、7之農業相關事業，應有勾選【問項1.7】全年銷售額之『休閒、餐飲及相關事業』';
-                Helper.LogHandler.Log(con, BusinessHelper.Alert, msg, this.Guids[0]);
+                var msg = '若勾選3、5、7之農業相關事業，有兼營休閒農場、觀光果園、農村民宿、餐廳，並運用自家初級農畜產品時，應有勾選【問項1.7】之「休閒、餐飲及相關事業」。';
+                Helper.LogHandler.Log(con, BusinessHelper.Info, msg, this.Guids[0], null, false);
             },
         },
         FarmRelatedBusiness2Checked: {
