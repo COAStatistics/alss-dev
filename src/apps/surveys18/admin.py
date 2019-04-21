@@ -1,5 +1,5 @@
 from django.contrib import admin
-from rangefilter.filter import DateRangeFilter
+from date_range_filter import DateRangeFilter
 from django.contrib.admin import SimpleListFilter
 from django.db.models import Q
 from .models import (
@@ -124,6 +124,10 @@ class SurveyAdmin(admin.ModelAdmin):
                 queryset = self.model.objects.filter(farmer_name=search_term)
 
         return queryset, use_distinct
+
+    class Media:
+        """Django suit 的 DateFilter 需要引用的外部資源 """
+        js = ['/admin/jsi18n/']
 
 
 admin.site.register(Survey, SurveyAdmin)

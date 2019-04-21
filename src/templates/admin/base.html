@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block welcome-msg %}
+  {% trans 'Welcome,' %}
+  <strong>
+    {% filter force_escape %}
+      {% firstof user.full_name %}{% endfilter %}</strong>.
+{% endblock %}

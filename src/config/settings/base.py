@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # third part
     "crispy_forms",
     "rest_framework",
-    "rangefilter",
+    "date_range_filter",
     "rest_framework.authtoken",
     "rest_framework_swagger",
     # local
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 # ------------------------------------------------------------------------------
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -163,6 +164,10 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "staticfiles", "media-root")
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Fixtures
+
 FIXTURE_DIRS = [
     os.path.join(BASE_DIR, "fixtures"),
     os.path.join(BASE_DIR, "fixtures/surveys18"),
@@ -172,6 +177,7 @@ FIXTURE_DIRS = [
 ]
 
 # Logging
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -234,4 +240,17 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+}
+
+# DJANGO SUIT
+# ------------------------------------------------------------------------------
+# See: https://django-suit.readthedocs.io/en/develop/configuration.html#customization
+SUIT_CONFIG = {
+    'ADMIN_NAME': "勞動力調查平台",
+    'SEARCH_URL': 'admin:surveys19_survey_changelist',
+    'HEADER_DATE_FORMAT': 'l, Y F j',
+    'HEADER_TIME_FORMAT': 'H:i',
+    'LIST_PER_PAGE': 50,
+    'CONFIRM_UNSAVED_CHANGES': True,
+    'MENU_EXCLUDE': ('sites',),
 }

@@ -970,6 +970,10 @@ class ProductType(Model):
         verbose_name=_("Updated"),
     )
 
+    class Meta:
+        verbose_name = _("Product Type")
+        verbose_name_plural = _("Product Type")
+
     def __str__(self):
         return str(self.name)
 
@@ -1073,6 +1077,10 @@ class Business(Model):
         blank=True,
         verbose_name=_("Updated"),
     )
+
+    class Meta:
+        verbose_name = _("Business")
+        verbose_name_plural = _("Business")
 
 
 class FarmRelatedBusiness(Model):
