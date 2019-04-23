@@ -1651,7 +1651,7 @@ var LivestockMarketingHelper = {
                     }
                     var obj = LivestockMarketingHelper.LivestockMarketing.Object.Filter(surveyId, guid);
                     obj.product = parseInt($tr.find('[name="product"]').val());
-                    obj.product = parseInt($tr.find('[name="name"]').val());
+                    obj.name = parseInt($tr.find('[name="name"]').val());
                     obj.contract = parseInt($tr.find('[name="contract"]').val());
                     obj.loss = parseInt($tr.find('[name="loss"]').val());
                     obj.raising_number = parseInt($tr.find('[name="raisingnumber"]').val());
