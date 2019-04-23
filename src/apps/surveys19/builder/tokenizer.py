@@ -407,8 +407,12 @@ class Builder(object):
                         land_number = int(crop_marketing[3:4])
                         land_area = int(crop_marketing[4:9])
                         plant_times = int(crop_marketing[9:10])
-                        unit_str = int(crop_marketing[10:11])
-                        unit = Unit.objects.filter(code=unit_str, type=1).first()
+                        if crop_marketing[10:11].isdigit():
+                            unit_str = int(crop_marketing[10:11])
+                            unit = Unit.objects.filter(code=unit_str, type=1).first()
+                        else:
+                            unit = None
+
                         year_sales = int(crop_marketing[11:23])
                         has_facility_str = int(crop_marketing[23:24])
 
@@ -420,6 +424,7 @@ class Builder(object):
                             has_facility = None
                         loss_str = int(crop_marketing[24:25])
                         loss = Loss.objects.filter(code=loss_str, type=1).first()
+                        print(product, name, land_number, land_area, plant_times, unit, year_sales, has_facility, loss)
 
                         crop_marketing = CropMarketing.objects.create(
                             survey=self.survey,
@@ -826,8 +831,9 @@ class Builder(object):
     def build_subsidy(self):
         if self.is_first_page is False:
             string = self.string[10].split("#")
+            cnt, str_en_num, str_ch = self.counter_en_num(self.string[10])
 
-            if len(string) != 2:
+            if len(string) != 2 or cnt != 12:
                 raise StringLengthError(target="Subsidy")
             else:
                 try:

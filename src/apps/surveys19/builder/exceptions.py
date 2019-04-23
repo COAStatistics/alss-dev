@@ -6,7 +6,7 @@ class SignError(Exception):
 
 class StringLengthError(Exception):
     def __init__(self, **kwargs):
-        self.String = kwargs.get("String")
+        self.String = kwargs.get("target")
         Exception.__init__(
             self, "{0} String Length Is Not Valid {0}".format(self.String)
         )
@@ -14,5 +14,5 @@ class StringLengthError(Exception):
 
 class CreateModelError(Exception):
     def __init__(self, **kwargs):
-        self.Name = kwargs.get("Name")
+        self.Name = kwargs.get("target")
         Exception.__init__(self, "{0} Create Model Is Error {0}".format(self.Name))
