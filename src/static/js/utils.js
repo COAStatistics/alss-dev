@@ -297,7 +297,7 @@ var Helper = {
             if(currentErrors + currentInfos > 0) {
                 var msg = '';
 
-                Helper.LogHandler.CollectInfo.GetContainers().not('[name="annualincome"]').each(function(){
+                Helper.LogHandler.CollectInfo.GetContainers().each(function(){
                     if(!$(this).is(':visible')) return;
                     msg += $(this).closest('.panel').find('.panel-heading').text();
                     msg += $(this)[0].outerHTML;

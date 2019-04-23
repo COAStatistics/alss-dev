@@ -265,9 +265,11 @@ var SurveyHelper = {
         },
     },
     Hire: {
+        Success: null,
         Alert: null,
         Info: null,
         Setup: function(){
+            this.Success = new Helper.Alert($('.alert-success[name="hire"]'));
             this.Info = new Helper.Alert($('.alert-info[name="hire"]'));
             this.Alert = new Helper.Alert($('.alert-danger[name="hire"]'));
         },
@@ -299,6 +301,7 @@ var SurveyHelper = {
             }
         },
         Reset: function(){
+            if (this.Success) { this.Success.reset(); }
             if (this.Alert) { this.Alert.reset(); }
             if (this.Info) { this.Info.reset(); }
             this.Container.prop('checked', false);
@@ -1414,7 +1417,7 @@ var CropMarketingHelper = {
             },
         },
         WorkHourRange: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function(){
 
                 var selfWorkHour = 0;
@@ -1534,19 +1537,24 @@ var CropMarketingHelper = {
                 })
 
                 var con = reasonableWorkHourMin > workHours || reasonableWorkHourMax + reasonableWorkHourMax < workHours;
-                var msg = '\
-                    填列之自家工與僱工工作時數不在合理工作時數區間，請確認：</br>\
+
+                var workHourMsg = '\
                     自家工與僱工工作時數：自家工({0}) + 常僱工({1}) + 臨時工({2}) = {3}小時</br>\
                     合理工作時數下限：{4} = {5}小時</br>\
                     合理工作時數上限：{6} = {7}小時</br>\
                 ';
-                msg = msg.format(selfWorkHour, longTermWorkHour, shortTermWorkHour,
-                                 workHours,
-                                 minMsgs.join(' + '),
-                                 reasonableWorkHourMin,
-                                 maxMsgs.join(' + '),
-                                 reasonableWorkHourMax)
-                Helper.LogHandler.Log(con, SurveyHelper.Hire.Info, msg, this.Guids[0], null, false);
+                var msg = '填列之自家工與僱工工作時數不在合理工作時數區間，請確認：</br>'
+                workHourMsg = workHourMsg.format(selfWorkHour, longTermWorkHour, shortTermWorkHour,
+                                                 workHours,
+                                                 minMsgs.join(' + '),
+                                                 reasonableWorkHourMin,
+                                                 maxMsgs.join(' + '),
+                                                 reasonableWorkHourMax)
+                Helper.LogHandler.Log(con, SurveyHelper.Hire.Info, msg + workHourMsg, this.Guids[0], null, false);
+
+                msg = '很好！填列之自家工與僱工工作時數「符合」合理工作時數區間：</br>';
+                Helper.LogHandler.Log(!con, SurveyHelper.Hire.Success, msg + workHourMsg, this.Guids[1], null, false);
+
             },
         },
     },
@@ -1739,9 +1747,11 @@ var LivestockMarketingHelper = {
     },
 }
 var AnnualIncomeHelper = {
+    Success: null,
     Alert: null,
     Info: null,
     Setup: function(){
+        this.Success = new Helper.Alert($('.alert-success[name="annualincome"]'));
         this.Alert = new Helper.Alert($('.alert-danger[name="annualincome"]'));
         this.Info = new Helper.Alert($('.alert-info[name="annualincome"]'));
         this.AnnualIncome.Bind();
@@ -1750,6 +1760,7 @@ var AnnualIncomeHelper = {
         this.AnnualIncome.Set(array);
     },
     Reset: function() {
+        if (this.Success) { this.Success.reset(); }
         if (this.Alert) { this.Alert.reset(); }
         if (this.Info) { this.Info.reset(); }
         this.AnnualIncome.Reset();
@@ -1906,7 +1917,7 @@ var AnnualIncomeHelper = {
                 Helper.LogHandler.Log(checkedTotal.length == 1 && con, AnnualIncomeHelper.Alert, msg, this.Guids[0]);
                 // show total
                 var msg ='目前農作物產銷情形之全年銷售額總計：{0}元'.format(Helper.NumberWithCommas(countTotal));
-                Helper.LogHandler.Log(countTotal > 0, AnnualIncomeHelper.Info, msg, this.Guids[1], null, false);
+                Helper.LogHandler.Log(countTotal > 0, AnnualIncomeHelper.Success, msg, this.Guids[1], null, false);
 
                 /* Livestock Marketing */
                 checkedTotal = AnnualIncomeHelper.AnnualIncome.Container.filter('[data-markettype-id="2"]:checked');
@@ -1924,7 +1935,7 @@ var AnnualIncomeHelper = {
                 Helper.LogHandler.Log(checkedTotal.length == 1 && con, AnnualIncomeHelper.Alert, msg, this.Guids[2]);
                 // show total
                 var msg ='目前畜禽產銷情形之全年銷售額總計：{0}元'.format(Helper.NumberWithCommas(countTotal));
-                Helper.LogHandler.Log(countTotal > 0, AnnualIncomeHelper.Info, msg, this.Guids[3], null, false);
+                Helper.LogHandler.Log(countTotal > 0, AnnualIncomeHelper.Success, msg, this.Guids[3], null, false);
             },
         },
     },
