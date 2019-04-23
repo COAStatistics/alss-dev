@@ -1,4 +1,4 @@
-from .exceptions import SignError, StringLengthError, CreateModelError
+from .exceptions import SignError, StringLengthError, CreateModelError, SurveyAlreadyExists
 from django.contrib.contenttypes.models import ContentType
 
 from apps.surveys19.models import (
@@ -46,12 +46,13 @@ from apps.surveys19.models import (
 
 
 class Builder(object):
-    def __init__(self, string):
+    def __init__(self, string, delete_exist=False):
         token_size, self.is_first_page = self.check_string(string)
         delimiter_plus = "+"
         delimiter_pound = "#+"
         cut_token = []
 
+        self.delete_exist = delete_exist
         self.survey = None
         self.phones = []
         self.address = None
@@ -190,16 +191,15 @@ class Builder(object):
             raise StringLengthError(model_name="Survey", msg=e)
 
         # dup
-        obj = Survey.objects.filter(
-            page=page, farmer_id=farmer_id, readonly=readonly
+        exists = Survey.objects.filter(
+            page=page, farmer_id=farmer_id
         ).all()
-        obj_2 = Survey.objects.filter(
-            page=page, farmer_id=farmer_id, readonly=False
-        ).all()
-        if obj:
-            obj.delete()
-        if obj_2:
-            obj_2.delete()
+
+        if exists:
+            if self.delete_exist:
+                exists.delete()
+            raise SurveyAlreadyExists()
+
         try:
             if self.is_first_page:
                 survey = Survey.objects.create(
