@@ -472,7 +472,7 @@ var SurveyHelper = {
                 Guids: Helper.Guid.CreateMulti(),
                 Validate: function(){
                     var con = SurveyHelper.AddressMatch.Container.filter(':checked').length == 0;
-                    var msg = '地址與調查名冊是否相同不可透填';
+                    var msg = '地址與調查名冊是否相同不可漏填';
                     Helper.LogHandler.Log(con, SurveyHelper.Alert, msg, this.Guids[0], null, false);
                 },
             },
