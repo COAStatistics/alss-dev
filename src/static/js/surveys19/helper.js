@@ -785,7 +785,7 @@ var LandAreaHelper = {
             this.Container.val('');
         },
         Bind: function(){
-            Helper.BindInterOnly(this.Container);
+            Helper.BindIntegerOnly(this.Container);
             this.Container.keydown(function(e){
                 /* make sure checked when inputs add value */
                 var typeId = $(this).data('landtype-id');
@@ -1284,8 +1284,8 @@ var CropMarketingHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
-
+            Helper.BindIntegerOnly($row.find('[name="landnumber"], [name="planttimes"], [name="yearsales"]'));
+            Helper.BindFloatOnly($row.find('[name="landarea"]'));
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
@@ -1618,7 +1618,7 @@ var LivestockMarketingHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindIntegerOnly($row.find('[name="raisingnumber"], [name="yearsales"]'));
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
@@ -1969,7 +1969,7 @@ var PopulationAgeHelper = {
             $('#panel3 input[name="sumcount"]').val('');
         },
         Bind: function(){
-            Helper.BindInterOnly(this.Container);
+            Helper.BindIntegerOnly(this.Container);
             this.Container.change(function(){
                 /* display sum */
                 var sumCount = 0;
@@ -2091,7 +2091,7 @@ var PopulationHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindIntegerOnly($row.find('[name="birthyear"]'));
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
@@ -2348,8 +2348,8 @@ var LongTermHireHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindIntegerOnly($row.find('[name="numberworker"]'));
+            Helper.BindFloatOnly($row.find('[name="avgworkday"]'));
             $row.find('input[name="numberworker"]').change(function(){
                 var sumCount = 0;
                 $(this).closest('tr').find('input[name="numberworker"]').map(function(){
@@ -2400,7 +2400,7 @@ var LongTermHireHelper = {
                     obj.work_type = parseInt($tr.find('[name="worktype"]').val());
                     obj.number_workers = SurveyHelper.NumberWorker.Object.Collect($tr.find('[name="numberworker"]'));
                     obj.months = $tr.find('[name="month"]').val();
-                    obj.avg_work_day = parseFloat($tr.find('[name="avgworkday"]').val());
+                    obj.avg_work_day = $tr.find('[name="avgworkday"]').val();
 
                     if(Helper.LogHandler.ValidationActive){
                         LongTermHireHelper.Validation.Required.Validate($tr);
@@ -2564,7 +2564,7 @@ var ShortTermHireHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('[name="avgworkday"]'));
             $row.find('input[name="numberworker"]').change(function(){
                 var sumCount = 0;
                 $(this).closest('tr').find('input[name="numberworker"]').map(function(){
@@ -2613,8 +2613,8 @@ var ShortTermHireHelper = {
 
                     obj.work_types = $tr.find('[name="worktype"]').val();
                     obj.number_workers = SurveyHelper.NumberWorker.Object.Collect($tr.find('[name="numberworker"]'));
-                    obj.month = parseInt($tr.find('[name="month"]').val());
-                    obj.avg_work_day = parseFloat($tr.find('[name="avgworkday"]').val());
+                    obj.month = $tr.find('[name="month"]').val();
+                    obj.avg_work_day = $tr.find('[name="avgworkday"]').val();
 
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermHireHelper.Validation.Required.Validate($tr);
@@ -2758,7 +2758,7 @@ var NoSalaryHireHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindIntegerOnly($row.find('input'));
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
                 $nextAll = $tr.nextAll();
@@ -2899,7 +2899,8 @@ var LongTermLackHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindIntegerOnly($row.find('[name="count"]'));
+            Helper.BindFloatOnly($row.find('[name="avglackday"]'));
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
                 $nextAll = $tr.nextAll();
@@ -2931,8 +2932,8 @@ var LongTermLackHelper = {
 
                     obj.work_type = parseInt($tr.find('[name="worktype"]').val());
                     obj.months = $tr.find('[name="month"]').val();
-                    obj.count = parseInt($tr.find('[name="count"]').val());
-                    obj.avg_lack_day = parseInt($tr.find('[name="avglackday"]').val());
+                    obj.count = $tr.find('[name="count"]').val();
+                    obj.avg_lack_day = $tr.find('[name="avglackday"]').val();
 
                     if(Helper.LogHandler.ValidationActive){
                         LongTermLackHelper.Validation.Required.Validate($tr);
@@ -3089,7 +3090,8 @@ var ShortTermLackHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindIntegerOnly($row.find('[name="count"]'));
+            Helper.BindFloatOnly($row.find('[name="avglackday"]'));
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
                 $nextAll = $tr.nextAll();
@@ -3122,8 +3124,8 @@ var ShortTermLackHelper = {
                     obj.product = parseInt($tr.find('[name="product"]').val());
                     obj.work_type = $tr.find('[name="worktype"]').val();
                     obj.months = $tr.find('[name="month"]').val();
-                    obj.count = parseInt($tr.find('[name="count"]').val());
-                    obj.avg_lack_day = parseInt($tr.find('[name="avglackday"]').val());
+                    obj.count = $tr.find('[name="count"]').val();
+                    obj.avg_lack_day = $tr.find('[name="avglackday"]').val();
                     obj.name = $tr.find('[name="name"]').val();
 
                     if(Helper.LogHandler.ValidationActive){
@@ -3264,10 +3266,10 @@ var SubsidyHelper = {
         this.Container.Extra.attr('data-refuse-id', '');
     },
     Bind: function(){
-        Helper.BindInterOnly(this.Container.Count);
-        Helper.BindInterOnly(this.Container.Month);
-        Helper.BindInterOnly(this.Container.Day);
-        Helper.BindInterOnly(this.Container.Hour);
+        Helper.BindIntegerOnly(this.Container.Count);
+        Helper.BindIntegerOnly(this.Container.Month);
+        Helper.BindIntegerOnly(this.Container.Day);
+        Helper.BindIntegerOnly(this.Container.Hour);
         this.Container.HasSubsidy.change(function(){
             if(CloneData){
                 var checked = $(this).prop('checked');

@@ -346,7 +346,7 @@ var Helper = {
             return array;
         },
     },
-    BindInterOnly: function($obj){
+    BindFloatOnly: function($obj){
         $obj.keydown(function (e) {
             // Allow: backspace, delete, tab, escape, enter and .
             if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
@@ -360,6 +360,14 @@ var Helper = {
             // Ensure that it is a number and stop the keypress
             if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
                 e.preventDefault();
+            }
+        });
+    },
+    BindIntegerOnly: function($obj){
+        $obj.keydown(function (event) {
+            var keycode = event.which;
+            if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+                event.preventDefault();
             }
         });
     },
