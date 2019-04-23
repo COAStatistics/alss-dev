@@ -166,7 +166,7 @@ class Builder(object):
                 str_ch += string[i]
         return cnt, str_en_num, str_ch
 
-    def build_survey(self, readonly, delete_exist):
+    def build_survey(self, readonly=False, delete_exist=False):
         try:
             string = self.string[0]
             farmer_id = string[0:12]
