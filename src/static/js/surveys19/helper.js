@@ -1573,6 +1573,7 @@ var LivestockMarketingHelper = {
                 LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($(this));
                 ManagementTypeHelper.Validation.MostValuedProduct.Validate();
             })
+            CropMarketingHelper.Validation.WorkHourRange.Validate();
         }
     },
     LivestockMarketing: {
@@ -1635,6 +1636,7 @@ var LivestockMarketingHelper = {
                             AnnualIncomeHelper.Validation.LivestockMarketingExist.Validate();
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                             ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                            CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
                     })
                 }
@@ -1663,6 +1665,7 @@ var LivestockMarketingHelper = {
                         LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                         ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                        CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
             })
