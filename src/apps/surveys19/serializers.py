@@ -67,11 +67,12 @@ class BuilderFileSerializer(HyperlinkedModelSerializer):
         Validate via build
         """
         try:
-            errors = list()
+            errors = dict()
             file = data.get("datafile")
             token = data.get("token")
+            delete_exist = data.get("token", False)
             if token:
-                content = [token]
+                content = [token.strip()]
 
             if file:
                 content = file.read().decode("utf-8-sig").splitlines()
@@ -83,20 +84,13 @@ class BuilderFileSerializer(HyperlinkedModelSerializer):
 
             for i, string in enumerate(content):
                 try:
-                    # if file_type.id == 1:
-                    #     builder = LaborBuilder(string=string)
-                    #
-                    # elif file_type.id == 2:
-                    #     builder = SpecialtyBuilder(string=string)
-
                     builder = Builder(string=string)
 
-                    builder.build()
-                    builder.build(readonly=False)
+                    builder.build(delete_exist=delete_exist)
+                    builder.build(readonly=False, delete_exist=delete_exist)
 
                 except Exception as e:
-                    errors.append({"string": string, "index": i, "error": e})
-
+                    errors[i] = e
             if errors:
                 raise ValidationError(errors)
             return data

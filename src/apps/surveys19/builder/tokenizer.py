@@ -46,13 +46,12 @@ from apps.surveys19.models import (
 
 
 class Builder(object):
-    def __init__(self, string, delete_exist=False):
+    def __init__(self, string):
         token_size, self.is_first_page = self.check_string(string)
         delimiter_plus = "+"
         delimiter_pound = "#+"
         cut_token = []
 
-        self.delete_exist = delete_exist
         self.survey = None
         self.phones = []
         self.address = None
@@ -83,8 +82,8 @@ class Builder(object):
 
         self.string = cut_token
 
-    def build(self, readonly=True):
-        self.build_survey(readonly=readonly)
+    def build(self, readonly=True, delete_exist=False):
+        self.build_survey(readonly=readonly, delete_exist=delete_exist)
         try:
             self.build_phone()
             self.build_farm_location()
@@ -167,7 +166,7 @@ class Builder(object):
                 str_ch += string[i]
         return cnt, str_en_num, str_ch
 
-    def build_survey(self, readonly=True):
+    def build_survey(self, readonly, delete_exist):
         try:
             string = self.string[0]
             farmer_id = string[0:12]
@@ -192,11 +191,11 @@ class Builder(object):
 
         # dup
         exists = Survey.objects.filter(
-            page=page, farmer_id=farmer_id
+            page=page, farmer_id=farmer_id, readonly=readonly,
         ).all()
 
         if exists:
-            if self.delete_exist:
+            if delete_exist:
                 exists.delete()
             raise SurveyAlreadyExists()
 
