@@ -2050,6 +2050,7 @@ var PopulationHelper = {
             PopulationHelper.Validation.AtLeastOne65Worker.Validate();
             PopulationHelper.Validation.FarmerWorkDayOver150.Validate();
             CropMarketingHelper.Validation.WorkHourRange.Validate();
+            SurveyHelper.Second.Validation.SecondExist.Validate();
         }
     },
     Population: {
