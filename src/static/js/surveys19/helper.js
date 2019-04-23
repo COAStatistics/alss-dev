@@ -1438,7 +1438,7 @@ var CropMarketingHelper = {
                         longTermWorkHour += result;
                     }
                 })
-                LongTermLackHelper.LongTermLack.Container.find('tr').each(function(){
+                ShortTermLackHelper.ShortTermLack.Container.find('tr').each(function(){
                     var sumCount = $(this).find('[name="sumcount"]').val();
                     var avgWorkDay = $(this).find('[name="avgworkday"]').val();
 
