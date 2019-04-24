@@ -2415,7 +2415,7 @@ var LongTermHireHelper = {
                     obj.work_type = parseInt($tr.find('[name="worktype"]').val());
                     obj.number_workers = SurveyHelper.NumberWorker.Object.Collect($tr.find('[name="numberworker"]'));
                     obj.months = $tr.find('[name="month"]').val();
-                    obj.avg_work_day = $tr.find('[name="avgworkday"]').val();
+                    obj.avg_work_day = parseFloat($tr.find('[name="avgworkday"]').val());
 
                     if(Helper.LogHandler.ValidationActive){
                         LongTermHireHelper.Validation.Required.Validate($tr);
@@ -2479,21 +2479,20 @@ var LongTermHireHelper = {
             },
         },
         AvgWorkDay: {
-            Guids: Helper.Guid.CreateMulti(2),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = LongTermHireHelper.LongTermHire.Container.find('tr').index($row) + 1;
                 var avgWorkDay = $row.find('[name="avgworkday"]').val();
-                var con = avgWorkDay > 30 && Helper.NumberValidate(avgWorkDay);
+                var con = avgWorkDay > 30;
                 var msg = '第<i class="row-index">{0}</i>列每月工作日數應小於30日'.format(index);
                 Helper.LogHandler.Log(con, LongTermHireHelper.Alert, msg, this.Guids[0], guid);
 
-                var con = avgWorkDay >= 26;
+                var con = avgWorkDay > 25;
                 var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認其合理性'.format(index);
-                Helper.LogHandler.Log(con, LongTermHireHelper.Info, msg, this.Guids[2], null, false);
+                Helper.LogHandler.Log(con, LongTermHireHelper.Info, msg, this.Guids[1], null, false);
             },
         },
-
         LongTerm: {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function($row){
@@ -2628,8 +2627,8 @@ var ShortTermHireHelper = {
 
                     obj.work_types = $tr.find('[name="worktype"]').val();
                     obj.number_workers = SurveyHelper.NumberWorker.Object.Collect($tr.find('[name="numberworker"]'));
-                    obj.month = $tr.find('[name="month"]').val();
-                    obj.avg_work_day = $tr.find('[name="avgworkday"]').val();
+                    obj.month = parseInt($tr.find('[name="month"]').val());
+                    obj.avg_work_day = parseFloat($tr.find('[name="avgworkday"]').val());
 
                     if(Helper.LogHandler.ValidationActive){
                         ShortTermHireHelper.Validation.Required.Validate($tr);
@@ -2699,9 +2698,13 @@ var ShortTermHireHelper = {
                 var guid = $row.data('guid');
                 var index = ShortTermHireHelper.ShortTermHire.Container.find('tr').index($row) + 1;
                 var avgWorkDay = $row.find('[name="avgworkday"]').val();
-                var con = avgWorkDay > 30 && Helper.NumberValidate(avgWorkDay);
+                var con = avgWorkDay > 30;
                 var msg = '第<i class="row-index">{0}</i>列平均每月工作日數應小於30日'.format(index);
                 Helper.LogHandler.Log(con, ShortTermHireHelper.Alert, msg, this.Guids[0], guid);
+
+                var con = avgWorkDay > 25;
+                var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認其合理性'.format(index);
+                Helper.LogHandler.Log(con, ShortTermHireHelper.Info, msg, this.Guids[1], null, false);
             },
         },
         Over6Month: {
@@ -2850,9 +2853,11 @@ var NoSalaryHireHelper = {
     },
 }
 var LongTermLackHelper = {
+    Info: null,
     Alert: null,
     Setup: function(row){
         this.Alert = new Helper.Alert($('.alert-danger[name="longtermlack"]'));
+        this.Info = new Helper.Alert($('.alert-info[name="longtermlack"]'));
         $row = $(row);
         $row.find('select[name="month"]').attr('multiple', '');
         this.LongTermLack.Bind($row);
@@ -2862,6 +2867,7 @@ var LongTermLackHelper = {
     },
     Reset: function () {
         if (this.Alert) { this.Alert.reset(); }
+        if (this.Info) { this.Info.reset(); }
         this.LongTermLack.Reset();
     },
     Set: function(array, surveyId){
@@ -2947,8 +2953,8 @@ var LongTermLackHelper = {
 
                     obj.work_type = parseInt($tr.find('[name="worktype"]').val());
                     obj.months = $tr.find('[name="month"]').val();
-                    obj.count = $tr.find('[name="count"]').val();
-                    obj.avg_lack_day = $tr.find('[name="avglackday"]').val();
+                    obj.count = parseInt($tr.find('[name="count"]').val());
+                    obj.avg_lack_day = parseFloat($tr.find('[name="avglackday"]').val());
 
                     if(Helper.LogHandler.ValidationActive){
                         LongTermLackHelper.Validation.Required.Validate($tr);
@@ -3013,13 +3019,18 @@ var LongTermLackHelper = {
             },
         },
         AvgLackDay: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = LongTermLackHelper.LongTermLack.Container.find('tr').index($row) + 1;
-                var con = parseInt($row.find('[name="avglackday"]').val()) > 30;
+                var avgLackDay = $row.find('[name="avglackday"]').val();
+                var con = avgLackDay > 30;
                 var msg = '第<i class="row-index">{0}</i>列平均每月短缺日數應小於等於30'.format(index);
                 Helper.LogHandler.Log(con, LongTermLackHelper.Alert, msg, this.Guids[0], guid);
+
+                con = avgLackDay > 25;
+                msg = '第<i class="row-index">{0}</i>列平均每月短缺日數大於25日，請確認其合理性'.format(index);
+                Helper.LogHandler.Log(con, LongTermLackHelper.Info, msg, this.Guids[1], null, false);
             }
         },
         LongTerm: {
@@ -3137,10 +3148,10 @@ var ShortTermLackHelper = {
                     var obj = ShortTermLackHelper.ShortTermLack.Object.Filter(surveyId, guid);
 
                     obj.product = parseInt($tr.find('[name="product"]').val());
-                    obj.work_type = $tr.find('[name="worktype"]').val();
+                    obj.work_type = parseInt($tr.find('[name="worktype"]').val());
                     obj.months = $tr.find('[name="month"]').val();
-                    obj.count = $tr.find('[name="count"]').val();
-                    obj.avg_lack_day = $tr.find('[name="avglackday"]').val();
+                    obj.count = parseInt($tr.find('[name="count"]').val());
+                    obj.avg_lack_day = parseFloat($tr.find('[name="avglackday"]').val());
                     obj.name = $tr.find('[name="name"]').val();
 
                     if(Helper.LogHandler.ValidationActive){
@@ -3203,17 +3214,22 @@ var ShortTermLackHelper = {
                     return '第<i class="row-index">{0}</i>列{1}不可為0'.format(index, name)
                 }
                 Helper.LogHandler.Log(parseInt($row.find('[name="count"]').val()) == 0, ShortTermLackHelper.Alert, makeString('人數'), this.Guids[0], guid, false);
-                Helper.LogHandler.Log(parseFloat($row.find('[name="avglackday"]').val()) == 0, ShortTermLackHelper.Alert, makeString('平均每月短缺日數'), this.Guids[1], guid, false);
+                Helper.LogHandler.Log($row.find('[name="avglackday"]').val() == 0, ShortTermLackHelper.Alert, makeString('平均每月短缺日數'), this.Guids[1], guid, false);
             },
         },
         AvgLackDay: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = ShortTermLackHelper.ShortTermLack.Container.find('tr').index($row) + 1;
-                var con = parseInt($row.find('[name="avglackday"]').val()) > 30;
+                var avgLackDay = $row.find('[name="avglackday"]').val();
+                var con = avgLackDay > 30;
                 var msg = '第<i class="row-index">{0}</i>列平均每月短缺日數應小於等於30'.format(index);
                 Helper.LogHandler.Log(con, ShortTermLackHelper.Alert, msg, this.Guids[0], guid);
+
+                con = avgLackDay > 25;
+                msg = '第<i class="row-index">{0}</i>列平均每月短缺日數大於25日，請確認其合理性'.format(index);
+                Helper.LogHandler.Log(con, ShortTermLackHelper.Info, msg, this.Guids[1], null, false);
             }
         },
         Over6Month: {
