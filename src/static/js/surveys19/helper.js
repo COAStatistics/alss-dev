@@ -2489,7 +2489,7 @@ var LongTermHireHelper = {
                 Helper.LogHandler.Log(con, LongTermHireHelper.Alert, msg, this.Guids[0], guid);
 
                 var con = avgWorkDay >= 26;
-                var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認是否其合理性'.format(index);
+                var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認其合理性'.format(index);
                 Helper.LogHandler.Log(con, LongTermHireHelper.Info, msg, this.Guids[2], null, false);
             },
         },
