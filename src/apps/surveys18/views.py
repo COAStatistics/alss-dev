@@ -130,7 +130,7 @@ class Surveys2018Index(LoginRequiredMixin, TemplateView):
         }
         context["ui"] = json.dumps(ui)
         context["fid"] = json.dumps(
-            list(Survey.objects.values_list("farmer_id", flat=True).distinct())
+            list(Survey.objects.filter(page=1).values_list("farmer_id", flat=True).distinct())
         )
 
         return context

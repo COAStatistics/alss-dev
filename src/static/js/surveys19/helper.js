@@ -1303,7 +1303,7 @@ var CropMarketingHelper = {
                     $tr = $(this).closest('tr');
                     $nextAll = $tr.nextAll();
                     $.when($.Deferred(Helper.Dialog.DeleteRow)).then(function(){
-                        var surveyId =$tr.data('survey-id');
+                        var surveyId = $tr.data('survey-id');
                         CloneData[surveyId].crop_marketings = CloneData[surveyId].crop_marketings.filter(function(obj){
                             return obj.guid != $tr.data('guid');
                         })
@@ -1326,7 +1326,7 @@ var CropMarketingHelper = {
             $row.find('select, input').change(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
-                    var surveyId =$tr.data('survey-id');
+                    var surveyId = $tr.data('survey-id');
                     var guid = $tr.data('guid');
                     /* trigger change before set attribute to dom should return */
                     if(!surveyId || !guid){
@@ -1660,7 +1660,7 @@ var LivestockMarketingHelper = {
                     $tr = $(this).closest('tr');
                     $nextAll = $tr.nextAll();
                     $.when($.Deferred(Helper.Dialog.DeleteRow)).then(function(){
-                        var surveyId =$tr.data('survey-id');
+                        var surveyId = $tr.data('survey-id');
                         CloneData[surveyId].livestock_marketings = CloneData[surveyId].livestock_marketings.filter(function(obj){
                             return obj.guid != $tr.data('guid');
                         })
@@ -1680,7 +1680,7 @@ var LivestockMarketingHelper = {
             $row.find('select, input').change(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
-                    var surveyId =$tr.data('survey-id');
+                    var surveyId = $tr.data('survey-id');
                     var guid = $tr.data('guid');
                     /* trigger change before set attribute to dom should return */
                     if(!surveyId || !guid){
@@ -2139,7 +2139,7 @@ var PopulationHelper = {
                     $tr = $(this).closest('tr');
                     $nextAll = $tr.nextAll();
                     $.when($.Deferred(Helper.Dialog.DeleteRow)).then(function(){
-                        var surveyId =$tr.data('survey-id');
+                        var surveyId = $tr.data('survey-id');
                         CloneData[surveyId].populations = CloneData[surveyId].populations.filter(function(obj){
                             return obj.guid != $tr.data('guid');
                         })
@@ -2236,7 +2236,7 @@ var PopulationHelper = {
             },
         },
         BirthYear: {
-            Guids: Helper.Guid.CreateMulti(1),
+            Guids: Helper.Guid.CreateMulti(),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = PopulationHelper.Population.Container.find('tr').index($row) + 1;

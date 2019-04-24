@@ -210,12 +210,10 @@ var GetFarmerData = function (url, fid, readonly) {
                     })
                 } else {
                     Helper.Dialog.ShowInfo('查無農戶資料！');
-                    $('#nav-about').click();
                 }
             }
             else {
                 Helper.Dialog.ShowInfo('查無農戶資料！');
-                $('#nav-about').click();
             }
         },
     });
