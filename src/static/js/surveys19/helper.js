@@ -1141,7 +1141,7 @@ var ManagementTypeHelper = {
             if(Helper.LogHandler.ValidationActive){
                 ManagementTypeHelper.Validation.Empty.Validate();
                 ManagementTypeHelper.Validation.Duplicate.Validate();
-                ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                ManagementTypeHelper.Validation.MostValuedType.Validate();
             }
         },
         Reset: function(){
@@ -1162,7 +1162,7 @@ var ManagementTypeHelper = {
                     if(Helper.LogHandler.ValidationActive){
                         ManagementTypeHelper.Validation.Empty.Validate();
                         ManagementTypeHelper.Validation.Duplicate.Validate();
-                        ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                        ManagementTypeHelper.Validation.MostValuedType.Validate();
                     }
                 }
             })
@@ -1185,7 +1185,7 @@ var ManagementTypeHelper = {
                 Helper.LogHandler.Log(con, ManagementTypeHelper.Alert, msg, this.Guids[0], null, false);
             },
         },
-        MostValuedProduct: {
+        MostValuedType: {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function(){
                 var checkedManagementType = ManagementTypeHelper.ManagementType.Container.filter(':checked');
@@ -1315,7 +1315,7 @@ var CropMarketingHelper = {
                             AnnualIncomeHelper.Validation.CropMarketingExist.Validate();
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                             LandAreaHelper.Validation.SumAreaCheck.Validate();
-                            ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                            ManagementTypeHelper.Validation.MostValuedType.Validate();
                             CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
 
@@ -1348,7 +1348,7 @@ var CropMarketingHelper = {
                         CropMarketingHelper.Validation.GreaterThanZero.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
                         LandAreaHelper.Validation.SumAreaCheck.Validate();
-                        ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                        ManagementTypeHelper.Validation.MostValuedType.Validate();
                         CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
@@ -1471,13 +1471,27 @@ var CropMarketingHelper = {
                 /* Count from crops */
 
                 CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
-
+                    var landNumber = $(this).find('[name="landnumber"]').val();
                     var landArea = $(this).find('[name="landarea"]').val();
                     var plantTimes = $(this).find('[name="planttimes"]').val();
                     var minHour = $(this).find('[name="product"] > option:selected').data('minHour');
                     var maxHour = $(this).find('[name="product"] > option:selected').data('maxHour');
                     var productName = $(this).find('[name="product"] > option:selected').data('name');
+                    var managementTypeId = $(this).find('[name="product"] > option:selected').data('managementtypeId');
                     var userInputProductName = $(this).find('[name="name"]').val();
+
+                    /* Only count max land area */
+                    if(managementTypeId == 6){
+                        var skip = CropMarketingHelper.CropMarketing.Container.find('tr').filter(
+                            function() { return $(this).find('[name="landnumber"]').val() == landNumber; }
+                        ).filter(
+                            function() { return $(this).find('[name="product"] > option:selected').data('managementtypeId') == managementTypeId; }
+                        ).filter(
+                            function() { return $(this).find('[name="landarea"]').val() > landArea; }
+                        ).length > 0;
+
+                        if(skip) return;
+                    }
 
                     var matchingRate = 0.6;
 
@@ -1588,7 +1602,7 @@ var LivestockMarketingHelper = {
             LivestockMarketingHelper.LivestockMarketing.Container.find('tr').each(function(){
                 LivestockMarketingHelper.Validation.Required.Validate($(this));
                 LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($(this));
-                ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                ManagementTypeHelper.Validation.MostValuedType.Validate();
             })
             CropMarketingHelper.Validation.WorkHourRange.Validate();
         }
@@ -1652,7 +1666,7 @@ var LivestockMarketingHelper = {
                             Helper.LogHandler.DeleteRow(LivestockMarketingHelper.Alert, $tr, $nextAll);
                             AnnualIncomeHelper.Validation.LivestockMarketingExist.Validate();
                             AnnualIncomeHelper.Validation.AnnualTotal.Validate();
-                            ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                            ManagementTypeHelper.Validation.MostValuedType.Validate();
                             CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
                     })
@@ -1681,7 +1695,7 @@ var LivestockMarketingHelper = {
                         LivestockMarketingHelper.Validation.Required.Validate($tr);
                         LivestockMarketingHelper.Validation.RaiseNumberYearSalesChecked.Validate($tr);
                         AnnualIncomeHelper.Validation.AnnualTotal.Validate();
-                        ManagementTypeHelper.Validation.MostValuedProduct.Validate();
+                        ManagementTypeHelper.Validation.MostValuedType.Validate();
                         CropMarketingHelper.Validation.WorkHourRange.Validate();
                     }
                 }
