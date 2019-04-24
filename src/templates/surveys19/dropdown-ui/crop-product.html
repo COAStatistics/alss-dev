@@ -2,6 +2,7 @@
     {% for product in crop_products %}
     <option value="{{ product.id }}"
             data-managementtype-id="{{ product.management_type.id }}"
+            data-managementtype-name="{{ product.management_type.name }}"
             data-name="{{ product.name }}"
             {% if product.min_hour %}data-min-hour="{{ product.min_hour }}"{% endif %}
             {% if product.max_hour %}data-max-hour="{{ product.max_hour }}"{% endif %}

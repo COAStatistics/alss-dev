@@ -1191,28 +1191,37 @@ var ManagementTypeHelper = {
                 var checkedManagementType = ManagementTypeHelper.ManagementType.Container.filter(':checked');
                 var checkedManagementTypeId = checkedManagementType.data('managementtype-id');
 
-                var highestSales = 0;
-                var highestSalesNames = [];
-                var highestSalesManagementTypeIds = [];
+                var groupedYearSales = {};
 
                 var rows = $.merge(CropMarketingHelper.CropMarketing.Container.find('tr'), LivestockMarketingHelper.LivestockMarketing.Container.find('tr'));
                 rows.each(function(){
                     var yearSales = parseInt($(this).find('[name="yearsales"]').val());
-                    var productName = $(this).find('[name="product"] > option:selected').data('name');
+                    var managementTypeName = $(this).find('[name="product"] > option:selected').data('managementtype-name');
                     var managementTypeId = $(this).find('[name="product"] > option:selected').data('managementtype-id');
-                    if(!managementTypeId) return;
-                    if(yearSales > highestSales){
-                        highestSales = yearSales;
-                        highestSalesNames = [productName];
-                        highestSalesManagementTypeIds = [managementTypeId];
-                    }else if(yearSales == highestSales){
-                        highestSalesNames.push(productName);
-                        highestSalesManagementTypeIds.push(managementTypeId);
+                    if(!managementTypeId || !yearSales) return;
+                    if(managementTypeId in groupedYearSales) groupedYearSales[managementTypeId]['yearSales'] += yearSales;
+                    else {
+                        groupedYearSales[managementTypeId] = {
+                            'id': managementTypeId,
+                            'name': managementTypeName,
+                            'yearSales': yearSales,
+                        }
                     }
                 })
-                var con = checkedManagementType.length == 1 && highestSalesManagementTypeIds.indexOf(checkedManagementTypeId) == -1;
-                var msg = '全年主要經營型態應與【問項1.5及1.6】生產價值最高者({0})相符'.format(highestSalesNames.join(','));
-                Helper.LogHandler.Log(con, ManagementTypeHelper.Alert, msg, this.Guids[0]);
+
+                var highestObj = null;
+
+                Object.keys(groupedYearSales).forEach(function (managementTypeId) {
+                    if(!highestObj || groupedYearSales[managementTypeId]['yearSales'] > highestObj['yearSales']){
+                        highestObj = groupedYearSales[managementTypeId];
+                    }
+                });
+
+                if(highestObj){
+                    var con = checkedManagementType.length == 1 && highestObj['id'] != checkedManagementTypeId;
+                    var msg = '全年主要經營型態應與【問項1.5及1.6】各作物代碼對應的經營類別銷售額總計最高者({0})相符'.format(highestObj['name']);
+                    Helper.LogHandler.Log(con, ManagementTypeHelper.Alert, msg, this.Guids[0]);
+                }
             },
         },
     },
