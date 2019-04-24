@@ -1054,7 +1054,6 @@ var BusinessHelper = {
                     BusinessHelper.Object.New(MainSurveyId, farmRelatedBusinessId, extra ? extra : null)
                 )
             })
-
             CloneData[MainSurveyId].businesses = businesses;
         },
     },
@@ -1318,10 +1317,8 @@ var CropMarketingHelper = {
                             ManagementTypeHelper.Validation.MostValuedType.Validate();
                             CropMarketingHelper.Validation.WorkHourRange.Validate();
                         }
-
                     })
                 }
-
             })
             $row.find('select, input').change(function(){
                 if(CloneData){
@@ -1537,11 +1534,13 @@ var CropMarketingHelper = {
                 /* Count from livestocks */
 
                 LivestockMarketingHelper.LivestockMarketing.Container.find('tr').each(function(){
+                    var $product = $(this).find('[name="product"] > option[data-name]:selected');
+                    if($product.length == 0) return;
 
                     var raisingNumber = $(this).find('[name="raisingnumber"]').val();
-                    var minHour = $(this).find('[name="product"] > option:selected').data('minHour');
-                    var maxHour = $(this).find('[name="product"] > option:selected').data('maxHour');
-                    var productName = $(this).find('[name="product"] > option:selected').data('name');
+                    var minHour = $product.data('minHour');
+                    var maxHour = $product.data('maxHour');
+                    var productName = $product.data('name');
 
                     if(!minHour || !maxHour){
                         console.log('Min or max work hour for {0} is not found.'.format(productName));
