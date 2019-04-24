@@ -606,7 +606,7 @@ var LandAreaHelper = {
             this.Container.val('');
         },
         Bind: function(){
-            Helper.BindInterOnly(this.Container);
+            Helper.BindFloatOnly(this.Container);
             this.Container.keydown(function(e){
                 /* make sure checked when inputs add value */
                 var typeId = $(this).data('landtype-id');
@@ -1049,7 +1049,7 @@ var CropMarketingHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
 
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
@@ -1227,7 +1227,7 @@ var LivestockMarketingHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
@@ -1568,7 +1568,7 @@ var PopulationAgeHelper = {
             $('#panel3 input[name="sumcount"]').val('');
         },
         Bind: function(){
-            Helper.BindInterOnly(this.Container);
+            Helper.BindFloatOnly(this.Container);
             this.Container.change(function(){
                 /* display sum */
                 var sumCount = 0;
@@ -1690,7 +1690,7 @@ var PopulationHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('button[name="remove"]').click(function(){
                 if(CloneData){
                     $tr = $(this).closest('tr');
@@ -1932,7 +1932,7 @@ var LongTermHireHelper = {
         },
         Bind: function($row){
 
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('input[name="numberworker"]').change(function(){
                 var sumCount = 0;
                 $(this).closest('tr').find('input[name="numberworker"]').map(function(){
@@ -2117,7 +2117,7 @@ var ShortTermHireHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('input[name="numberworker"]').change(function(){
                 var sumCount = 0;
                 $(this).closest('tr').find('input[name="numberworker"]').map(function(){
@@ -2286,7 +2286,7 @@ var NoSalaryHireHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
                 $nextAll = $tr.nextAll();
@@ -2424,7 +2424,7 @@ var LongTermLackHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
                 $nextAll = $tr.nextAll();
@@ -2582,7 +2582,7 @@ var ShortTermLackHelper = {
             this.Container.html('');
         },
         Bind: function($row){
-            Helper.BindInterOnly($row.find('input'));
+            Helper.BindFloatOnly($row.find('input'));
             $row.find('button[name="remove"]').click(function(){
                 $tr = $(this).closest('tr');
                 $nextAll = $tr.nextAll();
@@ -2727,10 +2727,10 @@ var SubsidyHelper = {
         this.Container.Extra.attr('data-refuse-id', '');
     },
     Bind: function(){
-        Helper.BindInterOnly(this.Container.Count);
-        Helper.BindInterOnly(this.Container.Month);
-        Helper.BindInterOnly(this.Container.Day);
-        Helper.BindInterOnly(this.Container.Hour);
+        Helper.BindFloatOnly(this.Container.Count);
+        Helper.BindFloatOnly(this.Container.Month);
+        Helper.BindFloatOnly(this.Container.Day);
+        Helper.BindFloatOnly(this.Container.Hour);
         this.Container.HasSubsidy.change(function(){
             if(CloneData){
                 var checked = $(this).prop('checked');
