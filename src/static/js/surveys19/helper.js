@@ -2218,11 +2218,11 @@ var PopulationHelper = {
             },
         },
         BirthYear: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = PopulationHelper.Population.Container.find('tr').index($row) + 1;
-                var year = $row.find('[name="birthyear"]').val()
+                var year = $row.find('[name="birthyear"]').val();
                 if(year == '') return;
                 var con = parseInt(year) < 1 || parseInt(year) > 92 || !Helper.NumberValidate(year);
                 var msg = '第<i class="row-index">{0}</i>列出生年次應介於1年至92年之間（實足年齡滿15歲）'.format(index);
@@ -2230,12 +2230,13 @@ var PopulationHelper = {
             },
         },
         FarmerWorkDay: {
-            Guids: Helper.Guid.CreateMulti(3),
+            Guids: Helper.Guid.CreateMulti(4),
             Validate: function($row){
                 var guid = $row.data('guid');
                 var index = PopulationHelper.Population.Container.find('tr').index($row) + 1;
                 var farmerWorkdayId = $row.find('[name="farmerworkday"]').val();
                 var lifeStyleId = $row.find('[name="lifestyle"]').val();
+                var birthYear = $row.find('[name="birthyear"]').val();
                 var con = farmerWorkdayId >=  7 && lifeStyleId != 1;
                 var msg = '第<i class="row-index">{0}</i>列全年從事自家農牧業工作日數大於180日，主要生活型態應勾選『自營農牧業工作』'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Alert, msg, this.Guids[0], guid);
@@ -2252,6 +2253,9 @@ var PopulationHelper = {
                 var msg = '第<i class="row-index">{0}</i>列全年主要生活型態勾選『料理家務、育兒』或『其他』，全年從事自家農牧業工作日數應小於180日'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[3], null, false);
 
+                var con = birthYear <= 27 && farmerWorkdayId >= 4;
+                var msg = '第<i class="row-index">{0}</i>列超過80歲（出生年次小於27），從事自家農牧業工作日數超過60日，請確認'.format(index);
+                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[4], null, false);
 
             },
         },
