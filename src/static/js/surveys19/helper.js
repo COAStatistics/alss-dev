@@ -1471,13 +1471,17 @@ var CropMarketingHelper = {
                 /* Count from crops */
 
                 CropMarketingHelper.CropMarketing.Container.find('tr').each(function(){
+                    var $product = $(this).find('[name="product"] > option[data-name]:selected');
+                    if($product.length == 0) return;
+
                     var landNumber = $(this).find('[name="landnumber"]').val();
                     var landArea = $(this).find('[name="landarea"]').val();
                     var plantTimes = $(this).find('[name="planttimes"]').val();
-                    var minHour = $(this).find('[name="product"] > option:selected').data('minHour');
-                    var maxHour = $(this).find('[name="product"] > option:selected').data('maxHour');
-                    var productName = $(this).find('[name="product"] > option:selected').data('name');
-                    var managementTypeId = $(this).find('[name="product"] > option:selected').data('managementtypeId');
+
+                    var minHour = $product.data('minHour');
+                    var maxHour = $product.data('maxHour');
+                    var productName = $product.data('name');
+                    var managementTypeId = $product.data('managementtypeId');
                     var userInputProductName = $(this).find('[name="name"]').val();
 
                     /* Only count max land area */
