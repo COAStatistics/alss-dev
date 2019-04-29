@@ -10,12 +10,11 @@ from django.http import JsonResponse
 from django.db.models import Q
 
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from config.permissions import IsSuperUser
 from config.viewsets import StandardViewSet
 
 from apps.users.models import User
@@ -193,7 +192,6 @@ class BuilderFileViewSet(StandardViewSet):
                 token = self.request.data.get("token")
                 user = self.request.user
                 if not isinstance(user, User):
-                    print(user)
                     user = None
 
                 serializer.save(user=user, datafile=datafile, token=token)
@@ -236,7 +234,7 @@ class SurveyViewSet(ModelViewSet):
         if self.request.method in ['GET', 'PUT', 'PATCH']:
             permission_classes = [IsAuthenticated]
         else:
-            permission_classes = [IsSuperUser]
+            permission_classes = [IsAdminUser]
         return [permission() for permission in permission_classes]
 
     @action(methods=["PATCH"], detail=False)
