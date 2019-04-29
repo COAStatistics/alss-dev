@@ -55,7 +55,9 @@ class ReviewLogAdmin(admin.ModelAdmin):
     search_fields = ("user__full_name",)
 
     def farmer_id(self, obj):
-        return obj.content_object.farmer_id
+        if obj:
+            return obj.content_object.farmer_id
+        return '此調查表已經被刪除'
     farmer_id.short_description = '農戶編號'
 
     def year(self, obj):
