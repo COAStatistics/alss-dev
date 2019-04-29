@@ -61,7 +61,9 @@ var Set = function (data, surveyId) {
     if(data.short_term_lacks) ShortTermLackHelper.Set(data.short_term_lacks, surveyId);
 
     if(Helper.LogHandler.ValidationActive){
+        /* Validators that interact with other Helper objects */
         CropMarketingHelper.Validation.IncomeChecked.Validate();
+        CropMarketingHelper.Validation.WorkHourRange.Validate();
         LivestockMarketingHelper.Validation.IncomeChecked.Validate();
         BusinessHelper.Validation.MarketType4Checked.Validate();
         AnnualIncomeHelper.Validation.CropMarketingExist.Validate();
@@ -71,6 +73,7 @@ var Set = function (data, surveyId) {
         PopulationHelper.Validation.MarketType3Checked.Validate();
         SurveyHelper.Hire.Validation.HireExist.Validate();
         SurveyHelper.Lack.Validation.LackExist.Validate();
+        SurveyHelper.Second.Validation.SecondExist.Validate();
     }
 }
 
@@ -3288,7 +3291,6 @@ var SubsidyHelper = {
         Count: $('#panel4 input[name="count"]'),
         Month: $('#panel4 input[name="monthdelta"]'),
         Day: $('#panel4 input[name="daydelta"]'),
-        Hour: $('#panel4 input[name="hourdelta"]'),
         RefuseReason: $('#panel4 input[name="refusereason"]'),
         Extra: $('#panel4 input[name="extra"]'),
     },
@@ -3298,7 +3300,6 @@ var SubsidyHelper = {
         this.Container.Count.val(obj.count);
         this.Container.Month.val(obj.month_delta);
         this.Container.Day.val(obj.day_delta);
-        this.Container.Hour.val(obj.hour_delta);
         obj.refuses.forEach(function(refuse, i){
             SubsidyHelper.Container.RefuseReason
             .filter('[ data-refusereason-id="{0}"]'.format(refuse.reason))
@@ -3313,6 +3314,7 @@ var SubsidyHelper = {
         if(Helper.LogHandler.ValidationActive){
             SubsidyHelper.Validation.Empty.Validate();
             SubsidyHelper.Validation.Duplicate.Validate();
+            SubsidyHelper.Validation.ValidDay.Validate();
         }
     },
     Reset: function(){
@@ -3321,7 +3323,6 @@ var SubsidyHelper = {
         this.Container.Count.val('');
         this.Container.Month.val('');
         this.Container.Day.val('');
-        this.Container.Hour.val('');
         this.Container.RefuseReason.prop('checked', false);
         this.Container.RefuseReason.attr('data-refuse-id', '');
         this.Container.Extra.val('');
@@ -3331,7 +3332,6 @@ var SubsidyHelper = {
         Helper.BindIntegerOnly(this.Container.Count);
         Helper.BindIntegerOnly(this.Container.Month);
         Helper.BindIntegerOnly(this.Container.Day);
-        Helper.BindIntegerOnly(this.Container.Hour);
         this.Container.HasSubsidy.change(function(){
             if(CloneData){
                 var checked = $(this).prop('checked');
@@ -3340,11 +3340,11 @@ var SubsidyHelper = {
                     SubsidyHelper.Container.Count.val('').trigger('change');
                     SubsidyHelper.Container.Month.val('').trigger('change');
                     SubsidyHelper.Container.Day.val('').trigger('change');
-                    SubsidyHelper.Container.Hour.val('').trigger('change');
                 }
                 if(Helper.LogHandler.ValidationActive){
                     SubsidyHelper.Validation.Empty.Validate();
                     SubsidyHelper.Validation.Duplicate.Validate();
+                    SubsidyHelper.Validation.ValidDay.Validate();
                 }
             }
         })
@@ -3359,31 +3359,41 @@ var SubsidyHelper = {
                 if(Helper.LogHandler.ValidationActive){
                     SubsidyHelper.Validation.Empty.Validate();
                     SubsidyHelper.Validation.Duplicate.Validate();
+                    SubsidyHelper.Validation.ValidDay.Validate();
                 }
             }
         })
         this.Container.Count.change(function(){
             if(CloneData){
                 CloneData[MainSurveyId].subsidy.count = parseInt($(this).val());
+                if(Helper.LogHandler.ValidationActive){
+                    SubsidyHelper.Validation.Empty.Validate();
+                }
             }
         })
         this.Container.Month.change(function(){
             if(CloneData){
                 CloneData[MainSurveyId].subsidy.month_delta = parseInt($(this).val());
+                if(Helper.LogHandler.ValidationActive){
+                    SubsidyHelper.Validation.ValidDay.Validate();
+                }
             }
         })
         this.Container.Day.change(function(){
             if(CloneData){
                 CloneData[MainSurveyId].subsidy.day_delta = parseInt($(this).val());
-            }
-        })
-        this.Container.Hour.change(function(){
-            if(CloneData){
-                CloneData[MainSurveyId].subsidy.hour_delta = parseInt($(this).val());
+                if(Helper.LogHandler.ValidationActive){
+                    SubsidyHelper.Validation.ValidDay.Validate();
+                }
             }
         })
         this.Container.RefuseReason.change(function(){
             SubsidyHelper.Object.Refuse.Collect();
+            if(CloneData){
+                if(Helper.LogHandler.ValidationActive){
+                    SubsidyHelper.Validation.Empty.Validate();
+                }
+            }
         })
         this.Container.Extra.change(function(e){
             /* make sure checked before change textbox value */
@@ -3392,8 +3402,12 @@ var SubsidyHelper = {
             var reasonChecked = SubsidyHelper.Container.RefuseReason
                           .filter('[data-refusereason-id="{0}"]'.format(refuseReasonId))
                           .prop('checked');
+            if(!noneSubsidyChecked && reasonChecked){
+                Helper.Dialog.ShowAlert('您尚未勾選無申請');
+                e.preventDefault();
+            }
             if(noneSubsidyChecked && !reasonChecked){
-                Helper.Dialog.ShowAlert('請先勾選無申請之原因');
+                Helper.Dialog.ShowAlert('您尚未勾選無申請之原因');
                 e.preventDefault();
             }
             SubsidyHelper.Object.Refuse.Collect();
@@ -3431,13 +3445,18 @@ var SubsidyHelper = {
     },
     Validation: {
         Empty: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function(){
                 var hasSubsidy = SubsidyHelper.Container.HasSubsidy.prop('checked');
                 var noneSubsidy = SubsidyHelper.Container.NoneSubsidy.prop('checked');
                 var con = !hasSubsidy && !noneSubsidy;
                 var msg = '不可漏填此問項';
                 Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
+
+                var count = SubsidyHelper.Container.Count.val();
+                var con = hasSubsidy && (!count || count == '0');
+                var msg = '申請人數不可為 0 或空白';
+                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[1], null, false);
             },
         },
         Duplicate: {
@@ -3445,9 +3464,30 @@ var SubsidyHelper = {
             Validate: function(){
                 var hasSubsidy = SubsidyHelper.Container.HasSubsidy.prop('checked');
                 var noneSubsidy = SubsidyHelper.Container.NoneSubsidy.prop('checked');
-                var con = hasSubsidy && noneSubsidy;
+                var refuseReasons = SubsidyHelper.Container.RefuseReason.prop('checked');
+                var con = hasSubsidy && (noneSubsidy || refuseReasons);
                 var msg = '有申請及無申請不得重複勾選';
                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
+            },
+        },
+        ValidDay: {
+            Guids: Helper.Guid.CreateMulti(1),
+            Validate: function(){
+                var hasSubsidy = SubsidyHelper.Container.HasSubsidy.prop('checked');
+                var month = SubsidyHelper.Container.Month.val();
+                var day = SubsidyHelper.Container.Day.val();
+
+                var sum = 0;
+                if(Helper.NumberValidate(month)) sum += parseInt(month) * 30;
+                if(Helper.NumberValidate(day)) sum += parseInt(day);
+
+                var con = hasSubsidy && sum > 360;
+                var msg = '申請總時間超過360日';
+                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
+
+                var con = hasSubsidy && sum == 0;
+                var msg = '申請總時間不可為0';
+                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[1], null, false);
             },
         },
     },
