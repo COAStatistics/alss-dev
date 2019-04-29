@@ -155,9 +155,8 @@ class Builder(object):
         str_ch = ""
         for i in range(0, len(string)):
             if (
-                string[i].isdigit()
-                or ord(string[i]) > 64
-                and ord(string[i]) < 91
+                (ord(string[i]) > 47 and ord(string[i]) < 58)
+                or (ord(string[i]) > 64 and ord(string[i]) < 91)
                 or (ord(string[i]) > 96 and ord(string[i]) < 123)
             ):
                 cnt = cnt + 1
