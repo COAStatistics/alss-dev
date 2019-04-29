@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 00:21+0800\n"
+"POT-Creation-Date: 2019-04-30 03:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: apps/logs/apps.py:7
+msgid "Logs"
+msgstr "紀錄及日誌"
 
 #: apps/logs/models.py:37 apps/surveys18/models.py:62
 #: apps/surveys19/models.py:1481 apps/users/models.py:67
@@ -762,17 +766,12 @@ msgstr "使用者"
 
 #: templates/admin/actions.html:4
 msgid "Run the selected action"
-msgstr ""
+msgstr "執行選擇的動作"
 
 #: templates/admin/actions.html:4
 msgid "Go"
-msgstr ""
+msgstr "確認"
 
-#: templates/admin/change_form.html:10
-msgid "Home"
-msgstr ""
-
-#: templates/admin/change_form.html:25
-msgid "Add"
-msgstr "新增"
-
+#: templates/admin/base.html:5
+msgid "Welcome,"
+msgstr "哈囉，"
