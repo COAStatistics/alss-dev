@@ -63,7 +63,7 @@ from apps.surveys18.models import (
 from . import serializers
 
 
-system_logger = logging.getLogger("system")
+logger = logging.getLogger("django.request")
 
 
 class Surveys2018Index(LoginRequiredMixin, TemplateView):
@@ -150,7 +150,6 @@ class BuilderFileViewSet(StandardViewSet):
 
                 serializer.save(user=user, datafile=datafile, token=token)
         except Exception as e:
-            system_logger.exception(e)
             raise ValidationError(e)
 
 
@@ -196,7 +195,9 @@ class SurveyViewSet(ModelViewSet):
                 raise ValidationError(serializer.errors)
 
         except Exception as e:
-            return JsonResponse(data=e, safe=False)
+            logger.exception('Survey Patch Error: %s', request.path,
+                             extra={'status_code': 400, 'request': request})
+            return JsonResponse(data=e.message_dict, safe=False)
 
 
 class ContentTypeViewSet(StandardViewSet):

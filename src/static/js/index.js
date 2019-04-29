@@ -148,7 +148,7 @@ $(document).ready(function() {
                         var jobs = [timer]
                         Object.keys(CloneData).forEach(function(pk, i){
                             var ajax = SetFarmerData(url, JSON.stringify(CloneData[pk])).fail(function(){
-                                Helper.Dialog.ShowInfo('很抱歉，更新時發生錯誤，請稍後重試或與我們聯繫！');
+                                Helper.Dialog.ShowInfo('很抱歉，更新時發生錯誤，系統管理員已收到一份錯誤報告，您可以等待系統修正後再次重試，或主動與我們聯繫。');
                                 $btn.data('ajax-sending', false);
                             });
                             jobs.push(ajax);
