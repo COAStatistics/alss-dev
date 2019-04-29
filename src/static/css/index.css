@@ -18,6 +18,15 @@ body {
     }
 }
 
+@media (min-width: 1500px) {
+    #affix-wrapper {
+        width: 15%;
+    }
+    #survey-wrapper {
+        width: 85%;
+    }
+}
+
 .form-area {
     padding: 15px;
 }
@@ -77,13 +86,13 @@ div[data-partial=datatable] {
 }
 
 
-@media(max-width: 767px) {
+@media(max-width: 768px) {
     .alert .btn.pull-right{
         display: none;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .table-responsive .dropdown-menu {
         position: static !important;
     }
@@ -95,8 +104,7 @@ div[data-partial=datatable] {
     }
 }
 
-
-.dropdown-menu {
+.dropdown-menu, .modal-body {
    max-height: 600px;
    overflow-y: scroll;
 }

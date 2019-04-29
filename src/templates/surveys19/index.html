@@ -32,7 +32,7 @@
     <!-- Page Content -->
     <div class="row">
         {% if perms.surveys19.view_survey %}
-        <div class="col-md-3 col-lg-2">
+        <div class="col-md-3 col-lg-2" id="affix-wrapper">
             <div class="affix" data-spy="affix">
                 <div>
                     <h4 class="my-3 bold">107年調查表</h4>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-lg-10 js-panel-contents">
+        <div class="col-md-9 col-lg-10 js-panel-contents" id="survey-wrapper">
             <div data-partial="about">
                 {% include 'surveys19/about.html' %}
             </div>
