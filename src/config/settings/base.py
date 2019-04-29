@@ -219,11 +219,7 @@ LOGGING = {
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 
-# Session Settings
-SESSION_COOKIE_AGE = 3600 * 12
-
-
-# rest_framework
+# Rest Framework
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "DEFAULT_AUTHENTICATION_CLASSES": [
