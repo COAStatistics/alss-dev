@@ -1798,8 +1798,8 @@
   fields:
     name: 蛋雞
     code: G01
-    min_hour: 10
-    max_hour: 25
+    min_hour: 0.1
+    max_hour: 0.25
     display: True
     type: 2
     management_type: 13
@@ -1809,8 +1809,8 @@
   fields:
     name: 白肉雞
     code: G02
-    min_hour: 1
-    max_hour: 6
+    min_hour: 0.01
+    max_hour: 0.06
     display: True
     type: 2
     management_type: 13
@@ -1820,8 +1820,8 @@
   fields:
     name: 有色肉雞
     code: G03
-    min_hour: 1
-    max_hour: 6
+    min_hour: 0.01
+    max_hour: 0.06
     display: True
     type: 2
     management_type: 13
@@ -1831,8 +1831,8 @@
   fields:
     name: 肉種雞
     code: G04
-    min_hour: 1
-    max_hour: 6
+    min_hour: 0.01
+    max_hour: 0.06
     display: True
     type: 2
     management_type: 13
@@ -1842,8 +1842,8 @@
   fields:
     name: 蛋種雞
     code: G05
-    min_hour: 10
-    max_hour: 25
+    min_hour: 0.1
+    max_hour: 0.25
     display: True
     type: 2
     management_type: 13
