@@ -165,7 +165,7 @@ class Builder(object):
                 str_ch += string[i]
         return cnt, str_en_num, str_ch
 
-    def build_survey(self, readonly=False, delete_exist=False):
+    def build_survey(self, readonly=True, delete_exist=False):
         try:
             string = self.string[0]
             farmer_id = string[0:12]
@@ -196,7 +196,8 @@ class Builder(object):
         if exists:
             if delete_exist:
                 exists.delete()
-            raise SurveyAlreadyExists()
+            else:
+                raise SurveyAlreadyExists()
 
         try:
             if self.is_first_page:
@@ -422,7 +423,7 @@ class Builder(object):
                             has_facility = None
                         loss_str = int(crop_marketing[24:25])
                         loss = Loss.objects.filter(code=loss_str, type=1).first()
-                        print(product, name, land_number, land_area, plant_times, unit, year_sales, has_facility, loss)
+                        # print(product, name, land_number, land_area, plant_times, year_sales, has_facility, loss)
 
                         crop_marketing = CropMarketing.objects.create(
                             survey=self.survey,

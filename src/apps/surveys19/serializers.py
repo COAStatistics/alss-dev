@@ -70,7 +70,7 @@ class BuilderFileSerializer(HyperlinkedModelSerializer):
             errors = dict()
             file = data.get("datafile")
             token = data.get("token")
-            delete_exist = data.get("token", False)
+            delete_exist = data.get("delete_exist", False)
             if token:
                 content = [token.strip()]
 
