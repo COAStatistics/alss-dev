@@ -1492,21 +1492,24 @@ var CropMarketingHelper = {
 
                     /* Only count max land area */
                     if(managementTypeId == 6){
-                        var skip = CropMarketingHelper.CropMarketing.Container.find('tr').filter(
-                            function() { return $(this).find('[name="landnumber"]').val() == landNumber; }
-                        ).filter(
-                            function() { return $(this).find('[name="product"] > option:selected').data('name') == productName; }
-                        ).filter(
-                            function() { return $(this).find('[name="landarea"]').val() > landArea; }
-                        ).length > 0;
+                        var nextAllRowHasEqual = $(this).nextAll().filter(function(){
+                            return $(this).find('[name="landnumber"]').val() == landNumber &&
+                                   $(this).find('[name="product"] > option:selected').data('name') == productName &&
+                                   $(this).find('[name="landarea"]').val() == landArea;
+                        }).length > 0;
+                        if (nextAllRowHasEqual) return;
 
-                        if(skip) return;
+                        var anyRowHasGreater = CropMarketingHelper.CropMarketing.Container.find('tr').filter(function(){
+                            return $(this).find('[name="landnumber"]').val() == landNumber &&
+                                   $(this).find('[name="product"] > option:selected').data('name') == productName &&
+                                   $(this).find('[name="landarea"]').val() > landArea;
+                        }).length > 0;
+                        if (anyRowHasGreater) return;
                     }
-
-                    var matchingRate = 0.6;
 
                     /* Replace min, max if user input product name match sub-product */
                     /* Sub-product not display in dropdown UI */
+                    var matchingRate = 0.6;
                     $(this).find('[name="product"] > option[data-parent-id="{0}"]'.format(productId)).each(function(){
                         var name = $(this).data('name');
                         if(!name) return;
