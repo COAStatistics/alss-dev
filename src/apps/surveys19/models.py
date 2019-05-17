@@ -1493,6 +1493,7 @@ class BuilderFile(Model):
         upload_to="surveys19/builders/",
         verbose_name=_("DataFile"),
     )
+    delete_exist = BooleanField(default=False)
 
     class Meta:
         verbose_name = _("BuilderFile")

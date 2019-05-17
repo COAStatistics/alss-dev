@@ -57,7 +57,7 @@ from apps.surveys19.models import (
 class BuilderFileSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = BuilderFile
-        fields = ["token", "datafile"]
+        fields = ["token", "datafile", "delete_exist"]
 
     def create(self, validated_data):
         return BuilderFile.objects.create(**validated_data)
