@@ -19,10 +19,19 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 from .views import Index
-from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title='農業勞動力調查平台應用程式介面',)
+schema_view = get_schema_view(
+   openapi.Info(
+      title="農業勞動力調查平台應用程式介面",
+      default_version='v1',
+   ),
+   public=True,
+   permission_classes=(permissions.IsAuthenticated,),
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -31,7 +40,7 @@ urlpatterns = [
     path("users/", include("apps.users.urls", namespace="users")),
     path("106/", include("apps.surveys18.urls", namespace="surveys18")),
     path("107/", include("apps.surveys19.urls", namespace="surveys19")),
-    path('swagger/', schema_view, name="swagger"),
+    path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name='swagger'),
 ]
 
 if settings.DEBUG:

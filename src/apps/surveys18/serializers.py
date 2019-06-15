@@ -60,6 +60,7 @@ class BuilderFileTypeSerializer(ModelSerializer):
     class Meta:
         model = BuilderFileType
         fields = "__all__"
+        ref_name = "106/BuilderFileType"
 
 
 class BuilderFileSerializer(HyperlinkedModelSerializer):
@@ -68,6 +69,7 @@ class BuilderFileSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = BuilderFile
         fields = ["token", "datafile", "type"]
+        ref_name = "106/BuilderFile"
 
     def create(self, validated_data):
         return BuilderFile.objects.create(**validated_data)
@@ -117,108 +119,126 @@ class MarketTypeSerializer(ModelSerializer):
     class Meta:
         model = MarketType
         fields = "__all__"
+        ref_name = "106/MarketType"
 
 
 class IncomeRangeSerializer(ModelSerializer):
     class Meta:
         model = IncomeRange
         fields = "__all__"
+        ref_name = "106/IncomeRange"
 
 
 class LackSerializer(ModelSerializer):
     class Meta:
         model = Lack
         fields = "__all__"
+        ref_name = "106/Lack"
 
 
 class ContractSerializer(ModelSerializer):
     class Meta:
         model = Contract
         fields = "__all__"
+        ref_name = "106/Contract"
 
 
 class ProductTypeSerializer(ModelSerializer):
     class Meta:
         model = ProductType
         fields = "__all__"
+        ref_name = "106/ProductType"
 
 
 class LossSerializer(ModelSerializer):
     class Meta:
         model = Loss
         fields = "__all__"
+        ref_name = "106/Loss"
 
 
 class GenderSerializer(ModelSerializer):
     class Meta:
         model = Gender
         fields = "__all__"
+        ref_name = "106/Gender"
 
 
 class LifeStyleSerializer(ModelSerializer):
     class Meta:
         model = LifeStyle
         fields = "__all__"
+        ref_name = "106/LifeStyle"
 
 
 class ContentTypeSerializer(ModelSerializer):
     class Meta:
         model = ContentType
         fields = "__all__"
+        ref_name = "106/ContentType"
 
 
 class UnitSerializer(ModelSerializer):
     class Meta:
         model = Unit
         fields = "__all__"
+        ref_name = "106/Unit"
 
 
 class ProductSerializer(ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
+        ref_name = "106/Product"
 
 
 class WorkTypeSerializer(ModelSerializer):
     class Meta:
         model = WorkType
         fields = "__all__"
+        ref_name = "106/WorkType"
 
 
 class AgeScopeSerializer(ModelSerializer):
     class Meta:
         model = AgeScope
         fields = "__all__"
+        ref_name = "106/AgeScope"
 
 
 class RefuseReasonSerializer(ModelSerializer):
     class Meta:
         model = RefuseReason
         fields = "__all__"
+        ref_name = "106/RefuseReason"
 
 
 class FarmerWorkDaySerializer(ModelSerializer):
     class Meta:
         model = FarmerWorkDay
         fields = "__all__"
+        ref_name = "106/FarmerWorkDay"
 
 
 class OtherFarmWorkSerializer(ModelSerializer):
     class Meta:
         model = OtherFarmWork
         fields = "__all__"
+        ref_name = "106/OtherFarmWork"
 
 
 class RelationshipSerializer(ModelSerializer):
     class Meta:
         model = Relationship
         fields = "__all__"
+        ref_name = "106/Relationship"
 
 
 class EducationLevelSerializer(ModelSerializer):
     class Meta:
         model = EducationLevel
         fields = "__all__"
+        ref_name = "106/EducationLevel"
 
 
 class AnnualIncomeSerializer(ModelSerializer):
@@ -227,6 +247,7 @@ class AnnualIncomeSerializer(ModelSerializer):
     class Meta:
         model = AnnualIncome
         fields = "__all__"
+        ref_name = "106/AnnualIncome"
 
 
 class AddressMatchSerializer(ModelSerializer):
@@ -236,6 +257,7 @@ class AddressMatchSerializer(ModelSerializer):
         model = AddressMatch
         fields = "__all__"
         extra_kwargs = {"survey": {"validators": []}}
+        ref_name = "106/AddressMatch"
 
 
 class PhoneSerializer(ModelSerializer):
@@ -244,6 +266,7 @@ class PhoneSerializer(ModelSerializer):
     class Meta:
         model = Phone
         fields = "__all__"
+        ref_name = "106/Phone"
 
 
 class LandStatusSerializer(ModelSerializer):
@@ -252,6 +275,7 @@ class LandStatusSerializer(ModelSerializer):
     class Meta:
         model = LandStatus
         fields = "__all__"
+        ref_name = "106/LandStatus"
 
 
 class LandTypeSerializer(ModelSerializer):
@@ -260,6 +284,7 @@ class LandTypeSerializer(ModelSerializer):
     class Meta:
         model = LandType
         fields = "__all__"
+        ref_name = "106/LandType"
 
 
 class LandAreaSerializer(ModelSerializer):
@@ -268,6 +293,7 @@ class LandAreaSerializer(ModelSerializer):
     class Meta:
         model = LandArea
         fields = "__all__"
+        ref_name = "106/LandArea"
 
 
 class ManagementTypeSerializer(ModelSerializer):
@@ -276,6 +302,7 @@ class ManagementTypeSerializer(ModelSerializer):
     class Meta:
         model = ManagementType
         fields = "__all__"
+        ref_name = "106/ManagementType"
 
 
 class CropMarketingSerializer(ModelSerializer):
@@ -284,6 +311,7 @@ class CropMarketingSerializer(ModelSerializer):
     class Meta:
         model = CropMarketing
         fields = "__all__"
+        ref_name = "106/CropMarketing"
 
 
 class LivestockMarketingSerializer(ModelSerializer):
@@ -292,6 +320,7 @@ class LivestockMarketingSerializer(ModelSerializer):
     class Meta:
         model = LivestockMarketing
         fields = "__all__"
+        ref_name = "106/LivestockMarketing"
 
 
 class PopulationAgeSerializer(ModelSerializer):
@@ -300,6 +329,7 @@ class PopulationAgeSerializer(ModelSerializer):
     class Meta:
         model = PopulationAge
         fields = "__all__"
+        ref_name = "106/PopulationAge"
 
 
 class PopulationSerializer(ModelSerializer):
@@ -308,6 +338,7 @@ class PopulationSerializer(ModelSerializer):
     class Meta:
         model = Population
         fields = "__all__"
+        ref_name = "106/Population"
 
 
 class RefuseSerializer(ModelSerializer):
@@ -317,6 +348,7 @@ class RefuseSerializer(ModelSerializer):
         model = Refuse
         fields = "__all__"
         extra_kwargs = {"reason": {"validators": []}}
+        ref_name = "106/Refuse"
 
 
 class SubsidySerializer(ModelSerializer):
@@ -327,6 +359,7 @@ class SubsidySerializer(ModelSerializer):
         model = Subsidy
         fields = "__all__"
         extra_kwargs = {"survey": {"validators": []}}
+        ref_name = "106/Subsidy"
 
 
 class NumberWorkersSerializer(ModelSerializer):
@@ -335,12 +368,14 @@ class NumberWorkersSerializer(ModelSerializer):
     class Meta:
         model = NumberWorkers
         fields = "__all__"
+        ref_name = "106/NumberWorkers"
 
 
 class MonthSerializer(ModelSerializer):
     class Meta:
         model = Month
         fields = "__all__"
+        ref_name = "106/Month"
 
 
 class LongTermHireSerializer(ModelSerializer):
@@ -350,6 +385,7 @@ class LongTermHireSerializer(ModelSerializer):
     class Meta:
         model = LongTermHire
         fields = "__all__"
+        ref_name = "106/LongTermHire"
 
 
 class ShortTermHireSerializer(ModelSerializer):
@@ -359,6 +395,7 @@ class ShortTermHireSerializer(ModelSerializer):
     class Meta:
         model = ShortTermHire
         fields = "__all__"
+        ref_name = "106/ShortTermHire"
 
 
 class NoSalaryHireSerializer(ModelSerializer):
@@ -367,6 +404,7 @@ class NoSalaryHireSerializer(ModelSerializer):
     class Meta:
         model = NoSalaryHire
         fields = "__all__"
+        ref_name = "106/NoSalaryHire"
 
 
 class ShortTermLackSerializer(ModelSerializer):
@@ -375,6 +413,7 @@ class ShortTermLackSerializer(ModelSerializer):
     class Meta:
         model = ShortTermLack
         fields = "__all__"
+        ref_name = "106/ShortTermLack"
 
 
 class LongTermLackSerializer(ModelSerializer):
@@ -383,6 +422,7 @@ class LongTermLackSerializer(ModelSerializer):
     class Meta:
         model = LongTermLack
         fields = "__all__"
+        ref_name = "106/LongTermLack"
 
 
 class FarmRelatedBusinessSerializer(ModelSerializer):
@@ -391,6 +431,7 @@ class FarmRelatedBusinessSerializer(ModelSerializer):
     class Meta:
         model = FarmRelatedBusiness
         fields = "__all__"
+        ref_name = "106/FarmRelatedBusiness"
 
 
 class BusinessSerializer(ModelSerializer):
@@ -400,6 +441,7 @@ class BusinessSerializer(ModelSerializer):
         model = Business
         fields = "__all__"
         extra_kwargs = {"farm_related_business": {"validators": []}}
+        ref_name = "106/Business"
 
 
 class SurveySimpleSerializer(ModelSerializer):
@@ -432,6 +474,7 @@ class SurveySerializer(ModelSerializer):
     class Meta:
         model = Survey
         fields = "__all__"
+        ref_name = "106/Survey"
 
     def get_app_label(self, obj):
         return obj._meta.app_label

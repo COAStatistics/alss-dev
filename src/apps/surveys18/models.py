@@ -25,9 +25,7 @@ from apps.logs.models import ReviewLog
 
 YES_NO_CHOICES = ((0, "No"), (1, "Yes"))
 
-NUMBER_WORKERS_CHOICES = Q(app_label="surveys18", model="longtermhire") | Q(
-    app_label="surveys18", model="shorttermhire"
-)
+NUMBER_WORKERS_CHOICES = Q(app_label="surveys18", model="longtermhire") | Q(app_label="surveys18", model="shorttermhire")
 
 
 class BuilderFileType(Model):

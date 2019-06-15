@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "date_range_filter",
     "rest_framework.authtoken",
-    "rest_framework_swagger",
+    "drf_yasg",
     # local
     "apps.users",
     "apps.logs",
@@ -245,6 +245,10 @@ SUIT_CONFIG = {
     'MENU_EXCLUDE': ('sites',),
 }
 
-# Django Rest Swagger
+# DRF YASG
 LOGIN_URL = 'users:login'
 LOGOUT_URL = 'users:logout'
+REDOC_SETTINGS = {
+    'PATH_IN_MIDDLE': True,
+    'REQUIRED_PROPS_FIRST': True,
+}
