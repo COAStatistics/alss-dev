@@ -13,10 +13,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-SURVEY_CHOICES = (
-    Q(app_label="surveys18", model="survey"),
-    Q(app_label="surveys19", model="survey"),
-)
+SURVEY_CHOICES = Q(app_label="surveys18", model="survey") | Q(app_label="surveys19", model="survey")
 
 ORDER_COLUMN_CHOICES = Choices(
     ("0", "id"),
