@@ -20,6 +20,15 @@
                 {% if user.is_staff %}
                 <li><a class="nav-link" href="{% url 'admin:index' %}">後台</a></li>
                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">匯出調查表
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'surveys19:survey-export' %}" target="_blank"
+                               onclick="return confirm (' 您將下載大型檔案，確定要繼續嗎？')">107年</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">匯入調查表
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">

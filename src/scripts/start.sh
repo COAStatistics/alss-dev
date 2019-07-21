@@ -18,7 +18,7 @@ echo "from apps.users.tests.initial import create_auditor107; create_auditor107(
 python manage.py loaddata fixtures/surveys18/*.yaml
 python manage.py loaddata fixtures/surveys18/survey/*.yaml
 python manage.py loaddata fixtures/surveys19/*.yaml
-python manage.py loaddata fixtures/surveys19/survey/*.yaml
+python manage.py loaddata fixtures/surveys19/survey/670100013471.yaml
 python manage.py loaddata fixtures/reviewlog.yaml
 
 python manage.py runserver 0.0.0.0:8000

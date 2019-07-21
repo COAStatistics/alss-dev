@@ -785,7 +785,7 @@ class IncomeRange(Model):
         verbose_name_plural = _("IncomeRanges")
 
     def __str__(self):
-        return str(self.name)
+        return self.name
 
 
 class AgeScope(Model):
