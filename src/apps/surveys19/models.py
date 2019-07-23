@@ -36,7 +36,7 @@ class Survey(Model):
     new field second and non_second table 1.4
     """
 
-    farmer_id = CharField(max_length=12, verbose_name=_("Farmer Id"))
+    farmer_id = CharField(max_length=12, verbose_name=_("Farmer Id"), db_index=True)
     farmer_name = CharField(
         null=True, blank=True, max_length=10, verbose_name=_("Name")
     )

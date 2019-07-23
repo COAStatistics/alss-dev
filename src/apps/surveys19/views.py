@@ -1,6 +1,8 @@
 import json
 import logging
 import csv
+from itertools import islice
+from collections import namedtuple
 
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -115,132 +117,219 @@ from .serializers import (
 logger = logging.getLogger(__file__)
 
 
-class SurveyExportGeneratorFactory:
-    """ Generator Factory of Survey Relations """
-    def __init__(self, survey: Survey, max_iter_count: int):
-        self.survey = survey
-        self.max_iter_count = max_iter_count
+class SurveyRelationGeneratorFactory:
+    """ Generator Factory of Survey Relations. """
 
-    def simple_generate(self, related_name, values_list, many_to_many=False):
-        counter = 0
-        farmer_id = 'surveys__farmer_id' if many_to_many else 'survey__farmer_id'
-        readonly = 'surveys__readonly' if many_to_many else 'survey__readonly'
-        filters = {
-            farmer_id: self.survey.farmer_id,
-            readonly: False,
-        }
-        for item in getattr(self.survey, related_name).model.objects.filter(**filters)\
-                .values_list(*values_list).iterator():
-            counter += 1
-            yield list(item)
-        for _ in range(self.max_iter_count - counter):
-            yield [''] * len(values_list)
+    ExportRelation = namedtuple("ExportRelation", ("generator", "column_count"))
 
-    def land_areas(self):
-        return self.simple_generate('land_areas', ['type__name', 'status__name', 'value'])
+    def __init__(self):
+        """ Make the necessary query, initial the relations in constrains (readonly=False) and ordering by farmer_id """
+        self.lookup_tables = [
+            "land_areas",
+            "businesses",
+            "management_types",
+            "lacks",
+            "crop_marketings",
+            "livestock_marketings",
+            "annual_incomes",
+            "populations",
+            "long_term_hires",
+            "short_term_hires",
+            "no_salary_hires",
+            "no_salary_hires",
+            "long_term_lacks",
+            "short_term_lacks",
+        ]
+        self.relation_count_mapping = self.get_relations_count_mapping()
+        self.age_scopes = AgeScope.objects.filter(group=1).order_by("-id").all()
 
-    def businesses(self):
-        return self.simple_generate('businesses', ['farm_related_business__name', 'extra'])
+        self.land_areas = self.ExportRelation(
+            self.relation_generate(LandArea, ["type__name", "status__name", "value"]), 3
+        )
+        self.businesses = self.ExportRelation(
+            self.relation_generate(Business, ["farm_related_business__name", "extra"]),
+            2,
+        )
+        self.management_types = self.ExportRelation(
+            self.relation_generate(ManagementType, ["name"], many_to_many=True), 1
+        )
+        self.crop_marketings = self.ExportRelation(
+            self.relation_generate(
+                CropMarketing,
+                [
+                    "product__code",
+                    "product__name",
+                    "land_number",
+                    "land_area",
+                    "plant_times",
+                    "unit__name",
+                    "year_sales",
+                    "has_facility",
+                    "loss__name",
+                ],
+            ),
+            9,
+        )
+        self.livestock_marketings = self.ExportRelation(
+            self.relation_generate(
+                LivestockMarketing,
+                [
+                    "product__code",
+                    "product__name",
+                    "unit__name",
+                    "raising_number",
+                    "year_sales",
+                    "contract__name",
+                    "loss__name",
+                ],
+            ),
+            7,
+        )
+        self.annual_incomes = self.ExportRelation(
+            self.relation_generate(
+                AnnualIncome, ["market_type__name", "income_range__name"]
+            ),
+            2,
+        )
+        self.populations = self.ExportRelation(
+            self.relation_generate(
+                Population,
+                [
+                    "relationship__name",
+                    "gender__name",
+                    "birth_year",
+                    "education_level__name",
+                    "farmer_work_day",
+                    "life_style__name",
+                ],
+            ),
+            6,
+        )
+        self.no_salary_hires = self.ExportRelation(
+            self.relation_generate(NoSalaryHire, ["month__value", "count"]), 2
+        )
+        self.lacks = self.ExportRelation(
+            self.relation_generate(Lack, ["name"], many_to_many=True), 1
+        )
+        self.long_term_hires = self.ExportRelation(
+            self.long_term_hires_generate(), 3 + len(self.age_scopes)
+        )
+        self.short_term_hires = self.ExportRelation(
+            self.short_term_hires_generate(), 3 + len(self.age_scopes)
+        )
+        self.long_term_lacks = self.ExportRelation(self.long_term_lacks_generate(), 4)
+        self.short_term_lacks = self.ExportRelation(self.short_term_lacks_generate(), 6)
 
-    def management_types(self):
-        return self.simple_generate('management_types', ['name'], many_to_many=True)
+    @staticmethod
+    def relation_generate(model, values_list, many_to_many=False):
+        """ Get the iterator of relation object values """
+        order_by = "surveys__farmer_id" if many_to_many else "survey__farmer_id"
+        readonly = "surveys__readonly" if many_to_many else "survey__readonly"
+        filters = {readonly: False}
+        return (
+            model.objects.filter(**filters)
+            .order_by(order_by)
+            .values_list(*values_list)
+            .iterator()
+        )
 
-    def crop_marketings(self):
-        return self.simple_generate('crop_marketings', ['product__code', 'product__name', 'land_number',
-                                                        'land_area', 'plant_times', 'unit__name', 'year_sales',
-                                                        'has_facility', 'loss__name'])
+    def get_sliced_relation_generator(self, farmer_id, relate_name):
+        """ Consume the generator on at a time, base on the relation count mapping """
+        mapping_info = self.relation_count_mapping[farmer_id]
+        relation_count = mapping_info[relate_name]
+        max_relation_count = max(mapping_info.values())
+        relation = getattr(self, relate_name)
+        yield from islice(relation.generator, 0, relation_count)
+        for _ in range(max_relation_count - relation_count):
+            yield [""] * relation.column_count
 
-    def livestock_marketings(self):
-        return self.simple_generate('livestock_marketings', ['product__code', 'product__name',
-                                                             'unit__name', 'raising_number', 'year_sales',
-                                                             'contract__name', 'loss__name'])
-
-    def annual_incomes(self):
-        return self.simple_generate('annual_incomes', ['market_type__name', 'income_range__name'])
-
-    def populations(self):
-        return self.simple_generate('populations', ['relationship__name', 'gender__name', 'birth_year',
-                                                    'education_level__name', 'farmer_work_day', 'life_style__name'])
-
-    def no_salary_hires(self):
-        return self.simple_generate('no_salary_hires', ['month__value', 'count'])
-
-    def lacks(self):
-        return self.simple_generate('lacks', ['name'], many_to_many=True)
-
-    def long_term_hires(self):
-        counter = 0
-        age_scopes = AgeScope.objects.filter(group=1).order_by('-id').all()
-        for lth in LongTermHire.objects.filter(survey__farmer_id=self.survey.farmer_id,
-                                               survey__readonly=False).iterator():
-            values = [lth.work_type.name, lth.avg_work_day, ','.join(map(str, lth.months.values_list('value', flat=True)))]
-            for age_scope in age_scopes:
+    def long_term_hires_generate(self):
+        for lth in (
+            LongTermHire.objects.filter(survey__readonly=False)
+            .order_by("survey__farmer_id")
+            .iterator()
+        ):
+            values = [
+                lth.work_type.name,
+                lth.avg_work_day,
+                ",".join(map(str, lth.months.values_list("value", flat=True))),
+            ]
+            for age_scope in self.age_scopes:
                 search = lth.number_workers.filter(age_scope=age_scope).first()
                 values.append(search.count if search else 0)
             yield values
-        for _ in range(self.max_iter_count - counter):
-            yield [''] * (3 + len(age_scopes))
 
-    def short_term_hires(self):
-        counter = 0
-        age_scopes = AgeScope.objects.filter(group=1).order_by('-id').all()
-        for sth in ShortTermHire.objects.filter(survey__farmer_id=self.survey.farmer_id,
-                                                survey__readonly=False).iterator():
-            values = [','.join(map(str, sth.work_types.values_list('name', flat=True))),
-                      sth.avg_work_day,
-                      sth.month.value]
-            for age_scope in age_scopes:
+    def short_term_hires_generate(self):
+        for sth in (
+            ShortTermHire.objects.filter(survey__readonly=False)
+            .order_by("survey__farmer_id")
+            .iterator()
+        ):
+            values = [
+                ",".join(map(str, sth.work_types.values_list("name", flat=True))),
+                sth.avg_work_day,
+                sth.month.value,
+            ]
+            for age_scope in self.age_scopes:
                 search = sth.number_workers.filter(age_scope=age_scope).first()
                 values.append(search.count if search else 0)
             yield values
-        for _ in range(self.max_iter_count - counter):
-            yield [''] * (3 + len(age_scopes))
-
-    def long_term_lacks(self):
-        counter = 0
-        for ltl in LongTermLack.objects.filter(survey__farmer_id=self.survey.farmer_id,
-                                               survey__readonly=False).iterator():
-            counter += 1
-            yield [ltl.work_type.name,
-                   ltl.count,
-                   ltl.avg_lack_day,
-                   ','.join(map(str, ltl.months.values_list('value', flat=True)))]
-        for _ in range(self.max_iter_count - counter):
-            yield [''] * 4
-
-    def short_term_lacks(self):
-        counter = 0
-        for obj in ShortTermLack.objects.filter(survey__farmer_id=self.survey.farmer_id,
-                                                survey__readonly=False).iterator():
-            counter += 1
-            yield [obj.work_type.name, obj.product.code, obj.name, obj.count, obj.avg_lack_day,
-                   ','.join(map(str, obj.months.values_list('value', flat=True)))]
-        for _ in range(self.max_iter_count - counter):
-            yield [''] * 6
 
     @staticmethod
-    def get_max_relations_count_mapping():
-        """ Lazy pre-calculate max relation count for each farmer id """
+    def long_term_lacks_generate():
+        for ltl in (
+            LongTermLack.objects.filter(survey__readonly=False)
+            .order_by("survey__farmer_id")
+            .iterator()
+        ):
+            yield [
+                ltl.work_type.name,
+                ltl.count,
+                ltl.avg_lack_day,
+                ",".join(map(str, ltl.months.values_list("value", flat=True))),
+            ]
+
+    @staticmethod
+    def short_term_lacks_generate():
+        for obj in (
+            ShortTermLack.objects.filter(survey__readonly=False)
+            .order_by("survey__farmer_id")
+            .iterator()
+        ):
+            yield [
+                obj.work_type.name,
+                obj.product.code,
+                obj.name,
+                obj.count,
+                obj.avg_lack_day,
+                ",".join(map(str, obj.months.values_list("value", flat=True))),
+            ]
+
+    def get_relations_count_mapping(self):
+        """ Lazy pre-calculate relation counts for each farmer id """
         result = {}
 
         def count_relation(relate_name):
-            relations_count = Survey.objects.filter(readonly=False).order_by('id').values('farmer_id').annotate(
-                count=Count(relate_name),
-            ).values_list('farmer_id', 'count').iterator()
+            relations_count = (
+                Survey.objects.filter(readonly=False)
+                .order_by("id")
+                .values("farmer_id")
+                .annotate(count=Count(relate_name))
+                .values_list("farmer_id", "count")
+                .iterator()
+            )
             return relations_count
 
-        lookup_tables = ['land_areas', 'businesses', 'management_types', 'lacks', 'crop_marketings', 'livestock_marketings',
-                         'annual_incomes', 'populations', 'long_term_hires', 'short_term_hires', 'no_salary_hires',
-                         'no_salary_hires', 'long_term_lacks', 'short_term_lacks']
-
-        generator_lists = [count_relation(table) for table in lookup_tables]
+        generator_lists = [count_relation(table) for table in self.lookup_tables]
 
         while True:
             try:
-                single_result = [next(generator) for generator in generator_lists]
-                farmer_id = single_result[0][0]
-                max_count = max([t[1] for t in single_result])
-                result[farmer_id] = max_count
+                single_result = [
+                    next(generator)
+                    for generator in generator_lists
+                ]
+                farmer_id = single_result[1][0]
+                result[farmer_id] = {self.lookup_tables[i]: item[1] for i, item in enumerate(single_result)}
             except StopIteration:
                 break
 
@@ -251,6 +340,7 @@ class Echo:
     """An object that implements just the write method of the file-like
     interface.
     """
+
     def write(self, value):
         """Write the value by returning it, instead of storing in a buffer."""
         return value
@@ -319,7 +409,11 @@ class Surveys2019Index(LoginRequiredMixin, TemplateView):
         }
         context["ui"] = json.dumps(ui)
         context["fid"] = json.dumps(
-            list(Survey.objects.filter(page=1).values_list("farmer_id", flat=True).distinct())
+            list(
+                Survey.objects.filter(page=1)
+                .values_list("farmer_id", flat=True)
+                .distinct()
+            )
         )
 
         return context
@@ -374,7 +468,7 @@ class SurveyViewSet(ModelViewSet):
         return Survey.objects.get(id=pk)
 
     def get_permissions(self):
-        if self.request.method in ['GET', 'PUT', 'PATCH']:
+        if self.request.method in ["GET", "PUT", "PATCH"]:
             permission_classes = [IsAuthenticated]
         else:
             permission_classes = [IsAdminUser]
@@ -400,8 +494,11 @@ class SurveyViewSet(ModelViewSet):
                 raise ValidationError(serializer.errors)
 
         except Exception as e:
-            logger.exception('Survey Patch Error: %s', request.path,
-                             extra={'status_code': 400, 'request': request})
+            logger.exception(
+                "Survey Patch Error: %s",
+                request.path,
+                extra={"status_code": 400, "request": request},
+            )
             return JsonResponse(data=e.message_dict, safe=False)
 
     @action(methods=["GET"], detail=False, permission_classes=[IsAdminUser])
@@ -413,28 +510,88 @@ class SurveyViewSet(ModelViewSet):
 
         def output_formatter(value):
             if isinstance(value, bool):
-                value = '是' if value else '否'
+                value = "是" if value else "否"
             if value is None:
-                value = ''
+                value = ""
             return str(value)
 
-        headers = ['農戶編號', '受訪人姓名', '電話1', '電話2', '地址與名冊相不相同', '地址', '可耕地或畜牧用地所在地區',
-                   '有無二代青農', '耕作地類型', '耕作地狀態', '耕作地面積', '兼營農業相關事業', '其他填寫', '主要經營型態',
-                   '作物代碼', '作物名稱', '耕作地編號', '種植面積', '種植次數', '計量單位', '全年產量', '是否使用農業設施',
-                   '作物備註', '畜禽代碼', '畜禽名稱', '計量單位', '年底在養數量', '全年銷售數量', '契約飼養', '畜禽備註',
-                   '銷售類型', '銷售額區間', '與戶長關係', '性別', '出生年', '教育程度別', '自家農牧業工作日數',
-                   '全年主要生活型態', '常僱主要工作類型', '常僱平均工作日數', '常僱月份', '常僱(44歲以下)', '常僱(45-64歲)',
-                   '常僱(65歲以上)', '臨僱主要工作類型', '臨僱平均工作日數', '臨僱月份', '臨僱(44歲以下)', '臨僱(45-64歲)',
-                   '臨僱(65歲以上)', '不支薪僱用月份', '不支薪人數', '短缺情形', '常缺工作類型', '常缺各月人數', '常缺各月平均日數',
-                   '常缺月份', '臨缺工作類型', '臨缺產品代碼', '臨缺產品名稱', '臨缺各月人數', '臨缺各月平均日數', '臨缺月份',
-                   '有無申請缺工2.0', '申請人數', '申請總時間(日)', '無申請缺工2.0原因', '調查員', '複審員']
+        headers = [
+            "農戶編號",
+            "受訪人姓名",
+            "電話1",
+            "電話2",
+            "地址與名冊相不相同",
+            "地址",
+            "可耕地或畜牧用地所在地區",
+            "有無二代青農",
+            "耕作地類型",
+            "耕作地狀態",
+            "耕作地面積",
+            "兼營農業相關事業",
+            "其他填寫",
+            "主要經營型態",
+            "作物代碼",
+            "作物名稱",
+            "耕作地編號",
+            "種植面積",
+            "種植次數",
+            "計量單位",
+            "全年產量",
+            "是否使用農業設施",
+            "作物備註",
+            "畜禽代碼",
+            "畜禽名稱",
+            "計量單位",
+            "年底在養數量",
+            "全年銷售數量",
+            "契約飼養",
+            "畜禽備註",
+            "銷售類型",
+            "銷售額區間",
+            "與戶長關係",
+            "性別",
+            "出生年",
+            "教育程度別",
+            "自家農牧業工作日數",
+            "全年主要生活型態",
+            "常僱主要工作類型",
+            "常僱平均工作日數",
+            "常僱月份",
+            "常僱(44歲以下)",
+            "常僱(45-64歲)",
+            "常僱(65歲以上)",
+            "臨僱主要工作類型",
+            "臨僱平均工作日數",
+            "臨僱月份",
+            "臨僱(44歲以下)",
+            "臨僱(45-64歲)",
+            "臨僱(65歲以上)",
+            "不支薪僱用月份",
+            "不支薪人數",
+            "短缺情形",
+            "常缺工作類型",
+            "常缺各月人數",
+            "常缺各月平均日數",
+            "常缺月份",
+            "臨缺工作類型",
+            "臨缺產品代碼",
+            "臨缺產品名稱",
+            "臨缺各月人數",
+            "臨缺各月平均日數",
+            "臨缺月份",
+            "有無申請缺工2.0",
+            "申請人數",
+            "申請總時間(日)",
+            "無申請缺工2.0原因",
+            "調查員",
+            "複審員",
+        ]
 
         def row_generator():
+            factory = SurveyRelationGeneratorFactory()
             errors = []
-            relations_count_max_mapper = SurveyExportGeneratorFactory.get_max_relations_count_mapping()
             yield headers
             for survey in Survey.objects.filter(readonly=False, page=1).order_by('farmer_id'):
-                factory = SurveyExportGeneratorFactory(survey, relations_count_max_mapper[survey.farmer_id])
                 values1 = [
                     survey.farmer_id,
                     survey.farmer_name,
@@ -449,43 +606,60 @@ class SurveyViewSet(ModelViewSet):
                     survey.subsidy.has_subsidy,
                     survey.subsidy.count,
                     survey.subsidy.day_delta,
-                    survey.subsidy.refuses.first().reason if survey.subsidy.refuses.first() else '',
+                    survey.subsidy.refuses.first().reason
+                    if survey.subsidy.refuses.first()
+                    else "",
                     survey.investigator,
-                    survey.reviewer
+                    survey.reviewer,
                 ]
-                land_areas = factory.land_areas()
-                businesses = factory.businesses()
-                management_types = factory.management_types()
-                crop_marketings = factory.crop_marketings()
-                livestock_marketings = factory.livestock_marketings()
-                annual_incomes = factory.annual_incomes()
-                populations = factory.populations()
-                long_term_hires = factory.long_term_hires()
-                short_term_hires = factory.short_term_hires()
-                no_salary_hires = factory.no_salary_hires()
-                long_term_lacks = factory.long_term_lacks()
-                short_term_lacks = factory.short_term_lacks()
-                lacks = factory.lacks()
+                land_areas = factory.get_sliced_relation_generator(survey.farmer_id, 'land_areas')
+                businesses = factory.get_sliced_relation_generator(survey.farmer_id, 'businesses')
+                management_types = factory.get_sliced_relation_generator(survey.farmer_id, 'management_types')
+                crop_marketings = factory.get_sliced_relation_generator(survey.farmer_id, 'crop_marketings')
+                livestock_marketings = factory.get_sliced_relation_generator(survey.farmer_id, 'livestock_marketings')
+                annual_incomes = factory.get_sliced_relation_generator(survey.farmer_id, 'annual_incomes')
+                populations = factory.get_sliced_relation_generator(survey.farmer_id, 'populations')
+                long_term_hires = factory.get_sliced_relation_generator(survey.farmer_id, 'long_term_hires')
+                short_term_hires = factory.get_sliced_relation_generator(survey.farmer_id, 'short_term_hires')
+                no_salary_hires = factory.get_sliced_relation_generator(survey.farmer_id, 'no_salary_hires')
+                long_term_lacks = factory.get_sliced_relation_generator(survey.farmer_id, 'long_term_lacks')
+                short_term_lacks = factory.get_sliced_relation_generator(survey.farmer_id, 'short_term_lacks')
+                lacks = factory.get_sliced_relation_generator(survey.farmer_id, 'lacks')
+
+                max_iter_count = max(factory.relation_count_mapping[survey.farmer_id].values())
                 try:
-                    for i in range(factory.max_iter_count):
+                    for i in range(max_iter_count):
                         values1_ = values1 if i == 0 else [values1[0]] + [''] * (len(values1) - 1)
-                        values2_ = values2 if i == 0 else [''] * len(values2)
-                        row = \
-                            values1_ + next(land_areas) + next(businesses) + next(management_types) + \
-                            next(crop_marketings) + next(livestock_marketings) + next(annual_incomes) + \
-                            next(populations) + next(long_term_hires) + next(short_term_hires) + \
-                            next(no_salary_hires) + next(lacks) + next(long_term_lacks) + \
-                            next(short_term_lacks) + values2_
+                        values2_ = values2 if i == 0 else [""] * len(values2)
+                        row = (
+                            values1_
+                            + list(next(land_areas))
+                            + list(next(businesses))
+                            + list(next(management_types))
+                            + list(next(crop_marketings))
+                            + list(next(livestock_marketings))
+                            + list(next(annual_incomes))
+                            + list(next(populations))
+                            + next(long_term_hires)
+                            + next(short_term_hires)
+                            + list(next(no_salary_hires))
+                            + list(next(lacks))
+                            + next(long_term_lacks)
+                            + next(short_term_lacks)
+                            + values2_
+                        )
                         yield [output_formatter(item) for item in row]
                 except Exception as e:
                     logger.exception(e)
                     errors.append(survey.farmer_id)
-            yield ['未匯出成功的調查表:', ','.join(errors)]
+            yield ["未匯出成功的調查表:", ",".join(errors)]
 
         pseudo_buffer = Echo()
         writer = csv.writer(pseudo_buffer)
-        response = StreamingHttpResponse((writer.writerow(row) for row in row_generator()), content_type="text/csv")
-        response['Content-Disposition'] = 'attachment; filename="107_export.csv"'
+        response = StreamingHttpResponse(
+            (writer.writerow(row) for row in row_generator()), content_type="text/csv"
+        )
+        response["Content-Disposition"] = 'attachment; filename="107_export.csv"'
         return response
 
 
