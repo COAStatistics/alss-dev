@@ -1,6 +1,8 @@
 import json
 import logging
 import csv
+import operator
+from functools import reduce
 from itertools import islice
 from collections import namedtuple
 
@@ -122,8 +124,12 @@ class SurveyRelationGeneratorFactory:
 
     ExportRelation = namedtuple("ExportRelation", ("generator", "column_count"))
 
-    def __init__(self):
-        """ Make the necessary query, initial the relations in constrains (readonly=False) and ordering by farmer_id """
+    def __init__(self, readonly=False, filters={}, excludes={}):
+        """ Make the necessary query, initial the relations in constrains and ordering by farmer_id """
+        self.readonly = readonly
+        self.filters = filters
+        self.excludes = excludes
+
         self.lookup_tables = [
             "land_areas",
             "businesses",
@@ -220,15 +226,29 @@ class SurveyRelationGeneratorFactory:
         self.long_term_lacks = self.ExportRelation(self.long_term_lacks_generate(), 4)
         self.short_term_lacks = self.ExportRelation(self.short_term_lacks_generate(), 6)
 
-    @staticmethod
-    def relation_generate(model, values_list, many_to_many=False):
-        """ Get the iterator of relation object values """
-        order_by = "surveys__farmer_id" if many_to_many else "survey__farmer_id"
-        readonly = "surveys__readonly" if many_to_many else "survey__readonly"
-        filters = {readonly: False}
+    @property
+    def surveys(self):
+        return self.get_queryset(Survey.objects.all()).filter(page=1).all()
+
+    def get_queryset(self, qs, prefix=''):
+        """ Apply common filter and ordering for relation querysets """
+        _default_filters = {
+            f'{prefix}readonly': self.readonly,
+        }
+        _filters = {f'{prefix}{key}': value for key, value in self.filters.items()}
+        _excludes = {f'{prefix}{key}': value for key, value in self.excludes.items()}
+        _default_order_by = f'{prefix}farmer_id'
         return (
-            model.objects.filter(**filters)
-            .order_by(order_by)
+            qs.filter(reduce(operator.and_, [Q(**_default_filters), Q(**_filters), ~Q(**_excludes)]))
+            .order_by(_default_order_by)
+        )
+
+    def relation_generate(self, model, values_list, many_to_many=False):
+        """ Get the iterator of relation object values """
+        prefix = "surveys__" if many_to_many else "survey__"
+        qs = self.get_queryset(model.objects.all(), prefix=prefix)
+        return (
+            qs
             .values_list(*values_list)
             .iterator()
         )
@@ -244,11 +264,8 @@ class SurveyRelationGeneratorFactory:
             yield [""] * relation.column_count
 
     def long_term_hires_generate(self):
-        for lth in (
-            LongTermHire.objects.filter(survey__readonly=False)
-            .order_by("survey__farmer_id")
-            .iterator()
-        ):
+        qs = self.get_queryset(LongTermHire.objects.all(), prefix='survey__')
+        for lth in qs.iterator():
             values = [
                 lth.work_type.name,
                 lth.avg_work_day,
@@ -257,14 +274,11 @@ class SurveyRelationGeneratorFactory:
             for age_scope in self.age_scopes:
                 search = lth.number_workers.filter(age_scope=age_scope).first()
                 values.append(search.count if search else 0)
-            yield values
+            yield tuple(values)
 
     def short_term_hires_generate(self):
-        for sth in (
-            ShortTermHire.objects.filter(survey__readonly=False)
-            .order_by("survey__farmer_id")
-            .iterator()
-        ):
+        qs = self.get_queryset(ShortTermHire.objects.all(), prefix='survey__')
+        for sth in qs.iterator():
             values = [
                 ",".join(map(str, sth.work_types.values_list("name", flat=True))),
                 sth.avg_work_day,
@@ -273,45 +287,38 @@ class SurveyRelationGeneratorFactory:
             for age_scope in self.age_scopes:
                 search = sth.number_workers.filter(age_scope=age_scope).first()
                 values.append(search.count if search else 0)
-            yield values
+            yield tuple(values)
 
-    @staticmethod
-    def long_term_lacks_generate():
-        for ltl in (
-            LongTermLack.objects.filter(survey__readonly=False)
-            .order_by("survey__farmer_id")
-            .iterator()
-        ):
-            yield [
+    def long_term_lacks_generate(self):
+        qs = self.get_queryset(LongTermLack.objects.all(), prefix='survey__')
+        for ltl in qs.iterator():
+            yield (
                 ltl.work_type.name,
                 ltl.count,
                 ltl.avg_lack_day,
                 ",".join(map(str, ltl.months.values_list("value", flat=True))),
-            ]
+            )
 
-    @staticmethod
-    def short_term_lacks_generate():
-        for obj in (
-            ShortTermLack.objects.filter(survey__readonly=False)
-            .order_by("survey__farmer_id")
-            .iterator()
-        ):
-            yield [
+    def short_term_lacks_generate(self):
+        qs = self.get_queryset(ShortTermLack.objects.all(), prefix='survey__')
+        for obj in qs.iterator():
+            yield (
                 obj.work_type.name,
                 obj.product.code,
                 obj.name,
                 obj.count,
                 obj.avg_lack_day,
                 ",".join(map(str, obj.months.values_list("value", flat=True))),
-            ]
+            )
 
     def get_relations_count_mapping(self):
         """ Lazy pre-calculate relation counts for each farmer id """
         result = {}
+        qs = self.get_queryset(Survey.objects.all())
 
         def count_relation(relate_name):
             relations_count = (
-                Survey.objects.filter(readonly=False)
+                qs
                 .order_by("id")
                 .values("farmer_id")
                 .annotate(count=Count(relate_name))
@@ -588,10 +595,10 @@ class SurveyViewSet(ModelViewSet):
         ]
 
         def row_generator():
-            factory = SurveyRelationGeneratorFactory()
+            factory = SurveyRelationGeneratorFactory(excludes={'note__icontains': '無效戶'})
             errors = []
             yield headers
-            for survey in Survey.objects.filter(readonly=False, page=1).order_by('farmer_id'):
+            for survey in factory.surveys:
                 values1 = [
                     survey.farmer_id,
                     survey.farmer_name,
@@ -640,19 +647,20 @@ class SurveyViewSet(ModelViewSet):
                             + list(next(livestock_marketings))
                             + list(next(annual_incomes))
                             + list(next(populations))
-                            + next(long_term_hires)
-                            + next(short_term_hires)
+                            + list(next(long_term_hires))
+                            + list(next(short_term_hires))
                             + list(next(no_salary_hires))
                             + list(next(lacks))
-                            + next(long_term_lacks)
-                            + next(short_term_lacks)
+                            + list(next(long_term_lacks))
+                            + list(next(short_term_lacks))
                             + values2_
                         )
                         yield [output_formatter(item) for item in row]
                 except Exception as e:
                     logger.exception(e)
                     errors.append(survey.farmer_id)
-            yield ["未匯出成功的調查表:", ",".join(errors)]
+            if errors:
+                yield ["未匯出成功的調查表:", ",".join(errors)]
 
         pseudo_buffer = Echo()
         writer = csv.writer(pseudo_buffer)
