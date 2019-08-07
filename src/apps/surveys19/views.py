@@ -130,6 +130,9 @@ class SurveyRelationGeneratorFactory:
         self.filters = filters
         self.excludes = excludes
 
+        self.surveys = self.get_queryset(Survey.objects.all(), filter_by_farmer_ids=False).filter(page=1).all()
+        self.farmer_ids = self.surveys.values_list('farmer_id', flat=True).distinct()
+
         self.lookup_tables = [
             "land_areas",
             "businesses",
@@ -226,15 +229,27 @@ class SurveyRelationGeneratorFactory:
         self.long_term_lacks = self.ExportRelation(self.long_term_lacks_generate(), 4)
         self.short_term_lacks = self.ExportRelation(self.short_term_lacks_generate(), 6)
 
-    @property
-    def surveys(self):
-        return self.get_queryset(Survey.objects.all()).filter(page=1).all()
+    def check_exhausted(self):
+        return all([len(list(getattr(self, relation).generator)) == 0 for relation in self.lookup_tables])
 
-    def get_queryset(self, qs, prefix=''):
+    def check_relation(self, relation):
+        mapping_sum = sum([self.relation_count_mapping[farmer_id][relation] for farmer_id in self.farmer_ids])
+        relation_count = len(list(getattr(self, relation).generator))
+        if mapping_sum != relation_count:
+            print(f'Relation {relation} not fit: Mapping Sum={mapping_sum}; Relation Count={relation_count}')
+            return False
+        return True
+
+    def get_queryset(self, qs, prefix='', filter_by_farmer_ids=True):
         """ Apply common filter and ordering for relation querysets """
         _default_filters = {
             f'{prefix}readonly': self.readonly,
         }
+        if filter_by_farmer_ids:
+            # Single survey is split into multiple Survey objects and share same farmer_id
+            # The relation tables still need to filter by farmer_id
+            # In case the filter/exclude below not working properly
+            _default_filters[f'{prefix}farmer_id__in'] = self.farmer_ids
         _filters = {f'{prefix}{key}': value for key, value in self.filters.items()}
         _excludes = {f'{prefix}{key}': value for key, value in self.excludes.items()}
         _default_order_by = f'{prefix}farmer_id'
@@ -319,10 +334,10 @@ class SurveyRelationGeneratorFactory:
         def count_relation(relate_name):
             relations_count = (
                 qs
-                .order_by("id")
                 .values("farmer_id")
                 .annotate(count=Count(relate_name))
                 .values_list("farmer_id", "count")
+                .order_by("farmer_id")
                 .iterator()
             )
             return relations_count
@@ -661,6 +676,8 @@ class SurveyViewSet(ModelViewSet):
                     errors.append(survey.farmer_id)
             if errors:
                 yield ["未匯出成功的調查表:", ",".join(errors)]
+            if not factory.check_exhausted():
+                print('Something went wrong ... Relations not exhausted.')
 
         pseudo_buffer = Echo()
         writer = csv.writer(pseudo_buffer)
