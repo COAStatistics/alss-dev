@@ -1,0 +1,8200 @@
+- model: surveys19.survey
+  pk: 2432
+  fields:
+    farmer_id: '9910001011'
+    farmer_name: "test"
+    total_pages: 4
+    page: 1
+    origin_class: 25
+    second: false
+    non_second: true
+    hire: true
+    non_hire: false
+    readonly: false
+    investigator: "test"
+    reviewer: "test"
+    date: null
+    distance: null
+    period: 45
+    update_time: 2019-05-23 06:52:32.658000+00:00
+    lacks:
+    - 3
+    management_types:
+    - 5
+- model: surveys19.survey
+  pk: 2434
+  fields:
+    farmer_id: '9910001011'
+    farmer_name: null
+    total_pages: 4
+    page: 2
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-05-23 06:52:33.986000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 2436
+  fields:
+    farmer_id: '9910001011'
+    farmer_name: null
+    total_pages: 4
+    page: 3
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-05-23 06:52:34.330000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 2438
+  fields:
+    farmer_id: '9910001011'
+    farmer_name: null
+    total_pages: 4
+    page: 4
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-05-23 06:52:34.611000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 9805
+  fields:
+    farmer_id: '9991618240'
+    farmer_name: "test"
+    total_pages: 4
+    page: 1
+    origin_class: 9
+    second: false
+    non_second: true
+    hire: true
+    non_hire: false
+    readonly: false
+    investigator: "test"
+    reviewer: "test"
+    date: null
+    distance: null
+    period: 20
+    update_time: 2019-07-11 03:48:37.473000+00:00
+    lacks:
+    - 4
+    management_types:
+    - 2
+- model: surveys19.survey
+  pk: 9807
+  fields:
+    farmer_id: '9991618240'
+    farmer_name: null
+    total_pages: 4
+    page: 2
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-11 03:48:38.786000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 9809
+  fields:
+    farmer_id: '9991618240'
+    farmer_name: null
+    total_pages: 4
+    page: 3
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-11 03:48:39.098000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 9811
+  fields:
+    farmer_id: '9991618240'
+    farmer_name: null
+    total_pages: 4
+    page: 4
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-11 03:48:39.473000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 9845
+  fields:
+    farmer_id: '9991623680'
+    farmer_name: "test"
+    total_pages: 4
+    page: 1
+    origin_class: 27
+    second: false
+    non_second: true
+    hire: false
+    non_hire: true
+    readonly: false
+    investigator: "test"
+    reviewer: "test"
+    date: null
+    distance: null
+    period: 15
+    update_time: 2019-07-12 02:39:39.377000+00:00
+    lacks:
+    - 4
+    management_types:
+    - 5
+- model: surveys19.survey
+  pk: 9847
+  fields:
+    farmer_id: '9991623680'
+    farmer_name: null
+    total_pages: 4
+    page: 2
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-12 02:39:39.986000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 9849
+  fields:
+    farmer_id: '9991623680'
+    farmer_name: null
+    total_pages: 4
+    page: 3
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-12 02:39:40.393000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 9851
+  fields:
+    farmer_id: '9991623680'
+    farmer_name: null
+    total_pages: 4
+    page: 4
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-12 02:39:42.299000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 15016
+  fields:
+    farmer_id: '9972004090'
+    farmer_name: "test"
+    total_pages: 4
+    page: 1
+    origin_class: 35
+    second: false
+    non_second: true
+    hire: true
+    non_hire: false
+    readonly: false
+    investigator: "test"
+    reviewer: "test"
+    date: null
+    distance: null
+    period: 30
+    update_time: 2019-07-10 07:25:12.847000+00:00
+    lacks:
+    - 4
+    management_types:
+    - 6
+- model: surveys19.survey
+  pk: 15018
+  fields:
+    farmer_id: '9972004090'
+    farmer_name: null
+    total_pages: 4
+    page: 2
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-10 07:25:13.738000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 15020
+  fields:
+    farmer_id: '9972004090'
+    farmer_name: null
+    total_pages: 4
+    page: 3
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-10 07:25:13.941000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 15022
+  fields:
+    farmer_id: '9972004090'
+    farmer_name: null
+    total_pages: 4
+    page: 4
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-10 07:25:14.144000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 15032
+  fields:
+    farmer_id: '9972020416'
+    farmer_name: "test"
+    total_pages: 4
+    page: 1
+    origin_class: 68
+    second: false
+    non_second: true
+    hire: true
+    non_hire: false
+    readonly: false
+    investigator: "test"
+    reviewer: "test"
+    date: null
+    distance: null
+    period: 30
+    update_time: 2019-07-19 03:04:16.535000+00:00
+    lacks:
+    - 2
+    management_types:
+    - 11
+- model: surveys19.survey
+  pk: 15034
+  fields:
+    farmer_id: '9972020416'
+    farmer_name: null
+    total_pages: 4
+    page: 2
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-19 03:04:17.644000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 15036
+  fields:
+    farmer_id: '9972020416'
+    farmer_name: null
+    total_pages: 4
+    page: 3
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-19 03:04:17.832000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.survey
+  pk: 15038
+  fields:
+    farmer_id: '9972020416'
+    farmer_name: null
+    total_pages: 4
+    page: 4
+    origin_class: null
+    second: false
+    non_second: false
+    hire: false
+    non_hire: false
+    note: null
+    readonly: false
+    investigator: null
+    reviewer: null
+    date: null
+    distance: null
+    period: null
+    update_time: 2019-07-19 03:04:18.098000+00:00
+    lacks: []
+    management_types: []
+- model: surveys19.phone
+  pk: 2833
+  fields:
+    survey: 2432
+    phone: 0912345678
+    update_time: 2019-05-03 06:51:33.429000+00:00
+- model: surveys19.phone
+  pk: 11102
+  fields:
+    survey: 9805
+    phone: 0912345678
+    update_time: 2019-05-17 04:52:38.409000+00:00
+- model: surveys19.phone
+  pk: 11125
+  fields:
+    survey: 9845
+    phone: 0912345678
+    update_time: 2019-05-17 04:52:49.878000+00:00
+- model: surveys19.phone
+  pk: 11126
+  fields:
+    survey: 9845
+    phone: 0912345678
+    update_time: 2019-05-17 04:52:49.893000+00:00
+- model: surveys19.phone
+  pk: 16655
+  fields:
+    survey: 15016
+    phone: 0912345678
+    update_time: 2019-05-31 05:48:31.954000+00:00
+- model: surveys19.phone
+  pk: 16656
+  fields:
+    survey: 15016
+    phone: 0912345678
+    update_time: 2019-05-31 05:48:31.954000+00:00
+- model: surveys19.phone
+  pk: 16667
+  fields:
+    survey: 15032
+    phone: 0912345678
+    update_time: 2019-05-31 05:48:36.845000+00:00
+- model: surveys19.phone
+  pk: 16668
+  fields:
+    survey: 15032
+    phone: 0912345678
+    update_time: 2019-05-31 05:48:36.845000+00:00
+- model: surveys19.addressmatch
+  pk: 2372
+  fields:
+    survey: 2432
+    match: false
+    mismatch: true
+    address: "address"
+    update_time: 2019-05-23 06:52:32.705000+00:00
+- model: surveys19.addressmatch
+  pk: 9630
+  fields:
+    survey: 9805
+    match: true
+    mismatch: false
+    address: ''
+    update_time: 2019-07-11 03:48:37.536000+00:00
+- model: surveys19.addressmatch
+  pk: 9646
+  fields:
+    survey: 9845
+    match: true
+    mismatch: false
+    address: ''
+    update_time: 2019-07-12 02:39:39.439000+00:00
+- model: surveys19.addressmatch
+  pk: 14677
+  fields:
+    survey: 15016
+    match: true
+    mismatch: false
+    address: ''
+    update_time: 2019-07-10 07:25:12.910000+00:00
+- model: surveys19.addressmatch
+  pk: 14685
+  fields:
+    survey: 15032
+    match: true
+    mismatch: false
+    address: ''
+    update_time: 2019-07-19 03:04:16.566000+00:00
+- model: surveys19.citytowncode
+  pk: 1
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u5B9C\u862D"
+    code: '201'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 2
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u7F85\u6771"
+    code: '202'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 3
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u8607\u6FB3"
+    code: '203'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 4
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u982D\u57CE"
+    code: '204'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 5
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u7901\u6EAA"
+    code: '205'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 6
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u58EF\u570D"
+    code: '206'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 7
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u54E1\u5C71"
+    code: '207'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 8
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u51AC\u5C71"
+    code: '208'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 9
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u4E94\u7D50"
+    code: '209'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 10
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u4E09\u661F"
+    code: '210'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 11
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u5927\u540C"
+    code: '211'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 12
+  fields:
+    city: "\u5B9C\u862D"
+    town: "\u5357\u6FB3"
+    code: '212'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 13
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u7AF9\u5317"
+    code: '401'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 14
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u7AF9\u6771"
+    code: '402'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 15
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u65B0\u57D4"
+    code: '403'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 16
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u95DC\u897F"
+    code: '404'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 17
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u6E56\u53E3"
+    code: '405'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 18
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u65B0\u8C50"
+    code: '406'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 19
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u828E\u6797"
+    code: '407'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 20
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u6A6B\u5C71"
+    code: '408'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 21
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u5317\u57D4"
+    code: '409'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 22
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u5BF6\u5C71"
+    code: '410'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 23
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u5CE8\u7709"
+    code: '411'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 24
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u5C16\u77F3"
+    code: '412'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 25
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u4E94\u5CF0"
+    code: '413'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 26
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u82D7\u6817"
+    code: '501'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 27
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u82D1\u88E1"
+    code: '502'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 28
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u901A\u9704"
+    code: '503'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 29
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u7AF9\u5357"
+    code: '504'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 30
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u982D\u4EFD"
+    code: '505'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 31
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u5F8C\u9F8D"
+    code: '506'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 32
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u5353\u862D"
+    code: '507'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 33
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u5927\u6E56"
+    code: '508'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 34
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u516C\u9928"
+    code: '509'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 35
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u9285\u947C"
+    code: '510'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 36
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u5357\u5E84"
+    code: '511'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 37
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u982D\u5C4B"
+    code: '512'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 38
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u4E09\u7FA9"
+    code: '513'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 39
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u897F\u6E56"
+    code: '514'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 40
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u9020\u6A4B"
+    code: '515'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 41
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u4E09\u7063"
+    code: '516'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 42
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u7345\u6F6D"
+    code: '517'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 43
+  fields:
+    city: "\u82D7\u6817"
+    town: "\u6CF0\u5B89"
+    code: '518'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 44
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u5F70\u5316"
+    code: '701'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 45
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u9E7F\u6E2F"
+    code: '702'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 46
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u548C\u7F8E"
+    code: '703'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 47
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u7DDA\u897F"
+    code: '704'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 48
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u4F38\u6E2F"
+    code: '705'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 49
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u798F\u8208"
+    code: '706'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 50
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u79C0\u6C34"
+    code: '707'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 51
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u82B1\u58C7"
+    code: '708'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 52
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u82AC\u5712"
+    code: '709'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 53
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u54E1\u6797"
+    code: '710'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 54
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u6EAA\u6E56"
+    code: '711'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 55
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u7530\u4E2D"
+    code: '712'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 56
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u5927\u6751"
+    code: '713'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 57
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u57D4\u9E7D"
+    code: '714'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 58
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u57D4\u5FC3"
+    code: '715'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 59
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u6C38\u9756"
+    code: '716'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 60
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u793E\u982D"
+    code: '717'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 61
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u4E8C\u6C34"
+    code: '718'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 62
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u5317\u6597"
+    code: '719'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 63
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u4E8C\u6797"
+    code: '720'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 64
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u7530\u5C3E"
+    code: '721'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 65
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u57E4\u982D"
+    code: '722'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 66
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u82B3\u82D1"
+    code: '723'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 67
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u5927\u57CE"
+    code: '724'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 68
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u7AF9\u5858"
+    code: '725'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 69
+  fields:
+    city: "\u5F70\u5316"
+    town: "\u6EAA\u5DDE"
+    code: '726'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 70
+  fields:
+    city: "\u5357\u6295"
+    town: "\u5357\u6295"
+    code: '801'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 71
+  fields:
+    city: "\u5357\u6295"
+    town: "\u57D4\u91CC"
+    code: '802'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 72
+  fields:
+    city: "\u5357\u6295"
+    town: "\u8349\u5C6F"
+    code: '803'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 73
+  fields:
+    city: "\u5357\u6295"
+    town: "\u7AF9\u5C71"
+    code: '804'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 74
+  fields:
+    city: "\u5357\u6295"
+    town: "\u96C6\u96C6"
+    code: '805'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 75
+  fields:
+    city: "\u5357\u6295"
+    town: "\u540D\u9593"
+    code: '806'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 76
+  fields:
+    city: "\u5357\u6295"
+    town: "\u9E7F\u8C37"
+    code: '807'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 77
+  fields:
+    city: "\u5357\u6295"
+    town: "\u4E2D\u5BEE"
+    code: '808'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 78
+  fields:
+    city: "\u5357\u6295"
+    town: "\u9B5A\u6C60"
+    code: '809'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 79
+  fields:
+    city: "\u5357\u6295"
+    town: "\u570B\u59D3"
+    code: '810'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 80
+  fields:
+    city: "\u5357\u6295"
+    town: "\u6C34\u91CC"
+    code: '811'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 81
+  fields:
+    city: "\u5357\u6295"
+    town: "\u4FE1\u7FA9"
+    code: '812'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 82
+  fields:
+    city: "\u5357\u6295"
+    town: "\u4EC1\u611B"
+    code: '813'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 83
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u6597\u516D"
+    code: '901'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 84
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u6597\u5357"
+    code: '902'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 85
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u864E\u5C3E"
+    code: '903'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 86
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u897F\u87BA"
+    code: '904'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 87
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u571F\u5EAB"
+    code: '905'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 88
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u5317\u6E2F"
+    code: '906'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 89
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u53E4\u5751"
+    code: '907'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 90
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u5927\u57E4"
+    code: '908'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 91
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u83BF\u6850"
+    code: '909'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 92
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u6797\u5167"
+    code: '910'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 93
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u4E8C\u5D19"
+    code: '911'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 94
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u5D19\u80CC"
+    code: '912'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 95
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u9EA5\u5BEE"
+    code: '913'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 96
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u6771\u52E2"
+    code: '914'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 97
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u8912\u5FE0"
+    code: '915'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 98
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u81FA\u897F"
+    code: '916'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 99
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u5143\u9577"
+    code: '917'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 100
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u56DB\u6E56"
+    code: '918'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 101
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u53E3\u6E56"
+    code: '919'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 102
+  fields:
+    city: "\u96F2\u6797"
+    town: "\u6C34\u6797"
+    code: '920'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 103
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u592A\u4FDD"
+    code: '1001'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 104
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6734\u5B50"
+    code: '1002'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 105
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u5E03\u888B"
+    code: '1003'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 106
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u5927\u6797"
+    code: '1004'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 107
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6C11\u96C4"
+    code: '1005'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 108
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6EAA\u53E3"
+    code: '1006'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 109
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u65B0\u6E2F"
+    code: '1007'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 110
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u516D\u8173"
+    code: '1008'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 111
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6771\u77F3"
+    code: '1009'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 112
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u7FA9\u7AF9"
+    code: '1010'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 113
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u9E7F\u8349"
+    code: '1011'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 114
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6C34\u4E0A"
+    code: '1012'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 115
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u4E2D\u57D4"
+    code: '1013'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 116
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u7AF9\u5D0E"
+    code: '1014'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 117
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6885\u5C71"
+    code: '1015'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 118
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u756A\u8DEF"
+    code: '1016'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 119
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u5927\u57D4"
+    code: '1017'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 120
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u963F\u91CC\u5C71"
+    code: '1018'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 121
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u5C4F\u6771"
+    code: '1301'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 122
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6F6E\u5DDE"
+    code: '1302'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 123
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6771\u6E2F"
+    code: '1303'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 124
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6046\u6625"
+    code: '1304'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 125
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u842C\u4E39"
+    code: '1305'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 126
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u9577\u6CBB"
+    code: '1306'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 127
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u9E9F\u6D1B"
+    code: '1307'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 128
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u4E5D\u5982"
+    code: '1308'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 129
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u91CC\u6E2F"
+    code: '1309'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 130
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u9E7D\u57D4"
+    code: '1310'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 131
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u9AD8\u6A39"
+    code: '1311'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 132
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u842C\u5DD2"
+    code: '1312'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 133
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u5167\u57D4"
+    code: '1313'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 134
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u7AF9\u7530"
+    code: '1314'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 135
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u65B0\u57E4"
+    code: '1315'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 136
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u678B\u5BEE"
+    code: '1316'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 137
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u65B0\u5712"
+    code: '1317'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 138
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u5D01\u9802"
+    code: '1318'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 139
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6797\u908A"
+    code: '1319'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 140
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u5357\u5DDE"
+    code: '1320'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 141
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u4F73\u51AC"
+    code: '1321'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 142
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u7409\u7403"
+    code: '1322'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 143
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u8ECA\u57CE"
+    code: '1323'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 144
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6EFF\u5DDE"
+    code: '1324'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 145
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u678B\u5C71"
+    code: '1325'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 146
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u4E09\u5730\u9580"
+    code: '1326'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 147
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u9727\u81FA"
+    code: '1327'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 148
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u746A\u5BB6"
+    code: '1328'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 149
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6CF0\u6B66"
+    code: '1329'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 150
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u4F86\u7FA9"
+    code: '1330'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 151
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u6625\u65E5"
+    code: '1331'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 152
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u7345\u5B50"
+    code: '1332'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 153
+  fields:
+    city: "\u5C4F\u6771"
+    town: "\u7261\u4E39"
+    code: '1333'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 154
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u81FA\u6771"
+    code: '1401'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 155
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u6210\u529F"
+    code: '1402'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 156
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u95DC\u5C71"
+    code: '1403'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 157
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u5351\u5357"
+    code: '1404'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 158
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u9E7F\u91CE"
+    code: '1405'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 159
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u6C60\u4E0A"
+    code: '1406'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 160
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u6771\u6CB3"
+    code: '1407'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 161
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u9577\u6FF1"
+    code: '1408'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 162
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u592A\u9EBB\u91CC"
+    code: '1409'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 163
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u5927\u6B66"
+    code: '1410'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 164
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u7DA0\u5CF6"
+    code: '1411'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 165
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u6D77\u7AEF"
+    code: '1412'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 166
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u5EF6\u5E73"
+    code: '1413'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 167
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u91D1\u5CF0"
+    code: '1414'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 168
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u9054\u4EC1"
+    code: '1415'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 169
+  fields:
+    city: "\u81FA\u6771"
+    town: "\u862D\u5DBC"
+    code: '1416'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 170
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u82B1\u84EE"
+    code: '1501'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 171
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u9CF3\u6797"
+    code: '1502'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 172
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u7389\u91CC"
+    code: '1503'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 173
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u65B0\u57CE"
+    code: '1504'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 174
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u5409\u5B89"
+    code: '1505'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 175
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u58FD\u8C50"
+    code: '1506'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 176
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u5149\u5FA9"
+    code: '1507'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 177
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u8C50\u6FF1"
+    code: '1508'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 178
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u745E\u7A57"
+    code: '1509'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 179
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u5BCC\u91CC"
+    code: '1510'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 180
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u79C0\u6797"
+    code: '1511'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 181
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u842C\u69AE"
+    code: '1512'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 182
+  fields:
+    city: "\u82B1\u84EE"
+    town: "\u5353\u6EAA"
+    code: '1513'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 183
+  fields:
+    city: "\u6F8E\u6E56"
+    town: "\u99AC\u516C"
+    code: '1601'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 184
+  fields:
+    city: "\u6F8E\u6E56"
+    town: "\u6E56\u897F"
+    code: '1602'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 185
+  fields:
+    city: "\u6F8E\u6E56"
+    town: "\u767D\u6C99"
+    code: '1603'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 186
+  fields:
+    city: "\u6F8E\u6E56"
+    town: "\u897F\u5DBC"
+    code: '1604'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 187
+  fields:
+    city: "\u6F8E\u6E56"
+    town: "\u671B\u5B89"
+    code: '1605'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 188
+  fields:
+    city: "\u6F8E\u6E56"
+    town: "\u4E03\u7F8E"
+    code: '1606'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 189
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u4E2D\u6B63"
+    code: '1701'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 190
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u4E03\u5835"
+    code: '1702'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 191
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u6696\u6696"
+    code: '1703'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 192
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u4EC1\u611B"
+    code: '1704'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 193
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u4E2D\u5C71"
+    code: '1705'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 194
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u5B89\u6A02"
+    code: '1706'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 195
+  fields:
+    city: "\u57FA\u9686"
+    town: "\u4FE1\u7FA9"
+    code: '1707'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 196
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u6771"
+    code: '1801'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 197
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u5317"
+    code: '1802'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 198
+  fields:
+    city: "\u65B0\u7AF9"
+    town: "\u9999\u5C71"
+    code: '1803'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 199
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u6771"
+    code: '2001'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 200
+  fields:
+    city: "\u5609\u7FA9"
+    town: "\u897F"
+    code: '2002'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 201
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u677E\u5C71"
+    code: '6301'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 202
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u4FE1\u7FA9"
+    code: '6302'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 203
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u5927\u5B89"
+    code: '6303'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 204
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u4E2D\u5C71"
+    code: '6304'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 205
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u4E2D\u6B63"
+    code: '6305'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 206
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u5927\u540C"
+    code: '6306'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 207
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u842C\u83EF"
+    code: '6307'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 208
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u6587\u5C71"
+    code: '6308'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 209
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u5357\u6E2F"
+    code: '6309'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 210
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u5167\u6E56"
+    code: '6310'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 211
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u58EB\u6797"
+    code: '6311'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 212
+  fields:
+    city: "\u81FA\u5317"
+    town: "\u5317\u6295"
+    code: '6312'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 213
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u9E7D\u57D5"
+    code: '6401'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 214
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u9F13\u5C71"
+    code: '6402'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 215
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5DE6\u71DF"
+    code: '6403'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 216
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6960\u6893"
+    code: '6404'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 217
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u4E09\u6C11"
+    code: '6405'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 218
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u65B0\u8208"
+    code: '6406'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 219
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u524D\u91D1"
+    code: '6407'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 220
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u82D3\u96C5"
+    code: '6408'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 221
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u524D"
+    code: '6409'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 222
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u65D7\u6D25"
+    code: '6410'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 223
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5C0F\u6E2F"
+    code: '6411'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 224
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u9CF3\u5C71"
+    code: '6412'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 225
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6797\u5712"
+    code: '6413'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 226
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5927\u5BEE"
+    code: '6414'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 227
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5927\u6A39"
+    code: '6415'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 228
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5927\u793E"
+    code: '6416'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 229
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u4EC1\u6B66"
+    code: '6417'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 230
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u9CE5\u677E"
+    code: '6418'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 231
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5CA1\u5C71"
+    code: '6419'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 232
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6A4B\u982D"
+    code: '6420'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 233
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u71D5\u5DE2"
+    code: '6421'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 234
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u7530\u5BEE"
+    code: '6422'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 235
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u963F\u84EE"
+    code: '6423'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 236
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u8DEF\u7AF9"
+    code: '6424'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 237
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6E56\u5167"
+    code: '6425'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 238
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u8304\u8423"
+    code: '6426'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 239
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6C38\u5B89"
+    code: '6427'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 240
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5F4C\u9640"
+    code: '6428'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 241
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6893\u5B98"
+    code: '6429'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 242
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u65D7\u5C71"
+    code: '6430'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 243
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u7F8E\u6FC3"
+    code: '6431'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 244
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u516D\u9F9C"
+    code: '6432'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 245
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u7532\u4ED9"
+    code: '6433'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 246
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6749\u6797"
+    code: '6434'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 247
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u5167\u9580"
+    code: '6435'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 248
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u8302\u6797"
+    code: '6436'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 249
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u6843\u6E90"
+    code: '6437'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 250
+  fields:
+    city: "\u9AD8\u96C4"
+    town: "\u90A3\u746A\u590F"
+    code: '6438'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 251
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u677F\u6A4B"
+    code: '6501'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 252
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u4E09\u91CD"
+    code: '6502'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 253
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u4E2D\u548C"
+    code: '6503'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 254
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6C38\u548C"
+    code: '6504'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 255
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u65B0\u838A"
+    code: '6505'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 256
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u65B0\u5E97"
+    code: '6506'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 257
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6A39\u6797"
+    code: '6507'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 258
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u9DAF\u6B4C"
+    code: '6508'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 259
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u4E09\u5CFD"
+    code: '6509'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 260
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6DE1\u6C34"
+    code: '6510'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 261
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6C50\u6B62"
+    code: '6511'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 262
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u745E\u82B3"
+    code: '6512'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 263
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u571F\u57CE"
+    code: '6513'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 264
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u8606\u6D32"
+    code: '6514'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 265
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u4E94\u80A1"
+    code: '6515'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 266
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6CF0\u5C71"
+    code: '6516'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 267
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6797\u53E3"
+    code: '6517'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 268
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u6DF1\u5751"
+    code: '6518'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 269
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u77F3\u7887"
+    code: '6519'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 270
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u576A\u6797"
+    code: '6520'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 271
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u4E09\u829D"
+    code: '6521'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 272
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u77F3\u9580"
+    code: '6522'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 273
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u516B\u91CC"
+    code: '6523'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 274
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u5E73\u6EAA"
+    code: '6524'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 275
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u96D9\u6EAA"
+    code: '6525'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 276
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u8CA2\u5BEE"
+    code: '6526'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 277
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u91D1\u5C71"
+    code: '6527'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 278
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u842C\u91CC"
+    code: '6528'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 279
+  fields:
+    city: "\u65B0\u5317"
+    town: "\u70CF\u4F86"
+    code: '6529'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 280
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u4E2D"
+    code: '6601'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 281
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u6771"
+    code: '6602'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 282
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5357"
+    code: '6603'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 283
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u897F"
+    code: '6604'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 284
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5317"
+    code: '6605'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 285
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u897F\u5C6F"
+    code: '6606'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 286
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5357\u5C6F"
+    code: '6607'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 287
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5317\u5C6F"
+    code: '6608'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 288
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u8C50\u539F"
+    code: '6609'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 289
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u6771\u52E2"
+    code: '6610'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 290
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5927\u7532"
+    code: '6611'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 291
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u6E05\u6C34"
+    code: '6612'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 292
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u6C99\u9E7F"
+    code: '6613'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 293
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u68A7\u68F2"
+    code: '6614'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 294
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u540E\u91CC"
+    code: '6615'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 295
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u795E\u5CA1"
+    code: '6616'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 296
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u6F6D\u5B50"
+    code: '6617'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 297
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5927\u96C5"
+    code: '6618'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 298
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u65B0\u793E"
+    code: '6619'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 299
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u77F3\u5CA1"
+    code: '6620'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 300
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5916\u57D4"
+    code: '6621'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 301
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5927\u5B89"
+    code: '6622'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 302
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u70CF\u65E5"
+    code: '6623'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 303
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5927\u809A"
+    code: '6624'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 304
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u9F8D\u4E95"
+    code: '6625'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 305
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u9727\u5CF0"
+    code: '6626'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 306
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u592A\u5E73"
+    code: '6627'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 307
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u5927\u91CC"
+    code: '6628'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 308
+  fields:
+    city: "\u81FA\u4E2D"
+    town: "\u548C\u5E73"
+    code: '6629'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 309
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u65B0\u71DF"
+    code: '6701'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 310
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u9E7D\u6C34"
+    code: '6702'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 311
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u767D\u6CB3"
+    code: '6703'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 312
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u67F3\u71DF"
+    code: '6704'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 313
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5F8C\u58C1"
+    code: '6705'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 314
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u6771\u5C71"
+    code: '6706'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 315
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u9EBB\u8C46"
+    code: '6707'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 316
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u4E0B\u71DF"
+    code: '6708'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 317
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u516D\u7532"
+    code: '6709'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 318
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5B98\u7530"
+    code: '6710'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 319
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5927\u5167"
+    code: '6711'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 320
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u4F73\u91CC"
+    code: '6712'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 321
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5B78\u7532"
+    code: '6713'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 322
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u897F\u6E2F"
+    code: '6714'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 323
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u4E03\u80A1"
+    code: '6715'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 324
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5C07\u8ECD"
+    code: '6716'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 325
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5317\u9580"
+    code: '6717'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 326
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u65B0\u5316"
+    code: '6718'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 327
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5584\u5316"
+    code: '6719'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 328
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u65B0\u5E02"
+    code: '6720'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 329
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5B89\u5B9A"
+    code: '6721'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 330
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5C71\u4E0A"
+    code: '6722'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 331
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u7389\u4E95"
+    code: '6723'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 332
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u6960\u897F"
+    code: '6724'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 333
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5357\u5316"
+    code: '6725'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 334
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5DE6\u93AE"
+    code: '6726'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 335
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u4EC1\u5FB7"
+    code: '6727'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 336
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u6B78\u4EC1"
+    code: '6728'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 337
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u95DC\u5EDF"
+    code: '6729'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 338
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u9F8D\u5D0E"
+    code: '6730'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 339
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u6C38\u5EB7"
+    code: '6731'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 340
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u6771"
+    code: '6732'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 341
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5357"
+    code: '6733'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 342
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5317"
+    code: '6734'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 343
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5B89\u5357"
+    code: '6735'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 344
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u5B89\u5E73"
+    code: '6736'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 345
+  fields:
+    city: "\u81FA\u5357"
+    town: "\u4E2D\u897F"
+    code: '6737'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 346
+  fields:
+    city: "\u6843\u5712"
+    town: "\u6843\u5712"
+    code: '6801'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 347
+  fields:
+    city: "\u6843\u5712"
+    town: "\u4E2D\u58E2"
+    code: '6802'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 348
+  fields:
+    city: "\u6843\u5712"
+    town: "\u5927\u6EAA"
+    code: '6803'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 349
+  fields:
+    city: "\u6843\u5712"
+    town: "\u694A\u6885"
+    code: '6804'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 350
+  fields:
+    city: "\u6843\u5712"
+    town: "\u8606\u7AF9"
+    code: '6805'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 351
+  fields:
+    city: "\u6843\u5712"
+    town: "\u5927\u5712"
+    code: '6806'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 352
+  fields:
+    city: "\u6843\u5712"
+    town: "\u9F9C\u5C71"
+    code: '6807'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 353
+  fields:
+    city: "\u6843\u5712"
+    town: "\u516B\u5FB7"
+    code: '6808'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 354
+  fields:
+    city: "\u6843\u5712"
+    town: "\u9F8D\u6F6D"
+    code: '6809'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 355
+  fields:
+    city: "\u6843\u5712"
+    town: "\u5E73\u93AE"
+    code: '6810'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 356
+  fields:
+    city: "\u6843\u5712"
+    town: "\u65B0\u5C4B"
+    code: '6811'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 357
+  fields:
+    city: "\u6843\u5712"
+    town: "\u89C0\u97F3"
+    code: '6812'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 358
+  fields:
+    city: "\u6843\u5712"
+    town: "\u5FA9\u8208"
+    code: '6813'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 359
+  fields:
+    city: "\u9023\u6C5F"
+    town: "\u5357\u7AFF"
+    code: '7101'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 360
+  fields:
+    city: "\u9023\u6C5F"
+    town: "\u5317\u7AFF"
+    code: '7102'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 361
+  fields:
+    city: "\u9023\u6C5F"
+    town: "\u8392\u5149"
+    code: '7103'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 362
+  fields:
+    city: "\u9023\u6C5F"
+    town: "\u6771\u5F15"
+    code: '7104'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 363
+  fields:
+    city: "\u91D1\u9580"
+    town: "\u91D1\u57CE"
+    code: '7201'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 364
+  fields:
+    city: "\u91D1\u9580"
+    town: "\u91D1\u6C99"
+    code: '7202'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 365
+  fields:
+    city: "\u91D1\u9580"
+    town: "\u91D1\u6E56"
+    code: '7203'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 366
+  fields:
+    city: "\u91D1\u9580"
+    town: "\u91D1\u5BE7"
+    code: '7204'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 367
+  fields:
+    city: "\u91D1\u9580"
+    town: "\u70C8\u5DBC"
+    code: '7205'
+    update_time: null
+- model: surveys19.citytowncode
+  pk: 368
+  fields:
+    city: "\u91D1\u9580"
+    town: "\u70CF\u5775"
+    code: '7206'
+    update_time: null
+- model: surveys19.farmlocation
+  pk: 2372
+  fields:
+    survey: 2432
+    city: "\u6843\u5712"
+    town: "\u6843\u5712"
+    code: 346
+    update_time: 2019-05-23 06:52:32.674000+00:00
+- model: surveys19.farmlocation
+  pk: 9630
+  fields:
+    survey: 9805
+    city: "\u96F2\u6797"
+    town: "\u53F0\u897F"
+    code: 98
+    update_time: 2019-07-11 03:48:37.504000+00:00
+- model: surveys19.farmlocation
+  pk: 9646
+  fields:
+    survey: 9845
+    city: "\u96F2\u6797"
+    town: "\u53F0\u897F"
+    code: 98
+    update_time: 2019-07-12 02:39:39.393000+00:00
+- model: surveys19.farmlocation
+  pk: 14677
+  fields:
+    survey: 15016
+    city: "\u5F70\u5316"
+    town: "\u4E8C\u6797"
+    code: 63
+    update_time: 2019-07-10 07:25:12.863000+00:00
+- model: surveys19.farmlocation
+  pk: 14685
+  fields:
+    survey: 15032
+    city: "\u5F70\u5316"
+    town: "\u4E8C\u6797"
+    code: 63
+    update_time: 2019-07-19 03:04:16.535000+00:00
+- model: surveys19.landstatus
+  pk: 1
+  fields:
+    name: "\u81EA\u6709"
+    update_time: null
+- model: surveys19.landstatus
+  pk: 2
+  fields:
+    name: "\u79DF(\u501F)\u6216\u5360\u7528"
+    update_time: null
+- model: surveys19.landstatus
+  pk: 3
+  fields:
+    name: "\u63A5\u53D7\u59D4\u8A17\u7D93\u71DF"
+    update_time: null
+- model: surveys19.landtype
+  pk: 1
+  fields:
+    name: "\u53EF\u8015\u4F5C\u5730"
+    unit: 17
+    has_land: true
+    update_time: null
+    statuses:
+    - 1
+    - 2
+    - 3
+- model: surveys19.landtype
+  pk: 2
+  fields:
+    name: "\u4EBA\u5DE5\u92EA\u9762"
+    unit: 16
+    has_land: true
+    update_time: null
+    statuses:
+    - 1
+    - 2
+- model: surveys19.landtype
+  pk: 3
+  fields:
+    name: "\u7121"
+    unit: null
+    has_land: false
+    update_time: null
+    statuses: []
+- model: surveys19.landarea
+  pk: 3226
+  fields:
+    survey: 2432
+    type: 1
+    status: 2
+    value: 150
+    update_time: 2019-05-03 06:51:33.460000+00:00
+- model: surveys19.landarea
+  pk: 3227
+  fields:
+    survey: 2432
+    type: 2
+    status: 2
+    value: 160
+    update_time: 2019-05-03 06:51:33.460000+00:00
+- model: surveys19.landarea
+  pk: 13094
+  fields:
+    survey: 9805
+    type: 1
+    status: 1
+    value: 161
+    update_time: 2019-05-17 04:52:38.440000+00:00
+- model: surveys19.landarea
+  pk: 13095
+  fields:
+    survey: 9805
+    type: 1
+    status: 2
+    value: 50
+    update_time: 2019-05-17 04:52:38.456000+00:00
+- model: surveys19.landarea
+  pk: 13120
+  fields:
+    survey: 9845
+    type: 1
+    status: 1
+    value: 34
+    update_time: 2019-05-17 04:52:49.909000+00:00
+- model: surveys19.landarea
+  pk: 13121
+  fields:
+    survey: 9845
+    type: 1
+    status: 2
+    value: 121
+    update_time: 2019-05-17 04:52:49.925000+00:00
+- model: surveys19.landarea
+  pk: 20228
+  fields:
+    survey: 15032
+    type: 1
+    status: 1
+    value: 209
+    update_time: 2019-05-31 05:48:36.876000+00:00
+- model: surveys19.landarea
+  pk: 20229
+  fields:
+    survey: 15032
+    type: 1
+    status: 2
+    value: 91
+    update_time: 2019-05-31 05:48:36.876000+00:00
+- model: surveys19.landarea
+  pk: 20853
+  fields:
+    survey: 15016
+    type: 1
+    status: 1
+    value: 169
+    update_time: 2019-07-10 07:13:06.662000+00:00
+- model: surveys19.landarea
+  pk: 20854
+  fields:
+    survey: 15016
+    type: 1
+    status: 2
+    value: 275
+    update_time: 2019-07-10 07:13:06.678000+00:00
+- model: surveys19.business
+  pk: 2382
+  fields:
+    survey: 2432
+    farm_related_business: 9
+    extra: "\u98DF\u8FB2\u6559\u80B2"
+    update_time: 2019-05-03 06:51:33.476000+00:00
+- model: surveys19.business
+  pk: 9844
+  fields:
+    survey: 9805
+    farm_related_business: 1
+    extra: null
+    update_time: 2019-05-17 04:52:38.456000+00:00
+- model: surveys19.business
+  pk: 9860
+  fields:
+    survey: 9845
+    farm_related_business: 1
+    extra: null
+    update_time: 2019-05-17 04:52:49.940000+00:00
+- model: surveys19.business
+  pk: 14984
+  fields:
+    survey: 15016
+    farm_related_business: 1
+    extra: null
+    update_time: 2019-05-31 05:48:32.001000+00:00
+- model: surveys19.business
+  pk: 14992
+  fields:
+    survey: 15032
+    farm_related_business: 1
+    extra: null
+    update_time: 2019-05-31 05:48:36.892000+00:00
+- model: surveys19.farmrelatedbusiness
+  pk: 1
+  fields:
+    code: 1
+    name: "\u7121\u517C\u71DF\u8FB2\u696D\u76F8\u95DC\u4E8B\u696D"
+    has_extra: false
+    has_business: false
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 2
+  fields:
+    code: 2
+    name: "\u8FB2\u7522\u54C1\u52A0\u5DE5"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 3
+  fields:
+    code: 3
+    name: "\u4F11\u9592\u8FB2\u696D(\u542B\u4F11\u9592\u8FB2\u5834\u3001\u89C0\u5149\u8FB2\u5712\u3001\u8FB2\u6751\u6C11\u5BBF)"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 4
+  fields:
+    code: 4
+    name: "\u7DB2\u8DEF\u92B7\u552E"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 5
+  fields:
+    code: 5
+    name: "\u9910\u5EF3"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 6
+  fields:
+    code: 6
+    name: "\u8FB2\u7522\u54C1\u81EA\u884C\u5916\u92B7\u51FA\u53E3"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 7
+  fields:
+    code: 7
+    name: "\u8CA9\u552E\u9580\u5E02"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 8
+  fields:
+    code: 8
+    name: "\u6524\u8CA9"
+    has_extra: false
+    has_business: true
+    update_time: null
+- model: surveys19.farmrelatedbusiness
+  pk: 9
+  fields:
+    code: 9
+    name: "\u5176\u4ED6"
+    has_extra: true
+    has_business: true
+    update_time: null
+- model: surveys19.managementtype
+  pk: 1
+  fields:
+    code: 1
+    name: "\u7A3B\u4F5C"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 2
+  fields:
+    code: 2
+    name: "\u96DC\u7CE7"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 3
+  fields:
+    code: 3
+    name: "\u5176\u4ED6\u7279\u4F5C"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 4
+  fields:
+    code: 4
+    name: "\u8336"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 5
+  fields:
+    code: 5
+    name: "\u852C\u83DC"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 6
+  fields:
+    code: 6
+    name: "\u679C\u6A39"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 7
+  fields:
+    code: 7
+    name: "\u98DF\u7528\u83C7\u8548"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 8
+  fields:
+    code: 8
+    name: "\u82B1\u5349"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 9
+  fields:
+    code: 9
+    name: "\u7A2E\u82D7"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 10
+  fields:
+    code: 10
+    name: "\u5176\u4ED6\u8FB2\u4F5C\u7269"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 11
+  fields:
+    code: 11
+    name: "\u4E73\u725B"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 12
+  fields:
+    code: 12
+    name: "\u8C6C"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 13
+  fields:
+    code: 13
+    name: "\u96DE"
+    update_time: null
+- model: surveys19.managementtype
+  pk: 14
+  fields:
+    code: 14
+    name: "\u5176\u4ED6\u755C\u79BD"
+    update_time: null
+- model: surveys19.cropmarketing
+  pk: 5615
+  fields:
+    survey: 2432
+    product: 5
+    loss: 5
+    unit: 2
+    name: "\u98DF\u7528\u7389\u7C73"
+    land_number: 1
+    land_area: 6.0
+    plant_times: 1
+    year_sales: 12000
+    has_facility: 0
+    update_time: 2019-05-03 06:51:33.507000+00:00
+- model: surveys19.cropmarketing
+  pk: 5616
+  fields:
+    survey: 2432
+    product: 13
+    loss: 5
+    unit: 2
+    name: "\u7518\u85F7"
+    land_number: 1
+    land_area: 9.0
+    plant_times: 1
+    year_sales: 55000
+    has_facility: 0
+    update_time: 2019-05-03 06:51:33.507000+00:00
+- model: surveys19.cropmarketing
+  pk: 5617
+  fields:
+    survey: 2432
+    product: 67
+    loss: 5
+    unit: 2
+    name: "\u51AC\u74DC"
+    land_number: 1
+    land_area: 6.0
+    plant_times: 1
+    year_sales: 18000
+    has_facility: 0
+    update_time: 2019-05-03 06:51:33.522000+00:00
+- model: surveys19.cropmarketing
+  pk: 5618
+  fields:
+    survey: 2432
+    product: 83
+    loss: 5
+    unit: 2
+    name: "\u5357\u74DC"
+    land_number: 1
+    land_area: 9.0
+    plant_times: 1
+    year_sales: 72000
+    has_facility: 0
+    update_time: 2019-05-03 06:51:33.538000+00:00
+- model: surveys19.cropmarketing
+  pk: 5619
+  fields:
+    survey: 2432
+    product: 60
+    loss: 5
+    unit: 2
+    name: "\u83E0\u83DC"
+    land_number: 2
+    land_area: 10.0
+    plant_times: 5
+    year_sales: 250000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:33.554000+00:00
+- model: surveys19.cropmarketing
+  pk: 5620
+  fields:
+    survey: 2432
+    product: 58
+    loss: 5
+    unit: 2
+    name: "\u9ED1\u8449\u767D\u83DC"
+    land_number: 2
+    land_area: 10.0
+    plant_times: 8
+    year_sales: 400000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:33.569000+00:00
+- model: surveys19.cropmarketing
+  pk: 5627
+  fields:
+    survey: 2434
+    product: 58
+    loss: 5
+    unit: 2
+    name: "\u5C0F\u677E\u83DC"
+    land_number: 2
+    land_area: 10.0
+    plant_times: 8
+    year_sales: 400000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:34.976000+00:00
+- model: surveys19.cropmarketing
+  pk: 5628
+  fields:
+    survey: 2434
+    product: 58
+    loss: 5
+    unit: 2
+    name: "\u9752\u6C5F\u83DC"
+    land_number: 2
+    land_area: 10.0
+    plant_times: 8
+    year_sales: 400000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:34.991000+00:00
+- model: surveys19.cropmarketing
+  pk: 5629
+  fields:
+    survey: 2434
+    product: 62
+    loss: 5
+    unit: 2
+    name: "\u8435\u82E3"
+    land_number: 2
+    land_area: 10.0
+    plant_times: 8
+    year_sales: 400000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.007000+00:00
+- model: surveys19.cropmarketing
+  pk: 5630
+  fields:
+    survey: 2434
+    product: 61
+    loss: 5
+    unit: 2
+    name: "\u83A7\u83DC"
+    land_number: 2
+    land_area: 10.0
+    plant_times: 3
+    year_sales: 150000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.022000+00:00
+- model: surveys19.cropmarketing
+  pk: 5631
+  fields:
+    survey: 2434
+    product: 54
+    loss: 5
+    unit: 2
+    name: "\u9AD8\u9E97\u83DC"
+    land_number: 2
+    land_area: 5.0
+    plant_times: 1
+    year_sales: 60000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.038000+00:00
+- model: surveys19.cropmarketing
+  pk: 5632
+  fields:
+    survey: 2434
+    product: 57
+    loss: 5
+    unit: 2
+    name: "\u5305\u5FC3\u767D\u83DC"
+    land_number: 2
+    land_area: 5.0
+    plant_times: 2
+    year_sales: 100000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.054000+00:00
+- model: surveys19.cropmarketing
+  pk: 5639
+  fields:
+    survey: 2436
+    product: 34
+    loss: 5
+    unit: 2
+    name: "\u767D\u863F\u8514"
+    land_number: 2
+    land_area: 5.0
+    plant_times: 2
+    year_sales: 50000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.366000+00:00
+- model: surveys19.cropmarketing
+  pk: 5640
+  fields:
+    survey: 2436
+    product: 35
+    loss: 5
+    unit: 2
+    name: "\u80E1\u863F\u8514"
+    land_number: 2
+    land_area: 5.0
+    plant_times: 2
+    year_sales: 50000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.382000+00:00
+- model: surveys19.cropmarketing
+  pk: 5641
+  fields:
+    survey: 2436
+    product: 71
+    loss: 5
+    unit: 2
+    name: "\u756A\u8304"
+    land_number: 2
+    land_area: 5.0
+    plant_times: 2
+    year_sales: 120000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.397000+00:00
+- model: surveys19.cropmarketing
+  pk: 5642
+  fields:
+    survey: 2436
+    product: 66
+    loss: 5
+    unit: 2
+    name: "\u5C0F\u9EC3\u74DC"
+    land_number: 2
+    land_area: 7.0
+    plant_times: 1
+    year_sales: 100000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.429000+00:00
+- model: surveys19.cropmarketing
+  pk: 5643
+  fields:
+    survey: 2436
+    product: 64
+    loss: 5
+    unit: 2
+    name: "\u7D72\u74DC"
+    land_number: 2
+    land_area: 5.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.460000+00:00
+- model: surveys19.cropmarketing
+  pk: 5644
+  fields:
+    survey: 2436
+    product: 76
+    loss: 5
+    unit: 2
+    name: "\u897F\u74DC"
+    land_number: 2
+    land_area: 8.0
+    plant_times: 1
+    year_sales: 70000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.476000+00:00
+- model: surveys19.cropmarketing
+  pk: 5647
+  fields:
+    survey: 2438
+    product: 74
+    loss: 5
+    unit: 2
+    name: "\u8C4C\u8C46"
+    land_number: 2
+    land_area: 7.0
+    plant_times: 1
+    year_sales: 56000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.851000+00:00
+- model: surveys19.cropmarketing
+  pk: 5648
+  fields:
+    survey: 2438
+    product: 75
+    loss: 5
+    unit: 2
+    name: "\u56DB\u5B63\u8C46"
+    land_number: 2
+    land_area: 7.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 1
+    update_time: 2019-05-03 06:51:35.866000+00:00
+- model: surveys19.cropmarketing
+  pk: 20196
+  fields:
+    survey: 9805
+    product: 13
+    loss: 5
+    unit: 2
+    name: "\u7518\u85F7"
+    land_number: 1
+    land_area: 18.0
+    plant_times: 1
+    year_sales: 28800
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.487000+00:00
+- model: surveys19.cropmarketing
+  pk: 20197
+  fields:
+    survey: 9805
+    product: 14
+    loss: 1
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 1
+    land_area: 18.0
+    plant_times: 1
+    year_sales: 12000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.487000+00:00
+- model: surveys19.cropmarketing
+  pk: 20198
+  fields:
+    survey: 9805
+    product: 13
+    loss: 5
+    unit: 2
+    name: "\u7518\u85F7"
+    land_number: 2
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 32000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.503000+00:00
+- model: surveys19.cropmarketing
+  pk: 20199
+  fields:
+    survey: 9805
+    product: 14
+    loss: 1
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 2
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 12000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.518000+00:00
+- model: surveys19.cropmarketing
+  pk: 20200
+  fields:
+    survey: 9805
+    product: 14
+    loss: 1
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 3
+    land_area: 12.0
+    plant_times: 1
+    year_sales: 72000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.534000+00:00
+- model: surveys19.cropmarketing
+  pk: 20201
+  fields:
+    survey: 9805
+    product: 35
+    loss: 5
+    unit: 2
+    name: "\u80E1\u863F\u8514"
+    land_number: 3
+    land_area: 12.0
+    plant_times: 1
+    year_sales: 24000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.534000+00:00
+- model: surveys19.cropmarketing
+  pk: 20208
+  fields:
+    survey: 9807
+    product: 5
+    loss: 5
+    unit: 2
+    name: "\u98DF\u7528\u7389\u7C73"
+    land_number: 4
+    land_area: 5.0
+    plant_times: 1
+    year_sales: 28000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.940000+00:00
+- model: surveys19.cropmarketing
+  pk: 20209
+  fields:
+    survey: 9807
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 4
+    land_area: 5.0
+    plant_times: 1
+    year_sales: 10000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.972000+00:00
+- model: surveys19.cropmarketing
+  pk: 20210
+  fields:
+    survey: 9807
+    product: 5
+    loss: 5
+    unit: 2
+    name: "\u98DF\u7528\u7389\u7C73"
+    land_number: 5
+    land_area: 29.0
+    plant_times: 1
+    year_sales: 43500
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.972000+00:00
+- model: surveys19.cropmarketing
+  pk: 20211
+  fields:
+    survey: 9807
+    product: 14
+    loss: 1
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 5
+    land_area: 29.0
+    plant_times: 1
+    year_sales: 17400
+    has_facility: 0
+    update_time: 2019-05-17 04:52:38.987000+00:00
+- model: surveys19.cropmarketing
+  pk: 20212
+  fields:
+    survey: 9807
+    product: 5
+    loss: 5
+    unit: 2
+    name: "\u98DF\u7528\u7389\u7C73"
+    land_number: 6
+    land_area: 8.0
+    plant_times: 1
+    year_sales: 12000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.003000+00:00
+- model: surveys19.cropmarketing
+  pk: 20213
+  fields:
+    survey: 9807
+    product: 14
+    loss: 1
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 6
+    land_area: 8.0
+    plant_times: 1
+    year_sales: 16000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.018000+00:00
+- model: surveys19.cropmarketing
+  pk: 20220
+  fields:
+    survey: 9809
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 7
+    land_area: 8.0
+    plant_times: 1
+    year_sales: 16000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.253000+00:00
+- model: surveys19.cropmarketing
+  pk: 20221
+  fields:
+    survey: 9809
+    product: 13
+    loss: 1
+    unit: 2
+    name: "\u7518\u85F7"
+    land_number: 7
+    land_area: 8.0
+    plant_times: 1
+    year_sales: 0
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.253000+00:00
+- model: surveys19.cropmarketing
+  pk: 20222
+  fields:
+    survey: 9809
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 8
+    land_area: 17.0
+    plant_times: 1
+    year_sales: 34000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.268000+00:00
+- model: surveys19.cropmarketing
+  pk: 20223
+  fields:
+    survey: 9809
+    product: 13
+    loss: 5
+    unit: 2
+    name: "\u7518\u85F7"
+    land_number: 8
+    land_area: 17.0
+    plant_times: 1
+    year_sales: 27200
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.284000+00:00
+- model: surveys19.cropmarketing
+  pk: 20224
+  fields:
+    survey: 9809
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 9
+    land_area: 44.0
+    plant_times: 1
+    year_sales: 79200
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.300000+00:00
+- model: surveys19.cropmarketing
+  pk: 20225
+  fields:
+    survey: 9809
+    product: 35
+    loss: 5
+    unit: 2
+    name: "\u80E1\u863F\u8514"
+    land_number: 9
+    land_area: 44.0
+    plant_times: 1
+    year_sales: 88000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.300000+00:00
+- model: surveys19.cropmarketing
+  pk: 20230
+  fields:
+    survey: 9811
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 9
+    land_area: 25.0
+    plant_times: 1
+    year_sales: 45000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.534000+00:00
+- model: surveys19.cropmarketing
+  pk: 20231
+  fields:
+    survey: 9811
+    product: 35
+    loss: 5
+    unit: 2
+    name: "\u80E1\u863F\u8514"
+    land_number: 9
+    land_area: 25.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.550000+00:00
+- model: surveys19.cropmarketing
+  pk: 20232
+  fields:
+    survey: 9811
+    product: 35
+    loss: 5
+    unit: 2
+    name: "\u80E1\u863F\u8514"
+    land_number: 9
+    land_area: 25.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.565000+00:00
+- model: surveys19.cropmarketing
+  pk: 20233
+  fields:
+    survey: 9811
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 9
+    land_area: 25.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:39.581000+00:00
+- model: surveys19.cropmarketing
+  pk: 20404
+  fields:
+    survey: 9845
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 1
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 36000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:49.956000+00:00
+- model: surveys19.cropmarketing
+  pk: 20405
+  fields:
+    survey: 9845
+    product: 42
+    loss: 5
+    unit: 2
+    name: "\u6D0B\u8525"
+    land_number: 1
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:49.972000+00:00
+- model: surveys19.cropmarketing
+  pk: 20406
+  fields:
+    survey: 9845
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 2
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 36000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:49.987000+00:00
+- model: surveys19.cropmarketing
+  pk: 20407
+  fields:
+    survey: 9845
+    product: 42
+    loss: 5
+    unit: 2
+    name: "\u6D0B\u8525"
+    land_number: 2
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 50000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:49.987000+00:00
+- model: surveys19.cropmarketing
+  pk: 20408
+  fields:
+    survey: 9845
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 3
+    land_area: 5.0
+    plant_times: 1
+    year_sales: 9000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.003000+00:00
+- model: surveys19.cropmarketing
+  pk: 20409
+  fields:
+    survey: 9845
+    product: 42
+    loss: 5
+    unit: 2
+    name: "\u6D0B\u8525"
+    land_number: 3
+    land_area: 5.0
+    plant_times: 1
+    year_sales: 12500
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.018000+00:00
+- model: surveys19.cropmarketing
+  pk: 20416
+  fields:
+    survey: 9847
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 4
+    land_area: 19.0
+    plant_times: 1
+    year_sales: 38000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.440000+00:00
+- model: surveys19.cropmarketing
+  pk: 20417
+  fields:
+    survey: 9847
+    product: 42
+    loss: 5
+    unit: 2
+    name: "\u6D0B\u8525"
+    land_number: 4
+    land_area: 19.0
+    plant_times: 1
+    year_sales: 47500
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.456000+00:00
+- model: surveys19.cropmarketing
+  pk: 20418
+  fields:
+    survey: 9847
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 5
+    land_area: 7.0
+    plant_times: 1
+    year_sales: 14000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.472000+00:00
+- model: surveys19.cropmarketing
+  pk: 20420
+  fields:
+    survey: 9847
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 6
+    land_area: 11.0
+    plant_times: 1
+    year_sales: 22000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.518000+00:00
+- model: surveys19.cropmarketing
+  pk: 20429
+  fields:
+    survey: 9849
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 7
+    land_area: 13.0
+    plant_times: 1
+    year_sales: 26000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.956000+00:00
+- model: surveys19.cropmarketing
+  pk: 20430
+  fields:
+    survey: 9849
+    product: 30
+    loss: 5
+    unit: 2
+    name: "\u539F\u6599\u7518\u8517"
+    land_number: 8
+    land_area: 20.0
+    plant_times: 1
+    year_sales: 18000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:50.972000+00:00
+- model: surveys19.cropmarketing
+  pk: 20432
+  fields:
+    survey: 9849
+    product: 14
+    loss: 5
+    unit: 2
+    name: "\u82B1\u751F"
+    land_number: 9
+    land_area: 16.0
+    plant_times: 1
+    year_sales: 32000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:51.003000+00:00
+- model: surveys19.cropmarketing
+  pk: 20433
+  fields:
+    survey: 9849
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 9
+    land_area: 12.0
+    plant_times: 1
+    year_sales: 21600
+    has_facility: 0
+    update_time: 2019-05-17 04:52:51.018000+00:00
+- model: surveys19.cropmarketing
+  pk: 20437
+  fields:
+    survey: 9851
+    product: 42
+    loss: 5
+    unit: 2
+    name: "\u6D0B\u8525"
+    land_number: 9
+    land_area: 12.0
+    plant_times: 1
+    year_sales: 40000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:51.206000+00:00
+- model: surveys19.cropmarketing
+  pk: 20438
+  fields:
+    survey: 9851
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u7C73\uFF08\u4E00\uFF09"
+    land_number: 9
+    land_area: 12.0
+    plant_times: 1
+    year_sales: 21600
+    has_facility: 0
+    update_time: 2019-05-17 04:52:51.222000+00:00
+- model: surveys19.cropmarketing
+  pk: 20439
+  fields:
+    survey: 9851
+    product: 42
+    loss: 5
+    unit: 2
+    name: "\u6D0B\u8525"
+    land_number: 9
+    land_area: 12.0
+    plant_times: 1
+    year_sales: 30000
+    has_facility: 0
+    update_time: 2019-05-17 04:52:51.237000+00:00
+- model: surveys19.cropmarketing
+  pk: 32836
+  fields:
+    survey: 15016
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u4F5C\uFF08\u4E00\u671F\uFF09"
+    land_number: 1
+    land_area: 287.0
+    plant_times: 1
+    year_sales: 464911
+    has_facility: 0
+    update_time: 2019-05-31 05:48:32.017000+00:00
+- model: surveys19.cropmarketing
+  pk: 32837
+  fields:
+    survey: 15016
+    product: 3
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u4F5C\uFF08\u4E8C\u671F\uFF09"
+    land_number: 1
+    land_area: 287.0
+    plant_times: 1
+    year_sales: 338086
+    has_facility: 0
+    update_time: 2019-05-31 05:48:32.032000+00:00
+- model: surveys19.cropmarketing
+  pk: 32864
+  fields:
+    survey: 15020
+    product: 110
+    loss: 5
+    unit: 2
+    name: "\u8C50\u6C34\u68A8"
+    land_number: 2
+    land_area: 157.0
+    plant_times: 1
+    year_sales: 5235165
+    has_facility: 0
+    update_time: 2019-05-31 05:48:33.111000+00:00
+- model: surveys19.cropmarketing
+  pk: 32908
+  fields:
+    survey: 15032
+    product: 22
+    loss: 5
+    unit: 1
+    name: "\u7267\u8349"
+    land_number: 1
+    land_area: 39.0
+    plant_times: 2
+    year_sales: 0
+    has_facility: 0
+    update_time: 2019-05-31 05:48:36.907000+00:00
+- model: surveys19.cropmarketing
+  pk: 32909
+  fields:
+    survey: 15032
+    product: 22
+    loss: 5
+    unit: 1
+    name: "\u7267\u8349"
+    land_number: 2
+    land_area: 19.0
+    plant_times: 2
+    year_sales: 0
+    has_facility: 0
+    update_time: 2019-05-31 05:48:36.923000+00:00
+- model: surveys19.cropmarketing
+  pk: 32910
+  fields:
+    survey: 15032
+    product: 2
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u4F5C\uFF08\u4E00\u671F\uFF09"
+    land_number: 3
+    land_area: 242.0
+    plant_times: 1
+    year_sales: 373745
+    has_facility: 0
+    update_time: 2019-05-31 05:48:36.939000+00:00
+- model: surveys19.cropmarketing
+  pk: 32911
+  fields:
+    survey: 15032
+    product: 3
+    loss: 5
+    unit: 2
+    name: "\u7A3B\u4F5C\uFF08\u4E8C\u671F\uFF09"
+    land_number: 3
+    land_area: 242.0
+    plant_times: 1
+    year_sales: 283140
+    has_facility: 0
+    update_time: 2019-05-31 05:48:36.939000+00:00
+- model: surveys19.livestockmarketing
+  pk: 1931
+  fields:
+    survey: 15032
+    product: 160
+    loss: 10
+    unit: 13
+    contract: 4
+    name: "\u6CCC\u4E73\u725B"
+    raising_number: 150
+    year_sales: 0
+    update_time: 2019-05-31 05:48:36.986000+00:00
+- model: surveys19.livestockmarketing
+  pk: 1932
+  fields:
+    survey: 15032
+    product: 161
+    loss: 10
+    unit: 13
+    contract: 4
+    name: "\u4E0D\u6CCC\u4E73\u725B"
+    raising_number: 125
+    year_sales: 0
+    update_time: 2019-05-31 05:48:37.001000+00:00
+- model: surveys19.livestockmarketing
+  pk: 1933
+  fields:
+    survey: 15032
+    product: 162
+    loss: 10
+    unit: 11
+    contract: 2
+    name: "\u725B\u4E73"
+    raising_number: 0
+    year_sales: 31426500
+    update_time: 2019-05-31 05:48:37.017000+00:00
+- model: surveys19.producttype
+  pk: 1
+  fields:
+    name: crop
+    update_time: null
+- model: surveys19.producttype
+  pk: 2
+  fields:
+    name: animal
+    update_time: null
+- model: surveys19.product
+  pk: 1
+  fields:
+    name: "\u7A3B\u4F5C"
+    code: '101'
+    min_hour: 91.0
+    max_hour: 173.0
+    parent: null
+    type: 1
+    management_type: 1
+    update_time: null
+- model: surveys19.product
+  pk: 2
+  fields:
+    name: "\u4E00\u671F\u7A3B\u4F5C"
+    code: '102'
+    min_hour: 91.0
+    max_hour: 166.0
+    parent: null
+    type: 1
+    management_type: 1
+    update_time: null
+- model: surveys19.product
+  pk: 3
+  fields:
+    name: "\u4E8C\u671F\u7A3B\u4F5C"
+    code: '103'
+    min_hour: 92.0
+    max_hour: 173.0
+    parent: null
+    type: 1
+    management_type: 1
+    update_time: null
+- model: surveys19.product
+  pk: 4
+  fields:
+    name: "\u786C\u8CEA\u7389\u7C73\uFF08\u98FC\u6599\u7389\u7C73\uFF09"
+    code: '201'
+    min_hour: 36.0
+    max_hour: 118.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 5
+  fields:
+    name: "\u98DF\u7528\u7389\u7C73"
+    code: '202'
+    min_hour: 324.0
+    max_hour: 379.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 6
+  fields:
+    name: "\u9EA5\u985E\uFF08\u5927\u9EA5\u3001\u5C0F\u9EA5\uFF09"
+    code: '203'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 7
+  fields:
+    name: "\u7C9F\uFF08\u5C0F\u7C73\uFF09"
+    code: '204'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 8
+  fields:
+    name: "\u9AD8\u7CB1"
+    code: '205'
+    min_hour: 72.0
+    max_hour: 72.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 9
+  fields:
+    name: "\u5927\u8C46"
+    code: '206'
+    min_hour: 111.0
+    max_hour: 111.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 10
+  fields:
+    name: "\u82B1\u8C46\uFF08\u5927\u7D05\u8C46\uFF09"
+    code: '207'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 11
+  fields:
+    name: "\u7D05\u8C46"
+    code: '208'
+    min_hour: 92.0
+    max_hour: 119.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 12
+  fields:
+    name: "\u7DA0\u8C46"
+    code: '209'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 13
+  fields:
+    name: "\u7518\u85F7\uFF08\u5730\u74DC\uFF09"
+    code: '210'
+    min_hour: 480.0
+    max_hour: 486.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 14
+  fields:
+    name: "\u843D\u82B1\u751F\uFF08\u571F\u8C46\uFF09"
+    code: '211'
+    min_hour: 244.0
+    max_hour: 261.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 15
+  fields:
+    name: "\u858F\u82E1\uFF08\u858F\u4EC1\uFF09"
+    code: '212'
+    min_hour: 143.0
+    max_hour: 223.0
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 16
+  fields:
+    name: "\u5176\u4ED6\u96DC\u7CE7"
+    code: '213'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 2
+    update_time: null
+- model: surveys19.product
+  pk: 17
+  fields:
+    name: "\u5C71\u85E5\uFF08\u6DEE\u5C71\u3001\u7D05\u85AF\uFF09"
+    code: '301'
+    min_hour: 1930.0
+    max_hour: 1944.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 18
+  fields:
+    name: "\u6A39\u85AF\uFF08\u6728\u85AF\uFF09"
+    code: '302'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 19
+  fields:
+    name: "\u83F8\u8349"
+    code: '304'
+    min_hour: 951.0
+    max_hour: 951.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 20
+  fields:
+    name: "\u829D\u9EBB\uFF08\u80E1\u9EBB\uFF09"
+    code: '305'
+    min_hour: 421.0
+    max_hour: 530.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 21
+  fields:
+    name: "\u74CA\u9EBB"
+    code: '306'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 22
+  fields:
+    name: "\u7267\u8349"
+    code: '307'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 23
+  fields:
+    name: "\u6851\u6A39"
+    code: '308'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 24
+  fields:
+    name: "\u8356\u82B1\uFF08\u8449\uFF09"
+    code: '309'
+    min_hour: 6352.0
+    max_hour: 6352.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 25
+  fields:
+    name: "\u5C71\u8475"
+    code: '310'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 26
+  fields:
+    name: "\u7DA0\u80A5\u4F5C\u7269"
+    code: '311'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 27
+  fields:
+    name: "\u6CB9\u8336\uFF08\u82E6\u8336\u6A39\uFF09"
+    code: '312'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 28
+  fields:
+    name: "\u7834\u5E03\u5B50"
+    code: '313'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 29
+  fields:
+    name: "\u5496\u5561"
+    code: '314'
+    min_hour: 1264.0
+    max_hour: 1834.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 30
+  fields:
+    name: "\u7518\u8517"
+    code: '315'
+    min_hour: 2855.0
+    max_hour: 2855.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 31
+  fields:
+    name: "\u5176\u4ED6\u7279\u7528\u4F5C\u7269"
+    code: '316'
+    min_hour: 1104.0
+    max_hour: 1114.0
+    parent: null
+    type: 1
+    management_type: 3
+    update_time: null
+- model: surveys19.product
+  pk: 32
+  fields:
+    name: "\u8336\uFF08\u624B\u63A1\uFF09"
+    code: '317'
+    min_hour: 3262.0
+    max_hour: 4316.0
+    parent: null
+    type: 1
+    management_type: 4
+    update_time: null
+- model: surveys19.product
+  pk: 33
+  fields:
+    name: "\u8336\uFF08\u6A5F\u63A1\uFF09"
+    code: '318'
+    min_hour: 740.0
+    max_hour: 1060.0
+    parent: null
+    type: 1
+    management_type: 4
+    update_time: null
+- model: surveys19.product
+  pk: 34
+  fields:
+    name: "\u863F\u8514\uFF08\u83DC\u982D\uFF09"
+    code: '401'
+    min_hour: 323.0
+    max_hour: 425.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 35
+  fields:
+    name: "\u80E1\u863F\u8514"
+    code: '402'
+    min_hour: 645.0
+    max_hour: 787.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 36
+  fields:
+    name: "\u8591"
+    code: '403'
+    min_hour: 1454.0
+    max_hour: 3011.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 37
+  fields:
+    name: "\u828B"
+    code: '404'
+    min_hour: 654.0
+    max_hour: 678.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 38
+  fields:
+    name: "\u99AC\u9234\u85AF"
+    code: '405'
+    min_hour: 354.0
+    max_hour: 438.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 39
+  fields:
+    name: "\u725B\u84A1"
+    code: '406'
+    min_hour: 561.0
+    max_hour: 661.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 40
+  fields:
+    name: "\u8525"
+    code: '407'
+    min_hour: 1182.0
+    max_hour: 1952.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 41
+  fields:
+    name: "\u8525\u982D"
+    code: '408'
+    min_hour: 866.0
+    max_hour: 972.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 42
+  fields:
+    name: "\u6D0B\u8525"
+    code: '409'
+    min_hour: 770.0
+    max_hour: 1057.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 43
+  fields:
+    name: "\u9752\u849C"
+    code: '410'
+    min_hour: 926.0
+    max_hour: 1099.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 44
+  fields:
+    name: "\u849C\u982D"
+    code: '411'
+    min_hour: 799.0
+    max_hour: 869.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 45
+  fields:
+    name: "\u8378\u85BA"
+    code: '412'
+    min_hour: 866.0
+    max_hour: 972.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 46
+  fields:
+    name: "\u97ED"
+    code: '413'
+    min_hour: 6491.0
+    max_hour: 7270.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 47
+  fields:
+    name: "\u7AF9\u7B4D"
+    code: '414'
+    min_hour: 512.0
+    max_hour: 572.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 48
+  fields:
+    name: "\u8606\u7B4D"
+    code: '415'
+    min_hour: 1751.0
+    max_hour: 1859.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 49
+  fields:
+    name: "\u832D\u767D\u7B4D"
+    code: '416'
+    min_hour: 2144.0
+    max_hour: 3384.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 50
+  fields:
+    name: "\u5927\u82A5\u83DC"
+    code: '417'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 51
+  fields:
+    name: "\u5927\u5FC3\u82A5\u83DC\uFF08\u83DC\u5FC3\uFF09"
+    code: '418'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 52
+  fields:
+    name: "\u82B9\u83DC"
+    code: '419'
+    min_hour: 1402.0
+    max_hour: 1402.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 53
+  fields:
+    name: "\u8579\u83DC\uFF08\u7A7A\u5FC3\u83DC\uFF09"
+    code: '420'
+    min_hour: 815.0
+    max_hour: 815.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 54
+  fields:
+    name: "\u7518\u85CD\uFF08\u9AD8\u9E97\u83DC\uFF09"
+    code: '421'
+    min_hour: 663.0
+    max_hour: 697.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 55
+  fields:
+    name: "\u82A5\u85CD\uFF08\u683C\u85CD\u83DC\uFF09"
+    code: '422'
+    min_hour: 864.0
+    max_hour: 864.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 56
+  fields:
+    name: "\u7403\u8396\u7518\u85CD\uFF08\u7D50\u982D\u83DC\uFF09"
+    code: '423'
+    min_hour: 548.0
+    max_hour: 549.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 57
+  fields:
+    name: "\u7D50\u7403\u767D\u83DC\uFF08\u5305\u5FC3\u767D\u83DC\uFF09"
+    code: '424'
+    min_hour: 476.0
+    max_hour: 599.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 58
+  fields:
+    name: "\u4E0D\u7D50\u7403\u767D\u83DC\uFF08\u5C0F\u767D\u83DC\u3001\u9752\u6C5F\u83DC\uFF09"
+    code: '425'
+    min_hour: 897.0
+    max_hour: 897.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 59
+  fields:
+    name: "\u82B1\u6930\u83DC(\u767D\u82B1\u3001\u9752\u82B1)"
+    code: '426'
+    min_hour: 608.0
+    max_hour: 694.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 60
+  fields:
+    name: "\u83E0\u83DC\uFF08\u83E0\u8506\u83DC\uFF09"
+    code: '427'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 61
+  fields:
+    name: "\u83A7\u83DC"
+    code: '428'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 62
+  fields:
+    name: "\u8435\u82E3\uFF08\uFF21\u83DC\u3001\u5409\u5EB7\u83DC\uFF09"
+    code: '429'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 63
+  fields:
+    name: "\u833C\u84BF"
+    code: '430'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 64
+  fields:
+    name: "\u7D72\u74DC\uFF08\u83DC\u74DC\u3001\u89D2\u74DC\uFF09"
+    code: '431'
+    min_hour: 1698.0
+    max_hour: 1808.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 65
+  fields:
+    name: "\u8D8A\u74DC\uFF08\u9183\u74DC\uFF09"
+    code: '432'
+    min_hour: 1158.0
+    max_hour: 1249.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 66
+  fields:
+    name: "\u80E1\u74DC\uFF08\u83BF\u74DC\u3001\u5C0F\u9EC3\u74DC\uFF09"
+    code: '433'
+    min_hour: 1791.0
+    max_hour: 1926.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 67
+  fields:
+    name: "\u51AC\u74DC"
+    code: '434'
+    min_hour: 644.0
+    max_hour: 700.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 68
+  fields:
+    name: "\u82E6\u74DC"
+    code: '435'
+    min_hour: 1860.0
+    max_hour: 1882.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 69
+  fields:
+    name: "\u6241\u84B2\uFF08\u84B2\u5B50\uFF09"
+    code: '436'
+    min_hour: 1651.0
+    max_hour: 1786.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 70
+  fields:
+    name: "\u8304\u5B50"
+    code: '437'
+    min_hour: 2946.0
+    max_hour: 3395.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 71
+  fields:
+    name: "\u8543\u8304"
+    code: '438'
+    min_hour: 751.0
+    max_hour: 10109.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 72
+  fields:
+    name: "\u756A\u6912\uFF08\u751C\u6912\u3001\u8FA3\u6912\uFF09"
+    code: '439'
+    min_hour: 1656.0
+    max_hour: 1710.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 73
+  fields:
+    name: "\u6BDB\u8C46"
+    code: '440'
+    min_hour: 146.0
+    max_hour: 159.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 74
+  fields:
+    name: "\u8C4C\u8C46\uFF08\u8377\u862D\u8C46\uFF09"
+    code: '441'
+    min_hour: 1351.0
+    max_hour: 1575.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 75
+  fields:
+    name: "\u9577\u8C47\u8C46\uFF08\u83DC\u8C46\uFF09"
+    code: '442'
+    min_hour: 2107.0
+    max_hour: 2341.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 76
+  fields:
+    name: "\u897F\u74DC"
+    code: '443'
+    min_hour: 502.0
+    max_hour: 520.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 77
+  fields:
+    name: "\u9999\u74DC"
+    code: '444'
+    min_hour: 647.0
+    max_hour: 773.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 78
+  fields:
+    name: "\u6D0B\u9999\u74DC\uFF08\u54C8\u871C\u74DC\uFF09"
+    code: '445'
+    min_hour: 647.0
+    max_hour: 773.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 79
+  fields:
+    name: "\u74DC\u5B50\u74DC"
+    code: '446'
+    min_hour: 647.0
+    max_hour: 773.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 80
+  fields:
+    name: "\u8349\u8393"
+    code: '447'
+    min_hour: 3384.0
+    max_hour: 3512.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 81
+  fields:
+    name: "\u5730\u74DC\u8449"
+    code: '448'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 82
+  fields:
+    name: "\u7D05\u83DC"
+    code: '449'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 83
+  fields:
+    name: "\u5357\u74DC"
+    code: '450'
+    min_hour: 1158.0
+    max_hour: 1249.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 84
+  fields:
+    name: "\u9F8D\u9B1A\u83DC"
+    code: '451'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 85
+  fields:
+    name: "\u84EE\u85D5"
+    code: '452'
+    min_hour: 866.0
+    max_hour: 972.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 86
+  fields:
+    name: "\u8568\u985E\uFF08\u904E\u8C93\u3001\u5C71\u8607\uFF09"
+    code: '453'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 87
+  fields:
+    name: "\u8C46\u82D7"
+    code: '454'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 88
+  fields:
+    name: "\u83F1\u89D2"
+    code: '455'
+    min_hour: 1122.0
+    max_hour: 1271.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 89
+  fields:
+    name: "\u91D1\u91DD"
+    code: '456'
+    min_hour: 702.0
+    max_hour: 896.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 90
+  fields:
+    name: "\u9999\u83DC\uFF08\u82AB\u837D\uFF09"
+    code: '457'
+    min_hour: 812.0
+    max_hour: 831.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 91
+  fields:
+    name: "\u84EE\u5B50"
+    code: '458'
+    min_hour: 718.0
+    max_hour: 748.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 92
+  fields:
+    name: "\u5176\u4ED6\u852C\u83DC"
+    code: '459'
+    min_hour: 984.0
+    max_hour: 1066.0
+    parent: null
+    type: 1
+    management_type: 5
+    update_time: null
+- model: surveys19.product
+  pk: 93
+  fields:
+    name: "\u9999\u8549"
+    code: '501'
+    min_hour: 954.0
+    max_hour: 1119.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 94
+  fields:
+    name: "\u9CF3\u68A8"
+    code: '502'
+    min_hour: 1171.0
+    max_hour: 1278.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 95
+  fields:
+    name: "\u67D1\u6854\u985E"
+    code: '503'
+    min_hour: 775.0
+    max_hour: 1230.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 96
+  fields:
+    name: "\u67DA\u985E"
+    code: '504'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 97
+  fields:
+    name: "\u9F8D\u773C"
+    code: '505'
+    min_hour: 428.0
+    max_hour: 701.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 98
+  fields:
+    name: "\u8292\u679C"
+    code: '506'
+    min_hour: 718.0
+    max_hour: 1081.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 99
+  fields:
+    name: "\u756A\u77F3\u69B4"
+    code: '507'
+    min_hour: 2629.0
+    max_hour: 2753.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 100
+  fields:
+    name: "\u84EE\u9727"
+    code: '508'
+    min_hour: 2626.0
+    max_hour: 3054.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 101
+  fields:
+    name: "\u8461\u8404"
+    code: '509'
+    min_hour: 2148.0
+    max_hour: 3386.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 102
+  fields:
+    name: "\u6787\u6777"
+    code: '510'
+    min_hour: 1351.0
+    max_hour: 2474.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 103
+  fields:
+    name: "\u674E"
+    code: '511'
+    min_hour: 814.0
+    max_hour: 814.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 104
+  fields:
+    name: "\u6843"
+    code: '512'
+    min_hour: 1327.0
+    max_hour: 1832.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 105
+  fields:
+    name: "\u67FF"
+    code: '513'
+    min_hour: 1621.0
+    max_hour: 1924.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 106
+  fields:
+    name: "\u6885"
+    code: '514'
+    min_hour: 224.0
+    max_hour: 744.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 107
+  fields:
+    name: "\u8354\u679D"
+    code: '515'
+    min_hour: 577.0
+    max_hour: 1177.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 108
+  fields:
+    name: "\u6A44\u6B16"
+    code: '516'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 109
+  fields:
+    name: "\u694A\u6843"
+    code: '517'
+    min_hour: 2262.0
+    max_hour: 3131.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 110
+  fields:
+    name: "\u68A8"
+    code: '518'
+    min_hour: 1736.0
+    max_hour: 2142.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 111
+  fields:
+    name: "\u860B\u679C"
+    code: '519'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 112
+  fields:
+    name: "\u6728\u74DC"
+    code: '520'
+    min_hour: 1849.0
+    max_hour: 2292.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 113
+  fields:
+    name: "\u68D7"
+    code: '521'
+    min_hour: 1763.0
+    max_hour: 2037.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 114
+  fields:
+    name: "\u756A\u8354\u679D\uFF08\u91CB\u8FE6\uFF09"
+    code: '522'
+    min_hour: 1036.0
+    max_hour: 1259.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 115
+  fields:
+    name: "\u767E\u9999\u679C"
+    code: '523'
+    min_hour: 1351.0
+    max_hour: 1496.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 116
+  fields:
+    name: "\u53EF\u53EF\u6930\u5B50"
+    code: '524'
+    min_hour: 267.0
+    max_hour: 696.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 117
+  fields:
+    name: "\u6AB3\u6994"
+    code: '525'
+    min_hour: 591.0
+    max_hour: 621.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 118
+  fields:
+    name: "\u706B\u9F8D\u679C"
+    code: '526'
+    min_hour: 1891.0
+    max_hour: 2348.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 119
+  fields:
+    name: "\u83E0\u863F\u871C"
+    code: '527'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 120
+  fields:
+    name: "\u916A\u68A8"
+    code: '528'
+    min_hour: 1082.0
+    max_hour: 1168.0
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 121
+  fields:
+    name: "\u5176\u4ED6\u679C\u6A39"
+    code: '529'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 122
+  fields:
+    name: "\u6587\u65E6\u67DA"
+    code: '504'
+    min_hour: 745.0
+    max_hour: 914.0
+    parent: 96
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 123
+  fields:
+    name: "\u8461\u8404\u67DA"
+    code: '503'
+    min_hour: 1158.0
+    max_hour: 1230.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 124
+  fields:
+    name: "\u67F3\u6A59"
+    code: '503'
+    min_hour: 987.0
+    max_hour: 1149.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 125
+  fields:
+    name: "\u692A\u67D1"
+    code: '503'
+    min_hour: 1151.0
+    max_hour: 1230.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 126
+  fields:
+    name: "\u6876\u67D1"
+    code: '503'
+    min_hour: 775.0
+    max_hour: 886.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 127
+  fields:
+    name: "\u6D77\u68A8\u67D1"
+    code: '503'
+    min_hour: 907.0
+    max_hour: 975.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 128
+  fields:
+    name: "\u8302\u8C37\u67D1"
+    code: '503'
+    min_hour: 1326.0
+    max_hour: 1388.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 129
+  fields:
+    name: "\u81CD\u6A59"
+    code: '503'
+    min_hour: 782.0
+    max_hour: 809.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 130
+  fields:
+    name: "\u91D1\u67D1"
+    code: '503'
+    min_hour: 1274.0
+    max_hour: 1777.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 131
+  fields:
+    name: "\u6AB8\u6AAC"
+    code: '503'
+    min_hour: 1473.0
+    max_hour: 1605.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 132
+  fields:
+    name: "\u6D0B\u83C7"
+    code: '601'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 7
+    update_time: null
+- model: surveys19.product
+  pk: 133
+  fields:
+    name: "\u9999\u83C7"
+    code: '602'
+    min_hour: 7320.0
+    max_hour: 11313.0
+    parent: null
+    type: 1
+    management_type: 7
+    update_time: null
+- model: surveys19.product
+  pk: 134
+  fields:
+    name: "\u91D1\u91DD\u83C7"
+    code: '603'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 7
+    update_time: null
+- model: surveys19.product
+  pk: 135
+  fields:
+    name: "\u674F\u9B91\u83C7"
+    code: '604'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 7
+    update_time: null
+- model: surveys19.product
+  pk: 136
+  fields:
+    name: "\u6728\u8033"
+    code: '605'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 7
+    update_time: null
+- model: surveys19.product
+  pk: 137
+  fields:
+    name: "\u5176\u4ED6\u98DF\u7528\u83C7\u8548"
+    code: '606'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 7
+    update_time: null
+- model: surveys19.product
+  pk: 138
+  fields:
+    name: "\u5207\u82B1\u985E"
+    code: '701'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 139
+  fields:
+    name: "\u7403\u6839\u985E"
+    code: '702'
+    min_hour: 990.0
+    max_hour: 1151.0
+    parent: null
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 140
+  fields:
+    name: "\u76C6\u82B1\u985E"
+    code: '703'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 141
+  fields:
+    name: "\u862D\u82B1"
+    code: '704'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 142
+  fields:
+    name: "\u5176\u4ED6\u82B1\u5349"
+    code: '705'
+    min_hour: 907.0
+    max_hour: 1648.0
+    parent: null
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 143
+  fields:
+    name: "\u6D0B\u6854\u6897"
+    code: '701'
+    min_hour: 2505.0
+    max_hour: 3174.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 144
+  fields:
+    name: "\u9999\u6C34\u767E\u5408"
+    code: '701'
+    min_hour: 1202.0
+    max_hour: 1582.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 145
+  fields:
+    name: "\u73AB\u7470"
+    code: '701'
+    min_hour: 4665.0
+    max_hour: 4811.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 146
+  fields:
+    name: "\u706B\u9DB4\u82B1"
+    code: '701'
+    min_hour: 3633.0
+    max_hour: 4947.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 147
+  fields:
+    name: "\u5EB7\u4E43\u99A8"
+    code: '701'
+    min_hour: 5243.0
+    max_hour: 5679.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 148
+  fields:
+    name: "\u975E\u6D32\u83CA"
+    code: '701'
+    min_hour: 5630.0
+    max_hour: 6837.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 149
+  fields:
+    name: "\u591C\u4F86\u9999"
+    code: '701'
+    min_hour: 2666.0
+    max_hour: 2666.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 150
+  fields:
+    name: "\u83CA\u82B1"
+    code: '701'
+    min_hour: 2845.0
+    max_hour: 3038.0
+    parent: 138
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.product
+  pk: 151
+  fields:
+    name: "\u79E7\u82D7"
+    code: '802'
+    min_hour: 1500.0
+    max_hour: 1700.0
+    parent: null
+    type: 1
+    management_type: 9
+    update_time: null
+- model: surveys19.product
+  pk: 152
+  fields:
+    name: "\u98DF\u7528\u83C7\u83CC\u7A2E"
+    code: '803'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 9
+    update_time: null
+- model: surveys19.product
+  pk: 153
+  fields:
+    name: "\u862D\u82B1\u7A2E\u82D7"
+    code: '804'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 9
+    update_time: null
+- model: surveys19.product
+  pk: 154
+  fields:
+    name: "\u5176\u4ED6\u7A2E\u82D7"
+    code: '805'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 9
+    update_time: null
+- model: surveys19.product
+  pk: 155
+  fields:
+    name: "\u8349\u76AE"
+    code: '801'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 10
+    update_time: null
+- model: surveys19.product
+  pk: 156
+  fields:
+    name: "\u5176\u4ED6\u4F5C\u7269"
+    code: '806'
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 1
+    management_type: 10
+    update_time: null
+- model: surveys19.product
+  pk: 157
+  fields:
+    name: "\u8089\u8C6C"
+    code: F01
+    min_hour: 0.5
+    max_hour: 3.0
+    parent: null
+    type: 2
+    management_type: 12
+    update_time: null
+- model: surveys19.product
+  pk: 158
+  fields:
+    name: "\u7A2E\u8C6C"
+    code: F02
+    min_hour: 0.5
+    max_hour: 3.0
+    parent: null
+    type: 2
+    management_type: 12
+    update_time: null
+- model: surveys19.product
+  pk: 159
+  fields:
+    name: "\u5C0F\u8C6C"
+    code: F04
+    min_hour: 0.5
+    max_hour: 3.0
+    parent: null
+    type: 2
+    management_type: 12
+    update_time: null
+- model: surveys19.product
+  pk: 160
+  fields:
+    name: "\u6CCC\u4E73\u725B"
+    code: J01
+    min_hour: 30.0
+    max_hour: 100.0
+    parent: null
+    type: 2
+    management_type: 11
+    update_time: null
+- model: surveys19.product
+  pk: 161
+  fields:
+    name: "\u4E0D\u6CCC\u4E73\u725B"
+    code: J03
+    min_hour: 30.0
+    max_hour: 100.0
+    parent: null
+    type: 2
+    management_type: 11
+    update_time: null
+- model: surveys19.product
+  pk: 162
+  fields:
+    name: "\u725B\u4E73"
+    code: J07
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 11
+    update_time: null
+- model: surveys19.product
+  pk: 163
+  fields:
+    name: "\u86CB\u96DE"
+    code: G01
+    min_hour: 0.1
+    max_hour: 0.25
+    parent: null
+    type: 2
+    management_type: 13
+    update_time: null
+- model: surveys19.product
+  pk: 164
+  fields:
+    name: "\u767D\u8089\u96DE"
+    code: G02
+    min_hour: 0.01
+    max_hour: 0.06
+    parent: null
+    type: 2
+    management_type: 13
+    update_time: null
+- model: surveys19.product
+  pk: 165
+  fields:
+    name: "\u6709\u8272\u8089\u96DE"
+    code: G03
+    min_hour: 0.01
+    max_hour: 0.06
+    parent: null
+    type: 2
+    management_type: 13
+    update_time: null
+- model: surveys19.product
+  pk: 166
+  fields:
+    name: "\u8089\u7A2E\u96DE"
+    code: G04
+    min_hour: 0.01
+    max_hour: 0.06
+    parent: null
+    type: 2
+    management_type: 13
+    update_time: null
+- model: surveys19.product
+  pk: 167
+  fields:
+    name: "\u86CB\u7A2E\u96DE"
+    code: G05
+    min_hour: 0.1
+    max_hour: 0.25
+    parent: null
+    type: 2
+    management_type: 13
+    update_time: null
+- model: surveys19.product
+  pk: 168
+  fields:
+    name: "\u96DE\u86CB"
+    code: G10
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 13
+    update_time: null
+- model: surveys19.product
+  pk: 169
+  fields:
+    name: "\u8089\u725B"
+    code: J04
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 170
+  fields:
+    name: "\u86CB\u9D28(\u83DC\u9D28)"
+    code: H09
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 171
+  fields:
+    name: "\u8089\u9D28"
+    code: H10
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 172
+  fields:
+    name: "\u8089\u7A2E\u9D28"
+    code: H11
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 173
+  fields:
+    name: "\u9D28\u86CB"
+    code: H13
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 174
+  fields:
+    name: "\u8089\u7F8A"
+    code: H01
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 175
+  fields:
+    name: "\u4E73\u7F8A(\u6CCC\u4E73\u7F8A)"
+    code: H02
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 176
+  fields:
+    name: "\u7F8A\u4E73"
+    code: H05
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 177
+  fields:
+    name: "\u9E7F"
+    code: H07
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 178
+  fields:
+    name: "\u9E7F\u8338"
+    code: H08
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 179
+  fields:
+    name: "\u9D5D"
+    code: H14
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 180
+  fields:
+    name: "\u706B\u96DE"
+    code: H15
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 181
+  fields:
+    name: "\u9D15\u9CE5"
+    code: H16
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 182
+  fields:
+    name: "\u871C\u8702"
+    code: H17
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 183
+  fields:
+    name: "\u8702\u871C"
+    code: H18
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 184
+  fields:
+    name: "\u5176\u4ED6(______)"
+    code: H99
+    min_hour: null
+    max_hour: null
+    parent: null
+    type: 2
+    management_type: 14
+    update_time: null
+- model: surveys19.product
+  pk: 185
+  fields:
+    name: "\u67F3\u4E01"
+    code: '503'
+    min_hour: 987.0
+    max_hour: 1149.0
+    parent: 95
+    type: 1
+    management_type: 6
+    update_time: null
+- model: surveys19.product
+  pk: 186
+  fields:
+    name: "\u6587\u5FC3\u862D"
+    code: '704'
+    min_hour: 2611.0
+    max_hour: 5323.0
+    parent: 141
+    type: 1
+    management_type: 8
+    update_time: null
+- model: surveys19.unit
+  pk: 1
+  fields:
+    code: 0
+    name: "\u5E73\u65B9\u516C\u5C3A"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 2
+  fields:
+    code: 1
+    name: "\u516C\u65A4"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 3
+  fields:
+    code: 2
+    name: "\u7BB1"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 4
+  fields:
+    code: 3
+    name: "\u6253"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 5
+  fields:
+    code: 4
+    name: "\u76C6"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 6
+  fields:
+    code: 5
+    name: "\u652F"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 7
+  fields:
+    code: 6
+    name: "\u5305"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 8
+  fields:
+    code: 7
+    name: "\u628A"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 9
+  fields:
+    code: 8
+    name: "\u74F6"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 10
+  fields:
+    code: 9
+    name: "\u682A"
+    type: 1
+    update_time: null
+- model: surveys19.unit
+  pk: 11
+  fields:
+    code: 1
+    name: "\u516C\u65A4"
+    type: 2
+    update_time: null
+- model: surveys19.unit
+  pk: 12
+  fields:
+    code: 2
+    name: "\u7BB1"
+    type: 2
+    update_time: null
+- model: surveys19.unit
+  pk: 13
+  fields:
+    code: 3
+    name: "\u982D"
+    type: 2
+    update_time: null
+- model: surveys19.unit
+  pk: 14
+  fields:
+    code: 4
+    name: "\u96BB"
+    type: 2
+    update_time: null
+- model: surveys19.unit
+  pk: 15
+  fields:
+    code: 5
+    name: "\u5169"
+    type: 2
+    update_time: null
+- model: surveys19.unit
+  pk: 16
+  fields:
+    code: 1
+    name: "\u576A"
+    type: null
+    update_time: null
+- model: surveys19.unit
+  pk: 17
+  fields:
+    code: 2
+    name: "\u516C\u755D"
+    type: null
+    update_time: null
+- model: surveys19.loss
+  pk: 1
+  fields:
+    code: 1
+    name: "\u707D\u5BB3"
+    type: 1
+    update_time: null
+- model: surveys19.loss
+  pk: 2
+  fields:
+    code: 2
+    name: "\u65B0\u690D"
+    type: 1
+    update_time: null
+- model: surveys19.loss
+  pk: 3
+  fields:
+    code: 3
+    name: "\u75C5\u87F2\u5BB3"
+    type: 1
+    update_time: null
+- model: surveys19.loss
+  pk: 4
+  fields:
+    code: 4
+    name: "\u5176\u4ED6"
+    type: 1
+    update_time: null
+- model: surveys19.loss
+  pk: 5
+  fields:
+    code: 0
+    name: "\u7121"
+    type: 1
+    update_time: null
+- model: surveys19.loss
+  pk: 6
+  fields:
+    code: 1
+    name: "\u707D\u5BB3"
+    type: 2
+    update_time: null
+- model: surveys19.loss
+  pk: 7
+  fields:
+    code: 2
+    name: "\u65B0\u990A"
+    type: 2
+    update_time: null
+- model: surveys19.loss
+  pk: 8
+  fields:
+    code: 3
+    name: "\u75AB\u75C5"
+    type: 2
+    update_time: null
+- model: surveys19.loss
+  pk: 9
+  fields:
+    code: 4
+    name: "\u5176\u4ED6"
+    type: 2
+    update_time: null
+- model: surveys19.loss
+  pk: 10
+  fields:
+    code: 0
+    name: "\u7121"
+    type: 2
+    update_time: null
+- model: surveys19.contract
+  pk: 1
+  fields:
+    code: 1
+    name: "\u4EE3\u990A"
+    update_time: null
+- model: surveys19.contract
+  pk: 2
+  fields:
+    code: 2
+    name: "\u4FDD\u50F9"
+    update_time: null
+- model: surveys19.contract
+  pk: 3
+  fields:
+    code: 3
+    name: "\u6642\u50F9"
+    update_time: null
+- model: surveys19.contract
+  pk: 4
+  fields:
+    code: 0
+    name: "\u7121"
+    update_time: null
+- model: surveys19.annualincome
+  pk: 31376
+  fields:
+    survey: 2432
+    market_type: 1
+    income_range: 8
+    update_time: 2019-05-23 06:52:32.830000+00:00
+- model: surveys19.annualincome
+  pk: 31377
+  fields:
+    survey: 2432
+    market_type: 4
+    income_range: 1
+    update_time: 2019-05-23 06:52:32.830000+00:00
+- model: surveys19.annualincome
+  pk: 31378
+  fields:
+    survey: 2432
+    market_type: 5
+    income_range: 8
+    update_time: 2019-05-23 06:52:32.846000+00:00
+- model: surveys19.annualincome
+  pk: 50755
+  fields:
+    survey: 15016
+    market_type: 5
+    income_range: 10
+    update_time: 2019-07-10 07:25:13.004000+00:00
+- model: surveys19.annualincome
+  pk: 50756
+  fields:
+    survey: 15016
+    market_type: 1
+    income_range: 10
+    update_time: 2019-07-10 07:25:13.019000+00:00
+- model: surveys19.annualincome
+  pk: 51139
+  fields:
+    survey: 9805
+    market_type: 5
+    income_range: 3
+    update_time: 2019-07-11 03:48:37.661000+00:00
+- model: surveys19.annualincome
+  pk: 51140
+  fields:
+    survey: 9805
+    market_type: 1
+    income_range: 3
+    update_time: 2019-07-11 03:48:37.676000+00:00
+- model: surveys19.annualincome
+  pk: 51399
+  fields:
+    survey: 9845
+    market_type: 1
+    income_range: 3
+    update_time: 2019-07-12 02:39:39.596000+00:00
+- model: surveys19.annualincome
+  pk: 51400
+  fields:
+    survey: 9845
+    market_type: 5
+    income_range: 3
+    update_time: 2019-07-12 02:39:39.596000+00:00
+- model: surveys19.annualincome
+  pk: 52120
+  fields:
+    survey: 15032
+    market_type: 1
+    income_range: 3
+    update_time: 2019-07-19 03:04:16.723000+00:00
+- model: surveys19.annualincome
+  pk: 52121
+  fields:
+    survey: 15032
+    market_type: 2
+    income_range: 11
+    update_time: 2019-07-19 03:04:16.754000+00:00
+- model: surveys19.annualincome
+  pk: 52122
+  fields:
+    survey: 15032
+    market_type: 5
+    income_range: 11
+    update_time: 2019-07-19 03:04:16.754000+00:00
+- model: surveys19.markettype
+  pk: 1
+  fields:
+    name: "\u8FB2\u4F5C\u7269\u53CA\u5176\u88FD\u54C1(\u542B\u751F\u7522\u53CA\u52A0\u5DE5)"
+    update_time: null
+- model: surveys19.markettype
+  pk: 2
+  fields:
+    name: "\u755C\u79BD\u7522\u54C1\u53CA\u5176\u88FD\u54C1(\u542B\u751F\u7522\u53CA\u52A0\u5DE5)"
+    update_time: null
+- model: surveys19.markettype
+  pk: 3
+  fields:
+    name: "\u53D7\u8A17\u63D0\u4F9B\u8FB2\u4E8B\u53CA\u755C\u7267\u670D\u52D9"
+    update_time: null
+- model: surveys19.markettype
+  pk: 4
+  fields:
+    name: "\u4F11\u9592\u3001\u9910\u98F2\u53CA\u76F8\u95DC\u4E8B\u696D"
+    update_time: null
+- model: surveys19.markettype
+  pk: 5
+  fields:
+    name: "\u92B7\u552E\u984D\u7E3D\u8A08"
+    update_time: null
+- model: surveys19.incomerange
+  pk: 1
+  fields:
+    name: "\u672A\u6EFF20"
+    minimum: 0
+    maximum: 20
+    update_time: null
+- model: surveys19.incomerange
+  pk: 2
+  fields:
+    name: "20~\u672A\u6EFF50"
+    minimum: 20
+    maximum: 50
+    update_time: null
+- model: surveys19.incomerange
+  pk: 3
+  fields:
+    name: "50~\u672A\u6EFF75"
+    minimum: 50
+    maximum: 75
+    update_time: null
+- model: surveys19.incomerange
+  pk: 4
+  fields:
+    name: "75~\u672A\u6EFF100"
+    minimum: 75
+    maximum: 100
+    update_time: null
+- model: surveys19.incomerange
+  pk: 5
+  fields:
+    name: "100~\u672A\u6EFF150"
+    minimum: 100
+    maximum: 150
+    update_time: null
+- model: surveys19.incomerange
+  pk: 6
+  fields:
+    name: "150~\u672A\u6EFF175"
+    minimum: 150
+    maximum: 175
+    update_time: null
+- model: surveys19.incomerange
+  pk: 7
+  fields:
+    name: "175~\u672A\u6EFF200"
+    minimum: 175
+    maximum: 200
+    update_time: null
+- model: surveys19.incomerange
+  pk: 8
+  fields:
+    name: "200~\u672A\u6EFF300"
+    minimum: 200
+    maximum: 300
+    update_time: null
+- model: surveys19.incomerange
+  pk: 9
+  fields:
+    name: "300~\u672A\u6EFF500"
+    minimum: 300
+    maximum: 500
+    update_time: null
+- model: surveys19.incomerange
+  pk: 10
+  fields:
+    name: "500~\u672A\u6EFF1000"
+    minimum: 500
+    maximum: 1000
+    update_time: null
+- model: surveys19.incomerange
+  pk: 11
+  fields:
+    name: "1000\u4EE5\u4E0A"
+    minimum: 1000
+    maximum: 999999
+    update_time: null
+- model: surveys19.agescope
+  pk: 1
+  fields:
+    name: "44\u6B72\u4EE5\u4E0B"
+    group: 1
+    update_time: null
+- model: surveys19.agescope
+  pk: 2
+  fields:
+    name: "45~64\u6B72"
+    group: 1
+    update_time: null
+- model: surveys19.agescope
+  pk: 3
+  fields:
+    name: "65\u6B72\u4EE5\u4E0A"
+    group: 1
+    update_time: null
+- model: surveys19.agescope
+  pk: 4
+  fields:
+    name: "\u672A\u6EFF15\u6B72"
+    group: 2
+    update_time: null
+- model: surveys19.agescope
+  pk: 5
+  fields:
+    name: "\u6EFF15\u6B72\u4EE5\u4E0A"
+    group: 2
+    update_time: null
+- model: surveys19.populationage
+  pk: 5436
+  fields:
+    survey: 2432
+    gender: 1
+    age_scope: 5
+    count: 3
+    update_time: 2019-05-03 06:51:33.601000+00:00
+- model: surveys19.populationage
+  pk: 5437
+  fields:
+    survey: 2432
+    gender: 2
+    age_scope: 5
+    count: 2
+    update_time: 2019-05-03 06:51:33.616000+00:00
+- model: surveys19.populationage
+  pk: 22230
+  fields:
+    survey: 9805
+    gender: 1
+    age_scope: 5
+    count: 2
+    update_time: 2019-05-17 04:52:38.565000+00:00
+- model: surveys19.populationage
+  pk: 22231
+  fields:
+    survey: 9805
+    gender: 2
+    age_scope: 5
+    count: 1
+    update_time: 2019-05-17 04:52:38.581000+00:00
+- model: surveys19.populationage
+  pk: 22268
+  fields:
+    survey: 9845
+    gender: 1
+    age_scope: 5
+    count: 1
+    update_time: 2019-05-17 04:52:50.097000+00:00
+- model: surveys19.populationage
+  pk: 22269
+  fields:
+    survey: 9845
+    gender: 2
+    age_scope: 5
+    count: 1
+    update_time: 2019-05-17 04:52:50.112000+00:00
+- model: surveys19.populationage
+  pk: 34272
+  fields:
+    survey: 15016
+    gender: 1
+    age_scope: 5
+    count: 4
+    update_time: 2019-05-31 05:48:32.142000+00:00
+- model: surveys19.populationage
+  pk: 34273
+  fields:
+    survey: 15016
+    gender: 2
+    age_scope: 5
+    count: 3
+    update_time: 2019-05-31 05:48:32.142000+00:00
+- model: surveys19.populationage
+  pk: 34288
+  fields:
+    survey: 15032
+    gender: 1
+    age_scope: 5
+    count: 3
+    update_time: 2019-05-31 05:48:37.048000+00:00
+- model: surveys19.populationage
+  pk: 34289
+  fields:
+    survey: 15032
+    gender: 2
+    age_scope: 5
+    count: 2
+    update_time: 2019-05-31 05:48:37.064000+00:00
+- model: surveys19.population
+  pk: 9133
+  fields:
+    survey: 2432
+    relationship: 1
+    gender: 2
+    birth_year: 63
+    education_level: 5
+    farmer_work_day: 8
+    life_style: 1
+    update_time: 2019-05-03 06:51:33.632000+00:00
+- model: surveys19.population
+  pk: 9134
+  fields:
+    survey: 2432
+    relationship: 2
+    gender: 1
+    birth_year: 60
+    education_level: 5
+    farmer_work_day: 8
+    life_style: 1
+    update_time: 2019-05-03 06:51:33.647000+00:00
+- model: surveys19.population
+  pk: 9135
+  fields:
+    survey: 2432
+    relationship: 5
+    gender: 1
+    birth_year: 88
+    education_level: 5
+    farmer_work_day: 3
+    life_style: 7
+    update_time: 2019-05-03 06:51:33.663000+00:00
+- model: surveys19.population
+  pk: 9136
+  fields:
+    survey: 2432
+    relationship: 5
+    gender: 1
+    birth_year: 89
+    education_level: 4
+    farmer_work_day: 3
+    life_style: 7
+    update_time: 2019-05-03 06:51:33.679000+00:00
+- model: surveys19.population
+  pk: 9137
+  fields:
+    survey: 2432
+    relationship: 5
+    gender: 2
+    birth_year: 91
+    education_level: 4
+    farmer_work_day: 3
+    life_style: 7
+    update_time: 2019-05-03 06:51:33.694000+00:00
+- model: surveys19.population
+  pk: 36606
+  fields:
+    survey: 9805
+    relationship: 1
+    gender: 2
+    birth_year: 49
+    education_level: 2
+    farmer_work_day: 7
+    life_style: 1
+    update_time: 2019-05-17 04:52:38.597000+00:00
+- model: surveys19.population
+  pk: 36607
+  fields:
+    survey: 9805
+    relationship: 5
+    gender: 1
+    birth_year: 72
+    education_level: 5
+    farmer_work_day: 2
+    life_style: 5
+    update_time: 2019-05-17 04:52:38.612000+00:00
+- model: surveys19.population
+  pk: 36608
+  fields:
+    survey: 9805
+    relationship: 5
+    gender: 1
+    birth_year: 73
+    education_level: 5
+    farmer_work_day: 2
+    life_style: 5
+    update_time: 2019-05-17 04:52:38.628000+00:00
+- model: surveys19.population
+  pk: 36675
+  fields:
+    survey: 9845
+    relationship: 1
+    gender: 1
+    birth_year: 61
+    education_level: 4
+    farmer_work_day: 8
+    life_style: 1
+    update_time: 2019-05-17 04:52:50.159000+00:00
+- model: surveys19.population
+  pk: 36676
+  fields:
+    survey: 9845
+    relationship: 3
+    gender: 2
+    birth_year: 34
+    education_level: 1
+    farmer_work_day: 3
+    life_style: 6
+    update_time: 2019-05-17 04:52:50.175000+00:00
+- model: surveys19.population
+  pk: 56361
+  fields:
+    survey: 15016
+    relationship: 1
+    gender: 1
+    birth_year: 27
+    education_level: 1
+    farmer_work_day: 4
+    life_style: 1
+    update_time: 2019-05-31 05:48:32.157000+00:00
+- model: surveys19.population
+  pk: 56362
+  fields:
+    survey: 15016
+    relationship: 2
+    gender: 2
+    birth_year: 28
+    education_level: 1
+    farmer_work_day: 2
+    life_style: 8
+    update_time: 2019-05-31 05:48:32.173000+00:00
+- model: surveys19.population
+  pk: 56363
+  fields:
+    survey: 15016
+    relationship: 5
+    gender: 1
+    birth_year: 51
+    education_level: 4
+    farmer_work_day: 6
+    life_style: 1
+    update_time: 2019-05-31 05:48:32.189000+00:00
+- model: surveys19.population
+  pk: 56364
+  fields:
+    survey: 15016
+    relationship: 5
+    gender: 2
+    birth_year: 53
+    education_level: 4
+    farmer_work_day: 6
+    life_style: 1
+    update_time: 2019-05-31 05:48:32.204000+00:00
+- model: surveys19.population
+  pk: 56365
+  fields:
+    survey: 15016
+    relationship: 6
+    gender: 1
+    birth_year: 77
+    education_level: 5
+    farmer_work_day: 2
+    life_style: 5
+    update_time: 2019-05-31 05:48:32.220000+00:00
+- model: surveys19.population
+  pk: 56366
+  fields:
+    survey: 15016
+    relationship: 6
+    gender: 2
+    birth_year: 81
+    education_level: 5
+    farmer_work_day: 1
+    life_style: 5
+    update_time: 2019-05-31 05:48:32.235000+00:00
+- model: surveys19.population
+  pk: 56367
+  fields:
+    survey: 15016
+    relationship: 6
+    gender: 1
+    birth_year: 82
+    education_level: 5
+    farmer_work_day: 2
+    life_style: 5
+    update_time: 2019-05-31 05:48:32.251000+00:00
+- model: surveys19.population
+  pk: 56394
+  fields:
+    survey: 15032
+    relationship: 1
+    gender: 1
+    birth_year: 60
+    education_level: 4
+    farmer_work_day: 8
+    life_style: 1
+    update_time: 2019-05-31 05:48:37.079000+00:00
+- model: surveys19.population
+  pk: 56395
+  fields:
+    survey: 15032
+    relationship: 2
+    gender: 2
+    birth_year: 64
+    education_level: 4
+    farmer_work_day: 7
+    life_style: 1
+    update_time: 2019-05-31 05:48:37.095000+00:00
+- model: surveys19.population
+  pk: 56396
+  fields:
+    survey: 15032
+    relationship: 3
+    gender: 1
+    birth_year: 39
+    education_level: 2
+    farmer_work_day: 8
+    life_style: 1
+    update_time: 2019-05-31 05:48:37.111000+00:00
+- model: surveys19.population
+  pk: 56397
+  fields:
+    survey: 15032
+    relationship: 3
+    gender: 2
+    birth_year: 39
+    education_level: 2
+    farmer_work_day: 7
+    life_style: 1
+    update_time: 2019-05-31 05:48:37.126000+00:00
+- model: surveys19.population
+  pk: 57266
+  fields:
+    survey: 15032
+    relationship: 5
+    gender: 1
+    birth_year: 86
+    education_level: 5
+    farmer_work_day: 2
+    life_style: 7
+    update_time: 2019-07-19 03:03:22.129000+00:00
+- model: surveys19.relationship
+  pk: 1
+  fields:
+    code: 1
+    name: "\u6236\u9577"
+    update_time: null
+- model: surveys19.relationship
+  pk: 2
+  fields:
+    code: 2
+    name: "\u6236\u9577\u4E4B\u914D\u5076"
+    update_time: null
+- model: surveys19.relationship
+  pk: 3
+  fields:
+    code: 3
+    name: "\u6236\u9577\u6216\u914D\u5076\u4E4B\u7236\u6BCD"
+    update_time: null
+- model: surveys19.relationship
+  pk: 4
+  fields:
+    code: 4
+    name: "\u6236\u9577\u6216\u914D\u5076\u4E4B\u5144\u5F1F\u59D0\u59B9\u53CA\u5176\u914D\u5076"
+    update_time: null
+- model: surveys19.relationship
+  pk: 5
+  fields:
+    code: 5
+    name: "\u6236\u9577\u4E4B\u5B50\u5973\u53CA\u5176\u914D\u5076"
+    update_time: null
+- model: surveys19.relationship
+  pk: 6
+  fields:
+    code: 6
+    name: "\u6236\u9577\u4E4B\u5B6B\u5B50\u5973\u53CA\u5176\u914D\u5076"
+    update_time: null
+- model: surveys19.relationship
+  pk: 7
+  fields:
+    code: 7
+    name: "\u6236\u9577\u6216\u914D\u5076\u4E4B\u7956\u7236\u6BCD"
+    update_time: null
+- model: surveys19.relationship
+  pk: 8
+  fields:
+    code: 8
+    name: "\u5176\u4ED6\u89AA\u5C6C"
+    update_time: null
+- model: surveys19.gender
+  pk: 1
+  fields:
+    code: 1
+    name: "\u7537"
+    update_time: null
+- model: surveys19.gender
+  pk: 2
+  fields:
+    code: 2
+    name: "\u5973"
+    update_time: null
+- model: surveys19.educationlevel
+  pk: 1
+  fields:
+    code: 1
+    name: "\u4E0D\u8B58\u5B57"
+    age: 0
+    update_time: null
+- model: surveys19.educationlevel
+  pk: 2
+  fields:
+    code: 2
+    name: "\u5C0F\u5B78\u53CA\u81EA\u4FEE"
+    age: 6
+    update_time: null
+- model: surveys19.educationlevel
+  pk: 3
+  fields:
+    code: 3
+    name: "\u570B(\u521D)\u4E2D(\u521D\u8077)"
+    age: 12
+    update_time: null
+- model: surveys19.educationlevel
+  pk: 4
+  fields:
+    code: 4
+    name: "\u9AD8\u4E2D(\u8077)"
+    age: 15
+    update_time: null
+- model: surveys19.educationlevel
+  pk: 5
+  fields:
+    code: 5
+    name: "\u5927\u5C08\u53CA\u4EE5\u4E0A"
+    age: 18
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 1
+  fields:
+    code: 1
+    name: "\u7121"
+    min_day: null
+    max_day: null
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 2
+  fields:
+    code: 2
+    name: "1\uFF5E29\u65E5"
+    min_day: 1
+    max_day: 29
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 3
+  fields:
+    code: 3
+    name: "30\uFF5E59\u65E5"
+    min_day: 30
+    max_day: 59
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 4
+  fields:
+    code: 4
+    name: "60\uFF5E89\u65E5"
+    min_day: 60
+    max_day: 89
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 5
+  fields:
+    code: 5
+    name: "90\uFF5E149\u65E5"
+    min_day: 90
+    max_day: 149
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 6
+  fields:
+    code: 6
+    name: "150\uFF5E179\u65E5"
+    min_day: 150
+    max_day: 179
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 7
+  fields:
+    code: 7
+    name: "180\uFF5E249\u65E5"
+    min_day: 180
+    max_day: 249
+    update_time: null
+- model: surveys19.farmerworkday
+  pk: 8
+  fields:
+    code: 8
+    name: "250\u65E5\u4EE5\u4E0A"
+    min_day: 250
+    max_day: 9999
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 1
+  fields:
+    code: 1
+    name: "\u81EA\u71DF\u8FB2\u7267\u696D\u5DE5\u4F5C"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 2
+  fields:
+    code: 2
+    name: "\u53D7\u50F1\u8FB2\u7267\u696D\u5DE5\u4F5C"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 3
+  fields:
+    code: 3
+    name: "\u53D7\u8A17\u63D0\u4F9B\u8FB2\u4E8B\u53CA\u755C\u7267\u670D\u52D9"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 4
+  fields:
+    code: 4
+    name: "\u81EA\u71DF\u8FB2\u7267\u696D\u5916\u5DE5\u4F5C"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 5
+  fields:
+    code: 5
+    name: "\u53D7\u50F1\u8FB2\u7267\u696D\u5916\u5DE5\u4F5C"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 6
+  fields:
+    code: 6
+    name: "\u6599\u7406\u5BB6\u52D9\u3001\u80B2\u5152"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 7
+  fields:
+    code: 7
+    name: "\u5B78\u751F"
+    update_time: null
+- model: surveys19.lifestyle
+  pk: 8
+  fields:
+    code: 8
+    name: "\u5176\u4ED6"
+    update_time: null
+- model: surveys19.longtermhire
+  pk: 470
+  fields:
+    survey: 2432
+    avg_work_day: 15.0
+    work_type: 3
+    update_time: 2019-05-03 06:51:33.710000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.longtermhire
+  pk: 471
+  fields:
+    survey: 2432
+    avg_work_day: 20.0
+    work_type: 4
+    update_time: 2019-05-03 06:51:33.960000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.longtermhire
+  pk: 3275
+  fields:
+    survey: 15032
+    avg_work_day: 10.0
+    work_type: 6
+    update_time: 2019-07-19 03:03:22.144000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.longtermhire
+  pk: 3276
+  fields:
+    survey: 15032
+    avg_work_day: 21.0
+    work_type: 6
+    update_time: 2019-07-19 03:03:22.316000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.shorttermhire
+  pk: 32003
+  fields:
+    survey: 15016
+    avg_work_day: 7.0
+    month: 3
+    update_time: 2019-07-10 07:13:06.881000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32004
+  fields:
+    survey: 15016
+    avg_work_day: 7.0
+    month: 4
+    update_time: 2019-07-10 07:13:06.928000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32005
+  fields:
+    survey: 15016
+    avg_work_day: 15.0
+    month: 6
+    update_time: 2019-07-10 07:13:06.944000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32006
+  fields:
+    survey: 15016
+    avg_work_day: 15.0
+    month: 7
+    update_time: 2019-07-10 07:13:06.975000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32007
+  fields:
+    survey: 15016
+    avg_work_day: 5.0
+    month: 11
+    update_time: 2019-07-10 07:13:06.990000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32008
+  fields:
+    survey: 15016
+    avg_work_day: 15.0
+    month: 12
+    update_time: 2019-07-10 07:13:07.037000+00:00
+    work_types:
+    - 2
+- model: surveys19.shorttermhire
+  pk: 32063
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 1
+    update_time: 2019-07-11 03:46:45.994000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32064
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 2
+    update_time: 2019-07-11 03:46:46.026000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32065
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 3
+    update_time: 2019-07-11 03:46:46.057000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32066
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 4
+    update_time: 2019-07-11 03:46:46.072000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32067
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 5
+    update_time: 2019-07-11 03:46:46.104000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32068
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 6
+    update_time: 2019-07-11 03:46:46.119000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32069
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 7
+    update_time: 2019-07-11 03:46:46.151000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32070
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 8
+    update_time: 2019-07-11 03:46:46.166000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32071
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 9
+    update_time: 2019-07-11 03:46:46.197000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32072
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 10
+    update_time: 2019-07-11 03:46:46.213000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32073
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 11
+    update_time: 2019-07-11 03:46:46.260000+00:00
+    work_types:
+    - 3
+- model: surveys19.shorttermhire
+  pk: 32074
+  fields:
+    survey: 9805
+    avg_work_day: 5.0
+    month: 12
+    update_time: 2019-07-11 03:46:46.291000+00:00
+    work_types:
+    - 3
+- model: surveys19.numberworkers
+  pk: 6726
+  fields:
+    content_type: 84
+    object_id: 470
+    age_scope: 2
+    count: 2
+    update_time: 2019-05-03 06:51:33.944000+00:00
+- model: surveys19.numberworkers
+  pk: 6727
+  fields:
+    content_type: 84
+    object_id: 471
+    age_scope: 3
+    count: 2
+    update_time: 2019-05-03 06:51:34.163000+00:00
+- model: surveys19.numberworkers
+  pk: 45546
+  fields:
+    content_type: 75
+    object_id: 32003
+    age_scope: 2
+    count: 2
+    update_time: 2019-07-10 07:13:06.912000+00:00
+- model: surveys19.numberworkers
+  pk: 45547
+  fields:
+    content_type: 75
+    object_id: 32003
+    age_scope: 3
+    count: 2
+    update_time: 2019-07-10 07:13:06.912000+00:00
+- model: surveys19.numberworkers
+  pk: 45548
+  fields:
+    content_type: 75
+    object_id: 32004
+    age_scope: 2
+    count: 2
+    update_time: 2019-07-10 07:13:06.928000+00:00
+- model: surveys19.numberworkers
+  pk: 45549
+  fields:
+    content_type: 75
+    object_id: 32004
+    age_scope: 3
+    count: 2
+    update_time: 2019-07-10 07:13:06.944000+00:00
+- model: surveys19.numberworkers
+  pk: 45550
+  fields:
+    content_type: 75
+    object_id: 32005
+    age_scope: 2
+    count: 1
+    update_time: 2019-07-10 07:13:06.959000+00:00
+- model: surveys19.numberworkers
+  pk: 45551
+  fields:
+    content_type: 75
+    object_id: 32005
+    age_scope: 3
+    count: 1
+    update_time: 2019-07-10 07:13:06.959000+00:00
+- model: surveys19.numberworkers
+  pk: 45552
+  fields:
+    content_type: 75
+    object_id: 32006
+    age_scope: 2
+    count: 1
+    update_time: 2019-07-10 07:13:06.975000+00:00
+- model: surveys19.numberworkers
+  pk: 45553
+  fields:
+    content_type: 75
+    object_id: 32006
+    age_scope: 3
+    count: 1
+    update_time: 2019-07-10 07:13:06.990000+00:00
+- model: surveys19.numberworkers
+  pk: 45554
+  fields:
+    content_type: 75
+    object_id: 32007
+    age_scope: 2
+    count: 2
+    update_time: 2019-07-10 07:13:07.022000+00:00
+- model: surveys19.numberworkers
+  pk: 45555
+  fields:
+    content_type: 75
+    object_id: 32008
+    age_scope: 2
+    count: 2
+    update_time: 2019-07-10 07:13:07.053000+00:00
+- model: surveys19.numberworkers
+  pk: 45556
+  fields:
+    content_type: 75
+    object_id: 32008
+    age_scope: 3
+    count: 2
+    update_time: 2019-07-10 07:13:07.053000+00:00
+- model: surveys19.numberworkers
+  pk: 45732
+  fields:
+    content_type: 75
+    object_id: 32063
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.026000+00:00
+- model: surveys19.numberworkers
+  pk: 45733
+  fields:
+    content_type: 75
+    object_id: 32064
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.041000+00:00
+- model: surveys19.numberworkers
+  pk: 45734
+  fields:
+    content_type: 75
+    object_id: 32065
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.072000+00:00
+- model: surveys19.numberworkers
+  pk: 45735
+  fields:
+    content_type: 75
+    object_id: 32066
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.088000+00:00
+- model: surveys19.numberworkers
+  pk: 45736
+  fields:
+    content_type: 75
+    object_id: 32067
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.119000+00:00
+- model: surveys19.numberworkers
+  pk: 45737
+  fields:
+    content_type: 75
+    object_id: 32068
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.135000+00:00
+- model: surveys19.numberworkers
+  pk: 45738
+  fields:
+    content_type: 75
+    object_id: 32069
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.166000+00:00
+- model: surveys19.numberworkers
+  pk: 45739
+  fields:
+    content_type: 75
+    object_id: 32070
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.182000+00:00
+- model: surveys19.numberworkers
+  pk: 45740
+  fields:
+    content_type: 75
+    object_id: 32071
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.213000+00:00
+- model: surveys19.numberworkers
+  pk: 45741
+  fields:
+    content_type: 75
+    object_id: 32072
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.244000+00:00
+- model: surveys19.numberworkers
+  pk: 45742
+  fields:
+    content_type: 75
+    object_id: 32073
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.276000+00:00
+- model: surveys19.numberworkers
+  pk: 45743
+  fields:
+    content_type: 75
+    object_id: 32074
+    age_scope: 3
+    count: 3
+    update_time: 2019-07-11 03:46:46.307000+00:00
+- model: surveys19.numberworkers
+  pk: 45952
+  fields:
+    content_type: 84
+    object_id: 3275
+    age_scope: 2
+    count: 2
+    update_time: 2019-07-19 03:03:22.300000+00:00
+- model: surveys19.numberworkers
+  pk: 45953
+  fields:
+    content_type: 84
+    object_id: 3276
+    age_scope: 2
+    count: 2
+    update_time: 2019-07-19 03:03:22.441000+00:00
+- model: surveys19.lack
+  pk: 1
+  fields:
+    name: "107\u5E74\u6709\u4EBA\u529B\u4F46\u4E0D\u7A69\u5B9A\u6216\u672A\u4F86\u6709\u7F3A\u5DE5\u53EF\u80FD"
+    is_lack: false
+    update_time: null
+- model: surveys19.lack
+  pk: 2
+  fields:
+    name: "107\u5E74\u6709\u4EBA\u529B\u4F46\u82E5\u589E\u52A0\u4EBA\u529B\u53EF\u7E2E\u77ED\u5DE5\u4F5C\u65E5\u6578\u6216\u64F4\u5145\u7522\u80FD"
+    is_lack: false
+    update_time: null
+- model: surveys19.lack
+  pk: 3
+  fields:
+    name: "107\u6709\u7F3A\u5DE5\uFF08\u4E0D\u542B\u4EE5\u4E0A\u5169\u7A2E\u96B1\u85CF\u6027\u77ED\u7F3A\u4EBA\u529B\uFF09"
+    is_lack: true
+    update_time: null
+- model: surveys19.lack
+  pk: 4
+  fields:
+    name: "107\u5E74\u4EBA\u529B\u5DF2\u8DB3"
+    is_lack: false
+    update_time: null
+- model: surveys19.longtermlack
+  pk: 174
+  fields:
+    survey: 2432
+    work_type: 2
+    count: 1
+    avg_lack_day: 15.0
+    update_time: 2019-05-03 06:51:34.179000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.longtermlack
+  pk: 175
+  fields:
+    survey: 2432
+    work_type: 3
+    count: 2
+    avg_lack_day: 20.0
+    update_time: 2019-05-03 06:51:34.335000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.longtermlack
+  pk: 1400
+  fields:
+    survey: 15032
+    work_type: 6
+    count: 1
+    avg_lack_day: 21.0
+    update_time: 2019-07-19 03:03:57.926000+00:00
+    months:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+- model: surveys19.worktype
+  pk: 1
+  fields:
+    code: 11
+    name: "\u8FB2\u696D\u6A5F\u68B0\u64CD\u4F5C\u696D\u8005"
+    update_time: null
+- model: surveys19.worktype
+  pk: 2
+  fields:
+    code: 12
+    name: "\u7530\u9593\u52DE\u52D5\u6280\u8853\u5DE5"
+    update_time: null
+- model: surveys19.worktype
+  pk: 3
+  fields:
+    code: 13
+    name: "\u7530\u9593\u52DE\u52D5\u9AD4\u529B\u5DE5"
+    update_time: null
+- model: surveys19.worktype
+  pk: 4
+  fields:
+    code: 14
+    name: "\u8FB2\u7522\u54C1\u5206\u7D1A\u3001\u5305\u88DD\u53CA\u5176\u4ED6\u52A0\u5DE5"
+    update_time: null
+- model: surveys19.worktype
+  pk: 5
+  fields:
+    code: 21
+    name: "\u755C\u7267\u5834\u5C08\u696D\u6280\u8853\u5DE5"
+    update_time: null
+- model: surveys19.worktype
+  pk: 6
+  fields:
+    code: 22
+    name: "\u755C\u7267\u5834\u52DE\u52D9\u9AD4\u529B\u5DE5"
+    update_time: null
+- model: surveys19.worktype
+  pk: 7
+  fields:
+    code: 30
+    name: "\u5354\u52A9\u7BA1\u7406\u8FB2\u696D\u7D93\u71DF\u4E4B\u4E3B\u7BA1"
+    update_time: null
+- model: surveys19.subsidy
+  pk: 2355
+  fields:
+    survey: 2432
+    has_subsidy: false
+    none_subsidy: true
+    count: 0
+    month_delta: 0
+    day_delta: 0
+    update_time: 2019-05-23 06:52:33.658000+00:00
+- model: surveys19.subsidy
+  pk: 9612
+  fields:
+    survey: 9805
+    has_subsidy: false
+    none_subsidy: true
+    count: 0
+    month_delta: 0
+    day_delta: 0
+    update_time: 2019-07-11 03:48:38.317000+00:00
+- model: surveys19.subsidy
+  pk: 9628
+  fields:
+    survey: 9845
+    has_subsidy: false
+    none_subsidy: true
+    count: 0
+    month_delta: 0
+    day_delta: 0
+    update_time: 2019-07-12 02:39:39.752000+00:00
+- model: surveys19.subsidy
+  pk: 14656
+  fields:
+    survey: 15016
+    has_subsidy: false
+    none_subsidy: true
+    count: 0
+    month_delta: 0
+    day_delta: 0
+    update_time: 2019-07-10 07:25:13.503000+00:00
+- model: surveys19.subsidy
+  pk: 14664
+  fields:
+    survey: 15032
+    has_subsidy: false
+    none_subsidy: true
+    count: 0
+    month_delta: 0
+    day_delta: 0
+    update_time: 2019-07-19 03:04:17.473000+00:00
+- model: surveys19.refuse
+  pk: 2147
+  fields:
+    subsidy: 2355
+    reason: 2
+    extra: "\u672C\u8FB2\u5834\u7F3A\u4E4F\u7684\u662F\u7530\u9593\u52DE\u529B\u9AD4\u529B\u5DE5\uFF0C\u8207\u8015\u65B0\u5718\u63D0\u4F9B\u670D\u52D9\u7684\u6027\u8CEA\u4E0D\u540C"
+    update_time: 2019-05-03 06:51:34.507000+00:00
+- model: surveys19.refuse
+  pk: 8768
+  fields:
+    subsidy: 9612
+    reason: 2
+    extra: "\u4EBA\u529B\u5DF2\u8DB3\u5920"
+    update_time: 2019-05-17 04:52:38.659000+00:00
+- model: surveys19.refuse
+  pk: 8784
+  fields:
+    subsidy: 9628
+    reason: 2
+    extra: "\u4EBA\u529B\u5DF2\u8DB3\u5920"
+    update_time: 2019-05-17 04:52:50.206000+00:00
+- model: surveys19.refuse
+  pk: 13125
+  fields:
+    subsidy: 14656
+    reason: 1
+    extra: null
+    update_time: 2019-05-31 05:48:32.282000+00:00
+- model: surveys19.refuse
+  pk: 13133
+  fields:
+    subsidy: 14664
+    reason: 1
+    extra: null
+    update_time: 2019-05-31 05:48:37.157000+00:00
+- model: surveys19.refusereason
+  pk: 1
+  fields:
+    name: "\u4E0D\u77E5\u9053\u6B64\u8CC7\u8A0A"
+    has_extra: false
+    update_time: null
+- model: surveys19.refusereason
+  pk: 2
+  fields:
+    name: "\u6C92\u6709\u610F\u9858"
+    has_extra: true
+    update_time: null
+- model: surveys19.refusereason
+  pk: 3
+  fields:
+    name: "\u5176\u4ED6"
+    has_extra: true
+    update_time: null
+- model: surveys19.month
+  pk: 1
+  fields:
+    name: "1\u6708"
+    value: 1
+    update_time: null
+- model: surveys19.month
+  pk: 2
+  fields:
+    name: "2\u6708"
+    value: 2
+    update_time: null
+- model: surveys19.month
+  pk: 3
+  fields:
+    name: "3\u6708"
+    value: 3
+    update_time: null
+- model: surveys19.month
+  pk: 4
+  fields:
+    name: "4\u6708"
+    value: 4
+    update_time: null
+- model: surveys19.month
+  pk: 5
+  fields:
+    name: "5\u6708"
+    value: 5
+    update_time: null
+- model: surveys19.month
+  pk: 6
+  fields:
+    name: "6\u6708"
+    value: 6
+    update_time: null
+- model: surveys19.month
+  pk: 7
+  fields:
+    name: "7\u6708"
+    value: 7
+    update_time: null
+- model: surveys19.month
+  pk: 8
+  fields:
+    name: "8\u6708"
+    value: 8
+    update_time: null
+- model: surveys19.month
+  pk: 9
+  fields:
+    name: "9\u6708"
+    value: 9
+    update_time: null
+- model: surveys19.month
+  pk: 10
+  fields:
+    name: "10\u6708"
+    value: 10
+    update_time: null
+- model: surveys19.month
+  pk: 11
+  fields:
+    name: "11\u6708"
+    value: 11
+    update_time: null
+- model: surveys19.month
+  pk: 12
+  fields:
+    name: "12\u6708"
+    value: 12
+    update_time: null
