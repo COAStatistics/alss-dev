@@ -3,6 +3,8 @@ from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
+from captcha.fields import CaptchaField
+
 from apps.users.models import User
 
 
@@ -17,6 +19,7 @@ class UserLoginForm(forms.Form):
     is_active = forms.BooleanField(
         widget=forms.HiddenInput, required=False, initial=True
     )
+    captcha = CaptchaField()
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get("username")

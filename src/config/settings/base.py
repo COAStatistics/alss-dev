@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "date_range_filter",
     "rest_framework.authtoken",
     "drf_yasg",
+    "captcha",
     # local
     "apps.users",
     "apps.logs",
