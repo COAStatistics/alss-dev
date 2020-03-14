@@ -107,6 +107,8 @@ var SurveyHelper = {
         this.Hire.Setup();
         this.Lack.Setup();
         this.Second.Setup();
+        this.MainIncomeSource.Setup();
+        this.KnownSubsidy.Setup();
 
         this.FarmerName.Bind();
         this.Phone.Bind();
@@ -116,6 +118,8 @@ var SurveyHelper = {
         this.Lack.Bind();
         this.Note.Bind();
         this.Second.Bind();
+        this.MainIncomeSource.Bind();
+        this.KnownSubsidy.Bind();
     },
     Reset: function () {
         if (this.Alert) { this.Alert.reset(); }
@@ -130,6 +134,8 @@ var SurveyHelper = {
         this.Lack.Reset();
         this.Note.Reset();
         this.Second.Reset();
+        this.MainIncomeSource.Reset();
+        this.KnownSubsidy.Reset();
     },
     Set: function (obj) {
         this.Investigator.Set(obj);
@@ -143,6 +149,8 @@ var SurveyHelper = {
         this.Lack.Set(obj);
         this.Note.Set(obj);
         this.Second.Set(obj);
+        this.MainIncomeSource.Set(obj);
+        this.KnownSubsidy.Set(obj);
     },
     Investigator: {
         Container: $('#panel1 input[name="investigator"]'),
@@ -416,11 +424,11 @@ var SurveyHelper = {
                     var exists = LongTermLackHelper.LongTermLack.Container.find('tr').length +
                                  ShortTermLackHelper.ShortTermLack.Container.find('tr').length > 0;
                     var con = checked.length == 1 && checked.data('lackId') == 3 && !exists;
-                    msg = '若勾選「108年有缺工」，【問項3.2.2及3.2.3】不應為空白';
+                    msg = '若勾選「107年有缺工」，【問項3.2.2及3.2.3】不應為空白';
                     Helper.LogHandler.Log(con, SurveyHelper.Lack.Alert, msg, this.Guids[0]);
 
                     var con = checked.length == 1 && checked.data('lackId') == 4 && exists;
-                    msg = '若勾選「108年人力已足」，【問項3.2.2及3.2.3】應為空白';
+                    msg = '若勾選「107年人力已足」，【問項3.2.2及3.2.3】應為空白';
                     Helper.LogHandler.Log(con, SurveyHelper.Lack.Alert, msg, this.Guids[1]);
                 },
             },
@@ -528,6 +536,60 @@ var SurveyHelper = {
             },
         }
     },
+    MainIncomeSource: {
+        Alert: null,
+        Setup: function(){
+            this.Alert = new Helper.Alert($('.alert-danger[name="mainincomesource"]'));
+        },
+        Container: $('#panel2 input[name="mainincomesource"]'),
+        Bind: function(){
+            this.Container.change(function(){
+                if(CloneData) {
+                    var field = $(this).data('field');
+                    if(field == 'mainincomesource')
+                        CloneData[MainSurveyId].main_income_source = this.checked;
+                    else if(field == 'nonmainincomesource')
+                        CloneData[MainSurveyId].non_main_income_source = this.checked;
+
+                    if(Helper.LogHandler.ValidationActive){
+                        SurveyHelper.MainIncomeSource.Validation.Empty.Validate();
+                        SurveyHelper.MainIncomeSource.Validation.Duplicate.Validate();
+                    }
+                }
+            })
+        },
+        Set: function (obj) {
+            this.Container.filter('[data-field="mainincomesource"]').prop('checked', obj.main_income_source);
+            this.Container.filter('[data-field="nonmainincomesource"]').prop('checked', obj.non_main_income_source);
+
+            if(Helper.LogHandler.ValidationActive){
+                SurveyHelper.MainIncomeSource.Validation.Empty.Validate();
+                SurveyHelper.MainIncomeSource.Validation.Duplicate.Validate();
+            }
+        },
+        Reset: function(){
+            if (this.Alert) { this.Alert.reset(); }
+            this.Container.prop('checked', false);
+        },
+        Validation: {
+            Empty: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.MainIncomeSource.Container.filter(':checked').length == 0;
+                    var msg = '不可漏填此問項';
+                    Helper.LogHandler.Log(con, SurveyHelper.MainIncomeSource.Alert, msg, this.Guids[0], null, false);
+                },
+            },
+            Duplicate: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.MainIncomeSource.Container.filter(':checked').length > 1;
+                    var msg = '全年主要淨收入來源情形不得重複勾選';
+                    Helper.LogHandler.Log(con, SurveyHelper.MainIncomeSource.Alert, msg, this.Guids[0], null, false);
+                },
+            },
+        },
+    },
     Second: {
         Alert: null,
         Setup: function(){
@@ -597,6 +659,60 @@ var SurveyHelper = {
                     var con = checked && !exists;
                     var msg = '勾選「有」者，【問項2.2】戶內人口應有「出生年次」介於62年至89年之間且「主要生活型態」勾選「自營農牧業工作」';
                     Helper.LogHandler.Log(con, SurveyHelper.Second.Alert, msg, this.Guids[0]);
+                },
+            },
+        },
+    },
+    KnownSubsidy: {
+        Alert: null,
+        Setup: function(){
+            this.Alert = new Helper.Alert($('.alert-danger[name="knownsubsidy"]'));
+        },
+        Container: $('#panel4 input[name="knownsubsidy"]'),
+        Bind: function(){
+            this.Container.change(function(){
+                if(CloneData) {
+                    var field = $(this).data('field');
+                    if(field == 'knownsubsidy')
+                        CloneData[MainSurveyId].known_subsidy = this.checked;
+                    else if(field == 'nonknownsubsidy')
+                        CloneData[MainSurveyId].non_known_subsidy = this.checked;
+
+                    if(Helper.LogHandler.ValidationActive){
+                        SurveyHelper.KnownSubsidy.Validation.Empty.Validate();
+                        SurveyHelper.KnownSubsidy.Validation.Duplicate.Validate();
+                    }
+                }
+            })
+        },
+        Set: function (obj) {
+            this.Container.filter('[data-field="knownsubsidy"]').prop('checked', obj.known_subsidy);
+            this.Container.filter('[data-field="nonknownsubsidy"]').prop('checked', obj.non_known_subsidy);
+
+            if(Helper.LogHandler.ValidationActive){
+                SurveyHelper.KnownSubsidy.Validation.Empty.Validate();
+                SurveyHelper.KnownSubsidy.Validation.Duplicate.Validate();
+            }
+        },
+        Reset: function(){
+            if (this.Alert) { this.Alert.reset(); }
+            this.Container.prop('checked', false);
+        },
+        Validation: {
+            Empty: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.KnownSubsidy.Container.filter(':checked').length == 0;
+                    var msg = '不可漏填此問項';
+                    Helper.LogHandler.Log(con, SurveyHelper.KnownSubsidy.Alert, msg, this.Guids[0], null, false);
+                },
+            },
+            Duplicate: {
+                Guids: Helper.Guid.CreateMulti(),
+                Validate: function(){
+                    var con = SurveyHelper.KnownSubsidy.Container.filter(':checked').length > 1;
+                    var msg = '是否有聽過可透過農會申請人力團不得重複勾選';
+                    Helper.LogHandler.Log(con, SurveyHelper.KnownSubsidy.Alert, msg, this.Guids[0], null, false);
                 },
             },
         },
@@ -1361,7 +1477,7 @@ var CropMarketingHelper = {
     Adder: {
         Container: $('.js-add-row[name="cropmarketing"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = CropMarketingHelper.CropMarketing.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].crop_marketings.push(obj);
@@ -1727,7 +1843,7 @@ var LivestockMarketingHelper = {
     Adder: {
         Container: $('.js-add-row[name="livestockmarketing"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = LivestockMarketingHelper.LivestockMarketing.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].livestock_marketings.push(obj);
@@ -2209,7 +2325,7 @@ var PopulationHelper = {
     Adder: {
         Container: $('.js-add-row[name="population"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = PopulationHelper.Population.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].populations.push(obj);
@@ -2259,8 +2375,8 @@ var PopulationHelper = {
                 var index = PopulationHelper.Population.Container.find('tr').index($row) + 1;
                 var year = $row.find('[name="birthyear"]').val();
                 if(year == '') return;
-                var con = parseInt(year) < 1 || parseInt(year) > 92 || !Helper.NumberValidate(year);
-                var msg = '第<i class="row-index">{0}</i>列出生年次應介於1年至92年之間（實足年齡滿15歲）'.format(index);
+                var con = parseInt(year) < 1 || parseInt(year) > 93 || !Helper.NumberValidate(year);
+                var msg = '第<i class="row-index">{0}</i>列出生年次應介於1年至93年之間（實足年齡滿15歲）'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Alert, msg, this.Guids[0], guid);
             },
         },
@@ -2480,7 +2596,7 @@ var LongTermHireHelper = {
     Adder: {
         Container: $('.js-add-row[name="longtermhire"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = LongTermHireHelper.LongTermHire.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].long_term_hires.push(obj);
@@ -2692,7 +2808,7 @@ var ShortTermHireHelper = {
     Adder: {
         Container: $('.js-add-row[name="shorttermhire"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = ShortTermHireHelper.ShortTermHire.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].short_term_hires.push(obj);
@@ -2867,7 +2983,7 @@ var NoSalaryHireHelper = {
     Adder: {
         Container: $('.js-add-row[name="nosalaryhire"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = NoSalaryHireHelper.NoSalaryHire.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].no_salary_hires.push(obj);
@@ -3018,7 +3134,7 @@ var LongTermLackHelper = {
     Adder: {
         Container: $('.js-add-row[name="longtermlack"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = LongTermLackHelper.LongTermLack.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].long_term_lacks.push(obj);
@@ -3216,7 +3332,7 @@ var ShortTermLackHelper = {
     Adder: {
         Container: $('.js-add-row[name="shorttermlack"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = ShortTermLackHelper.ShortTermLack.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].short_term_lacks.push(obj);
@@ -3302,18 +3418,12 @@ var SubsidyHelper = {
     Container: {
         HasSubsidy: $('#panel4 input[name="hassubsidy"]'),
         NoneSubsidy: $('#panel4 input[name="nonesubsidy"]'),
-        Count: $('#panel4 input[name="count"]'),
-        Month: $('#panel4 input[name="monthdelta"]'),
-        Day: $('#panel4 input[name="daydelta"]'),
         RefuseReason: $('#panel4 input[name="refusereason"]'),
         Extra: $('#panel4 input[name="extra"]'),
     },
     Set: function(obj){
         this.Container.HasSubsidy.prop('checked', obj.has_subsidy);
         this.Container.NoneSubsidy.prop('checked', obj.none_subsidy);
-        this.Container.Count.val(obj.count);
-        this.Container.Month.val(obj.month_delta);
-        this.Container.Day.val(obj.day_delta);
         obj.refuses.forEach(function(refuse, i){
             SubsidyHelper.Container.RefuseReason
             .filter('[ data-refusereason-id="{0}"]'.format(refuse.reason))
@@ -3328,38 +3438,21 @@ var SubsidyHelper = {
         if(Helper.LogHandler.ValidationActive){
             SubsidyHelper.Validation.Empty.Validate();
             SubsidyHelper.Validation.Duplicate.Validate();
-            SubsidyHelper.Validation.ValidDay.Validate();
         }
     },
     Reset: function(){
         this.Container.HasSubsidy.prop('checked', false);
         this.Container.NoneSubsidy.prop('checked', false);
-        this.Container.Count.val('');
-        this.Container.Month.val('');
-        this.Container.Day.val('');
         this.Container.RefuseReason.prop('checked', false);
         this.Container.RefuseReason.attr('data-refuse-id', '');
         this.Container.Extra.val('');
         this.Container.Extra.attr('data-refuse-id', '');
     },
     Bind: function(){
-        Helper.BindIntegerOnly(this.Container.Count);
-        Helper.BindIntegerOnly(this.Container.Month);
-        Helper.BindIntegerOnly(this.Container.Day);
         this.Container.HasSubsidy.change(function(){
-            if(CloneData){
-                var checked = $(this).prop('checked');
-                CloneData[MainSurveyId].subsidy.has_subsidy = checked;
-                if(!checked){
-                    SubsidyHelper.Container.Count.val('').trigger('change');
-                    SubsidyHelper.Container.Month.val('').trigger('change');
-                    SubsidyHelper.Container.Day.val('').trigger('change');
-                }
-                if(Helper.LogHandler.ValidationActive){
-                    SubsidyHelper.Validation.Empty.Validate();
-                    SubsidyHelper.Validation.Duplicate.Validate();
-                    SubsidyHelper.Validation.ValidDay.Validate();
-                }
+            if(Helper.LogHandler.ValidationActive){
+                SubsidyHelper.Validation.Empty.Validate();
+                SubsidyHelper.Validation.Duplicate.Validate();
             }
         })
         this.Container.NoneSubsidy.change(function(){
@@ -3373,31 +3466,6 @@ var SubsidyHelper = {
                 if(Helper.LogHandler.ValidationActive){
                     SubsidyHelper.Validation.Empty.Validate();
                     SubsidyHelper.Validation.Duplicate.Validate();
-                    SubsidyHelper.Validation.ValidDay.Validate();
-                }
-            }
-        })
-        this.Container.Count.change(function(){
-            if(CloneData){
-                CloneData[MainSurveyId].subsidy.count = parseInt($(this).val());
-                if(Helper.LogHandler.ValidationActive){
-                    SubsidyHelper.Validation.Empty.Validate();
-                }
-            }
-        })
-        this.Container.Month.change(function(){
-            if(CloneData){
-                CloneData[MainSurveyId].subsidy.month_delta = parseInt($(this).val());
-                if(Helper.LogHandler.ValidationActive){
-                    SubsidyHelper.Validation.ValidDay.Validate();
-                }
-            }
-        })
-        this.Container.Day.change(function(){
-            if(CloneData){
-                CloneData[MainSurveyId].subsidy.day_delta = parseInt($(this).val());
-                if(Helper.LogHandler.ValidationActive){
-                    SubsidyHelper.Validation.ValidDay.Validate();
                 }
             }
         })
@@ -3466,11 +3534,6 @@ var SubsidyHelper = {
                 var con = !hasSubsidy && !noneSubsidy;
                 var msg = '不可漏填此問項';
                 Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
-
-                var count = SubsidyHelper.Container.Count.val();
-                var con = hasSubsidy && (!count || count == '0');
-                var msg = '申請人數不可為 0 或空白';
-                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[1], null, false);
             },
         },
         Duplicate: {
@@ -3482,26 +3545,6 @@ var SubsidyHelper = {
                 var con = hasSubsidy && (noneSubsidy || refuseReasons);
                 var msg = '有申請及無申請不得重複勾選';
                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
-            },
-        },
-        ValidDay: {
-            Guids: Helper.Guid.CreateMulti(1),
-            Validate: function(){
-                var hasSubsidy = SubsidyHelper.Container.HasSubsidy.prop('checked');
-                var month = SubsidyHelper.Container.Month.val();
-                var day = SubsidyHelper.Container.Day.val();
-
-                var sum = 0;
-                if(Helper.NumberValidate(month)) sum += parseInt(month) * 30;
-                if(Helper.NumberValidate(day)) sum += parseInt(day);
-
-                var con = hasSubsidy && sum > 360;
-                var msg = '申請總時間超過360日';
-                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
-
-                var con = hasSubsidy && sum == 0;
-                var msg = '申請總時間不可為0';
-                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[1], null, false);
             },
         },
     },

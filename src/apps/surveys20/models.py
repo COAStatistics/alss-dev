@@ -45,8 +45,10 @@ class Survey(Model):
     origin_class = IntegerField(null=True, blank=True, verbose_name=_("Origin Class"))
     second = BooleanField(default=False, verbose_name=_("Second"))
     non_second = BooleanField(default=False, verbose_name=_("Non Second"))
-    mainincome_farmer = BooleanField(default=False, verbose_name=_("Main Income Farmer"))
-    mainincome_not_farmer = BooleanField(default=False, verbose_name=_("Main Income Not Farmer"))
+    main_income_source = BooleanField(default=False, verbose_name=_("Main Income Source"))
+    non_main_income_source = BooleanField(default=False, verbose_name=_("Non Main Income Source"))
+    known_subsidy = BooleanField(default=False, verbose_name=_("Known Subsidy"))
+    non_known_subsidy = BooleanField(default=False, verbose_name=_("Non Known Subsidy"))
     hire = BooleanField(default=False, verbose_name=_("Hire"))
     non_hire = BooleanField(default=False, verbose_name=_("Non Hire"))
     lacks = ManyToManyField(
@@ -1358,29 +1360,6 @@ class WorkType(Model):
     class Meta:
         verbose_name = _("WorkType")
         verbose_name_plural = _("WorkType")
-
-    def __str__(self):
-        return str(self.name)
-
-
-class KnownSubsidy(Model):
-    """
-    New of 108, surveys20
-    Table 3.3.1
-    """
-
-    survey = OneToOneField(
-        "surveys20.Survey",
-        related_name="knowm_subsidy",
-        on_delete=CASCADE,
-        verbose_name=_("Survey"),
-    )
-    known = BooleanField(default=False, verbose_name=_("Known"))
-    unknown = BooleanField(default=False, verbose_name=_("Unknown"))
-
-    class Meta:
-        verbose_name = _("KnownSubsidy")
-        verbose_name_plural = _("KnownSubsidy")
 
     def __str__(self):
         return str(self.name)

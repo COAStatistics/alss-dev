@@ -40,7 +40,6 @@ from .models import (
     LongTermLack,
     ShortTermLack,
     WorkType,
-    KnownSubsidy,
     Subsidy,
     Refuse,
     RefuseReason,
@@ -168,7 +167,6 @@ admin.site.register(Lack)
 admin.site.register(LongTermLack)
 admin.site.register(ShortTermLack)
 admin.site.register(WorkType)
-admin.site.register(KnownSubsidy)
 admin.site.register(Subsidy)
 admin.site.register(Refuse)
 admin.site.register(RefuseReason)

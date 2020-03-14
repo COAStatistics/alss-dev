@@ -7,7 +7,8 @@
     page: 1
     origin_class: 67
     second: True
-    mainincome_farmer: True
+    main_income_source: True
+    non_known_subsidy: True
     hire: True
     lacks: [3]
     management_types: [11]
@@ -456,13 +457,6 @@
     count: 2
     months: [2, 3]
     avg_lack_day: 2
-
-- model: surveys20.KnownSubsidy
-  pk: 1
-  fields:
-    survey: 1
-    known: True
-    unknown: False
 
 - model: surveys20.Subsidy
   pk: 1

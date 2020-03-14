@@ -18,8 +18,6 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 
 from config.viewsets import StandardViewSet
 
-from apps.users.models import User
-# from apps.surveys20.export import SurveyRelationGeneratorFactory
 from apps.surveys20.models import (
     Survey,
     Phone,
