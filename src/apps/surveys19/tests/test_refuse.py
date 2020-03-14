@@ -1,6 +1,5 @@
-from django.test import TestCase
-from .setup import setup_fixtures
-from apps.surveys19.models import Survey, Subsidy, Refuse, RefuseReason
+from . import TestCase, setup_fixtures
+from apps.surveys19.models import Survey, Subsidy, Refuse
 
 
 class RefuseTestCase(TestCase):

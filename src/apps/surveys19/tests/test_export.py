@@ -1,6 +1,7 @@
-from django.test import TestCase
 from django.core.management import call_command
 from apps.surveys19.export import SurveyRelationGeneratorFactory
+
+from . import TestCase
 
 
 class ExportTestCase(TestCase):

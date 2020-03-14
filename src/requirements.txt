@@ -13,3 +13,4 @@ drf-yasg==1.17.1
 django-suit==0.2.28
 whitenoise==5.0.1
 six==1.14.0
+pytest-django==3.8.0

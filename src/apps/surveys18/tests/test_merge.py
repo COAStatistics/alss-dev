@@ -1,14 +1,8 @@
-from django.test import TestCase
-from .setup import setup_fixtures
+from . import TestCase, setup_fixtures
 
 from apps.surveys18.builder.tokenizer_labor import Builder as LaborBuilder
 from apps.surveys18.builder.tokenizer_specialty import Builder as SpecialtyBuilder
 
-from apps.surveys18.builder.exceptions import (
-    SignError,
-    StringLengthError,
-    CreateModelError,
-)
 from apps.surveys18.models import Survey, CropMarketing, LivestockMarketing
 
 

@@ -1,12 +1,9 @@
-from django.test import TestCase
-from .setup import setup_fixtures
+from . import TestCase, setup_fixtures
 from apps.surveys19.models import (
     Survey,
     LandArea,
     LandType,
     LandStatus,
-    Unit,
-    ProductType,
 )
 
 

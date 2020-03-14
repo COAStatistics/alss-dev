@@ -13,6 +13,6 @@ script:
   # Code styles
   - docker-compose exec web sh -c "flake8 --exclude=migrations --ignore=E121,E203,E226,E402,E501,F401,F403,W503 ./"
   # Run tests
-  - docker-compose exec web sh -c "python manage.py test"
+  - docker-compose exec web pytest
   # Show logs
   - docker-compose logs --tail=20 web

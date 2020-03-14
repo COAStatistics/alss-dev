@@ -1,5 +1,4 @@
-from django.test import TestCase
-from .setup import setup_fixtures
+from . import TestCase, setup_fixtures
 from apps.surveys18.models import Survey, LongTermHire, WorkType
 
 
