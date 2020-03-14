@@ -1361,7 +1361,7 @@ var CropMarketingHelper = {
     Adder: {
         Container: $('.js-add-row[name="cropmarketing"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = CropMarketingHelper.CropMarketing.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].crop_marketings.push(obj);
@@ -1727,7 +1727,7 @@ var LivestockMarketingHelper = {
     Adder: {
         Container: $('.js-add-row[name="livestockmarketing"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = LivestockMarketingHelper.LivestockMarketing.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].livestock_marketings.push(obj);
@@ -2209,7 +2209,7 @@ var PopulationHelper = {
     Adder: {
         Container: $('.js-add-row[name="population"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = PopulationHelper.Population.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].populations.push(obj);
@@ -2480,7 +2480,7 @@ var LongTermHireHelper = {
     Adder: {
         Container: $('.js-add-row[name="longtermhire"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = LongTermHireHelper.LongTermHire.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].long_term_hires.push(obj);
@@ -2692,7 +2692,7 @@ var ShortTermHireHelper = {
     Adder: {
         Container: $('.js-add-row[name="shorttermhire"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = ShortTermHireHelper.ShortTermHire.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].short_term_hires.push(obj);
@@ -2867,7 +2867,7 @@ var NoSalaryHireHelper = {
     Adder: {
         Container: $('.js-add-row[name="nosalaryhire"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = NoSalaryHireHelper.NoSalaryHire.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].no_salary_hires.push(obj);
@@ -3018,7 +3018,7 @@ var LongTermLackHelper = {
     Adder: {
         Container: $('.js-add-row[name="longtermlack"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = LongTermLackHelper.LongTermLack.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].long_term_lacks.push(obj);
@@ -3216,7 +3216,7 @@ var ShortTermLackHelper = {
     Adder: {
         Container: $('.js-add-row[name="shorttermlack"]'),
         Bind: function(){
-            this.Container.click(function(){
+            this.Container.unbind().click(function(){
                 if(CloneData && MainSurveyId){
                     obj = ShortTermLackHelper.ShortTermLack.Object.New(MainSurveyId);
                     CloneData[MainSurveyId].short_term_lacks.push(obj);
