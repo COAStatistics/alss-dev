@@ -1,6 +1,5 @@
 FROM python:3.6
 
-# python envs
 ENV PYTHONFAULTHANDLER=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONHASHSEED=random \
@@ -13,6 +12,8 @@ RUN apt-get update \
 
 WORKDIR /app
 
-ADD src .
+COPY src/requirements.txt .
 
 RUN pip install -r requirements.txt
+
+COPY src .
