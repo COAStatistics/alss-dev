@@ -652,12 +652,12 @@ var SurveyHelper = {
                     PopulationHelper.Population.Container.find('tr').each(function(){
                         var birthYear = $(this).find('[name="birthyear"]').val();
                         var lifeStyleId = $(this).find('[name="lifestyle"]').val();
-                        if(birthYear <= 89 && birthYear >= 62 && Helper.NumberValidate(birthYear) && lifeStyleId == 1){
+                        if(birthYear <= 90 && birthYear >= 63 && Helper.NumberValidate(birthYear) && lifeStyleId == 1){
                             exists = true;
                         }
                     })
                     var con = checked && !exists;
-                    var msg = '勾選「有」者，【問項2.2】戶內人口應有「出生年次」介於62年至89年之間且「主要生活型態」勾選「自營農牧業工作」';
+                    var msg = '勾選「有」者，【問項2.2】戶內人口應有「出生年次」介於63年至90年之間且「主要生活型態」勾選「自營農牧業工作」';
                     Helper.LogHandler.Log(con, SurveyHelper.Second.Alert, msg, this.Guids[0]);
                 },
             },
@@ -2371,7 +2371,7 @@ var PopulationHelper = {
         BirthYear: {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function($row){
-                var guid = $row.data('guid');
+                var guid = $row.da出生年次ta('guid');
                 var index = PopulationHelper.Population.Container.find('tr').index($row) + 1;
                 var year = $row.find('[name="birthyear"]').val();
                 if(year == '') return;
@@ -2404,8 +2404,8 @@ var PopulationHelper = {
                 var msg = '第<i class="row-index">{0}</i>列全年主要生活型態勾選『料理家務、育兒』或『其他』，全年從事自家農牧業工作日數應小於180日'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[3], null, false);
 
-                var con = birthYear <= 27 && farmerWorkdayId >= 4 && lifeStyleId == 1;
-                var msg = '第<i class="row-index">{0}</i>列超過80歲（出生年次小於27），從事自家農牧業工作日數超過60日，請確認'.format(index);
+                var con = birthYear <= 28 && farmerWorkdayId >= 4 && lifeStyleId == 1;
+                var msg = '第<i class="row-index">{0}</i>列超過80歲（出生年次小於28），從事自家農牧業工作日數超過60日，請確認'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[4], null, false);
 
             },
@@ -2417,11 +2417,11 @@ var PopulationHelper = {
                 PopulationHelper.Population.Container.find('tr').each(function(){
                     var birthYear = $(this).find('[name="birthyear"]').val();
                     var farmerWorkdayId = $(this).find('[name="farmerworkday"]').val();
-                    if(birthYear <= 92 && birthYear >= 42 && Helper.NumberValidate(birthYear) && farmerWorkdayId > 1){
+                    if(birthYear <= 93 && birthYear >= 43 && Helper.NumberValidate(birthYear) && farmerWorkdayId > 1){
                         con = false;
                     }
                 })
-                var msg = '至少應有1位65歲以下（出生年次介於42年至92年）從事自家農牧業工作日數1日以上';
+                var msg = '至少應有1位65歲以下（出生年次介於43年至93年）從事自家農牧業工作日數1日以上';
                 Helper.LogHandler.Log(con, PopulationHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -3450,9 +3450,13 @@ var SubsidyHelper = {
     },
     Bind: function(){
         this.Container.HasSubsidy.change(function(){
-            if(Helper.LogHandler.ValidationActive){
-                SubsidyHelper.Validation.Empty.Validate();
-                SubsidyHelper.Validation.Duplicate.Validate();
+            if(CloneData){
+                var checked = $(this).prop('checked');
+                CloneData[MainSurveyId].subsidy.has_subsidy = checked;
+                if(Helper.LogHandler.ValidationActive){
+                    SubsidyHelper.Validation.Empty.Validate();
+                    SubsidyHelper.Validation.Duplicate.Validate();
+                }
             }
         })
         this.Container.NoneSubsidy.change(function(){

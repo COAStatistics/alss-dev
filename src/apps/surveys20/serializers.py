@@ -486,6 +486,10 @@ class SurveySerializer(ModelSerializer):
         instance.non_second = validated_data["non_second"]
         instance.investigator = validated_data["investigator"]
         instance.reviewer = validated_data["reviewer"]
+        instance.main_income_source = validated_data["main_income_source"]
+        instance.non_main_income_source = validated_data["non_main_income_source"]
+        instance.known_subsidy = validated_data["known_subsidy"]
+        instance.non_known_subsidy = validated_data["non_known_subsidy"]
 
         instance.save()
 
@@ -1042,9 +1046,6 @@ class SurveySerializer(ModelSerializer):
             # Update
             instance.subsidy.has_subsidy = subsidy["has_subsidy"]
             instance.subsidy.none_subsidy = subsidy["none_subsidy"]
-            instance.subsidy.month_delta = subsidy["month_delta"]
-            instance.subsidy.day_delta = subsidy["day_delta"]
-            instance.subsidy.count = subsidy["count"]
             """Refuse"""
             refuse_ids = [item["id"] for item in subsidy["refuses"] if "id" in item]
             # Delete not included in the request
