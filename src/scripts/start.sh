@@ -21,6 +21,5 @@ python manage.py loaddata fixtures/surveys19/*.yaml
 python manage.py loaddata fixtures/surveys19/survey/670100013471.yaml
 python manage.py loaddata fixtures/surveys20/*.yaml
 python manage.py loaddata fixtures/surveys20/survey/*.yaml
-python manage.py loaddata fixtures/reviewlog.yaml
 
 python manage.py runserver 0.0.0.0:8000

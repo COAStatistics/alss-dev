@@ -63,7 +63,7 @@ var Helper = {
                                 },
                                 {
                                     title: '上次更新',
-                                    data: 'update_datetime',
+                                    data: 'update_time',
                                 },
                             ],
                             order: [[ 4, "desc" ]],

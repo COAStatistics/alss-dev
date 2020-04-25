@@ -19,7 +19,7 @@ class YearFilter(SimpleListFilter):
         human-readable name for the option that will appear
         in the right sidebar.
         """
-        return [('106', '106'), ('107', '107')]
+        return [('106', '106'), ('107', '107'), ('108', '108')]
 
     def queryset(self, request, queryset):
         """
@@ -31,6 +31,8 @@ class YearFilter(SimpleListFilter):
             return queryset.filter(content_type__app_label='surveys18')
         if self.value() == '107':
             return queryset.filter(content_type__app_label='surveys19')
+        if self.value() == '108':
+            return queryset.filter(content_type__app_label='surveys20')
         else:
             return queryset
 
@@ -43,14 +45,14 @@ class ReviewLogAdmin(admin.ModelAdmin):
         "farmer_id",
         "initial_errors",
         "current_errors",
-        "update_datetime",
+        "update_time",
     )
     list_filter = (
         "user",
         YearFilter,
         "initial_errors",
         "current_errors",
-        ("update_datetime", DateRangeFilter),
+        ("update_time", DateRangeFilter),
     )
     search_fields = ("user__full_name",)
 
@@ -65,6 +67,8 @@ class ReviewLogAdmin(admin.ModelAdmin):
             return '106'
         if obj.content_type.app_label == 'surveys19':
             return '107'
+        if obj.content_type.app_label == 'surveys20':
+            return '108'
     year.short_description = '年份'
 
     class Media:

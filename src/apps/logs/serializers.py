@@ -29,13 +29,13 @@ class ReviewLogListSerializer(ModelSerializer):
     id = IntegerField(read_only=False)
     user = SerializerMethodField(read_only=True)
     content_object = ContentObjectRelatedField(read_only=True)
-    update_datetime = SerializerMethodField(read_only=True)
+    update_time = SerializerMethodField(read_only=True)
 
     def get_user(self, instance):
         return instance.user.full_name or instance.user.email
 
-    def get_update_datetime(self, instance):
-        return timezone.localtime(instance.update_datetime).strftime(
+    def get_update_time(self, instance):
+        return timezone.localtime(instance.update_time).strftime(
             "%Y/%m/%d %H:%M:%S"
         )
 
@@ -58,7 +58,7 @@ class ReviewLogUpdateSerializer(ModelSerializer):
         if content_type and object_id:
             obj = (
                 ReviewLog.objects.filter(content_type=content_type, object_id=object_id)
-                .order_by("update_datetime")
+                .order_by("update_time")
                 .first()
             )
             if obj:
