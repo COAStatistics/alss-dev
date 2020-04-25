@@ -44,6 +44,7 @@ class ReviewLogAdmin(admin.ModelAdmin):
         "year",
         "farmer_id",
         "initial_errors",
+        "exception_errors",
         "current_errors",
         "update_time",
     )
@@ -51,6 +52,7 @@ class ReviewLogAdmin(admin.ModelAdmin):
         "user",
         YearFilter,
         "initial_errors",
+        "exception_errors",
         "current_errors",
         ("update_time", DateRangeFilter),
     )

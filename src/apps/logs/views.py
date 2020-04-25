@@ -22,7 +22,8 @@ ORDER_COLUMN_CHOICES = Choices(
     ("1", "user"),
     ("2", "content_object"),
     ("3", "current_errors"),
-    ("4", "update_time"),
+    ("4", "exception_errors"),
+    ("5", "update_time"),
 )
 
 

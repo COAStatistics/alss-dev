@@ -78,6 +78,7 @@ $(document).ready(function() {
     /* get farmer data*/
     $('.js-get-survey').click(function () {
 
+        Reset();
         Setup(GlobalUI);
 
         var $btn = $(this);
@@ -160,23 +161,18 @@ $(document).ready(function() {
                             undefined,
                             jobs
                         ).done(function(){
-                            // this won't be called until *all* the AJAX and the timer have finished
-                            Reset();
-                            Object.keys(CloneData).forEach(function(key, i){
-                                Set(CloneData[key], CloneData[key].id);
-                            });
                             // create or update review log
                             data = {
                                 initial_errors: Helper.LogHandler.CollectError.InitialErrors,
                                 current_errors: Helper.LogHandler.CollectError.GetCurrent(),
+                                exception_errors: Helper.LogHandler.CollectError.GetSkipped(),
                                 object_id: CloneData[MainSurveyId].id,
                                 app_label: CloneData[MainSurveyId].app_label,
                                 model: CloneData[MainSurveyId].model,
                             }
-                            var ajax = SetLogData(JSON.stringify(data));
+                            SetLogData(JSON.stringify(data));
                             Helper.DataTable.ReviewLogRetrieve.Reload();
                             Helper.Dialog.ShowInfo('成功更新調查表！');
-
                             $btn.data('ajax-sending', false);
                         })
                     }).done(function(){

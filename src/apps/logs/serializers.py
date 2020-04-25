@@ -76,6 +76,11 @@ class ReviewLogUpdateSerializer(ModelSerializer):
                 if "current_errors" in validated_data
                 else None
             )
+            exception_errors = (
+                validated_data["exception_errors"]
+                if "exception_errors" in validated_data
+                else 0
+            )
 
             instance = ReviewLog.objects.create(
                 user=validated_data["user"],
@@ -83,14 +88,16 @@ class ReviewLogUpdateSerializer(ModelSerializer):
                 object_id=object_id,
                 initial_errors=initial_errors,
                 current_errors=current_errors,
+                exception_errors=exception_errors
             )
             return instance
 
     def update(self, instance, validated_data):
         if "current_errors" in validated_data:
             instance.current_errors = validated_data["current_errors"]
-            instance.save()
-
+        if "exception_errors" in validated_data:
+            instance.exception_errors = validated_data["exception_errors"]
+        instance.save(update_fields=['current_errors', 'exception_errors'])
         return instance
 
 

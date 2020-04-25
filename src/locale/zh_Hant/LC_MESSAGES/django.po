@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-07 17:43+0800\n"
+"POT-Creation-Date: 2020-04-26 03:42+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,21 +22,25 @@ msgstr ""
 msgid "Logs"
 msgstr "紀錄及日誌"
 
-#: apps/logs/models.py:34 apps/surveys18/models.py:60
+#: apps/logs/models.py:29 apps/surveys18/models.py:60
 #: apps/surveys19/models.py:1487 apps/surveys20/models.py:1491
 #: apps/users/models.py:67
 msgid "User"
 msgstr "使用者"
 
-#: apps/logs/models.py:42
+#: apps/logs/models.py:37
 msgid "Initialed Error Count"
 msgstr "原始錯誤數量"
 
-#: apps/logs/models.py:45
+#: apps/logs/models.py:40
 msgid "Current Error Count"
 msgstr "目前錯誤數量"
 
-#: apps/logs/models.py:52 apps/surveys18/models.py:38
+#: apps/logs/models.py:43
+msgid "Exception Error Count"
+msgstr "例外錯誤數量"
+
+#: apps/logs/models.py:50 apps/surveys18/models.py:38
 #: apps/surveys18/models.py:134 apps/surveys18/models.py:185
 #: apps/surveys18/models.py:226 apps/surveys18/models.py:260
 #: apps/surveys18/models.py:295 apps/surveys18/models.py:317
@@ -101,11 +105,11 @@ msgstr "目前錯誤數量"
 msgid "Updated"
 msgstr "上次更新"
 
-#: apps/logs/models.py:56
+#: apps/logs/models.py:54
 msgid "ReviewLog"
 msgstr "檢誤紀錄"
 
-#: apps/logs/models.py:57
+#: apps/logs/models.py:55
 msgid "ReviewLogs"
 msgstr "檢誤紀錄"
 
@@ -967,15 +971,3 @@ msgstr "確認"
 #: templates/admin/base.html:5
 msgid "Welcome,"
 msgstr "哈囉，"
-
-#~ msgid "Known"
-#~ msgstr "有聽過"
-
-#~ msgid "Unknown"
-#~ msgstr "沒有聽過"
-
-#~ msgid "Main Income Not Farmer"
-#~ msgstr "\b自家農牧業外淨收入"
-
-#~ msgid "Display"
-#~ msgstr "顯示"

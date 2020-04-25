@@ -39,6 +39,9 @@ class ReviewLog(Model):
     current_errors = IntegerField(
         null=True, blank=True, verbose_name=_("Current Error Count")
     )
+    exception_errors = IntegerField(
+        default=0, verbose_name=_("Exception Error Count")
+    )
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,

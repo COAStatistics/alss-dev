@@ -58,6 +58,10 @@ var Helper = {
                                     sortable: false,
                                 },
                                 {
+                                    title: '例外錯誤數',
+                                    data: 'exception_errors',
+                                },
+                                {
                                     title: '目前錯誤數',
                                     data: 'current_errors',
                                 },
@@ -95,13 +99,7 @@ var Helper = {
     },
     LogHandler: {
         Setup: function(){
-            this.Bind();
             this.ValidationActive = true;
-        },
-        Bind: function(){
-            $('.alert').on('click', '.btn-warning', function(){
-                this.click();
-            })
         },
         UI: '\
             <p data-guid="" data-group-guid="" style="line-height:30px; padding: 5px;">\
@@ -119,7 +117,7 @@ var Helper = {
             $ui.find('span').html(msg);
             $ui[0].Alert = alert;
             // The UI is not yet bind to DOM, therefore we bind event on body
-            $('body').on('click', 'p[data-guid={0}] > .hide-alert'.format(guid), function(){
+            $('body').one('click', 'p[data-guid={0}] > .hide-alert'.format(guid), function(){
                 var $ui = $(this).parent();
                 var guid = $ui.data('guid');
                 var msg = $.trim($ui.text());
@@ -233,6 +231,7 @@ var Helper = {
             this.message = $('<div>');
             this.$object.html(this.message).hide();
             this.currentMessages = 0;
+            this.skippedErrorGuids = [];
         }
         this.count = function(){
             /* count for self */
