@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#0000000000010010+101稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+01002070050100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+100100001介面字太小#+稻受雨害影響#宋中積#宋會喬#0330"
+        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#0000001111010010+101稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+01002070050100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+100100001介面字太小#+稻受雨害影響#宋中積#宋會喬#0330"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -29,8 +29,8 @@ class ModelTestCase(TestCase):
         self.assertEquals(self.builder.survey.non_second, False)
         self.assertEquals(self.builder.survey.main_income_source, True)
         self.assertEquals(self.builder.survey.non_main_income_source, False)
-        self.assertEquals(self.builder.survey.known_subsidy, True)
-        self.assertEquals(self.builder.survey.non_known_subsidy, False)
+        self.assertEquals(self.builder.survey.known_subsidy, False)
+        self.assertEquals(self.builder.survey.non_known_subsidy, True)
 
         # check survey query string
 
@@ -78,8 +78,12 @@ class ModelTestCase(TestCase):
 
     def test_build_management(self):
         self.builder.build_management()
-        self.assertEquals(len(self.builder.survey.management_types.all()), 1)
-        self.assertEquals(self.builder.survey.management_types.all()[0].name, "豬")
+        self.assertEquals(len(self.builder.survey.management_types.all()), 5)
+        self.assertEquals(self.builder.survey.management_types.all()[0].name, "花卉")
+        self.assertEquals(self.builder.survey.management_types.all()[1].name, "種苗")
+        self.assertEquals(self.builder.survey.management_types.all()[2].name, "其他農作物")
+        self.assertEquals(self.builder.survey.management_types.all()[3].name, "食用菇蕈")
+        self.assertEquals(self.builder.survey.management_types.all()[4].name, "豬")
 
     def test_build_crop_marketing(self):
         self.builder.build_crop_marketing()
