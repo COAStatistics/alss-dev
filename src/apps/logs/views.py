@@ -3,18 +3,20 @@ import logging
 from django.http import JsonResponse
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import Q
+
 from model_utils import Choices
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import ValidationError
 
 from config.permissions import IsSuperUser
 from apps.logs.models import ReviewLog
 from .serializers import ReviewLogSerializer, ReviewLogListSerializer, ReviewLogUpdateSerializer
 
 
-logger = logging.getLogger("review")
+logger = logging.getLogger("django.request")
 
 
 ORDER_COLUMN_CHOICES = Choices(
@@ -113,27 +115,20 @@ class ReviewLogViewSet(viewsets.ModelViewSet):
 
     def patch(self, request):
         data = json.loads(request.data.get("data"))
-        object_id = data.get("object_id")
-        app_label = data.get("app_label")
-        model = data.get("model")
-        data["user"] = request.user.id
-        content_type = ContentType.objects.filter(
-            app_label=app_label, model=model
-        ).first()
-        data["content_type"] = content_type.id
-        obj = ReviewLog.objects.filter(user=request.user, object_id=object_id, content_type=content_type).first()
+        try:
+            object_id = data.get("object_id")
+            app_label = data.get("app_label")
+            model = data.get("model")
+            data["user"] = request.user.id
+            content_type = ContentType.objects.filter(
+                app_label=app_label, model=model
+            ).first()
+            data["content_type"] = content_type.id
+            obj = ReviewLog.objects.filter(user=request.user, object_id=object_id, content_type=content_type).first()
 
-        serializer = ReviewLogUpdateSerializer(obj, data=data, partial=True)
-        if serializer.is_valid():
+            serializer = ReviewLogUpdateSerializer(obj, data=data, partial=True)
+            serializer.is_valid(raise_exception=True)
             serializer.save()
             return JsonResponse(data=serializer.data)
-        else:
-            logger.exception(
-                serializer.errors,
-                extra={
-                    "user": request.user,
-                    "content_type": content_type,
-                    "object_id": object_id,
-                },
-            )
-            return JsonResponse(data=serializer.errors, safe=False)
+        except (ValidationError, Exception):
+            logger.exception("Patch log data failed.", exc_info=True)

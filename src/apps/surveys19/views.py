@@ -112,7 +112,7 @@ from apps.surveys19.serializers import (
     SurveySimpleSerializer,
 )
 
-logger = logging.getLogger(__file__)
+logger = logging.getLogger('django.request')
 
 
 class Echo:
@@ -263,26 +263,19 @@ class SurveyViewSet(ModelViewSet):
 
     @action(methods=["PATCH"], detail=False)
     def patch(self, request):
+        data = json.loads(request.data.get("data"))
+        pk = data.get("id")
         try:
-            data = json.loads(request.data.get("data"))
-            pk = data.get("id")
             survey = self.get_object(pk)
             serializer = SurveySerializer(
                 survey, data=data, partial=True
             )  # set partial=True to update a data partially
-            if serializer.is_valid():
-                serializer.save()
-                return JsonResponse(data=serializer.data)
-            else:
-                raise ValidationError(serializer.errors)
-
-        except Exception as e:
-            logger.exception(
-                "Survey Patch Error: %s",
-                request.path,
-                extra={"status_code": 400, "request": request},
-            )
-            return JsonResponse(data=e.message_dict, safe=False)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return JsonResponse(data=serializer.data)
+        except (ValidationError, Exception):
+            logger.exception('Update survey data failed.', exc_info=True)
+            raise
 
     @action(methods=["GET"], detail=False)
     def export(self, request):

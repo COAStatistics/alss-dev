@@ -204,15 +204,17 @@ LOGGING = {
         },
     },
     "loggers": {
-        "django.db.backends": {
-            "level": "ERROR",
-            "handlers": ["console"],
-            "propagate": False,
+        '': {
+            'handlers': ['console'],
         },
-        "django.security.DisallowedHost": {
-            "level": "ERROR",
-            "handlers": ["console"],
-            "propagate": False,
+        'django': {
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
         },
     },
 }

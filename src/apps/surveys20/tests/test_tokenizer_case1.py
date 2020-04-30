@@ -29,8 +29,8 @@ class ModelTestCase(TestCase):
         self.assertEquals(self.builder.survey.non_second, False)
         self.assertEquals(self.builder.survey.main_income_source, True)
         self.assertEquals(self.builder.survey.non_main_income_source, False)
-        self.assertEquals(self.builder.survey.known_subsidy, True)
-        self.assertEquals(self.builder.survey.non_known_subsidy, False)
+        self.assertEquals(self.builder.survey.known_subsidy, False)
+        self.assertEquals(self.builder.survey.non_known_subsidy, True)
 
         # check survey query string
 

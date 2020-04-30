@@ -3,6 +3,7 @@
 
 # settings
 production.py
+local.py
 
 # static
 staticfiles
