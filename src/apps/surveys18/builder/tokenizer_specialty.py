@@ -1,15 +1,11 @@
 from .exceptions import SignError, CreateModelError
 
 from apps.surveys18.models import (
-    MarketType,
-    IncomeRange,
-    AnnualIncome,
     Survey,
     AddressMatch,
     FarmRelatedBusiness,
     Business,
     ManagementType,
-    Lack,
     Phone,
     LandArea,
     LandType,
@@ -20,27 +16,11 @@ from apps.surveys18.models import (
     Contract,
     CropMarketing,
     LivestockMarketing,
-    PopulationAge,
     Population,
     EducationLevel,
     FarmerWorkDay,
-    LifeStyle,
-    OtherFarmWork,
-    Subsidy,
-    RefuseReason,
-    AgeScope,
-    LongTermHire,
-    ShortTermHire,
-    WorkType,
-    NumberWorkers,
-    NoSalaryHire,
-    ShortTermLack,
-    LongTermLack,
     Gender,
-    ProductType,
     Relationship,
-    Month,
-    Refuse,
 )
 
 
@@ -61,7 +41,7 @@ class Builder(object):
         ]
 
         if len(self.string) != 58:
-            raise SignError(sign=",")
+            raise SignError(",")
 
     def build(self, readonly=True):
         self.build_survey(readonly=readonly)
@@ -74,11 +54,11 @@ class Builder(object):
             self.build_crop_marketing()
             self.build_livestock_marketing()
             self.build_population()
-        except Exception as e:
+        except Exception:
             Survey.objects.filter(
                 farmer_id=self.survey.farmer_id, readonly=self.survey.readonly
             ).delete()
-            raise e
+            raise
 
     @staticmethod
     def data_exit(string):
@@ -107,8 +87,8 @@ class Builder(object):
                     readonly=readonly,
                 )
 
-            except ValueError as e:
-                raise CreateModelError(model_name="Survey", msg=e)
+            except ValueError:
+                raise CreateModelError("Survey")
             else:
                 self.survey = survey
 
@@ -120,8 +100,8 @@ class Builder(object):
                     if len(number) > 0:
                         phone = Phone.objects.create(survey=self.survey, phone=number)
                         self.phones.append(phone)
-            except ValueError as e:
-                raise CreateModelError(model_name="Phone", msg=e)
+            except ValueError:
+                raise CreateModelError("Phone")
 
     def build_address(self):
         address = self.string[10:12]
@@ -142,8 +122,8 @@ class Builder(object):
                         mismatch=mismatch,
                         address=address[1],
                     )
-                except ValueError as e:
-                    raise CreateModelError(model_name="Address Match", msg=e)
+                except ValueError:
+                    raise CreateModelError("Address Match")
                 else:
                     self.address = address
 
@@ -178,8 +158,8 @@ class Builder(object):
                         )
                         self.land_area.append(land_area)
 
-            except ValueError as e:
-                raise CreateModelError(model_name="Land Area", msg=e)
+            except ValueError:
+                raise CreateModelError("Land Area")
 
     def build_business(self):
         business_str = self.string[41:51]
@@ -214,8 +194,8 @@ class Builder(object):
                     )
                     self.business.append(business)
 
-            except ValueError as e:
-                raise CreateModelError(model_name="Business", msg=e)
+            except ValueError:
+                raise CreateModelError("Business")
 
     def build_management(self):
         management_str = self.string[57]
@@ -240,8 +220,8 @@ class Builder(object):
                     management_type = ManagementType.objects.get(code=num)
                     self.survey.management_types.add(management_type)
 
-            except ValueError as e:
-                raise CreateModelError(model_name="management", msg=e)
+            except ValueError:
+                raise CreateModelError("management")
 
     def build_crop_marketing(self):
         crop_marketing_str = self.string[20:31]
@@ -284,8 +264,8 @@ class Builder(object):
                 )
                 self.crop_marketing.append(crop_marketing)
 
-            except ValueError as e:
-                raise CreateModelError(model_name="CropMarketing", msg=e)
+            except ValueError:
+                raise CreateModelError("CropMarketing")
 
     def build_livestock_marketing(self):
         livestock_str = self.string[32:42]
@@ -316,8 +296,8 @@ class Builder(object):
                     loss=loss,
                 )
                 self.livestock_marketing.append(livestock_marketing)
-            except ValueError as e:
-                raise CreateModelError(model_name="LivestockMarketing", msg=e)
+            except ValueError:
+                raise CreateModelError("LivestockMarketing")
 
     def build_population(self):
         population_str = self.string[52:57]
@@ -364,5 +344,5 @@ class Builder(object):
                     )
                     self.population.append(population)
 
-            except ValueError as e:
-                raise CreateModelError(model_name="Population", msg=e)
+            except ValueError:
+                raise CreateModelError("Population")

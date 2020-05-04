@@ -191,17 +191,13 @@ class BuilderFileViewSet(StandardViewSet):
     queryset = BuilderFile.objects.all()
 
     def perform_create(self, serializer):
-        try:
-            if serializer.is_valid():
-                datafile = self.request.data.get("datafile")
-                token = self.request.data.get("token")
-                user = self.request.user
-                if not isinstance(user, User):
-                    user = None
-
-                serializer.save(user=user, datafile=datafile, token=token)
-        except Exception as e:
-            raise ValidationError(e)
+        serializer.is_valid(raise_exception=True)
+        datafile = self.request.data.get("datafile")
+        token = self.request.data.get("token")
+        user = self.request.user
+        if not isinstance(user, User):
+            user = None
+        serializer.save(user=user, datafile=datafile, token=token)
 
 
 class ContentTypeViewSet(ReadOnlyModelViewSet, StandardViewSet):

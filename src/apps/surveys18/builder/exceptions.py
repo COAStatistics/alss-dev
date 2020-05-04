@@ -1,18 +1,13 @@
 class SignError(Exception):
-    def __init__(self, **kwargs):
-        self.sign = kwargs.get("sign")
-        Exception.__init__(self, "Invalid Sign Length: {0}".format(self.sign))
+    def __init__(self, sign):
+        super().__init__("Invalid Sign Length: {0}".format(sign))
 
 
 class StringLengthError(Exception):
-    def __init__(self, **kwargs):
-        self.model_name = kwargs.get("model_name")
-        Exception.__init__(
-            self, "Invalid String Length: {0}".format(self.model_name)
-        )
+    def __init__(self, model_name):
+        super().__init__("Invalid String Length: {0}".format(model_name))
 
 
 class CreateModelError(Exception):
-    def __init__(self, **kwargs):
-        self.model_name = kwargs.get("model_name")
-        Exception.__init__(self, "Create Model Error: {0}".format(self.model_name))
+    def __init__(self, model_name):
+        super().__init__("Create Model Error: {0}".format(model_name))

@@ -74,22 +74,17 @@ class BuilderFileSerializer(HyperlinkedModelSerializer):
             delete_exist = data.get("delete_exist", False)
             if token:
                 content = [token.strip()]
-
             if file:
                 content = file.read().decode("utf-8-sig").splitlines()
-
             if file and token:
                 raise ValidationError(
                     "Not Allow To Provide Upload File And Single Token At Same Time"
                 )
-
             for i, string in enumerate(content):
                 try:
                     builder = Builder(string=string)
-
                     builder.build(delete_exist=delete_exist)
                     builder.build(readonly=False, delete_exist=delete_exist)
-
                 except Exception as e:
                     errors[i] = e
             if errors:
