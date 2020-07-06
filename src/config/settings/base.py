@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "drf_yasg",
     "captcha",
     "import_export",
+    "django_celery_beat",
+    "django_celery_results",
     # local
     "apps.users.apps.UsersConfig",
     "apps.logs.apps.LogsConfig",
@@ -238,6 +240,25 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
+
+
+# Redis
+
+REDIS_URL = 'redis://redis:6379'
+
+
+# Celery
+
+CELERY_BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = REDIS_URL
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+
+CELERY_IMPORTS = (
+    'config.tasks',
+)
 
 # DJANGO SUIT
 # ------------------------------------------------------------------------------
