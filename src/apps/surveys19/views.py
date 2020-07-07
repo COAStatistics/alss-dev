@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.template.loader import render_to_string
 
 from django.contrib.contenttypes.models import ContentType
-from django.http import JsonResponse, StreamingHttpResponse
+from django.http import JsonResponse, StreamingHttpResponse, HttpResponse
 from django.db.models import Q
 
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
@@ -19,6 +19,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from config.viewsets import StandardViewSet
 
 from apps.users.models import User
+from apps.surveys19.tasks import async_export_107
 from apps.surveys19.export import SurveyRelationGeneratorFactory
 from apps.surveys19.models import (
     Survey,
@@ -284,16 +285,8 @@ class SurveyViewSet(ModelViewSet):
         # rows that can be handled by a single sheet in most spreadsheet
         # applications.
 
-        factory = SurveyRelationGeneratorFactory(excludes={'note__icontains': '無效戶'})
-        row_generator = factory.export_generator()
-
-        pseudo_buffer = Echo()
-        writer = csv.writer(pseudo_buffer)
-        response = StreamingHttpResponse(
-            (writer.writerow(row) for row in row_generator), content_type="text/csv"
-        )
-        response["Content-Disposition"] = 'attachment; filename="107_export.csv"'
-        return response
+        async_export_107.delay(request.user.email)
+        return HttpResponse('ok')
 
 
 class PhoneViewSet(StandardViewSet):

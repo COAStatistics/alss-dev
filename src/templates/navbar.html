@@ -26,8 +26,11 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">匯出調查表
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'surveys19:survey-export' %}" target="_blank"
-                               onclick="return confirm (' 您將下載大型檔案，確定要繼續嗎？')">107年</a>
+                        <li><a href="javascript:void(0)" data-url="{% url 'surveys19:survey-export' %}"
+                               onclick="return export_survey('{% url 'surveys19:survey-export' %}');">107年</a>
+                        </li>
+                        <li><a href="javascript:void(0)" data-url="{% url 'surveys20:survey-export' %}"
+                               onclick="return confirm ('功能尚未開放')">108年</a>
                         </li>
                     </ul>
                 </li>

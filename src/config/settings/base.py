@@ -258,6 +258,7 @@ CELERY_TIMEZONE = TIME_ZONE
 
 CELERY_IMPORTS = (
     'config.tasks',
+    'apps.surveys19.tasks'
 )
 
 # DJANGO SUIT
