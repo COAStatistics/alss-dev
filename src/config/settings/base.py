@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     "drf_yasg",
     "captcha",
     "import_export",
-    "django_celery_beat",
-    "django_celery_results",
     # local
     "apps.users.apps.UsersConfig",
     "apps.logs.apps.LogsConfig",
@@ -244,7 +242,7 @@ REST_FRAMEWORK = {
 
 # Redis
 
-REDIS_URL = 'redis://localhost:6381'
+REDIS_URL = 'redis://redis:6379/11'
 
 
 # Celery

@@ -10,6 +10,7 @@ services:
       context: .
     depends_on:
       - postgres
+      - redis
     volumes:
       - ./src:/app
     command: /app/scripts/start.sh
@@ -38,17 +39,5 @@ services:
   worker:
     <<: *web
     container_name: worker
-    depends_on:
-      - web
     ports: []
-    command: ["celery", "worker", "--app=config", "--pool=eventlet", "--loglevel=info"]
-    entrypoint: ./scripts/entrypoint.sh
-
-  beat:
-    <<: *web
-    container_name: beat
-    depends_on:
-      - web
-    ports: []
-    command: ["celery", "beat", "--app=config", "--loglevel=info", "--pidfile=/opt/celeryd.pid"]
-    entrypoint: ./scripts/entrypoint.sh
+    command: ["celery", "worker", "--app=config", "--loglevel=info"]

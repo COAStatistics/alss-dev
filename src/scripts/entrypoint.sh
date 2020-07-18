@@ -21,10 +21,31 @@ sys.exit(0)
 END
 }
 
+function redis_ready(){
+python << END
+import sys
+try:
+    import redis
+    con = redis.Redis(host="redis", socket_connect_timeout=1)
+    con.ping()
+except redis.exceptions.RedisError:
+    sys.exit(-1)
+sys.exit(0)
+END
+}
+
 until postgres_ready; do
   >&2 echo "Postgres is unavailable - sleeping"
   sleep 1
 done
 
 >&2 echo "Postgres is up - continuing..."
+
+until redis_ready; do
+  >&2 echo "Redis is unavailable - sleeping"
+  sleep 1
+done
+
+>&2 echo "Redis are up - continuing..."
+
 exec $cmd
