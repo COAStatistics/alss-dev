@@ -7,7 +7,7 @@ Pillow==7.0.0
 PyYAML==5.3
 Markdown==3.2.1
 django-suit-daterange-filter==0.0.6
-psycopg2==2.8.4
+psycopg2-binary==2.8.5
 flake8==3.7.9
 drf-yasg==1.17.1
 django-suit==0.2.28
