@@ -4,6 +4,7 @@
     code: 1
     name: 稻作
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 2
@@ -11,6 +12,7 @@
     code: 2
     name: 雜糧
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 3
@@ -18,6 +20,7 @@
     code: 3
     name: 其他特作
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 4
@@ -25,6 +28,7 @@
     code: 4
     name: 茶
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 5
@@ -32,6 +36,7 @@
     code: 5
     name: 蔬菜
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 6
@@ -39,6 +44,7 @@
     code: 6
     name: 果樹
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 7
@@ -46,6 +52,7 @@
     code: 7
     name: 花卉
     type: 1
+    stratify_with: 2
 
 - model: surveys20.ManagementType
   pk: 8
@@ -53,6 +60,7 @@
     code: 8
     name: 種苗
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 9
@@ -60,6 +68,7 @@
     code: 9
     name: 其他農作物
     type: 1
+    stratify_with: 1
 
 - model: surveys20.ManagementType
   pk: 10
@@ -67,6 +76,7 @@
     code: 10
     name: 食用菇蕈
     type: 1
+    stratify_with: 2
 
 - model: surveys20.ManagementType
   pk: 11
@@ -74,6 +84,7 @@
     code: 11
     name: 乳牛
     type: 2
+    stratify_with: 2
 
 - model: surveys20.ManagementType
   pk: 12
@@ -81,6 +92,7 @@
     code: 12
     name: 豬
     type: 2
+    stratify_with: 2
 
 - model: surveys20.ManagementType
   pk: 13
@@ -88,6 +100,7 @@
     code: 13
     name: 雞
     type: 2
+    stratify_with: 2
 
 - model: surveys20.ManagementType
   pk: 14
@@ -95,3 +108,4 @@
     code: 14
     name: 其他畜禽
     type: 2
+    stratify_with: 2

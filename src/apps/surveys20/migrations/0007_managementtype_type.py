@@ -15,4 +15,9 @@ class Migration(migrations.Migration):
             name='type',
             field=models.IntegerField(blank=True, choices=[(1, 'Crop'), (2, 'Animal')], null=True, verbose_name='Product Type'),
         ),
+        migrations.AddField(
+            model_name='managementtype',
+            name='stratify_with',
+            field=models.IntegerField(blank=True, choices=[(1, 'Field'), (2, 'Revenue')], null=True, verbose_name='Stratify With'),
+        ),
     ]
