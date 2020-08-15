@@ -403,6 +403,7 @@ class ManagementType(Model):
 
     code = IntegerField(verbose_name=_("Code"))
     name = CharField(max_length=50, null=True, blank=True, verbose_name=_("Name"))
+    type = IntegerField(null=True, blank=True, choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,
