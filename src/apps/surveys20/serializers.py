@@ -22,7 +22,6 @@ from apps.surveys20.models import (
     ManagementType,
     CropMarketing,
     LivestockMarketing,
-    ProductType,
     Product,
     Unit,
     Loss,
@@ -208,13 +207,6 @@ class LivestockMarketingSerializer(ModelSerializer):
         model = LivestockMarketing
         fields = "__all__"
         ref_name = '108/LivestockMarketing'
-
-
-class ProductTypeSerializer(ModelSerializer):
-    class Meta:
-        model = ProductType
-        fields = "__all__"
-        ref_name = '108/ProductType'
 
 
 class ProductSerializer(ModelSerializer):

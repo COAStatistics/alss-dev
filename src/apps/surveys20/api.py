@@ -15,7 +15,6 @@ from .views import (
     ManagementTypeViewSet,
     CropMarketingViewSet,
     LivestockMarketingViewSet,
-    ProductTypeViewSet,
     ProductViewSet,
     UnitViewSet,
     LossViewSet,
@@ -63,7 +62,6 @@ api.register(r"farmrelatedbusiness", FarmRelatedBusinessViewSet)
 api.register(r"managementtype", ManagementTypeViewSet)
 api.register(r"cropmarketing", CropMarketingViewSet)
 api.register(r"livestockmarketing", LivestockMarketingViewSet)
-api.register(r"producttype", ProductTypeViewSet)
 api.register(r"product", ProductViewSet)
 api.register(r"unit", UnitViewSet)
 api.register(r"loss", LossViewSet)

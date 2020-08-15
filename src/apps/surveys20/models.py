@@ -20,10 +20,13 @@ from django.db.models import (
     FileField,
     Q,
 )
+from model_utils import Choices
 from apps.logs.models import ReviewLog
 
 
-YES_NO_CHOICES = ((0, "No"), (1, "Yes"))
+YES_NO_CHOICES = Choices((0, "No"), (1, "Yes"))
+
+PRODUCT_TYPE_CHOICES = Choices((1, 'crop', _('Crop')), (2, 'animal', _('Animal')))
 
 NUMBER_WORKERS_CHOICES = Q(app_label="surveys20", model="longtermhire") | Q(
     app_label="surveys20", model="shorttermhire"
@@ -551,29 +554,6 @@ class LivestockMarketing(Model):
         return str(self.survey)
 
 
-class ProductType(Model):
-    """
-    Table 1.5, 1.6
-    Has yaml
-    """
-
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_("Name"))
-    update_time = DateTimeField(
-        auto_now=True,
-        auto_now_add=False,
-        null=True,
-        blank=True,
-        verbose_name=_("Updated"),
-    )
-
-    class Meta:
-        verbose_name = _("ProductType")
-        verbose_name_plural = _("ProductType")
-
-    def __str__(self):
-        return str(self.name)
-
-
 class Product(Model):
     """
     Changed 107
@@ -588,13 +568,7 @@ class Product(Model):
     min_hour = FloatField(null=True, blank=True, verbose_name=_("Min Hour"))
     max_hour = FloatField(null=True, blank=True, verbose_name=_("Max Hour"))
     parent = ForeignKey('self', null=True, blank=True, on_delete=CASCADE, verbose_name=_('Parent Product'))
-    type = ForeignKey(
-        "surveys20.ProductType",
-        null=True,
-        blank=True,
-        on_delete=CASCADE,
-        verbose_name=_("Product Type"),
-    )
+    type = IntegerField(choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
     management_type = ForeignKey(
         "surveys20.ManagementType",
         on_delete=CASCADE,
@@ -628,13 +602,7 @@ class Unit(Model):
 
     code = IntegerField(verbose_name=_("Code"))
     name = CharField(max_length=10, null=True, blank=True, verbose_name=_("Name"))
-    type = ForeignKey(
-        "surveys20.ProductType",
-        null=True,
-        blank=True,
-        on_delete=CASCADE,
-        verbose_name=_("Product Type"),
-    )
+    type = IntegerField(null=True, blank=True, choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,
@@ -659,13 +627,7 @@ class Loss(Model):
 
     code = IntegerField(verbose_name=_("Code"))
     name = CharField(max_length=10, null=True, blank=True, verbose_name=_("Name"))
-    type = ForeignKey(
-        "surveys20.ProductType",
-        null=True,
-        blank=True,
-        on_delete=CASCADE,
-        verbose_name=_("Product Type"),
-    )
+    type = IntegerField(choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,

@@ -1,6 +1,5 @@
 import json
 import logging
-import csv
 
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -34,7 +33,6 @@ from apps.surveys20.models import (
     ManagementType,
     CropMarketing,
     LivestockMarketing,
-    ProductType,
     Product,
     Unit,
     Loss,
@@ -63,6 +61,7 @@ from apps.surveys20.models import (
     RefuseReason,
     Month,
     BuilderFile,
+    PRODUCT_TYPE_CHOICES
 )
 
 from apps.surveys20.serializers import (
@@ -80,7 +79,6 @@ from apps.surveys20.serializers import (
     ManagementTypeSerializer,
     CropMarketingSerializer,
     LivestockMarketingSerializer,
-    ProductTypeSerializer,
     ProductSerializer,
     UnitSerializer,
     LossSerializer,
@@ -145,12 +143,12 @@ class Surveys2020Index(LoginRequiredMixin, TemplateView):
 
         # ui elements render objects
         context["contracts"] = Contract.objects.all()
-        context["crop_products"] = Product.objects.filter(type=1)
-        context["crop_losses"] = Loss.objects.filter(type=1)
-        context["crop_units"] = Unit.objects.filter(type=1)
-        context["livestock_products"] = Product.objects.filter(type=2)
-        context["livestock_losses"] = Loss.objects.filter(type=2)
-        context["livestock_units"] = Unit.objects.filter(type=2)
+        context["crop_products"] = Product.objects.filter(type=PRODUCT_TYPE_CHOICES.crop)
+        context["crop_losses"] = Loss.objects.filter(type=PRODUCT_TYPE_CHOICES.crop)
+        context["crop_units"] = Unit.objects.filter(type=PRODUCT_TYPE_CHOICES.crop)
+        context["livestock_products"] = Product.objects.filter(type=PRODUCT_TYPE_CHOICES.animal)
+        context["livestock_losses"] = Loss.objects.filter(type=PRODUCT_TYPE_CHOICES.animal)
+        context["livestock_units"] = Unit.objects.filter(type=PRODUCT_TYPE_CHOICES.animal)
         context["education_levels"] = EducationLevel.objects.all()
         context["farmer_work_days"] = FarmerWorkDay.objects.all()
         context["genders"] = Gender.objects.all()
@@ -338,11 +336,6 @@ class CropMarketingViewSet(StandardViewSet):
 class LivestockMarketingViewSet(StandardViewSet):
     queryset = LivestockMarketing.objects.all()
     serializer_class = LivestockMarketingSerializer
-
-
-class ProductTypeViewSet(ReadOnlyModelViewSet, StandardViewSet):
-    queryset = ProductType.objects.all()
-    serializer_class = ProductTypeSerializer
 
 
 class ProductViewSet(ReadOnlyModelViewSet, StandardViewSet):
