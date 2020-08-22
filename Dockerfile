@@ -13,7 +13,9 @@ RUN apt-get update \
 WORKDIR /app
 
 COPY src/requirements.txt .
+COPY src/requirements_ipython.txt .
 
 RUN pip install -r requirements.txt
+RUN pip install -r requirements_ipython.txt
 
 COPY src .

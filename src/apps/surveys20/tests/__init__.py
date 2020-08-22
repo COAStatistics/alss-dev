@@ -19,7 +19,6 @@ def setup_fixtures():
     call_command("loaddata", "fixtures/surveys20/income-range.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys20/lack.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys20/land-status.yaml", verbosity=0)
-    call_command("loaddata", "fixtures/surveys20/product-type.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys20/unit.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys20/land-type.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys20/life-style.yaml", verbosity=0)

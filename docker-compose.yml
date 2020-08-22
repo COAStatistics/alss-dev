@@ -13,7 +13,7 @@ services:
       - redis
     volumes:
       - ./src:/app
-    command: /app/scripts/start.sh
+    command: /app/scripts/dev.sh
     entrypoint: /app/scripts/entrypoint.sh
     restart: on-failure
     ports:
@@ -27,6 +27,7 @@ services:
     image: postgres:10-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
+#      - ./dump:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -41,3 +42,10 @@ services:
     container_name: worker
     ports: []
     command: ["celery", "worker", "--app=config", "--loglevel=info"]
+
+  jupter:
+    <<: *web
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+    command: ["python", "manage.py", "shell_plus", "--notebook"]

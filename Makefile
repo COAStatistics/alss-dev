@@ -1,5 +1,8 @@
 DJANGO_CONTAINER_NAME = web
 
+init:
+	docker exec web ./scripts/init.sh
+
 attach:
 	docker exec -it ${DJANGO_CONTAINER_NAME} bash
 

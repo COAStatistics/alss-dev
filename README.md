@@ -18,6 +18,10 @@ Stop services, Use `-v` to clean volume while stop containers(if migrations file
 $ docker-compose down -v
 ```
 
+## IPython Notebook
+
+For convenience, spawn a jupyter notebook service at [localhost:8888](http://localhost:8888). The files are ignored in version control.
+
 
 ## Testing
 
