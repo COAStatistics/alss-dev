@@ -51,6 +51,7 @@ from apps.surveys20.models import (
     Month,
     BuilderFile,
 )
+from .tasks import async_update_stratify
 
 
 class BuilderFileSerializer(HyperlinkedModelSerializer):
@@ -1057,5 +1058,7 @@ class SurveySerializer(ModelSerializer):
                         extra=item["extra"] if "extra" in item else None,
                     )
             instance.subsidy.save()
+
+        async_update_stratify.delay(instance.id)
 
         return instance

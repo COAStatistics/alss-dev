@@ -1,11 +1,11 @@
 import csv
 import io
-import zipfile
 
 from django.conf import settings
 from django.core.mail import EmailMessage
 
 from config import celery_app as app
+from apps.surveys20.models import FarmerStat, Survey
 from apps.surveys20.export import SurveyRelationGeneratorFactory
 
 
@@ -37,3 +37,17 @@ def async_export_108(email):
             [email]
         )
         email.send()
+
+
+@app.task
+def async_update_stratify(survey_id):
+    survey = Survey.objects.get(id=survey_id)
+    stratify = FarmerStat.get_stratify(survey)
+    FarmerStat.objects.update_or_create(
+        survey=survey,
+        defaults={
+            'stratify': stratify
+        }
+    )
+
+    return f'Classify survey {survey} to stratify {stratify}.'
