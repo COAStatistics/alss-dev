@@ -1580,7 +1580,7 @@ class FarmerStat(Model):
                     )
                 )
             except Stratify.DoesNotExist:
-                print(f'annot find stratify for survey {survey}.')
+                print(f'Cannot find stratify for survey {survey}.')
 
         # Bulk operation
         cls.objects.all().delete()
@@ -1614,3 +1614,5 @@ class FarmerStat(Model):
                     max_revenue__gte=avg,
                     is_hire=survey.hire,
                 )
+            else:
+                raise ValueError(f"Survey {survey}'s annual income is missing.")
