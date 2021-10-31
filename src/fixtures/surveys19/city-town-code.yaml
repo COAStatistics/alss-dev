@@ -4,6 +4,7 @@
     city: 宜蘭
     town: 宜蘭
     code: 201
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 2
@@ -11,6 +12,7 @@
     city: 宜蘭
     town: 羅東
     code: 202
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 3
@@ -18,6 +20,7 @@
     city: 宜蘭
     town: 蘇澳
     code: 203
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 4
@@ -25,6 +28,7 @@
     city: 宜蘭
     town: 頭城
     code: 204
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 5
@@ -32,6 +36,7 @@
     city: 宜蘭
     town: 礁溪
     code: 205
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 6
@@ -39,6 +44,7 @@
     city: 宜蘭
     town: 壯圍
     code: 206
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 7
@@ -46,6 +52,7 @@
     city: 宜蘭
     town: 員山
     code: 207
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 8
@@ -53,6 +60,7 @@
     city: 宜蘭
     town: 冬山
     code: 208
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 9
@@ -60,6 +68,7 @@
     city: 宜蘭
     town: 五結
     code: 209
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 10
@@ -67,6 +76,7 @@
     city: 宜蘭
     town: 三星
     code: 210
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 11
@@ -74,6 +84,7 @@
     city: 宜蘭
     town: 大同
     code: 211
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 12
@@ -81,6 +92,7 @@
     city: 宜蘭
     town: 南澳
     code: 212
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 13
@@ -88,6 +100,7 @@
     city: 新竹
     town: 竹北
     code: 401
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 14
@@ -95,6 +108,7 @@
     city: 新竹
     town: 竹東
     code: 402
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 15
@@ -102,6 +116,7 @@
     city: 新竹
     town: 新埔
     code: 403
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 16
@@ -109,6 +124,7 @@
     city: 新竹
     town: 關西
     code: 404
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 17
@@ -116,6 +132,7 @@
     city: 新竹
     town: 湖口
     code: 405
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 18
@@ -123,6 +140,7 @@
     city: 新竹
     town: 新豐
     code: 406
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 19
@@ -130,6 +148,7 @@
     city: 新竹
     town: 芎林
     code: 407
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 20
@@ -137,6 +156,7 @@
     city: 新竹
     town: 橫山
     code: 408
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 21
@@ -144,6 +164,7 @@
     city: 新竹
     town: 北埔
     code: 409
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 22
@@ -151,6 +172,7 @@
     city: 新竹
     town: 寶山
     code: 410
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 23
@@ -158,6 +180,7 @@
     city: 新竹
     town: 峨眉
     code: 411
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 24
@@ -165,6 +188,7 @@
     city: 新竹
     town: 尖石
     code: 412
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 25
@@ -172,6 +196,7 @@
     city: 新竹
     town: 五峰
     code: 413
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 26
@@ -179,6 +204,7 @@
     city: 苗栗
     town: 苗栗
     code: 501
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 27
@@ -186,6 +212,7 @@
     city: 苗栗
     town: 苑裡
     code: 502
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 28
@@ -193,6 +220,7 @@
     city: 苗栗
     town: 通霄
     code: 503
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 29
@@ -200,6 +228,7 @@
     city: 苗栗
     town: 竹南
     code: 504
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 30
@@ -207,6 +236,7 @@
     city: 苗栗
     town: 頭份
     code: 505
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 31
@@ -214,6 +244,7 @@
     city: 苗栗
     town: 後龍
     code: 506
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 32
@@ -221,6 +252,7 @@
     city: 苗栗
     town: 卓蘭
     code: 507
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 33
@@ -228,6 +260,7 @@
     city: 苗栗
     town: 大湖
     code: 508
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 34
@@ -235,6 +268,7 @@
     city: 苗栗
     town: 公館
     code: 509
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 35
@@ -242,6 +276,7 @@
     city: 苗栗
     town: 銅鑼
     code: 510
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 36
@@ -249,6 +284,7 @@
     city: 苗栗
     town: 南庄
     code: 511
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 37
@@ -256,6 +292,7 @@
     city: 苗栗
     town: 頭屋
     code: 512
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 38
@@ -263,6 +300,7 @@
     city: 苗栗
     town: 三義
     code: 513
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 39
@@ -270,6 +308,7 @@
     city: 苗栗
     town: 西湖
     code: 514
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 40
@@ -277,6 +316,7 @@
     city: 苗栗
     town: 造橋
     code: 515
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 41
@@ -284,6 +324,7 @@
     city: 苗栗
     town: 三灣
     code: 516
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 42
@@ -291,6 +332,7 @@
     city: 苗栗
     town: 獅潭
     code: 517
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 43
@@ -298,6 +340,7 @@
     city: 苗栗
     town: 泰安
     code: 518
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 44
@@ -305,6 +348,7 @@
     city: 彰化
     town: 彰化
     code: 701
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 45
@@ -312,6 +356,7 @@
     city: 彰化
     town: 鹿港
     code: 702
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 46
@@ -319,6 +364,7 @@
     city: 彰化
     town: 和美
     code: 703
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 47
@@ -326,6 +372,7 @@
     city: 彰化
     town: 線西
     code: 704
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 48
@@ -333,6 +380,7 @@
     city: 彰化
     town: 伸港
     code: 705
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 49
@@ -340,6 +388,7 @@
     city: 彰化
     town: 福興
     code: 706
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 50
@@ -347,6 +396,7 @@
     city: 彰化
     town: 秀水
     code: 707
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 51
@@ -354,6 +404,7 @@
     city: 彰化
     town: 花壇
     code: 708
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 52
@@ -361,6 +412,7 @@
     city: 彰化
     town: 芬園
     code: 709
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 53
@@ -368,6 +420,7 @@
     city: 彰化
     town: 員林
     code: 710
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 54
@@ -375,6 +428,7 @@
     city: 彰化
     town: 溪湖
     code: 711
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 55
@@ -382,6 +436,7 @@
     city: 彰化
     town: 田中
     code: 712
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 56
@@ -389,6 +444,7 @@
     city: 彰化
     town: 大村
     code: 713
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 57
@@ -396,6 +452,7 @@
     city: 彰化
     town: 埔鹽
     code: 714
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 58
@@ -403,6 +460,7 @@
     city: 彰化
     town: 埔心
     code: 715
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 59
@@ -410,6 +468,7 @@
     city: 彰化
     town: 永靖
     code: 716
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 60
@@ -417,6 +476,7 @@
     city: 彰化
     town: 社頭
     code: 717
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 61
@@ -424,6 +484,7 @@
     city: 彰化
     town: 二水
     code: 718
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 62
@@ -431,6 +492,7 @@
     city: 彰化
     town: 北斗
     code: 719
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 63
@@ -438,6 +500,7 @@
     city: 彰化
     town: 二林
     code: 720
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 64
@@ -445,6 +508,7 @@
     city: 彰化
     town: 田尾
     code: 721
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 65
@@ -452,6 +516,7 @@
     city: 彰化
     town: 埤頭
     code: 722
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 66
@@ -459,6 +524,7 @@
     city: 彰化
     town: 芳苑
     code: 723
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 67
@@ -466,6 +532,7 @@
     city: 彰化
     town: 大城
     code: 724
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 68
@@ -473,6 +540,7 @@
     city: 彰化
     town: 竹塘
     code: 725
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 69
@@ -480,6 +548,7 @@
     city: 彰化
     town: 溪州
     code: 726
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 70
@@ -487,6 +556,7 @@
     city: 南投
     town: 南投
     code: 801
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 71
@@ -494,6 +564,7 @@
     city: 南投
     town: 埔里
     code: 802
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 72
@@ -501,6 +572,7 @@
     city: 南投
     town: 草屯
     code: 803
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 73
@@ -508,6 +580,7 @@
     city: 南投
     town: 竹山
     code: 804
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 74
@@ -515,6 +588,7 @@
     city: 南投
     town: 集集
     code: 805
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 75
@@ -522,6 +596,7 @@
     city: 南投
     town: 名間
     code: 806
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 76
@@ -529,6 +604,7 @@
     city: 南投
     town: 鹿谷
     code: 807
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 77
@@ -536,6 +612,7 @@
     city: 南投
     town: 中寮
     code: 808
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 78
@@ -543,6 +620,7 @@
     city: 南投
     town: 魚池
     code: 809
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 79
@@ -550,6 +628,7 @@
     city: 南投
     town: 國姓
     code: 810
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 80
@@ -557,6 +636,7 @@
     city: 南投
     town: 水里
     code: 811
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 81
@@ -564,6 +644,7 @@
     city: 南投
     town: 信義
     code: 812
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 82
@@ -571,6 +652,7 @@
     city: 南投
     town: 仁愛
     code: 813
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 83
@@ -578,6 +660,7 @@
     city: 雲林
     town: 斗六
     code: 901
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 84
@@ -585,6 +668,7 @@
     city: 雲林
     town: 斗南
     code: 902
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 85
@@ -592,6 +676,7 @@
     city: 雲林
     town: 虎尾
     code: 903
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 86
@@ -599,6 +684,7 @@
     city: 雲林
     town: 西螺
     code: 904
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 87
@@ -606,6 +692,7 @@
     city: 雲林
     town: 土庫
     code: 905
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 88
@@ -613,6 +700,7 @@
     city: 雲林
     town: 北港
     code: 906
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 89
@@ -620,6 +708,7 @@
     city: 雲林
     town: 古坑
     code: 907
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 90
@@ -627,6 +716,7 @@
     city: 雲林
     town: 大埤
     code: 908
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 91
@@ -634,6 +724,7 @@
     city: 雲林
     town: 莿桐
     code: 909
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 92
@@ -641,6 +732,7 @@
     city: 雲林
     town: 林內
     code: 910
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 93
@@ -648,6 +740,7 @@
     city: 雲林
     town: 二崙
     code: 911
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 94
@@ -655,6 +748,7 @@
     city: 雲林
     town: 崙背
     code: 912
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 95
@@ -662,6 +756,7 @@
     city: 雲林
     town: 麥寮
     code: 913
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 96
@@ -669,6 +764,7 @@
     city: 雲林
     town: 東勢
     code: 914
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 97
@@ -676,6 +772,7 @@
     city: 雲林
     town: 褒忠
     code: 915
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 98
@@ -683,6 +780,7 @@
     city: 雲林
     town: 臺西
     code: 916
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 99
@@ -690,6 +788,7 @@
     city: 雲林
     town: 元長
     code: 917
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 100
@@ -697,6 +796,7 @@
     city: 雲林
     town: 四湖
     code: 918
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 101
@@ -704,6 +804,7 @@
     city: 雲林
     town: 口湖
     code: 919
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 102
@@ -711,6 +812,7 @@
     city: 雲林
     town: 水林
     code: 920
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 103
@@ -718,6 +820,7 @@
     city: 嘉義
     town: 太保
     code: 1001
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 104
@@ -725,6 +828,7 @@
     city: 嘉義
     town: 朴子
     code: 1002
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 105
@@ -732,6 +836,7 @@
     city: 嘉義
     town: 布袋
     code: 1003
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 106
@@ -739,6 +844,7 @@
     city: 嘉義
     town: 大林
     code: 1004
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 107
@@ -746,6 +852,7 @@
     city: 嘉義
     town: 民雄
     code: 1005
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 108
@@ -753,6 +860,7 @@
     city: 嘉義
     town: 溪口
     code: 1006
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 109
@@ -760,6 +868,7 @@
     city: 嘉義
     town: 新港
     code: 1007
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 110
@@ -767,6 +876,7 @@
     city: 嘉義
     town: 六腳
     code: 1008
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 111
@@ -774,6 +884,7 @@
     city: 嘉義
     town: 東石
     code: 1009
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 112
@@ -781,6 +892,7 @@
     city: 嘉義
     town: 義竹
     code: 1010
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 113
@@ -788,6 +900,7 @@
     city: 嘉義
     town: 鹿草
     code: 1011
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 114
@@ -795,6 +908,7 @@
     city: 嘉義
     town: 水上
     code: 1012
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 115
@@ -802,6 +916,7 @@
     city: 嘉義
     town: 中埔
     code: 1013
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 116
@@ -809,6 +924,7 @@
     city: 嘉義
     town: 竹崎
     code: 1014
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 117
@@ -816,6 +932,7 @@
     city: 嘉義
     town: 梅山
     code: 1015
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 118
@@ -823,6 +940,7 @@
     city: 嘉義
     town: 番路
     code: 1016
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 119
@@ -830,6 +948,7 @@
     city: 嘉義
     town: 大埔
     code: 1017
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 120
@@ -837,6 +956,7 @@
     city: 嘉義
     town: 阿里山
     code: 1018
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 121
@@ -844,6 +964,7 @@
     city: 屏東
     town: 屏東
     code: 1301
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 122
@@ -851,6 +972,7 @@
     city: 屏東
     town: 潮州
     code: 1302
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 123
@@ -858,6 +980,7 @@
     city: 屏東
     town: 東港
     code: 1303
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 124
@@ -865,6 +988,7 @@
     city: 屏東
     town: 恆春
     code: 1304
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 125
@@ -872,6 +996,7 @@
     city: 屏東
     town: 萬丹
     code: 1305
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 126
@@ -879,6 +1004,7 @@
     city: 屏東
     town: 長治
     code: 1306
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 127
@@ -886,6 +1012,7 @@
     city: 屏東
     town: 麟洛
     code: 1307
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 128
@@ -893,6 +1020,7 @@
     city: 屏東
     town: 九如
     code: 1308
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 129
@@ -900,6 +1028,7 @@
     city: 屏東
     town: 里港
     code: 1309
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 130
@@ -907,6 +1036,7 @@
     city: 屏東
     town: 鹽埔
     code: 1310
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 131
@@ -914,6 +1044,7 @@
     city: 屏東
     town: 高樹
     code: 1311
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 132
@@ -921,6 +1052,7 @@
     city: 屏東
     town: 萬巒
     code: 1312
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 133
@@ -928,6 +1060,7 @@
     city: 屏東
     town: 內埔
     code: 1313
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 134
@@ -935,6 +1068,7 @@
     city: 屏東
     town: 竹田
     code: 1314
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 135
@@ -942,6 +1076,7 @@
     city: 屏東
     town: 新埤
     code: 1315
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 136
@@ -949,6 +1084,7 @@
     city: 屏東
     town: 枋寮
     code: 1316
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 137
@@ -956,6 +1092,7 @@
     city: 屏東
     town: 新園
     code: 1317
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 138
@@ -963,6 +1100,7 @@
     city: 屏東
     town: 崁頂
     code: 1318
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 139
@@ -970,6 +1108,7 @@
     city: 屏東
     town: 林邊
     code: 1319
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 140
@@ -977,6 +1116,7 @@
     city: 屏東
     town: 南州
     code: 1320
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 141
@@ -984,6 +1124,7 @@
     city: 屏東
     town: 佳冬
     code: 1321
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 142
@@ -991,6 +1132,7 @@
     city: 屏東
     town: 琉球
     code: 1322
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 143
@@ -998,6 +1140,7 @@
     city: 屏東
     town: 車城
     code: 1323
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 144
@@ -1005,6 +1148,7 @@
     city: 屏東
     town: 滿州
     code: 1324
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 145
@@ -1012,6 +1156,7 @@
     city: 屏東
     town: 枋山
     code: 1325
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 146
@@ -1019,6 +1164,7 @@
     city: 屏東
     town: 三地門
     code: 1326
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 147
@@ -1026,6 +1172,7 @@
     city: 屏東
     town: 霧臺
     code: 1327
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 148
@@ -1033,6 +1180,7 @@
     city: 屏東
     town: 瑪家
     code: 1328
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 149
@@ -1040,6 +1188,7 @@
     city: 屏東
     town: 泰武
     code: 1329
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 150
@@ -1047,6 +1196,7 @@
     city: 屏東
     town: 來義
     code: 1330
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 151
@@ -1054,6 +1204,7 @@
     city: 屏東
     town: 春日
     code: 1331
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 152
@@ -1061,6 +1212,7 @@
     city: 屏東
     town: 獅子
     code: 1332
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 153
@@ -1068,6 +1220,7 @@
     city: 屏東
     town: 牡丹
     code: 1333
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 154
@@ -1075,6 +1228,7 @@
     city: 臺東
     town: 臺東
     code: 1401
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 155
@@ -1082,6 +1236,7 @@
     city: 臺東
     town: 成功
     code: 1402
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 156
@@ -1089,6 +1244,7 @@
     city: 臺東
     town: 關山
     code: 1403
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 157
@@ -1096,6 +1252,7 @@
     city: 臺東
     town: 卑南
     code: 1404
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 158
@@ -1103,6 +1260,7 @@
     city: 臺東
     town: 鹿野
     code: 1405
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 159
@@ -1110,6 +1268,7 @@
     city: 臺東
     town: 池上
     code: 1406
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 160
@@ -1117,6 +1276,7 @@
     city: 臺東
     town: 東河
     code: 1407
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 161
@@ -1124,6 +1284,7 @@
     city: 臺東
     town: 長濱
     code: 1408
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 162
@@ -1131,6 +1292,7 @@
     city: 臺東
     town: 太麻里
     code: 1409
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 163
@@ -1138,6 +1300,7 @@
     city: 臺東
     town: 大武
     code: 1410
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 164
@@ -1145,6 +1308,7 @@
     city: 臺東
     town: 綠島
     code: 1411
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 165
@@ -1152,6 +1316,7 @@
     city: 臺東
     town: 海端
     code: 1412
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 166
@@ -1159,6 +1324,7 @@
     city: 臺東
     town: 延平
     code: 1413
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 167
@@ -1166,6 +1332,7 @@
     city: 臺東
     town: 金峰
     code: 1414
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 168
@@ -1173,6 +1340,7 @@
     city: 臺東
     town: 達仁
     code: 1415
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 169
@@ -1180,6 +1348,7 @@
     city: 臺東
     town: 蘭嶼
     code: 1416
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 170
@@ -1187,6 +1356,7 @@
     city: 花蓮
     town: 花蓮
     code: 1501
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 171
@@ -1194,6 +1364,7 @@
     city: 花蓮
     town: 鳳林
     code: 1502
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 172
@@ -1201,6 +1372,7 @@
     city: 花蓮
     town: 玉里
     code: 1503
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 173
@@ -1208,6 +1380,7 @@
     city: 花蓮
     town: 新城
     code: 1504
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 174
@@ -1215,6 +1388,7 @@
     city: 花蓮
     town: 吉安
     code: 1505
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 175
@@ -1222,6 +1396,7 @@
     city: 花蓮
     town: 壽豐
     code: 1506
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 176
@@ -1229,6 +1404,7 @@
     city: 花蓮
     town: 光復
     code: 1507
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 177
@@ -1236,6 +1412,7 @@
     city: 花蓮
     town: 豐濱
     code: 1508
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 178
@@ -1243,6 +1420,7 @@
     city: 花蓮
     town: 瑞穗
     code: 1509
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 179
@@ -1250,6 +1428,7 @@
     city: 花蓮
     town: 富里
     code: 1510
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 180
@@ -1257,6 +1436,7 @@
     city: 花蓮
     town: 秀林
     code: 1511
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 181
@@ -1264,6 +1444,7 @@
     city: 花蓮
     town: 萬榮
     code: 1512
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 182
@@ -1271,6 +1452,7 @@
     city: 花蓮
     town: 卓溪
     code: 1513
+    region: 4
 
 - model: surveys19.CityTownCode
   pk: 183
@@ -1320,6 +1502,7 @@
     city: 基隆
     town: 中正
     code: 1701
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 190
@@ -1327,6 +1510,7 @@
     city: 基隆
     town: 七堵
     code: 1702
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 191
@@ -1334,6 +1518,7 @@
     city: 基隆
     town: 暖暖
     code: 1703
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 192
@@ -1341,6 +1526,7 @@
     city: 基隆
     town: 仁愛
     code: 1704
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 193
@@ -1348,6 +1534,7 @@
     city: 基隆
     town: 中山
     code: 1705
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 194
@@ -1355,6 +1542,7 @@
     city: 基隆
     town: 安樂
     code: 1706
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 195
@@ -1362,6 +1550,7 @@
     city: 基隆
     town: 信義
     code: 1707
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 196
@@ -1369,6 +1558,7 @@
     city: 新竹
     town: 東
     code: 1801
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 197
@@ -1376,6 +1566,7 @@
     city: 新竹
     town: 北
     code: 1802
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 198
@@ -1383,6 +1574,7 @@
     city: 新竹
     town: 香山
     code: 1803
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 199
@@ -1390,6 +1582,7 @@
     city: 嘉義
     town: 東
     code: 2001
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 200
@@ -1397,6 +1590,7 @@
     city: 嘉義
     town: 西
     code: 2002
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 201
@@ -1404,6 +1598,7 @@
     city: 臺北
     town: 松山
     code: 6301
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 202
@@ -1411,6 +1606,7 @@
     city: 臺北
     town: 信義
     code: 6302
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 203
@@ -1418,6 +1614,7 @@
     city: 臺北
     town: 大安
     code: 6303
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 204
@@ -1425,6 +1622,7 @@
     city: 臺北
     town: 中山
     code: 6304
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 205
@@ -1432,6 +1630,7 @@
     city: 臺北
     town: 中正
     code: 6305
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 206
@@ -1439,6 +1638,7 @@
     city: 臺北
     town: 大同
     code: 6306
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 207
@@ -1446,6 +1646,7 @@
     city: 臺北
     town: 萬華
     code: 6307
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 208
@@ -1453,6 +1654,7 @@
     city: 臺北
     town: 文山
     code: 6308
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 209
@@ -1460,6 +1662,7 @@
     city: 臺北
     town: 南港
     code: 6309
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 210
@@ -1467,6 +1670,7 @@
     city: 臺北
     town: 內湖
     code: 6310
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 211
@@ -1474,6 +1678,7 @@
     city: 臺北
     town: 士林
     code: 6311
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 212
@@ -1481,6 +1686,7 @@
     city: 臺北
     town: 北投
     code: 6312
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 213
@@ -1488,6 +1694,7 @@
     city: 高雄
     town: 鹽埕
     code: 6401
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 214
@@ -1495,6 +1702,7 @@
     city: 高雄
     town: 鼓山
     code: 6402
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 215
@@ -1502,6 +1710,7 @@
     city: 高雄
     town: 左營
     code: 6403
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 216
@@ -1509,6 +1718,7 @@
     city: 高雄
     town: 楠梓
     code: 6404
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 217
@@ -1516,6 +1726,7 @@
     city: 高雄
     town: 三民
     code: 6405
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 218
@@ -1523,6 +1734,7 @@
     city: 高雄
     town: 新興
     code: 6406
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 219
@@ -1530,6 +1742,7 @@
     city: 高雄
     town: 前金
     code: 6407
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 220
@@ -1537,6 +1750,7 @@
     city: 高雄
     town: 苓雅
     code: 6408
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 221
@@ -1544,6 +1758,7 @@
     city: 高雄
     town: 前
     code: 6409
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 222
@@ -1551,6 +1766,7 @@
     city: 高雄
     town: 旗津
     code: 6410
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 223
@@ -1558,6 +1774,7 @@
     city: 高雄
     town: 小港
     code: 6411
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 224
@@ -1565,6 +1782,7 @@
     city: 高雄
     town: 鳳山
     code: 6412
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 225
@@ -1572,6 +1790,7 @@
     city: 高雄
     town: 林園
     code: 6413
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 226
@@ -1579,6 +1798,7 @@
     city: 高雄
     town: 大寮
     code: 6414
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 227
@@ -1586,6 +1806,7 @@
     city: 高雄
     town: 大樹
     code: 6415
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 228
@@ -1593,6 +1814,7 @@
     city: 高雄
     town: 大社
     code: 6416
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 229
@@ -1600,6 +1822,7 @@
     city: 高雄
     town: 仁武
     code: 6417
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 230
@@ -1607,6 +1830,7 @@
     city: 高雄
     town: 鳥松
     code: 6418
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 231
@@ -1614,6 +1838,7 @@
     city: 高雄
     town: 岡山
     code: 6419
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 232
@@ -1621,6 +1846,7 @@
     city: 高雄
     town: 橋頭
     code: 6420
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 233
@@ -1628,6 +1854,7 @@
     city: 高雄
     town: 燕巢
     code: 6421
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 234
@@ -1635,6 +1862,7 @@
     city: 高雄
     town: 田寮
     code: 6422
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 235
@@ -1642,6 +1870,7 @@
     city: 高雄
     town: 阿蓮
     code: 6423
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 236
@@ -1649,6 +1878,7 @@
     city: 高雄
     town: 路竹
     code: 6424
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 237
@@ -1656,6 +1886,7 @@
     city: 高雄
     town: 湖內
     code: 6425
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 238
@@ -1663,6 +1894,7 @@
     city: 高雄
     town: 茄萣
     code: 6426
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 239
@@ -1670,6 +1902,7 @@
     city: 高雄
     town: 永安
     code: 6427
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 240
@@ -1677,6 +1910,7 @@
     city: 高雄
     town: 彌陀
     code: 6428
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 241
@@ -1684,6 +1918,7 @@
     city: 高雄
     town: 梓官
     code: 6429
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 242
@@ -1691,6 +1926,7 @@
     city: 高雄
     town: 旗山
     code: 6430
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 243
@@ -1698,6 +1934,7 @@
     city: 高雄
     town: 美濃
     code: 6431
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 244
@@ -1705,6 +1942,7 @@
     city: 高雄
     town: 六龜
     code: 6432
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 245
@@ -1712,6 +1950,7 @@
     city: 高雄
     town: 甲仙
     code: 6433
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 246
@@ -1719,6 +1958,7 @@
     city: 高雄
     town: 杉林
     code: 6434
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 247
@@ -1726,6 +1966,7 @@
     city: 高雄
     town: 內門
     code: 6435
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 248
@@ -1733,6 +1974,7 @@
     city: 高雄
     town: 茂林
     code: 6436
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 249
@@ -1740,6 +1982,7 @@
     city: 高雄
     town: 桃源
     code: 6437
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 250
@@ -1747,6 +1990,7 @@
     city: 高雄
     town: 那瑪夏
     code: 6438
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 251
@@ -1754,6 +1998,7 @@
     city: 新北
     town: 板橋
     code: 6501
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 252
@@ -1761,6 +2006,7 @@
     city: 新北
     town: 三重
     code: 6502
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 253
@@ -1768,6 +2014,7 @@
     city: 新北
     town: 中和
     code: 6503
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 254
@@ -1775,6 +2022,7 @@
     city: 新北
     town: 永和
     code: 6504
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 255
@@ -1782,6 +2030,7 @@
     city: 新北
     town: 新莊
     code: 6505
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 256
@@ -1789,6 +2038,7 @@
     city: 新北
     town: 新店
     code: 6506
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 257
@@ -1796,6 +2046,7 @@
     city: 新北
     town: 樹林
     code: 6507
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 258
@@ -1803,6 +2054,7 @@
     city: 新北
     town: 鶯歌
     code: 6508
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 259
@@ -1810,6 +2062,7 @@
     city: 新北
     town: 三峽
     code: 6509
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 260
@@ -1817,6 +2070,7 @@
     city: 新北
     town: 淡水
     code: 6510
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 261
@@ -1824,6 +2078,7 @@
     city: 新北
     town: 汐止
     code: 6511
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 262
@@ -1831,6 +2086,7 @@
     city: 新北
     town: 瑞芳
     code: 6512
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 263
@@ -1838,6 +2094,7 @@
     city: 新北
     town: 土城
     code: 6513
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 264
@@ -1845,6 +2102,7 @@
     city: 新北
     town: 蘆洲
     code: 6514
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 265
@@ -1852,6 +2110,7 @@
     city: 新北
     town: 五股
     code: 6515
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 266
@@ -1859,6 +2118,7 @@
     city: 新北
     town: 泰山
     code: 6516
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 267
@@ -1866,6 +2126,7 @@
     city: 新北
     town: 林口
     code: 6517
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 268
@@ -1873,6 +2134,7 @@
     city: 新北
     town: 深坑
     code: 6518
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 269
@@ -1880,6 +2142,7 @@
     city: 新北
     town: 石碇
     code: 6519
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 270
@@ -1887,6 +2150,7 @@
     city: 新北
     town: 坪林
     code: 6520
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 271
@@ -1894,6 +2158,7 @@
     city: 新北
     town: 三芝
     code: 6521
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 272
@@ -1901,6 +2166,7 @@
     city: 新北
     town: 石門
     code: 6522
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 273
@@ -1908,6 +2174,7 @@
     city: 新北
     town: 八里
     code: 6523
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 274
@@ -1915,6 +2182,7 @@
     city: 新北
     town: 平溪
     code: 6524
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 275
@@ -1922,6 +2190,7 @@
     city: 新北
     town: 雙溪
     code: 6525
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 276
@@ -1929,6 +2198,7 @@
     city: 新北
     town: 貢寮
     code: 6526
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 277
@@ -1936,6 +2206,7 @@
     city: 新北
     town: 金山
     code: 6527
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 278
@@ -1943,6 +2214,7 @@
     city: 新北
     town: 萬里
     code: 6528
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 279
@@ -1950,6 +2222,7 @@
     city: 新北
     town: 烏來
     code: 6529
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 280
@@ -1957,6 +2230,7 @@
     city: 臺中
     town: 中
     code: 6601
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 281
@@ -1964,6 +2238,7 @@
     city: 臺中
     town: 東
     code: 6602
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 282
@@ -1971,6 +2246,7 @@
     city: 臺中
     town: 南
     code: 6603
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 283
@@ -1978,6 +2254,7 @@
     city: 臺中
     town: 西
     code: 6604
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 284
@@ -1985,6 +2262,7 @@
     city: 臺中
     town: 北
     code: 6605
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 285
@@ -1992,6 +2270,7 @@
     city: 臺中
     town: 西屯
     code: 6606
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 286
@@ -1999,6 +2278,7 @@
     city: 臺中
     town: 南屯
     code: 6607
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 287
@@ -2006,6 +2286,7 @@
     city: 臺中
     town: 北屯
     code: 6608
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 288
@@ -2013,6 +2294,7 @@
     city: 臺中
     town: 豐原
     code: 6609
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 289
@@ -2020,6 +2302,7 @@
     city: 臺中
     town: 東勢
     code: 6610
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 290
@@ -2027,6 +2310,7 @@
     city: 臺中
     town: 大甲
     code: 6611
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 291
@@ -2034,6 +2318,7 @@
     city: 臺中
     town: 清水
     code: 6612
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 292
@@ -2041,6 +2326,7 @@
     city: 臺中
     town: 沙鹿
     code: 6613
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 293
@@ -2048,6 +2334,7 @@
     city: 臺中
     town: 梧棲
     code: 6614
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 294
@@ -2055,6 +2342,7 @@
     city: 臺中
     town: 后里
     code: 6615
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 295
@@ -2062,6 +2350,7 @@
     city: 臺中
     town: 神岡
     code: 6616
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 296
@@ -2069,6 +2358,7 @@
     city: 臺中
     town: 潭子
     code: 6617
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 297
@@ -2076,6 +2366,7 @@
     city: 臺中
     town: 大雅
     code: 6618
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 298
@@ -2083,6 +2374,7 @@
     city: 臺中
     town: 新社
     code: 6619
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 299
@@ -2090,6 +2382,7 @@
     city: 臺中
     town: 石岡
     code: 6620
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 300
@@ -2097,6 +2390,7 @@
     city: 臺中
     town: 外埔
     code: 6621
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 301
@@ -2104,6 +2398,7 @@
     city: 臺中
     town: 大安
     code: 6622
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 302
@@ -2111,6 +2406,7 @@
     city: 臺中
     town: 烏日
     code: 6623
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 303
@@ -2118,6 +2414,7 @@
     city: 臺中
     town: 大肚
     code: 6624
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 304
@@ -2125,6 +2422,7 @@
     city: 臺中
     town: 龍井
     code: 6625
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 305
@@ -2132,6 +2430,7 @@
     city: 臺中
     town: 霧峰
     code: 6626
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 306
@@ -2139,6 +2438,7 @@
     city: 臺中
     town: 太平
     code: 6627
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 307
@@ -2146,6 +2446,7 @@
     city: 臺中
     town: 大里
     code: 6628
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 308
@@ -2153,6 +2454,7 @@
     city: 臺中
     town: 和平
     code: 6629
+    region: 2
 
 - model: surveys19.CityTownCode
   pk: 309
@@ -2160,6 +2462,7 @@
     city: 臺南
     town: 新營
     code: 6701
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 310
@@ -2167,6 +2470,7 @@
     city: 臺南
     town: 鹽水
     code: 6702
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 311
@@ -2174,6 +2478,7 @@
     city: 臺南
     town: 白河
     code: 6703
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 312
@@ -2181,6 +2486,7 @@
     city: 臺南
     town: 柳營
     code: 6704
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 313
@@ -2188,6 +2494,7 @@
     city: 臺南
     town: 後壁
     code: 6705
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 314
@@ -2195,6 +2502,7 @@
     city: 臺南
     town: 東山
     code: 6706
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 315
@@ -2202,6 +2510,7 @@
     city: 臺南
     town: 麻豆
     code: 6707
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 316
@@ -2209,6 +2518,7 @@
     city: 臺南
     town: 下營
     code: 6708
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 317
@@ -2216,6 +2526,7 @@
     city: 臺南
     town: 六甲
     code: 6709
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 318
@@ -2223,6 +2534,7 @@
     city: 臺南
     town: 官田
     code: 6710
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 319
@@ -2230,6 +2542,7 @@
     city: 臺南
     town: 大內
     code: 6711
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 320
@@ -2237,6 +2550,7 @@
     city: 臺南
     town: 佳里
     code: 6712
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 321
@@ -2244,6 +2558,7 @@
     city: 臺南
     town: 學甲
     code: 6713
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 322
@@ -2251,6 +2566,7 @@
     city: 臺南
     town: 西港
     code: 6714
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 323
@@ -2258,6 +2574,7 @@
     city: 臺南
     town: 七股
     code: 6715
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 324
@@ -2265,6 +2582,7 @@
     city: 臺南
     town: 將軍
     code: 6716
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 325
@@ -2272,6 +2590,7 @@
     city: 臺南
     town: 北門
     code: 6717
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 326
@@ -2279,6 +2598,7 @@
     city: 臺南
     town: 新化
     code: 6718
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 327
@@ -2286,6 +2606,7 @@
     city: 臺南
     town: 善化
     code: 6719
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 328
@@ -2293,6 +2614,7 @@
     city: 臺南
     town: 新市
     code: 6720
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 329
@@ -2300,6 +2622,7 @@
     city: 臺南
     town: 安定
     code: 6721
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 330
@@ -2307,6 +2630,7 @@
     city: 臺南
     town: 山上
     code: 6722
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 331
@@ -2314,6 +2638,7 @@
     city: 臺南
     town: 玉井
     code: 6723
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 332
@@ -2321,6 +2646,7 @@
     city: 臺南
     town: 楠西
     code: 6724
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 333
@@ -2328,6 +2654,7 @@
     city: 臺南
     town: 南化
     code: 6725
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 334
@@ -2335,6 +2662,7 @@
     city: 臺南
     town: 左鎮
     code: 6726
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 335
@@ -2342,6 +2670,7 @@
     city: 臺南
     town: 仁德
     code: 6727
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 336
@@ -2349,6 +2678,7 @@
     city: 臺南
     town: 歸仁
     code: 6728
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 337
@@ -2356,6 +2686,7 @@
     city: 臺南
     town: 關廟
     code: 6729
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 338
@@ -2363,6 +2694,7 @@
     city: 臺南
     town: 龍崎
     code: 6730
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 339
@@ -2370,6 +2702,7 @@
     city: 臺南
     town: 永康
     code: 6731
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 340
@@ -2377,6 +2710,7 @@
     city: 臺南
     town: 東
     code: 6732
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 341
@@ -2384,6 +2718,7 @@
     city: 臺南
     town: 南
     code: 6733
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 342
@@ -2391,6 +2726,7 @@
     city: 臺南
     town: 北
     code: 6734
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 343
@@ -2398,6 +2734,7 @@
     city: 臺南
     town: 安南
     code: 6735
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 344
@@ -2405,6 +2742,7 @@
     city: 臺南
     town: 安平
     code: 6736
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 345
@@ -2412,6 +2750,7 @@
     city: 臺南
     town: 中西
     code: 6737
+    region: 3
 
 - model: surveys19.CityTownCode
   pk: 346
@@ -2419,6 +2758,7 @@
     city: 桃園
     town: 桃園
     code: 6801
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 347
@@ -2426,6 +2766,7 @@
     city: 桃園
     town: 中壢
     code: 6802
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 348
@@ -2433,6 +2774,7 @@
     city: 桃園
     town: 大溪
     code: 6803
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 349
@@ -2440,6 +2782,7 @@
     city: 桃園
     town: 楊梅
     code: 6804
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 350
@@ -2447,6 +2790,7 @@
     city: 桃園
     town: 蘆竹
     code: 6805
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 351
@@ -2454,6 +2798,7 @@
     city: 桃園
     town: 大園
     code: 6806
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 352
@@ -2461,6 +2806,7 @@
     city: 桃園
     town: 龜山
     code: 6807
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 353
@@ -2468,6 +2814,7 @@
     city: 桃園
     town: 八德
     code: 6808
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 354
@@ -2475,6 +2822,7 @@
     city: 桃園
     town: 龍潭
     code: 6809
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 355
@@ -2482,6 +2830,7 @@
     city: 桃園
     town: 平鎮
     code: 6810
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 356
@@ -2489,6 +2838,7 @@
     city: 桃園
     town: 新屋
     code: 6811
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 357
@@ -2496,6 +2846,7 @@
     city: 桃園
     town: 觀音
     code: 6812
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 358
@@ -2503,6 +2854,7 @@
     city: 桃園
     town: 復興
     code: 6813
+    region: 1
 
 - model: surveys19.CityTownCode
   pk: 359

@@ -1,7 +1,12 @@
 from django.contrib import admin
-from date_range_filter import DateRangeFilter
 from django.contrib.admin import SimpleListFilter
 from django.db.models import Q
+from django.utils.translation import ugettext_lazy as _
+from date_range_filter import DateRangeFilter
+from import_export.resources import ModelResource
+from import_export.admin import ExportMixin
+from import_export.fields import Field
+
 
 from .models import (
     Survey,
@@ -45,7 +50,46 @@ from .models import (
     RefuseReason,
     Month,
     BuilderFile,
+    CityTownCode,
+    Stratify,
+    FarmerStat,
 )
+
+
+class StratifyResource(ModelResource):
+    management_type = Field(attribute='management_type', column_name=_('Management Type'))
+    code = Field(attribute='code', column_name=_('Code'))
+    population = Field(attribute='population', column_name=_('Population(Statistic)'))
+    sample_count = Field(column_name=_('Sample Count'))
+    magnification_factor = Field(column_name=_('Magnification Factor'))
+
+    class Meta:
+        model = Stratify
+        fields = ('management_type', 'code', 'population', 'sample_count', 'magnification_factor', 'note')
+
+    def dehydrate_sample_count(self, obj):
+        return obj.sample_count
+
+    def dehydrate_magnification_factor(self, obj):
+        try:
+            return obj.magnification_factor
+        except ZeroDivisionError:
+            return '-'
+
+    def dehydrate_note(self, obj):
+        if obj.sample_count == 0:
+            return f'併入{obj.sibling.code}層'
+        return ''
+
+
+class FarmerStatResource(ModelResource):
+    survey = Field(attribute='survey', column_name=_('Farmer ID'))
+    stratify = Field(attribute='stratify', column_name=_('Stratify'))
+
+    class Meta:
+        model = FarmerStat
+        fields = ('farmer_id', 'stratify')
+        ordering = ('stratify__code',)
 
 
 class ProductFilter(SimpleListFilter):
@@ -131,6 +175,50 @@ class SurveyAdmin(admin.ModelAdmin):
         js = ['/admin/jsi18n/']
 
 
+class StratifyAdmin(ExportMixin, admin.ModelAdmin):
+    resource_class = StratifyResource
+    list_display = (
+        'management_type',
+        'is_hire',
+        'code',
+        'population',
+        'sample_count',
+        'magnification_factor',
+        'note',
+    )
+    readonly_fields = ('sample_count', 'magnification_factor', 'note')
+    ordering = ('code',)
+
+    def sample_count(self, obj):
+        return obj.sample_count
+
+    def magnification_factor(self, obj):
+        try:
+            return obj.magnification_factor
+        except ZeroDivisionError:
+            return '-'
+
+    def note(self, obj):
+        if obj.sample_count == 0:
+            return f'併入{obj.sibling.code}層'
+        return ''
+
+    sample_count.short_description = _('Sample Count')
+    magnification_factor.short_description = _('Magnification Factor')
+    note.short_description = _('Note')
+
+
+class FarmerStatAdmin(ExportMixin, admin.ModelAdmin):
+    resource_class = FarmerStatResource
+    list_display = (
+        'survey',
+        'stratify',
+    )
+    search_fields = ("survey__farmer_id",)
+    list_filter = ('stratify',)
+    ordering = ('stratify__code',)
+
+
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(Phone)
 admin.site.register(AddressMatch)
@@ -172,3 +260,6 @@ admin.site.register(Refuse)
 admin.site.register(RefuseReason)
 admin.site.register(Month)
 admin.site.register(BuilderFile)
+admin.site.register(CityTownCode)
+admin.site.register(FarmerStat, FarmerStatAdmin)
+admin.site.register(Stratify, StratifyAdmin)
