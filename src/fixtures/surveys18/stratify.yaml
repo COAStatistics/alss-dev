@@ -1,0 +1,844 @@
+- model: surveys18.Stratify
+  pk: 1
+  fields:
+    management_type: 1
+    is_hire: True
+    min_field: 0
+    max_field: 175
+    code: 1
+    population: 3711
+
+
+- model: surveys18.Stratify
+  pk: 2
+  fields:
+    management_type: 1
+    is_hire: False
+    min_field: 0
+    max_field: 175
+    code: 2
+    population: 18638
+
+
+- model: surveys18.Stratify
+  pk: 3
+  fields:
+    management_type: 1
+    is_hire: True
+    min_field: 175
+    max_field: 500
+    code: 3
+    population: 1798
+
+
+- model: surveys18.Stratify
+  pk: 4
+  fields:
+    management_type: 1
+    is_hire: False
+    min_field: 175
+    max_field: 500
+    code: 4
+    population: 5931
+
+
+- model: surveys18.Stratify
+  pk: 5
+  fields:
+    management_type: 1
+    is_hire: True
+    min_field: 500
+    max_field: 999999999
+    code: 5
+    population: 718
+
+
+- model: surveys18.Stratify
+  pk: 6
+  fields:
+    management_type: 1
+    is_hire: False
+    min_field: 500
+    max_field: 999999999
+    code: 6
+    population: 1107
+
+- model: surveys18.Stratify
+  pk: 7
+  fields:
+    management_type: 2
+    is_hire: True
+    min_field: 0
+    max_field: 150
+    code: 7
+    population: 2091
+
+- model: surveys18.Stratify
+  pk: 8
+  fields:
+    management_type: 2
+    is_hire: False
+    min_field: 0
+    max_field: 150
+    code: 8
+    population: 4645
+
+- model: surveys18.Stratify
+  pk: 9
+  fields:
+    management_type: 2
+    is_hire: True
+    min_field: 150
+    max_field: 500
+    code: 9
+    population: 956
+
+- model: surveys18.Stratify
+  pk: 10
+  fields:
+    management_type: 2
+    is_hire: False
+    min_field: 150
+    max_field: 500
+    code: 10
+    population: 1410
+
+- model: surveys18.Stratify
+  pk: 11
+  fields:
+    management_type: 2
+    is_hire: True
+    min_field: 500
+    max_field: 999999999
+    code: 11
+    population: 158
+
+- model: surveys18.Stratify
+  pk: 12
+  fields:
+    management_type: 2
+    is_hire: False
+    min_field: 500
+    max_field: 999999999
+    code: 12
+    population: 148
+
+- model: surveys18.Stratify
+  pk: 13
+  fields:
+    management_type: 3
+    is_hire: True
+    min_field: 0
+    max_field: 150
+    code: 13
+    population: 1720
+
+- model: surveys18.Stratify
+  pk: 14
+  fields:
+    management_type: 3
+    is_hire: False
+    min_field: 0
+    max_field: 150
+    code: 14
+    population: 3862
+
+- model: surveys18.Stratify
+  pk: 15
+  fields:
+    management_type: 3
+    is_hire: True
+    min_field: 150
+    max_field: 500
+    code: 15
+    population: 473
+
+- model: surveys18.Stratify
+  pk: 16
+  fields:
+    management_type: 3
+    is_hire: False
+    min_field: 150
+    max_field: 500
+    code: 16
+    population: 573
+
+- model: surveys18.Stratify
+  pk: 17
+  fields:
+    management_type: 3
+    is_hire: True
+    min_field: 500
+    max_field: 999999999
+    code: 17
+    population: 88
+
+- model: surveys18.Stratify
+  pk: 18
+  fields:
+    management_type: 3
+    is_hire: False
+    min_field: 500
+    max_field: 999999999
+    code: 18
+    population: 70
+
+- model: surveys18.Stratify
+  pk: 19
+  fields:
+    management_type: 4
+    is_hire: True
+    min_field: 0
+    max_field: 100
+    code: 19
+    population: 1848
+
+- model: surveys18.Stratify
+  pk: 20
+  fields:
+    management_type: 4
+    is_hire: False
+    min_field: 0
+    max_field: 100
+    code: 20
+    population: 1004
+
+- model: surveys18.Stratify
+  pk: 21
+  fields:
+    management_type: 4
+    is_hire: True
+    min_field: 100
+    max_field: 300
+    code: 21
+    population: 1941
+
+- model: surveys18.Stratify
+  pk: 22
+  fields:
+    management_type: 4
+    is_hire: False
+    min_field: 100
+    max_field: 300
+    code: 22
+    population: 496
+
+- model: surveys18.Stratify
+  pk: 23
+  fields:
+    management_type: 4
+    is_hire: True
+    min_field: 300
+    max_field: 999999999
+    code: 23
+    population: 452
+
+- model: surveys18.Stratify
+  pk: 24
+  fields:
+    management_type: 4
+    is_hire: False
+    min_field: 300
+    max_field: 999999999
+    code: 24
+    population: 37
+
+- model: surveys18.Stratify
+  pk: 25
+  fields:
+    management_type: 5
+    is_hire: True
+    min_field: 0
+    max_field: 100
+    code: 25
+    population: 9537
+
+- model: surveys18.Stratify
+  pk: 26
+  fields:
+    management_type: 5
+    is_hire: False
+    min_field: 0
+    max_field: 100
+    code: 26
+    population: 23882
+
+- model: surveys18.Stratify
+  pk: 27
+  fields:
+    management_type: 5
+    is_hire: True
+    min_field: 100
+    max_field: 250
+    code: 27
+    population: 5923
+
+- model: surveys18.Stratify
+  pk: 28
+  fields:
+    management_type: 5
+    is_hire: False
+    min_field: 100
+    max_field: 250
+    code: 28
+    population: 6819
+
+- model: surveys18.Stratify
+  pk: 29
+  fields:
+    management_type: 5
+    is_hire: True
+    min_field: 250
+    max_field: 999999999
+    code: 29
+    population: 1897
+
+- model: surveys18.Stratify
+  pk: 30
+  fields:
+    management_type: 5
+    is_hire: False
+    min_field: 250
+    max_field: 999999999
+    code: 30
+    population: 1208
+
+- model: surveys18.Stratify
+  pk: 31
+  fields:
+    management_type: 6
+    is_hire: True
+    min_field: 0
+    max_field: 100
+    code: 31
+    population: 17145
+
+- model: surveys18.Stratify
+  pk: 32
+  fields:
+    management_type: 6
+    is_hire: False
+    min_field: 0
+    max_field: 100
+    code: 32
+    population: 41998
+
+- model: surveys18.Stratify
+  pk: 33
+  fields:
+    management_type: 6
+    is_hire: True
+    min_field: 100
+    max_field: 250
+    code: 33
+    population: 13482
+
+- model: surveys18.Stratify
+  pk: 34
+  fields:
+    management_type: 6
+    is_hire: False
+    min_field: 100
+    max_field: 250
+    code: 34
+    population: 15952
+
+- model: surveys18.Stratify
+  pk: 35
+  fields:
+    management_type: 6
+    is_hire: True
+    min_field: 250
+    max_field: 999999999
+    code: 35
+    population: 4621
+
+- model: surveys18.Stratify
+  pk: 36
+  fields:
+    management_type: 6
+    is_hire: False
+    min_field: 250
+    max_field: 999999999
+    code: 36
+    population: 2753
+
+- model: surveys18.Stratify
+  pk: 37
+  fields:
+    management_type: 7
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 70
+    code: 37
+    population: 43
+
+- model: surveys18.Stratify
+  pk: 38
+  fields:
+    management_type: 7
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 70
+    code: 38
+    population: 107
+
+- model: surveys18.Stratify
+  pk: 39
+  fields:
+    management_type: 7
+    is_hire: True
+    min_revenue: 70
+    max_revenue: 180
+    code: 39
+    population: 143
+
+- model: surveys18.Stratify
+  pk: 40
+  fields:
+    management_type: 7
+    is_hire: False
+    min_revenue: 70
+    max_revenue: 180
+    code: 40
+    population: 105
+
+- model: surveys18.Stratify
+  pk: 41
+  fields:
+    management_type: 7
+    is_hire: True
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 41
+    population: 630
+
+- model: surveys18.Stratify
+  pk: 42
+  fields:
+    management_type: 7
+    is_hire: False
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 42
+    population: 76
+
+- model: surveys18.Stratify
+  pk: 43
+  fields:
+    management_type: 8
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 70
+    code: 43
+    population: 298
+
+- model: surveys18.Stratify
+  pk: 44
+  fields:
+    management_type: 8
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 70
+    code: 44
+    population: 1308
+
+- model: surveys18.Stratify
+  pk: 45
+  fields:
+    management_type: 8
+    is_hire: True
+    min_revenue: 70
+    max_revenue: 180
+    code: 45
+    population: 448
+
+- model: surveys18.Stratify
+  pk: 46
+  fields:
+    management_type: 8
+    is_hire: False
+    min_revenue: 70
+    max_revenue: 180
+    code: 46
+    population: 705
+
+- model: surveys18.Stratify
+  pk: 47
+  fields:
+    management_type: 8
+    is_hire: True
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 47
+    population: 498
+
+- model: surveys18.Stratify
+  pk: 48
+  fields:
+    management_type: 8
+    is_hire: False
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 48
+    population: 268
+
+- model: surveys18.Stratify
+  pk: 49
+  fields:
+    management_type: 9
+    is_hire: True
+    min_field: 0
+    max_field: 50
+    code: 49
+    population: 188
+
+- model: surveys18.Stratify
+  pk: 50
+  fields:
+    management_type: 9
+    is_hire: False
+    min_field: 0
+    max_field: 50
+    code: 50
+    population: 1194
+
+- model: surveys18.Stratify
+  pk: 51
+  fields:
+    management_type: 9
+    is_hire: True
+    min_field: 50
+    max_field: 100
+    code: 51
+    population: 269
+
+- model: surveys18.Stratify
+  pk: 52
+  fields:
+    management_type: 9
+    is_hire: False
+    min_field: 50
+    max_field: 100
+    code: 52
+    population: 840
+
+- model: surveys18.Stratify
+  pk: 53
+  fields:
+    management_type: 9
+    is_hire: True
+    min_field: 100
+    max_field: 999999999
+    code: 53
+    population: 474
+
+- model: surveys18.Stratify
+  pk: 54
+  fields:
+    management_type: 9
+    is_hire: False
+    min_field: 100
+    max_field: 999999999
+    code: 54
+    population: 546
+
+- model: surveys18.Stratify
+  pk: 55
+  fields:
+    management_type: 10
+    is_hire: True
+    min_field: 0
+    max_field: 50
+    code: 55
+    population: 15
+
+- model: surveys18.Stratify
+  pk: 56
+  fields:
+    management_type: 10
+    is_hire: False
+    min_field: 0
+    max_field: 50
+    code: 56
+    population: 203
+
+- model: surveys18.Stratify
+  pk: 57
+  fields:
+    management_type: 10
+    is_hire: True
+    min_field: 50
+    max_field: 100
+    code: 57
+    population: 52
+
+- model: surveys18.Stratify
+  pk: 58
+  fields:
+    management_type: 10
+    is_hire: False
+    min_field: 50
+    max_field: 100
+    code: 58
+    population: 258
+
+- model: surveys18.Stratify
+  pk: 59
+  fields:
+    management_type: 10
+    is_hire: True
+    min_field: 100
+    max_field: 999999999
+    code: 59
+    population: 86
+
+- model: surveys18.Stratify
+  pk: 60
+  fields:
+    management_type: 10
+    is_hire: False
+    min_field: 100
+    max_field: 999999999
+    code: 60
+    population: 216
+
+- model: surveys18.Stratify
+  pk: 61
+  fields:
+    management_type: 11
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 61
+    population: 8
+
+- model: surveys18.Stratify
+  pk: 62
+  fields:
+    management_type: 11
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 62
+    population: 16
+
+- model: surveys18.Stratify
+  pk: 63
+  fields:
+    management_type: 11
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 63
+    population: 25
+
+- model: surveys18.Stratify
+  pk: 64
+  fields:
+    management_type: 11
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 64
+    population: 43
+
+- model: surveys18.Stratify
+  pk: 65
+  fields:
+    management_type: 11
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 65
+    population: 188
+
+- model: surveys18.Stratify
+  pk: 66
+  fields:
+    management_type: 11
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 66
+    population: 146
+
+- model: surveys18.Stratify
+  pk: 67
+  fields:
+    management_type: 12
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 69
+    population: 140
+
+- model: surveys18.Stratify
+  pk: 68
+  fields:
+    management_type: 12
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 70
+    population: 1060
+
+- model: surveys18.Stratify
+  pk: 69
+  fields:
+    management_type: 12
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 71
+    population: 293
+
+- model: surveys18.Stratify
+  pk: 70
+  fields:
+    management_type: 12
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 72
+    population: 929
+
+- model: surveys18.Stratify
+  pk: 71
+  fields:
+    management_type: 12
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 73
+    population: 633
+
+- model: surveys18.Stratify
+  pk: 72
+  fields:
+    management_type: 12
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 74
+    population: 1013
+
+- model: surveys18.Stratify
+  pk: 73
+  fields:
+    management_type: 13
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 77
+    population: 205
+
+- model: surveys18.Stratify
+  pk: 74
+  fields:
+    management_type: 13
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 78
+    population: 727
+
+- model: surveys18.Stratify
+  pk: 75
+  fields:
+    management_type: 13
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 79
+    population: 281
+
+- model: surveys18.Stratify
+  pk: 76
+  fields:
+    management_type: 13
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 80
+    population: 486
+
+- model: surveys18.Stratify
+  pk: 77
+  fields:
+    management_type: 13
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 81
+    population: 684
+
+- model: surveys18.Stratify
+  pk: 78
+  fields:
+    management_type: 13
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 82
+    population: 536
+
+- model: surveys18.Stratify
+  pk: 79
+  fields:
+    management_type: 14
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 85
+    population: 223
+
+- model: surveys18.Stratify
+  pk: 80
+  fields:
+    management_type: 14
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 86
+    population: 1215
+
+- model: surveys18.Stratify
+  pk: 81
+  fields:
+    management_type: 14
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 87
+    population: 167
+
+- model: surveys18.Stratify
+  pk: 82
+  fields:
+    management_type: 14
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 88
+    population: 512
+
+- model: surveys18.Stratify
+  pk: 83
+  fields:
+    management_type: 14
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 89
+    population: 97
+
+- model: surveys18.Stratify
+  pk: 84
+  fields:
+    management_type: 14
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 90
+    population: 147

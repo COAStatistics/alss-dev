@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.db.transaction import atomic
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django.utils.dates import MONTHS
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
@@ -6,6 +8,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models import (
     Model,
     CASCADE,
+    SET_NULL,
     CharField,
     DateTimeField,
     ForeignKey,
@@ -19,11 +22,21 @@ from django.db.models import (
     FloatField,
     Q,
     FileField,
+    Count,
+    Max
 )
+from model_utils import Choices
+from model_utils.fields import AutoCreatedField, AutoLastModifiedField
 from apps.logs.models import ReviewLog
 
 
-YES_NO_CHOICES = ((0, "No"), (1, "Yes"))
+YES_NO_CHOICES = Choices((0, "No"), (1, "Yes"))
+
+PRODUCT_TYPE_CHOICES = Choices((1, 'crop', _('Crop')), (2, 'animal', _('Animal')))
+
+STRATIFY_WITH_CHOICES = Choices((1, 'field', _('Field')), (2, 'revenue', _('Revenue')))
+
+REGION_CHOICES = Choices((1, _("North")), (2, _('Central')), (3, _('South')), (4, _('East')))
 
 NUMBER_WORKERS_CHOICES = Q(app_label="surveys18", model="longtermhire") | Q(app_label="surveys18", model="shorttermhire")
 
@@ -1033,6 +1046,8 @@ class Contract(Model):
 class ManagementType(Model):
     code = IntegerField(verbose_name=_("Code"))
     name = CharField(max_length=50, null=True, blank=True, verbose_name=_("Name"))
+    type = IntegerField(null=True, blank=True, choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
+    stratify_with = IntegerField(null=True, blank=True, choices=STRATIFY_WITH_CHOICES, verbose_name=_('Stratify With'))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,
@@ -1389,3 +1404,82 @@ class Month(Model):
 
     def __unicode__(self):
         return str(self.name)
+
+class Stratify(Model):
+    """
+       field=公畝;revenue=萬元
+    """
+    management_type = ForeignKey(
+        "surveys18.ManagementType",
+        on_delete=CASCADE,
+        related_name="stratifies",
+        verbose_name=_("Management Type"),
+    )
+    is_hire = BooleanField(verbose_name=_('Is Hire'))
+    min_field = FloatField(null=True, blank=True, verbose_name=_('Min Field'))
+    max_field = FloatField(null=True, blank=True, verbose_name=_('Max Field'))
+    min_revenue = PositiveIntegerField(null=True, blank=True, verbose_name=_('Min Revenue'))
+    max_revenue = PositiveIntegerField(null=True, blank=True, verbose_name=_('Max Revenue'))
+    code = PositiveIntegerField(db_index=True, verbose_name=_('Code'))
+    population = PositiveIntegerField(verbose_name=_('Population(Statistic)'))
+
+    class Meta:
+        verbose_name = _("Stratify")
+        verbose_name_plural = _("Stratify")
+
+    def __str__(self):
+        return str(self.code)
+
+    @property
+    def sibling(self):
+        import operator
+        return Stratify.objects.get(
+            management_type=self.management_type,
+            min_field=self.min_field,
+            max_field=self.max_field,
+            min_revenue=self.min_revenue,
+            max_revenue=self.max_revenue,
+            is_hire=operator.not_(self.is_hire),
+        )
+
+    @cached_property
+    def sample_count(self):
+        return self.farmer_stats.count()
+
+    @cached_property
+    def magnification_factor(self):
+        # 各層母體數 / 各層樣本數
+        if self.sibling.sample_count == 0:
+            # 檢查同一規模是否有樣本數，若無須併層
+            return (self.population + self.sibling.population) / (self.sample_count + self.sibling.sample_count)
+        return self.population / self.sample_count
+
+
+class FarmerStat(Model):
+    """
+    106年牽涉主力農家及手動無效戶調整，無法透過固定邏輯自動計算，出現在此表的農戶才是實質意義的有效戶
+    另外由於原始調查表的地址可能為空值（與調查名冊相同的情況），因此將農戶所在地區一併紀錄在此表（僅有效戶需要區域資訊）
+    請透過後台將靜態結果匯入
+    """
+    survey = OneToOneField(
+        "surveys18.Survey",
+        on_delete=CASCADE,
+        related_name="farmer_stat",
+        verbose_name=_("Survey"),
+    )
+    stratify = ForeignKey(
+        "surveys18.Stratify",
+        on_delete=CASCADE,
+        related_name="farmer_stats",
+        verbose_name=_("Stratify"),
+    )
+    region = PositiveIntegerField(choices=REGION_CHOICES, verbose_name=_('Region'))
+    create_time = AutoCreatedField(_('Create Time'))
+    update_time = AutoLastModifiedField(_('Update Time'))
+
+    class Meta:
+        verbose_name = _("Farmer Stat")
+        verbose_name_plural = _("Farmer Stat")
+
+    def __str__(self):
+        return str(self.survey)
