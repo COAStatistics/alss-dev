@@ -10,13 +10,14 @@ from apps.surveys20.models import Lack, Survey, FarmerStat, PRODUCT_TYPE_CHOICES
 class StatisticsExporter:
 
     def __init__(self):
-        template = os.path.join(settings.BASE_DIR, 'apps/surveys20/export/statistics_template.xlsx')
+        template = os.path.join(settings.BASE_DIR, 'templates/export/statistics_template.xlsx')
         self.wb = load_workbook(filename=template)
-        self.sheet1 = self.wb['表5 (發布版)']
+        self.sheet1 = self.wb['表5(發布版)']
         self.sheet2 = self.wb['表3(對內版)']
-        self.sheet3 = self.wb['表6 (發布版)']
-        self.sheet4 = self.wb['表6 (對內版)']
-        self.survey_qs = Survey.objects.filter(readonly=False).exclude(note__icontains='無效戶')
+        self.sheet3 = self.wb['表6(發布版)']
+        self.sheet4 = self.wb['表6(對內版)']
+        invalid_farmers = Survey.objects.filter(note__icontains='無效戶').values_list('farmer_id', flat=True).distinct()
+        self.survey_qs = Survey.objects.filter(readonly=False).exclude(farmer_id__in=invalid_farmers)
         self.magnification_factor_map = {
             obj.survey.farmer_id: obj.stratify.magnification_factor
             for obj in FarmerStat.objects.all()
@@ -28,6 +29,7 @@ class StatisticsExporter:
             ).filter(page=1)
         }
         self.lack_farmer_ids = Lack.objects.get(id=3).surveys.filter(readonly=False).values_list('farmer_id', flat=True)
+        self.is_lack_column_map = {1: 'DC', 2: 'EC', 3: 'F', 4: 'C'}
 
     def get_sheet_1_3_rows(self, sheet_idx, farmer_id):
         mapping = {
@@ -87,13 +89,12 @@ class StatisticsExporter:
         for farmer_id, factor in self.magnification_factor_map.items():
             survey = self.survey_map.get(farmer_id)
             lack = survey.lacks.first()
-            column = 'D' if lack.is_lack else 'C'
-            for row in self.get_sheet_1_3_rows(3, farmer_id):
-                cell_value = self.sheet3[f'{column}{row}'].value or 0
-                self.sheet3[f'{column}{row}'] = cell_value + 1 * factor
-            # sheet 4
-            is_lack_column_map = {1: 'DC', 2: 'EC', 3: 'F', 4: 'C'}
-            for column in is_lack_column_map.get(lack.id):
+            for column in self.is_lack_column_map.get(lack.id):
+                # sheet 3
+                for row in self.get_sheet_1_3_rows(3, farmer_id):
+                    cell_value = self.sheet3[f'{column}{row}'].value or 0
+                    self.sheet3[f'{column}{row}'] = cell_value + 1 * factor
+                # sheet 4
                 for row in self.get_sheet_2_4_rows(4, farmer_id):
                     cell_value = self.sheet4[f'{column}{row}'].value or 0
                     self.sheet4[f'{column}{row}'] = cell_value + 1 * factor
@@ -126,7 +127,7 @@ class StatisticsExporter:
                     self.sheet2[f'G{row}'] = cell_value + sum_workers
 
     def process_long_term_lacks(self):
-        """Modify sheet 3 column E, G; sheet 4 G, I"""
+        """Modify sheet 3 column G, I; sheet 4 G, I"""
 
         qs = self.survey_qs.prefetch_related(
             'long_term_lacks',
@@ -142,10 +143,10 @@ class StatisticsExporter:
 
             if sum_workers:
                 for row in self.get_sheet_1_3_rows(3, farmer_id):
-                    cell_value = self.sheet3[f'E{row}'].value or 0
-                    self.sheet3[f'E{row}'] = cell_value + 1 * factor
                     cell_value = self.sheet3[f'G{row}'].value or 0
-                    self.sheet3[f'G{row}'] = cell_value + sum_workers
+                    self.sheet3[f'G{row}'] = cell_value + 1 * factor
+                    cell_value = self.sheet3[f'I{row}'].value or 0
+                    self.sheet3[f'I{row}'] = cell_value + sum_workers
                 for row in self.get_sheet_2_4_rows(4, farmer_id):
                     cell_value = self.sheet4[f'G{row}'].value or 0
                     self.sheet4[f'G{row}'] = cell_value + 1 * factor
@@ -180,7 +181,7 @@ class StatisticsExporter:
                     self.sheet2[f'H{row}'] = cell_value + sum_workers
 
     def process_short_term_lacks(self):
-        """Modify sheet 3 column H, F, sheet 4 column H, J"""
+        """Modify sheet 3 column H, J sheet 4 column H, J"""
 
         qs = self.survey_qs.prefetch_related(
             'short_term_lacks',
@@ -200,10 +201,10 @@ class StatisticsExporter:
 
             if sum_workers:
                 for row in self.get_sheet_1_3_rows(3, farmer_id):
-                    cell_value = self.sheet3[f'F{row}'].value or 0
-                    self.sheet3[f'F{row}'] = cell_value + 1 * factor
                     cell_value = self.sheet3[f'H{row}'].value or 0
-                    self.sheet3[f'H{row}'] = cell_value + sum_workers
+                    self.sheet3[f'H{row}'] = cell_value + 1 * factor
+                    cell_value = self.sheet3[f'J{row}'].value or 0
+                    self.sheet3[f'J{row}'] = cell_value + sum_workers
                 for row in self.get_sheet_2_4_rows(4, farmer_id):
                     cell_value = self.sheet4[f'H{row}'].value or 0
                     self.sheet4[f'H{row}'] = cell_value + 1 * factor
