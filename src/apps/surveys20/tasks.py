@@ -5,6 +5,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.core.mail import EmailMessage
+from django.utils.crypto import get_random_string
 
 from config import celery_app as app
 from apps.surveys20.models import FarmerStat, Survey
@@ -26,12 +27,13 @@ def async_export_108(email):
             for row in row_generator:
                 writer.writerow(row)
 
-        pyminizip.compress(file_path, "", zip_path, settings.ZIP_PROTECT_SECRET, 5)
+        password = get_random_string(length=24)
+        pyminizip.compress(file_path, "", zip_path, password, 5)
 
         with open(zip_path, 'rb') as zip_file:
             mail = EmailMessage(
                 '108調查表匯出完成',
-                '請下載附件後解壓縮查看調查表',
+                f'匯出結果如附件，解壓縮密碼請輸入：{password}',
                 settings.DEFAULT_FROM_EMAIL,
                 [email]
             )
@@ -64,12 +66,13 @@ def async_export_108_statistics(email):
 
         exporter(file_path)
 
-        pyminizip.compress(file_path, "", zip_path, settings.ZIP_PROTECT_SECRET, 5)
+        password = get_random_string(length=24)
+        pyminizip.compress(file_path, "", zip_path, password, 5)
 
         with open(zip_path, 'rb') as zip_file:
             mail = EmailMessage(
                 '108平台統計結果表式匯出完成',
-                '匯出結果如附件',
+                f'匯出結果如附件，解壓縮密碼請輸入：{password}',
                 settings.DEFAULT_FROM_EMAIL,
                 [email]
             )

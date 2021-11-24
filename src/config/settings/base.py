@@ -287,7 +287,3 @@ SWAGGER_SETTINGS = {
 CAPTCHA_CHALLENGE_FUNCT = 'config.utils.random_number_challenge'
 CAPTCHA_FONT_SIZE = 36
 CAPTCHA_IMAGE_SIZE = (130, 40)
-
-# Custom Settings
-
-ZIP_PROTECT_SECRET = 'ejAB5schJ35BVqtY'
