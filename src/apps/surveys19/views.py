@@ -15,11 +15,12 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework import status
 
 from config.viewsets import StandardViewSet
 
 from apps.users.models import User
-from apps.surveys19.tasks import async_export_107
+from apps.surveys19.tasks import async_export_107, async_export_107_statistics
 from apps.surveys19.export import SurveyRelationGeneratorFactory
 from apps.surveys19.models import (
     Survey,
@@ -278,6 +279,10 @@ class SurveyViewSet(ModelViewSet):
         async_export_107.delay(request.user.email)
         return HttpResponse('ok')
 
+    @action(methods=["GET"], detail=False)
+    def export_statistics(self, request):
+        async_export_107_statistics.delay(request.user.email)
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 class PhoneViewSet(StandardViewSet):
     queryset = Phone.objects.all()
