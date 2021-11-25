@@ -50,6 +50,7 @@ from .models import (
     RefuseReason,
     Month,
     BuilderFile,
+    CityTownCode,
     Stratify,
     FarmerStat,
 )
@@ -258,5 +259,6 @@ admin.site.register(Refuse)
 admin.site.register(RefuseReason)
 admin.site.register(Month)
 admin.site.register(BuilderFile)
+admin.site.register(CityTownCode)
 admin.site.register(FarmerStat, FarmerStatAdmin)
 admin.site.register(Stratify, StratifyAdmin)

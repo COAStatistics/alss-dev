@@ -23,9 +23,9 @@ class StatisticsExporter:
         }
         self.survey_map = {
             survey.farmer_id: survey
-            for survey in Survey.objects.prefetch_related(
+            for survey in self.survey_qs.prefetch_related(
                 'farm_location', 'farm_location__code', 'management_types', 'lacks'
-            ).filter(readonly=False, page=1)
+            ).filter(page=1)
         }
         self.lack_farmer_ids = Lack.objects.get(id=3).surveys.filter(readonly=False).values_list('farmer_id', flat=True)
 
