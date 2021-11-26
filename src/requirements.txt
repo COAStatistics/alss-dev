@@ -1,10 +1,10 @@
-Django==2.2.14
-djangorestframework==3.11.0
+Django==2.2.24
+djangorestframework==3.11.2
 django-crispy-forms==1.9.0
 django-model-utils==4.0.0
 django-simple-captcha==0.5.12
-Pillow==7.0.0
-PyYAML==5.3
+Pillow==8.3.2
+PyYAML==5.4
 Markdown==3.2.1
 django-suit-daterange-filter==0.0.6
 psycopg2-binary==2.8.5
