@@ -411,9 +411,9 @@ class ManagementType(Model):
     """
 
     code = IntegerField(verbose_name=_("Code"))
-    name = CharField(max_length=50, null=True, blank=True, verbose_name=_("Name"))
-    type = IntegerField(null=True, blank=True, choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
-    stratify_with = IntegerField(null=True, blank=True, choices=STRATIFY_WITH_CHOICES, verbose_name=_('Stratify With'))
+    name = CharField(max_length=50, verbose_name=_("Name"))
+    type = IntegerField(choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Product Type'))
+    stratify_with = IntegerField(choices=STRATIFY_WITH_CHOICES, verbose_name=_('Stratify With'))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,
