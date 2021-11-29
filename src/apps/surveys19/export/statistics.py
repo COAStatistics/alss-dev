@@ -62,7 +62,7 @@ class StatisticsExporter:
     def get_sheet_2_4_rows(self, sheet_idx, farmer_id):
         survey = self.survey_map.get(farmer_id)
         management_type = survey.management_types.first()
-        crop_mapping = {1: 8, 2: 9, 3: 11, 4: 10, 5: 12, 6: 13, 7: 14, 8: 16, 9: 16, 10: 15}
+        crop_mapping = {1: 8, 2: 9, 3: 11, 4: 10, 5: 12, 6: 13, 7: 15, 8: 14, 9: 16, 10: 16}
         animal_mapping = {11: 18, 12: 19, 13: 20, 14: 21}
         if management_type.id in crop_mapping.keys():
             rows = [7, crop_mapping.get(management_type.id)]
