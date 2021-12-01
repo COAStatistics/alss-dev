@@ -268,7 +268,6 @@ class YearlyCompareStatisticsExporter:
                         cell_value = self.sheet4[f'{column2}{row}'].value or 0
                         self.sheet4[f'{column2}{row}'] = cell_value + sum_workers
 
-
     def __call__(self, *args, **kwargs):
         self.process_title()
         self.process_total()

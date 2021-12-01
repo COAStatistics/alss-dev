@@ -1405,6 +1405,7 @@ class Month(Model):
     def __unicode__(self):
         return str(self.name)
 
+
 class Stratify(Model):
     """
        field=公畝;revenue=萬元

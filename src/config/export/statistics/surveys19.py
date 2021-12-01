@@ -34,6 +34,7 @@ class StatisticsQueryHelper107(BaseStatisticsQueryHelper):
     def get_region(cls, survey):
         return survey.farm_location.code.region
 
+
 class StatisticsExporter107(StatisticsQueryHelper107):
 
     def __init__(self):

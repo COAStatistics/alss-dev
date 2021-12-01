@@ -12,6 +12,7 @@ from .yearly_compare_statistics import YearlyCompareStatisticsExporter
 from .statistics import StatisticsExporter106, StatisticsExporter107, StatisticsExporter108
 from .full_data import SurveyRelationGeneratorFactory107, SurveyRelationGeneratorFactory108
 
+
 @app.task
 def async_export_full_data(year, email):
     factory_map = {
@@ -57,6 +58,7 @@ def async_export_full_data(year, email):
         except Exception:
             pass
 
+
 @app.task
 def async_export_statistics(year, email):
     exporter_map = {
@@ -98,6 +100,7 @@ def async_export_statistics(year, email):
             os.remove(zip_path)
         except Exception:
             pass
+
 
 @app.task
 def async_export_yearly_compare_statistics(y1, y2, email):

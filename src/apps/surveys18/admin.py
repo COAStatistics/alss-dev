@@ -105,6 +105,7 @@ class FarmerStatResource(ModelResource):
             stratify_code_column_name: Stratify.objects.get(code=stratify_code)
         })
 
+
 class ProductFilter(SimpleListFilter):
     title = "Product"
     parameter_name = "product"
