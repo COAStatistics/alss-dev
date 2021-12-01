@@ -26,9 +26,9 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">匯出調查表
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'surveys19:survey-export' %}">107年</a>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-full-data' %}?year=107">107年</a>
                         </li>
-                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'surveys20:survey-export' %}">108年</a>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-full-data' %}?year=108">108年</a>
                         </li>
                     </ul>
                 </li>
@@ -36,9 +36,12 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">匯出統計結果
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'surveys18:survey-export-statistics' %}">106年</a></li>
-                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'surveys19:survey-export-statistics' %}">107年</a></li>
-                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'surveys20:survey-export-statistics' %}">108年</a></li>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-statistic' %}?year=106">106年</a></li>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-statistic' %}?year=107">107年</a></li>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-statistic' %}?year=108">108年</a></li>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-statistic-compare' %}?y1=108&y2=107">108-107年</a></li>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-statistic-compare' %}?y1=108&y2=106">108-106年</a></li>
+                        <li><a href="javascript:void(0)" class="export" data-url="{% url 'export-statistic-compare' %}?y1=107&y2=106">107-106年</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

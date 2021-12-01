@@ -4,31 +4,46 @@ from django.db.models import Sum, Count
 from django.conf import settings
 from openpyxl import load_workbook
 
-from apps.surveys20.models import Lack, Survey, FarmerStat, PRODUCT_TYPE_CHOICES
+from apps.surveys19.models import Lack, Survey, FarmerStat, PRODUCT_TYPE_CHOICES
+from .abc import BaseStatisticsQueryHelper
 
 
-class StatisticsExporter:
+class StatisticsQueryHelper107(BaseStatisticsQueryHelper):
+    def get_survey_qs(self):
+        invalid_farmers = Survey.objects.filter(note__icontains='無效戶').values_list('farmer_id', flat=True).distinct()
+        return Survey.objects.filter(readonly=False).exclude(farmer_id__in=invalid_farmers)
+
+    def get_magnification_factor_map(self):
+        return {
+            obj.survey.farmer_id: obj.stratify.magnification_factor
+            for obj in FarmerStat.objects.all()
+        }
+
+    def get_survey_map(self):
+        return {
+            survey.farmer_id: survey
+            for survey in self.get_survey_qs().prefetch_related(
+                'farm_location', 'farm_location__code', 'management_types', 'lacks'
+            ).filter(page=1)
+        }
+
+    def get_lack_farmer_ids(self):
+        return Lack.objects.get(id=3).surveys.filter(readonly=False).values_list('farmer_id', flat=True)
+
+    @classmethod
+    def get_region(cls, survey):
+        return survey.farm_location.code.region
+
+class StatisticsExporter107(StatisticsQueryHelper107):
 
     def __init__(self):
-        template = os.path.join(settings.BASE_DIR, 'templates/export/statistics_template.xlsx')
+        super().__init__()
+        template = os.path.join(settings.BASE_DIR, 'config/export/templates/statistics_template.xlsx')
         self.wb = load_workbook(filename=template)
         self.sheet1 = self.wb['表5(發布版)']
         self.sheet2 = self.wb['表3(對內版)']
         self.sheet3 = self.wb['表6(發布版)']
         self.sheet4 = self.wb['表6(對內版)']
-        invalid_farmers = Survey.objects.filter(note__icontains='無效戶').values_list('farmer_id', flat=True).distinct()
-        self.survey_qs = Survey.objects.filter(readonly=False).exclude(farmer_id__in=invalid_farmers)
-        self.magnification_factor_map = {
-            obj.survey.farmer_id: obj.stratify.magnification_factor
-            for obj in FarmerStat.objects.all()
-        }
-        self.survey_map = {
-            survey.farmer_id: survey
-            for survey in self.survey_qs.prefetch_related(
-                'farm_location', 'farm_location__code', 'management_types', 'lacks'
-            ).filter(page=1)
-        }
-        self.lack_farmer_ids = Lack.objects.get(id=3).surveys.filter(readonly=False).values_list('farmer_id', flat=True)
         self.is_lack_column_map = {1: 'DC', 2: 'EC', 3: 'F', 4: 'C'}
 
     def get_sheet_1_3_rows(self, sheet_idx, farmer_id):
@@ -41,7 +56,7 @@ class StatisticsExporter:
 
         survey = self.survey_map.get(farmer_id)
         product_type = survey.management_types.first().type
-        region = survey.farm_location.code.region
+        region = self.get_region(survey)
 
         if product_type == PRODUCT_TYPE_CHOICES.crop:
             add_target_rows.append(rows[0])
@@ -62,7 +77,7 @@ class StatisticsExporter:
     def get_sheet_2_4_rows(self, sheet_idx, farmer_id):
         survey = self.survey_map.get(farmer_id)
         management_type = survey.management_types.first()
-        crop_mapping = {1: 8, 2: 9, 3: 11, 4: 10, 5: 12, 6: 13, 7: 14, 8: 16, 9: 16, 10: 15}
+        crop_mapping = {1: 8, 2: 9, 3: 11, 4: 10, 5: 12, 6: 13, 7: 15, 8: 14, 9: 16, 10: 16}
         animal_mapping = {11: 18, 12: 19, 13: 20, 14: 21}
         if management_type.id in crop_mapping.keys():
             rows = [7, crop_mapping.get(management_type.id)]

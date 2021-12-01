@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.template.loader import render_to_string
 
 from django.contrib.contenttypes.models import ContentType
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.db.models import Q
 
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
@@ -14,12 +14,10 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework import status
 
 from config.viewsets import StandardViewSet
 
 from apps.users.models import User
-from apps.surveys20.tasks import async_export_108, async_export_108_statistics
 from apps.surveys20.models import (
     Survey,
     Phone,
@@ -257,16 +255,6 @@ class SurveyViewSet(ModelViewSet):
         except (ValidationError, Exception):
             logger.exception('Update survey data failed.', exc_info=True)
             raise
-
-    @action(methods=["GET"], detail=False)
-    def export(self, request):
-        async_export_108.delay(request.user.email)
-        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
-
-    @action(methods=["GET"], detail=False)
-    def export_statistics(self, request):
-        async_export_108_statistics.delay(request.user.email)
-        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 
 class PhoneViewSet(StandardViewSet):

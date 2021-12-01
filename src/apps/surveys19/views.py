@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.template.loader import render_to_string
 
 from django.contrib.contenttypes.models import ContentType
-from django.http import JsonResponse, StreamingHttpResponse, HttpResponse
+from django.http import JsonResponse, StreamingHttpResponse
 from django.db.models import Q
 
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
@@ -15,13 +15,10 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework import status
 
 from config.viewsets import StandardViewSet
 
 from apps.users.models import User
-from apps.surveys19.tasks import async_export_107, async_export_107_statistics
-from apps.surveys19.export import SurveyRelationGeneratorFactory
 from apps.surveys19.models import (
     Survey,
     Phone,
@@ -269,20 +266,6 @@ class SurveyViewSet(ModelViewSet):
             logger.exception('Update survey data failed.', exc_info=True)
             raise
 
-    @action(methods=["GET"], detail=False)
-    def export(self, request):
-        """A view that streams a large CSV file."""
-        # Generate a sequence of rows. The range is based on the maximum number of
-        # rows that can be handled by a single sheet in most spreadsheet
-        # applications.
-
-        async_export_107.delay(request.user.email)
-        return HttpResponse('ok')
-
-    @action(methods=["GET"], detail=False)
-    def export_statistics(self, request):
-        async_export_107_statistics.delay(request.user.email)
-        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
 
 class PhoneViewSet(StandardViewSet):
     queryset = Phone.objects.all()

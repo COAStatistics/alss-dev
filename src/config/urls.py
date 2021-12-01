@@ -23,6 +23,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from .views import Index
+from .api import api
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -36,6 +37,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", Index.as_view(), name="index"),
+    path("api/", include(api.urls)),
     path("logs/", include("apps.logs.urls", namespace="logs")),
     path("users/", include("apps.users.urls", namespace="users")),
     path("106/", include("apps.surveys18.urls", namespace="surveys18")),
