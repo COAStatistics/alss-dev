@@ -1,40 +1,10 @@
-{% if year == 108 %}
-
 <div class="panel panel-primary">
-    <div class="panel-heading">108年審表紀錄</div>
+    <div class="panel-heading">{{ year }}年審表紀錄</div>
     <div class="panel-body" style="padding-left:20px;padding-right:20px;">
         <div class="table-responsive">
             <table class="table table-striped table-bordered review-log-datatable"
-                   data-url="{% url 'logs:reviewlog-datatable' %}?app_label=surveys20"
+                   data-url="{% url 'logs:reviewlog-datatable' %}?app_label={{ app_label }}"
                    style="width:100%"></table>
         </div>
     </div>
 </div>
-
-{% elif year == 107 %}
-
-<div class="panel panel-primary">
-    <div class="panel-heading">107年審表紀錄</div>
-    <div class="panel-body" style="padding-left:20px;padding-right:20px;">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered review-log-datatable"
-                   data-url="{% url 'logs:reviewlog-datatable' %}?app_label=surveys19"
-                   style="width:100%"></table>
-        </div>
-    </div>
-</div>
-
-{% elif year == 106 %}
-
-<div class="panel panel-primary">
-    <div class="panel-heading">106年審表紀錄</div>
-    <div class="panel-body" style="padding-left:20px;padding-right:20px;">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered review-log-datatable"
-                   data-url="{% url 'logs:reviewlog-datatable' %}?app_label=surveys18"
-                   style="width:100%"></table>
-        </div>
-    </div>
-</div>
-
-{% endif %}
