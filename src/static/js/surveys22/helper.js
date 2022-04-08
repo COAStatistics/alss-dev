@@ -697,12 +697,12 @@ var SurveyHelper = {
                     PopulationHelper.Population.Container.find('tr').each(function(){
                         var birthYear = $(this).find('[name="birthyear"]').val();
                         var lifeStyleId = $(this).find('[name="lifestyle"]').val();
-                        if(birthYear <= 90 && birthYear >= 63 && Helper.NumberValidate(birthYear) && lifeStyleId == 1){
+                        if(birthYear <= 92 && birthYear >= 65 && Helper.NumberValidate(birthYear) && lifeStyleId == 1){
                             exists = true;
                         }
                     })
                     var con = checked && !exists;
-                    var msg = '勾選「有」者，【問項2.2】戶內人口應有「出生年次」介於63年至90年之間且「主要生活型態」勾選「自營農牧業工作」';
+                    var msg = '勾選「有」者，【問項2.2】戶內人口應有「出生年次」介於65年至92年之間且「主要生活型態」勾選「自營農牧業工作」';
                     Helper.LogHandler.Log(con, SurveyHelper.Second.Alert, msg, this.Guids[0]);
                 },
             },
@@ -2427,8 +2427,8 @@ var PopulationHelper = {
                 var index = PopulationHelper.Population.Container.find('tr').index($row) + 1;
                 var year = $row.find('[name="birthyear"]').val();
                 if(year == '') return;
-                var con = parseInt(year) < 1 || parseInt(year) > 93 || !Helper.NumberValidate(year);
-                var msg = '第<i class="row-index">{0}</i>列出生年次應介於1年至93年之間（實足年齡滿15歲）'.format(index);
+                var con = parseInt(year) < 1 || parseInt(year) > 95 || !Helper.NumberValidate(year);
+                var msg = '第<i class="row-index">{0}</i>列出生年次應介於1年至95年之間（實足年齡滿15歲）'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Alert, msg, this.Guids[0], guid);
             },
         },
@@ -2485,8 +2485,8 @@ var PopulationHelper = {
                 var msg = '第<i class="row-index">{0}</i>列全年主要生活型態勾選『料理家務、育兒』或『其他』，全年從事自家農牧業工作日數應小於180日'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[3], null, false);
 
-                var con = birthYear <= 28 && farmerWorkdayId >= 4 && lifeStyleId == 1;
-                var msg = '第<i class="row-index">{0}</i>列超過80歲（出生年次小於28），從事自家農牧業工作日數超過60日，請確認'.format(index);
+                var con = birthYear <= 30 && farmerWorkdayId >= 4 && lifeStyleId == 1;
+                var msg = '第<i class="row-index">{0}</i>列超過80歲（出生年次小於30），從事自家農牧業工作日數超過60日，請確認'.format(index);
                 Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[4], null, false);
 
             },
@@ -2498,11 +2498,11 @@ var PopulationHelper = {
                 PopulationHelper.Population.Container.find('tr').each(function(){
                     var birthYear = $(this).find('[name="birthyear"]').val();
                     var farmerWorkdayId = $(this).find('[name="farmerworkday"]').val();
-                    if(birthYear <= 93 && birthYear >= 43 && Helper.NumberValidate(birthYear) && farmerWorkdayId > 1){
+                    if(birthYear <= 95 && birthYear >= 45 && Helper.NumberValidate(birthYear) && farmerWorkdayId > 1){
                         con = false;
                     }
                 })
-                var msg = '至少應有1位65歲以下（出生年次介於43年至93年）從事自家農牧業工作日數1日以上';
+                var msg = '至少應有1位65歲以下（出生年次介於45年至95年）從事自家農牧業工作日數1日以上';
                 Helper.LogHandler.Log(con, PopulationHelper.Alert, msg, this.Guids[0]);
             },
         },
@@ -3558,7 +3558,7 @@ var SubsidyHelper = {
         this.Container.HasSubsidy.prop('checked', false);
         this.Container.NoneSubsidy.prop('checked', false);
         this.Container.ApplyResult.prop('checked', false);
-        this.Container.ApplyResult.attr('data-refuse-id', '');
+        this.Container.ApplyResult.attr('data-apply-id', '');
         this.Container.RefuseReason.prop('checked', false);
         this.Container.RefuseReason.attr('data-refuse-id', '');
         this.Container.Extra.val('');
@@ -3569,6 +3569,9 @@ var SubsidyHelper = {
             if(CloneData){
                 var checked = $(this).prop('checked');
                 CloneData[MainSurveyId].subsidy.has_subsidy = checked;
+                if(!checked){
+                    SubsidyHelper.Container.ApplyResult.prop('checked', false).trigger('change');
+                }
                 if(Helper.LogHandler.ValidationActive){
                     SubsidyHelper.Validation.Empty.Validate();
                     SubsidyHelper.Validation.Duplicate.Validate();
@@ -3589,7 +3592,25 @@ var SubsidyHelper = {
                 }
             }
         })
-        this.Container.RefuseReason.unbind('change.ns1').on('change.ns1', function(){
+        this.Container.ApplyResult.unbind('change.ns1').on('change.ns1', function(e){
+            SubsidyHelper.Object.Apply.Collect();
+            if(CloneData){
+                if(Helper.LogHandler.ValidationActive){
+                    SubsidyHelper.Validation.Empty.Validate();
+                    SubsidyHelper.Validation.Duplicate.Validate();
+                }
+            }
+            var applyResultId = $(this).data('applyresult-id');
+            var hasSubsidyChecked = SubsidyHelper.Container.HasSubsidy.prop('checked');
+            var resultChecked = SubsidyHelper.Container.ApplyResult
+                          .filter('[data-applyresult-id="{0}"]'.format(applyResultId))
+                          .prop('checked');
+            if(!hasSubsidyChecked && resultChecked){
+                Helper.Dialog.ShowAlert('您尚未勾選有申請');
+                e.preventDefault();
+            }
+        })
+        this.Container.RefuseReason.unbind('change.ns1').on('change.ns1', function(e){
             SubsidyHelper.Object.Refuse.Collect();
             if(CloneData){
                 if(Helper.LogHandler.ValidationActive){
@@ -3625,6 +3646,30 @@ var SubsidyHelper = {
         })
     },
     Object: {
+        Apply: {
+            New: function(applyResultId, id){
+                var obj = {
+                    result: applyResultId,
+                }
+                if(id) obj.id = id;
+                return obj;
+            },
+            Collect: function(){
+                if(CloneData){
+                    var applies = [];
+                    SubsidyHelper.Container.ApplyResult
+                    .filter(':checked')
+                    .each(function(){
+                        var id = $(this).data('apply-id');
+                        var applyResultId = $(this).data('applyresult-id');
+                        applies.push(
+                            SubsidyHelper.Object.Apply.New(applyResultId, id ? id : null)
+                        )
+                    })
+                    CloneData[MainSurveyId].subsidy.applies = applies;
+                }
+            },
+        },
         Refuse: {
             New: function(refuseReasonId, extra, id){
                 var obj = {
@@ -3656,7 +3701,7 @@ var SubsidyHelper = {
     },
     Validation: {
         Empty: {
-            Guids: Helper.Guid.CreateMulti(2),
+            Guids: Helper.Guid.CreateMulti(3),
             Validate: function(){
                 var knownSubsidy = SurveyHelper.KnownSubsidy.Container.filter('[data-field=knownsubsidy]:checked').length > 0;
                 var hasSubsidy = SubsidyHelper.Container.HasSubsidy.prop('checked');
@@ -3666,19 +3711,27 @@ var SubsidyHelper = {
                 Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
 
                 var con = noneSubsidy && SubsidyHelper.Container.RefuseReason.filter(':checked').length == 0;
-                var msg = '勾選「沒有申請」，未申請原因不可為空白'
+                var msg = '勾選「沒有申請」，未申請原因不可為空白';
                 Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[1], null, false);
+
+                var con = hasSubsidy && SubsidyHelper.Container.ApplyResult.filter(':checked').length == 0;
+                var msg = '勾選「有申請」，續填申請情形不可為空白';
+                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[2], null, false);
             },
         },
         Duplicate: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(2),
             Validate: function(){
                 var hasSubsidy = SubsidyHelper.Container.HasSubsidy.prop('checked');
                 var noneSubsidy = SubsidyHelper.Container.NoneSubsidy.prop('checked');
-                var refuseReasons = SubsidyHelper.Container.RefuseReason.prop('checked');
-                var con = hasSubsidy && (noneSubsidy || refuseReasons);
+                var hasRefuseReason = SubsidyHelper.Container.RefuseReason.filter(':checked').length > 0;
+                var hasApplyResult = SubsidyHelper.Container.ApplyResult.filter(':checked').length > 0;
+                var con = (hasSubsidy && (noneSubsidy || hasRefuseReason)) || (noneSubsidy && (hasSubsidy || hasApplyResult));
                 var msg = '有申請及無申請不得重複勾選';
                 Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[0], null, false);
+                var con = SubsidyHelper.Container.ApplyResult.filter(':checked').length > 1;
+                var msg = '申請情形限註記一項';
+                Helper.LogHandler.Log(con, SubsidyHelper.Alert, msg, this.Guids[1], null, false);
             },
         },
     },

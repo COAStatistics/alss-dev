@@ -1055,6 +1055,26 @@ class SurveySerializer(ModelSerializer):
             # Update
             instance.subsidy.has_subsidy = subsidy["has_subsidy"]
             instance.subsidy.none_subsidy = subsidy["none_subsidy"]
+            """Apply"""
+            apply_ids = [item["id"] for item in subsidy["applies"] if "id" in item]
+            # Delete not included in the request
+            for obj in instance.subsidy.applies.all():
+                if obj.id not in apply_ids:
+                    obj.delete()
+            for item in subsidy["applies"]:
+                if "id" in item.keys():
+                    # Update included in the request
+                    apply_qs = instance.subsidy.applies.filter(id=item["id"])
+                    if apply_qs:
+                        apply_qs.update(
+                            result=item["result"] if "result" in item else None,
+                        )
+                else:
+                    # Create
+                    Apply.objects.create(
+                        subsidy=instance.subsidy,
+                        result=item["result"] if "result" in item else None,
+                    )
             """Refuse"""
             refuse_ids = [item["id"] for item in subsidy["refuses"] if "id" in item]
             # Delete not included in the request
