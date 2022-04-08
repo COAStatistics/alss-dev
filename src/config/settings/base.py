@@ -100,6 +100,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 # custom processors
                 "config.context_processors.get_session_cookie_age",
+                "config.context_processors.get_environment",
             ]
         },
     }
