@@ -60,15 +60,21 @@ def query_by_args(request, **kwargs):
                 | Q(user__full_name__icontains=search_value)
                 | Q(user__email__icontains=search_value)
             )
-        if app_label == 'surveys19':
+        elif app_label == 'surveys19':
             queryset = queryset.filter(
                 Q(surveys19__farmer_id__icontains=search_value)
                 | Q(user__full_name__icontains=search_value)
                 | Q(user__email__icontains=search_value)
             )
-        if app_label == 'surveys20':
+        elif app_label == 'surveys20':
             queryset = queryset.filter(
                 Q(surveys20__farmer_id__icontains=search_value)
+                | Q(user__full_name__icontains=search_value)
+                | Q(user__email__icontains=search_value)
+            )
+        elif app_label == 'surveys22':
+            queryset = queryset.filter(
+                Q(surveys22__farmer_id__icontains=search_value)
                 | Q(user__full_name__icontains=search_value)
                 | Q(user__email__icontains=search_value)
             )
