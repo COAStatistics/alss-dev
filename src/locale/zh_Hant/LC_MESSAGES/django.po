@@ -1170,10 +1170,8 @@ msgid "Non Known Subsidy"
 msgstr "沒聽過人力團服務"
 
 #: apps/surveys22/apps.py:7
-#, fuzzy
-#| msgid "Surveys20"
 msgid "Surveys22"
-msgstr "108年勞動力調查"
+msgstr "110年勞動力調查"
 
 #: apps/surveys22/models.py:1390 apps/surveys22/models.py:1423
 #: apps/surveys22/models.py:1424
