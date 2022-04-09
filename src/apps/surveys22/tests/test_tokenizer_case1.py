@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#0000000000010010+101稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+01002070050100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+100100001介面字太小#+稻受雨害影響#宋中積#宋會喬#0330"
+        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#0000000000010010+101稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+01002070050100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01110010001001介面字太小#+稻受雨害影響#宋中積#宋會喬#0330"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -29,8 +29,8 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.survey.non_second, False)
         self.assertEqual(self.builder.survey.main_income_source, True)
         self.assertEqual(self.builder.survey.non_main_income_source, False)
-        self.assertEqual(self.builder.survey.known_subsidy, False)
-        self.assertEqual(self.builder.survey.non_known_subsidy, True)
+        self.assertEqual(self.builder.survey.known_subsidy, True)
+        self.assertEqual(self.builder.survey.non_known_subsidy, False)
 
         # check survey query string
 
@@ -240,8 +240,10 @@ class ModelTestCase(TestCase):
     def test_build_subsidy(self):
         self.builder.build_subsidy()
         self.assertEqual(self.builder.subsidy.survey.farmer_id, "670050010002")
-        self.assertEqual(self.builder.subsidy.has_subsidy, False)
+        self.assertEqual(self.builder.subsidy.has_subsidy, True)
         self.assertEqual(self.builder.subsidy.none_subsidy, True)
-        self.assertEqual(len(self.builder.refuse), 1)
-        self.assertEqual(self.builder.refuse[0].reason.name, "其他")
-        self.assertEqual(self.builder.refuse[0].extra, "介面字太小")
+        self.assertEqual(len(self.builder.apply), 1)
+        self.assertEqual(len(self.builder.refuse), 2)
+        self.assertEqual(self.builder.refuse[0].reason.name, "工資高於預期")
+        self.assertEqual(self.builder.refuse[1].reason.name, "其他")
+        self.assertEqual(self.builder.refuse[1].extra, "介面字太小")

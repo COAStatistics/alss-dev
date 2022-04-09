@@ -42,6 +42,8 @@ from apps.surveys22.models import (
     Relationship,
     Month,
     Refuse,
+    Apply,
+    ApplyResult,
 )
 
 
@@ -69,6 +71,7 @@ class Builder(object):
         self.long_term_lack = []
         self.short_term_lack = []
         self.subsidy = None
+        self.apply = []
         self.refuse = []
 
         if self.is_first_page:
@@ -746,7 +749,7 @@ class Builder(object):
             else:
                 try:
                     for i in range(0, (len(string) - 4), 5):
-                        no_salary_str = string[i : i + 5]
+                        no_salary_str = string[i: i + 5]
                         month_str = no_salary_str[0:2]
                         month = Month.objects.filter(value=month_str).first()
                         count = int(no_salary_str[2:])
@@ -781,7 +784,7 @@ class Builder(object):
             if len(string) > 0:
                 try:
                     for i in range(0, len(string), 21):
-                        long_term_lack_str = string[i : i + 21]
+                        long_term_lack_str = string[i: i + 21]
                         work_type_str = long_term_lack_str[0:2]
                         work_type = WorkType.objects.filter(code=work_type_str).first()
                         count = int(long_term_lack_str[2:5])
@@ -816,7 +819,7 @@ class Builder(object):
                 try:
                     num = int(cnt / 24)
                     for i in range(0, num):
-                        token = str_en_num[i * 24 : i * 24 + 24]
+                        token = str_en_num[i * 24: i * 24 + 24]
                         product_str = token[0:3]
                         name = str_ch.split("#")[i]
                         product = Product.objects.filter(code=product_str).first()
@@ -851,17 +854,15 @@ class Builder(object):
         if self.is_first_page is False:
             string = self.string[10].split("#")[0]
             cnt, str_en_num, str_ch = self.counter_en_num(string)
-            str_ch = string[9:]
-
-            if cnt != 9:
+            str_ch = string[14:].strip()
+            if cnt != 14:
                 raise StringLengthError("Subsidy")
             else:
                 try:
-                    string_1 = string[2:4]
-                    has_subsidy_str = string_1[0]
+                    has_subsidy_str = string[2]
                     has_subsidy = has_subsidy_str == "1"
 
-                    none_subsidy_str = string_1[1]
+                    none_subsidy_str = string[6]
                     none_subsidy = none_subsidy_str == "1"
 
                     subsidy = Subsidy.objects.create(
@@ -870,52 +871,34 @@ class Builder(object):
                         none_subsidy=none_subsidy,
                     )
                     self.subsidy = subsidy
-                    reason_str = string[4:9]
 
-                    if reason_str[0] == "1":
-                        reason = RefuseReason.objects.filter(id=1).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason
-                            )
-                        self.refuse.append(refuse)
-                    if reason_str[1] == "1":
-                        reason = RefuseReason.objects.filter(id=2).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason
-                            )
-                        self.refuse.append(refuse)
-                    if reason_str[2] == "1":
-                        reason = RefuseReason.objects.filter(id=3).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason
-                            )
-                        self.refuse.append(refuse)
-                    if reason_str[3] == "1":
-                        reason = RefuseReason.objects.filter(id=4).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason
-                            )
-                        self.refuse.append(refuse)
-                    if reason_str[4] == "1" or len(str_ch) > 0:
-                        if len(str_ch) == 0:
-                            reason = RefuseReason.objects.filter(id=5).first()
+                    apply_str = string[3:6]
+                    for i in range(3):
+                        if apply_str[i] == "1":
+                            result = ApplyResult.objects.filter(id=i+1).first()
+                            if result:
+                                apply = Apply.objects.create(
+                                    subsidy=self.subsidy, result=result
+                                )
+                                self.apply.append(apply)
+
+                    reason_str = string[7:14]
+                    for i in range(6):
+                        if reason_str[i] == "1":
+                            reason = RefuseReason.objects.filter(id=i+1).first()
                             if reason:
                                 refuse = Refuse.objects.create(
                                     subsidy=self.subsidy, reason=reason
                                 )
-                            self.refuse.append(refuse)
-                        else:
-                            reason = RefuseReason.objects.filter(id=5).first()
-                            if reason:
-                                refuse = Refuse.objects.create(
-                                    subsidy=self.subsidy,
-                                    reason=reason,
-                                    extra=str_ch,
-                                )
+                                self.refuse.append(refuse)
+                    if reason_str[6] == "1" or len(str_ch) > 0:
+                        reason = RefuseReason.objects.filter(id=7).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy,
+                                reason=reason,
+                                extra=str_ch if str_ch else None
+                            )
                             self.refuse.append(refuse)
 
                 except ValueError:
