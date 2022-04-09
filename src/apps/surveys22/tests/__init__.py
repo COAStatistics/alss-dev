@@ -2,7 +2,7 @@ import pytest
 from django.test import TestCase
 
 
-@pytest.mark.s20
+@pytest.mark.s22
 class TestCase(TestCase):
     pass
 
@@ -30,3 +30,4 @@ def setup_fixtures():
     call_command("loaddata", "fixtures/surveys22/refuse-reason.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys22/relationship.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys22/work-type.yaml", verbosity=0)
+    call_command("loaddata", "fixtures/surveys22/subsidy-result.yaml", verbosity=0)
