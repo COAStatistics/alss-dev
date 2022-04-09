@@ -1402,7 +1402,7 @@ class Apply(Model):
         verbose_name_plural = _("Apply")
 
     def __str__(self):
-        return str(self.reason)
+        return str(self.result)
 
 class ApplyResult(Model):
     """
