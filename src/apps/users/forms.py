@@ -19,7 +19,7 @@ class UserLoginForm(forms.Form):
     is_active = forms.BooleanField(
         widget=forms.HiddenInput, required=False, initial=True
     )
-    captcha = CaptchaField(label="驗證碼")
+    # captcha = CaptchaField(label="驗證碼")
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get("username")
