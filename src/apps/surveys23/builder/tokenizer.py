@@ -856,136 +856,74 @@ class Builder(object):
                     )
                     self.subsidy = subsidy
 
-                    reason_str = string[0:3]
-                    for i in range(len(reason_str)):
-                        if reason_str[i] == "1":
-                            refuse_mode = i / 3
-                            method_mode = i % 3
-                            reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                            apply_method = ApplyMethod.objects.filter(id=method_mode+1).first()
-                            if reason:
-                                refuse = Refuse.objects.create(
-                                    subsidy=self.subsidy, reason=reason, method=apply_method
-                                )
-                                self.refuse.append(refuse)
+                    # Build Apply objects.
                     apply_str = string[3:12]
-                    for i in range(len(apply_str)):
-                        apply_mode = i/3
-                        method_mode = i % 3
-                        if apply_str[i] == "1":
-                            result = ApplyResult.objects.filter(id=apply_mode+1).first()
-                            apply_method = ApplyMethod.objects.filter(id=method_mode+1).first()
-                            if result:
-                                apply = Apply.objects.create(
-                                    subsidy=self.subsidy, result=result, method=apply_method
-                                )
-                                self.apply.append(apply)
+                    for i, value in enumerate(apply_str):
+                        if value != "1":
+                            continue
+                        apply = Apply.objects.create(
+                            subsidy=self.subsidy,
+                            result=ApplyResult.objects.get(id=i // 3 + 1),
+                            method=ApplyMethod.objects.get(id=i % 3 + 1)
+                        )
+                        self.apply.append(apply)
+
+                    # Build Refuse objects.
+
+                    def build_refuse(reason_id, method_id, extra=None):
+                        """Helper function to abstract object creation."""
+                        refuse = Refuse.objects.create(
+                            subsidy=self.subsidy,
+                            reason=RefuseReason.objects.get(id=reason_id),
+                            method=ApplyMethod.objects.get(id=method_id),
+                            extra=extra
+                        )
+                        self.refuse.append(refuse)
+
+                    # First row use RefuseReason constant, RefuseReason.pk=0
+                    reason_str = string[0:3]
+                    for i, value in enumerate(reason_str):
+                        if value != "1":
+                            continue
+                        build_refuse(0, i % 3 + 1)
+
                     reason_str = string[12:30]
-                    for i in range(len(reason_str)):
-                        if reason_str[i] == "1":
-                            refuse_mode = i / 3
-                            method_mode = i % 3
-                            reason = RefuseReason.objects.filter(id=refuse_mode+1).first()
-                            apply_method = ApplyMethod.objects.filter(id=method_mode+1).first()
-                            if reason:
-                                refuse = Refuse.objects.create(
-                                    subsidy=self.subsidy, reason=reason, method=apply_method
-                                )
-                                self.refuse.append(refuse)
+                    for i, value in enumerate(reason_str):
+                        if value != "1":
+                            continue
+                        build_refuse(i // 3 + 1, i % 3 + 1)
+
                     reason_str = string[30]
                     if reason_str == "1":
-                        refuse_mode = 8
-                        method_mode = 1
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason, method=apply_method
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(7, 1)
+
                     reason_str = string[31]
                     if reason_str == "1":
-                        refuse_mode = 9
-                        method_mode = 2
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason, method=apply_method
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(8, 2)
+
                     reason_str = string[32]
                     if reason_str == "1":
-                        refuse_mode = 9
-                        method_mode = 3
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason, method=apply_method
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(9, 2)
 
                     reason_str = string[33]
                     if reason_str == "1":
-                        refuse_mode = 10
-                        method_mode = 1
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy, reason=reason, method=apply_method
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(9, 3)
 
-                    reason_str = string[34:]
+                    reason_str = string[34:].split("#")[0]
                     if reason_str[-1] == "1" or len(str_ch) > 0:
-                        refuse_mode = 10
-                        method_mode = 1
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy,
-                                reason=reason,
-                                method=apply_method,
-                                extra=str_ch if str_ch else None
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(10, 1, str_ch if str_ch else None)
 
                     string = self.string[10].split("#")[1]
                     cnt, str_en_num, str_ch = self.counter_en_num(string[1:])
                     str_ch = str_ch.strip()
                     if reason_str[-1] == "1" or len(str_ch) > 0:
-                        refuse_mode = 10
-                        method_mode = 1
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy,
-                                reason=reason,
-                                method=apply_method,
-                                extra=str_ch if str_ch else None
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(10, 2, str_ch if str_ch else None)
 
                     string = self.string[10].split("#")[2]
                     cnt, str_en_num, str_ch = self.counter_en_num(string[1:])
                     str_ch = str_ch.strip()
                     if reason_str[-1] == "1" or len(str_ch) > 0:
-                        refuse_mode = 10
-                        method_mode = 1
-                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
-                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
-                        if reason:
-                            refuse = Refuse.objects.create(
-                                subsidy=self.subsidy,
-                                reason=reason,
-                                method=apply_method,
-                                extra=str_ch if str_ch else None
-                            )
-                            self.refuse.append(refuse)
+                        build_refuse(10, 3, str_ch if str_ch else None)
 
                 except ValueError:
                     raise CreateModelError("Subsidy")
