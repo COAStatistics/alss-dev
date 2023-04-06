@@ -44,6 +44,7 @@ from apps.surveys23.models import (
     Refuse,
     Apply,
     ApplyResult,
+    ApplyMethod,
 )
 
 
@@ -121,24 +122,11 @@ class Builder(object):
         delimiter_pound = "#+"
         slices_cnt = string.count(delimiter_plus)
         slices_pound_cnt = string.count(delimiter_pound)
-        slices = string.split(delimiter_plus)
-        slices_pound = string.split(delimiter_pound)
-
         if slices_cnt != 11:
             if slices_cnt != 11:
                 raise SignError("+")
-        else:
-            if len(slices[0]) == 16:
-                return True, True
-            else:
-                if slices_pound_cnt != 1:
-                    raise SignError("#+")
-                elif (
-                    (slices_pound[1].find("#") is -1)
-                    or (slices_pound[-1].find("#") is -1)
-                    or (slices_pound[-2].find("#") is -1)
-                ):
-                    raise SignError("#")
+
+
         return True, False
 
     @staticmethod
@@ -175,7 +163,12 @@ class Builder(object):
             farmer_id = string[0:12]
             total_pages = int(string[12:14])
             page = int(string[14:16])
-            if len(self.string[0]) > 16 or string.count('/') == 2:
+            if page == 1:
+                self.is_first_page = False
+            else:
+                self.is_first_page = True
+
+            if len(string) > 16 or string.count('/') == 2:
                 self.is_first_page = False
                 name = string[16:23].replace("#", "")
                 interviewee_relationship_str = string.split('/')[1]
@@ -187,12 +180,6 @@ class Builder(object):
                 investigator = string.split("#")[1]
                 reviewer = string.split("#")[2]
                 period_m = int(string.split("#")[-1])
-                # TODO: remove second and non_second
-                second_str = self.string[1][-2]
-                non_second_str = self.string[1][-1]
-                second = second_str == "1"
-                non_second = non_second_str == "1"
-
                 string = self.string[3][-14:-12]
                 main_income_source = string[0] == "1"
                 non_main_income_source = string[1] == "1"
@@ -231,9 +218,6 @@ class Builder(object):
                     farmer_name=name,
                     interviewee_relationship=interviewee_relationship,
                     origin_class=ori_class,
-                    # TODO: remove second and non_second
-                    second=second,
-                    non_second=non_second,
                     main_income_source=main_income_source,
                     non_main_income_source=non_main_income_source,
                     known_subsidy=known_subsidy,
@@ -400,7 +384,7 @@ class Builder(object):
             try:
                 string = self.string[1]
                 management_str = string[26:].split("#")[1]
-                if len(management_str) != 16:
+                if len(management_str) != 14:
                     raise StringLengthError("management")
             except ValueError:
                 raise StringLengthError("management")
@@ -746,18 +730,19 @@ class Builder(object):
         if self.is_first_page is False:
             string = self.string[7]
 
-            if (len(string) - 4) % 5 != 0:
+            if (len(string) - 4) % 9 != 0:
                 raise StringLengthError("NoSalaryHire")
             else:
                 try:
-                    for i in range(0, (len(string) - 4), 5):
-                        no_salary_str = string[i: i + 5]
+                    for i in range(0, (len(string) - 4), 9):
+                        no_salary_str = string[i: i + 9]
                         month_str = no_salary_str[0:2]
                         month = Month.objects.filter(value=month_str).first()
-                        count = int(no_salary_str[2:])
+                        count = int(no_salary_str[2:5])
+                        avg_work_day = int(no_salary_str[5:]) / 10
                         if month:
                             no_salary_hire = NoSalaryHire.objects.create(
-                                survey=self.survey, month=month, count=count
+                                survey=self.survey, month=month, count=count, avg_work_day=avg_work_day
                             )
                             self.no_salary_hire.append(no_salary_hire)
 
@@ -857,48 +842,150 @@ class Builder(object):
             string = self.string[10].split("#")[0]
             cnt, str_en_num, str_ch = self.counter_en_num(string)
             str_ch = string[14:].strip()
-            if cnt != 14:
+            if cnt != 35:
                 raise StringLengthError("Subsidy")
             else:
                 try:
-                    has_subsidy_str = string[2]
-                    has_subsidy = has_subsidy_str == "1"
+                    heard_app_str = self.string[10][-2:-1]
+                    heard_app = heard_app_str == "1"
 
-                    none_subsidy_str = string[6]
-                    none_subsidy = none_subsidy_str == "1"
+                    none_heard_app_str = self.string[10][-1:]
+                    none_heard_app = none_heard_app_str == "1"
 
                     subsidy = Subsidy.objects.create(
                         survey=self.survey,
-                        has_subsidy=has_subsidy,
-                        none_subsidy=none_subsidy,
+                        heard_app=heard_app,
+                        none_heard_app=none_heard_app,
                     )
                     self.subsidy = subsidy
 
-                    apply_str = string[3:6]
-                    for i in range(3):
-                        if apply_str[i] == "1":
-                            result = ApplyResult.objects.filter(id=i+1).first()
-                            if result:
-                                apply = Apply.objects.create(
-                                    subsidy=self.subsidy, result=result
-                                )
-                                self.apply.append(apply)
-
-                    reason_str = string[7:14]
-                    for i in range(6):
+                    reason_str = string[0:3]
+                    for i in range(len(reason_str)):
                         if reason_str[i] == "1":
-                            reason = RefuseReason.objects.filter(id=i+1).first()
+                            refuse_mode = i / 3
+                            method_mode = i % 3
+                            reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                            apply_method = ApplyMethod.objects.filter(id=method_mode+1).first()
                             if reason:
                                 refuse = Refuse.objects.create(
-                                    subsidy=self.subsidy, reason=reason
+                                    subsidy=self.subsidy, reason=reason, method=apply_method
                                 )
                                 self.refuse.append(refuse)
-                    if reason_str[6] == "1" or len(str_ch) > 0:
-                        reason = RefuseReason.objects.filter(id=7).first()
+                    apply_str = string[3:12]
+                    for i in range(len(apply_str)):
+                        apply_mode = i/3
+                        method_mode = i % 3
+                        if apply_str[i] == "1":
+                            result = ApplyResult.objects.filter(id=apply_mode+1).first()
+                            apply_method = ApplyMethod.objects.filter(id=method_mode+1).first()
+                            if result:
+                                apply = Apply.objects.create(
+                                    subsidy=self.subsidy, result=result, method=apply_method
+                                )
+                                self.apply.append(apply)
+                    reason_str = string[12:30]
+                    for i in range(len(reason_str)):
+                        if reason_str[i] == "1":
+                            refuse_mode = i / 3
+                            method_mode = i % 3
+                            reason = RefuseReason.objects.filter(id=refuse_mode+1).first()
+                            apply_method = ApplyMethod.objects.filter(id=method_mode+1).first()
+                            if reason:
+                                refuse = Refuse.objects.create(
+                                    subsidy=self.subsidy, reason=reason, method=apply_method
+                                )
+                                self.refuse.append(refuse)
+                    reason_str = string[30]
+                    if reason_str == "1":
+                        refuse_mode = 8
+                        method_mode = 1
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy, reason=reason, method=apply_method
+                            )
+                            self.refuse.append(refuse)
+                    reason_str = string[31]
+                    if reason_str == "1":
+                        refuse_mode = 9
+                        method_mode = 2
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy, reason=reason, method=apply_method
+                            )
+                            self.refuse.append(refuse)
+                    reason_str = string[32]
+                    if reason_str == "1":
+                        refuse_mode = 9
+                        method_mode = 3
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy, reason=reason, method=apply_method
+                            )
+                            self.refuse.append(refuse)
+
+                    reason_str = string[33]
+                    if reason_str == "1":
+                        refuse_mode = 10
+                        method_mode = 1
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy, reason=reason, method=apply_method
+                            )
+                            self.refuse.append(refuse)
+
+                    reason_str = string[34:]
+                    if reason_str[-1] == "1" or len(str_ch) > 0:
+                        refuse_mode = 10
+                        method_mode = 1
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
                         if reason:
                             refuse = Refuse.objects.create(
                                 subsidy=self.subsidy,
                                 reason=reason,
+                                method=apply_method,
+                                extra=str_ch if str_ch else None
+                            )
+                            self.refuse.append(refuse)
+
+                    string = self.string[10].split("#")[1]
+                    cnt, str_en_num, str_ch = self.counter_en_num(string[1:])
+                    str_ch = str_ch.strip()
+                    if reason_str[-1] == "1" or len(str_ch) > 0:
+                        refuse_mode = 10
+                        method_mode = 1
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy,
+                                reason=reason,
+                                method=apply_method,
+                                extra=str_ch if str_ch else None
+                            )
+                            self.refuse.append(refuse)
+
+                    string = self.string[10].split("#")[2]
+                    cnt, str_en_num, str_ch = self.counter_en_num(string[1:])
+                    str_ch = str_ch.strip()
+                    if reason_str[-1] == "1" or len(str_ch) > 0:
+                        refuse_mode = 10
+                        method_mode = 1
+                        reason = RefuseReason.objects.filter(id=refuse_mode).first()
+                        apply_method = ApplyMethod.objects.filter(id=method_mode).first()
+                        if reason:
+                            refuse = Refuse.objects.create(
+                                subsidy=self.subsidy,
+                                reason=reason,
+                                method=apply_method,
                                 extra=str_ch if str_ch else None
                             )
                             self.refuse.append(refuse)

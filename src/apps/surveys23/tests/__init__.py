@@ -30,4 +30,4 @@ def setup_fixtures():
     call_command("loaddata", "fixtures/surveys23/refuse-reason.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys23/relationship.yaml", verbosity=0)
     call_command("loaddata", "fixtures/surveys23/work-type.yaml", verbosity=0)
-    call_command("loaddata", "fixtures/surveys23/subsidy-result.yaml", verbosity=0)
+    call_command("loaddata", "fixtures/surveys23/apply-result.yaml", verbosity=0)

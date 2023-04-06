@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#0000000000010010+101稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+01002070050100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01110010001001介面字太小#+稻受雨害影響#宋中積#宋會喬#0330"
+        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+0100200170700500090100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01010000100010000000001000000010100#0#1美國農業局#01+稻受雨害影響#宋中積#宋會喬#0330"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -26,8 +26,6 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.survey.investigator, "宋中積")
         self.assertEqual(self.builder.survey.reviewer, "宋會喬")
         # TODO: remove second and non_second
-        self.assertEqual(self.builder.survey.second, True)
-        self.assertEqual(self.builder.survey.non_second, False)
         self.assertEqual(self.builder.survey.main_income_source, True)
         self.assertEqual(self.builder.survey.non_main_income_source, False)
         self.assertEqual(self.builder.survey.known_subsidy, True)
@@ -85,7 +83,7 @@ class ModelTestCase(TestCase):
     def test_build_crop_marketing(self):
         self.builder.build_crop_marketing()
         self.assertEqual(len(self.builder.crop_marketing), 2)
-        self.assertEqual(self.builder.crop_marketing[0].product.code, "101")
+        self.assertEqual(self.builder.crop_marketing[0].product.code, "102")
         self.assertEqual(self.builder.crop_marketing[0].name, "稻作(一期)")
         self.assertEqual(self.builder.crop_marketing[0].land_number, 1)
         self.assertEqual(self.builder.crop_marketing[0].land_area, 420)
@@ -202,8 +200,10 @@ class ModelTestCase(TestCase):
         self.assertEqual(len(self.builder.no_salary_hire), 2)
         self.assertEqual(self.builder.no_salary_hire[0].month.value, 1)
         self.assertEqual(self.builder.no_salary_hire[0].count, 2)
+        self.assertEqual(self.builder.no_salary_hire[0].avg_work_day, 1.7)
         self.assertEqual(self.builder.no_salary_hire[1].month.value, 7)
         self.assertEqual(self.builder.no_salary_hire[1].count, 5)
+        self.assertEqual(self.builder.no_salary_hire[1].avg_work_day, 0.9)
 
     def test_build_lack(self):
         self.builder.build_lack()
@@ -241,10 +241,10 @@ class ModelTestCase(TestCase):
     def test_build_subsidy(self):
         self.builder.build_subsidy()
         self.assertEqual(self.builder.subsidy.survey.farmer_id, "670050010002")
-        self.assertEqual(self.builder.subsidy.has_subsidy, True)
-        self.assertEqual(self.builder.subsidy.none_subsidy, True)
-        self.assertEqual(len(self.builder.apply), 1)
-        self.assertEqual(len(self.builder.refuse), 2)
-        self.assertEqual(self.builder.refuse[0].reason.name, "工資高於預期")
-        self.assertEqual(self.builder.refuse[1].reason.name, "其他")
-        self.assertEqual(self.builder.refuse[1].extra, "介面字太小")
+        self.assertEqual(self.builder.subsidy.heard_app, False)
+        self.assertEqual(self.builder.subsidy.none_heard_app, True)
+        self.assertEqual(len(self.builder.apply), 2)
+        self.assertEqual(len(self.builder.refuse), 7)
+        self.assertEqual(self.builder.refuse[0].reason.name, "沒聽過")
+        self.assertEqual(self.builder.refuse[1].reason.name, "無需求")
+        self.assertEqual(self.builder.refuse[6].extra, "美國農業局")
