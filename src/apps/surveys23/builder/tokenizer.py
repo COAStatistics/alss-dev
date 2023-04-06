@@ -119,13 +119,10 @@ class Builder(object):
     @staticmethod
     def check_string(string):
         delimiter_plus = "+"
-        delimiter_pound = "#+"
         slices_cnt = string.count(delimiter_plus)
-        slices_pound_cnt = string.count(delimiter_pound)
         if slices_cnt != 11:
             if slices_cnt != 11:
                 raise SignError("+")
-
 
         return True, False
 
