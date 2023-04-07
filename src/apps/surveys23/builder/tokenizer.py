@@ -288,7 +288,7 @@ class Builder(object):
                 city = token[-3]
                 town = token[-2]
                 code_str = int(token[-1])
-                code = CityTownCode.objects.filter(code=code_str).first()
+                code = CityTownCode.objects.get(code=code_str)
             except ValueError:
                 raise StringLengthError("Farm Location")
             else:
@@ -651,7 +651,7 @@ class Builder(object):
                         for j in range(0, 12):
                             if months_str[j] == "1":
                                 long_term_hire.months.add(
-                                    Month.objects.get(value=j + 1)
+                                    Month.objects.filter(value=j + 1).first()
                                 )
 
                         age_str = long_term_hire_str[5:14]
@@ -711,9 +711,9 @@ class Builder(object):
 
                                 if count > 0:
                                     NumberWorkers.objects.create(
-                                        content_type=ContentType.objects.get(
+                                        content_type=ContentType.objects.filter(
                                             app_label="surveys23", model="shorttermhire"
-                                        ),
+                                        ).first(),
                                         object_id=short_term_hire.id,
                                         age_scope=age_scope,
                                         count=count,
@@ -753,7 +753,7 @@ class Builder(object):
                 lack_str = string
                 for i in range(0, len(string)):
                     if lack_str[i] == "1":
-                        lack = Lack.objects.filter(id=i + 1).first()
+                        lack = Lack.objects.get(id=i + 1)
                         if lack:
                             self.survey.lacks.add(lack)
 
@@ -823,11 +823,12 @@ class Builder(object):
                         )
 
                         months_str = token[8:20]
-                        for j in range(0, 12):
-                            if months_str[j] == "1":
-                                month = Month.objects.filter(value=j + 1).first()
-                                if month:
-                                    short_term_lack.months.add(month)
+                        for i, value in enumerate(months_str):
+                            if value != "1":
+                                continue
+                            month = Month.objects.filter(value=i + 1).first()
+                            if month:
+                                short_term_lack.months.add(month)
 
                         self.short_term_lack.append(short_term_lack)
 
@@ -838,7 +839,6 @@ class Builder(object):
         if self.is_first_page is False:
             string = self.string[10].split("#")[0]
             cnt, str_en_num, str_ch = self.counter_en_num(string)
-            str_ch = string[14:].strip()
             if cnt != 35:
                 raise StringLengthError("Subsidy")
             else:
@@ -887,12 +887,14 @@ class Builder(object):
                             continue
                         build_refuse(0, i % 3 + 1)
 
+                    # RefuseReason constant, RefuseReason.pk=1-6
                     reason_str = string[12:30]
                     for i, value in enumerate(reason_str):
                         if value != "1":
                             continue
                         build_refuse(i // 3 + 1, i % 3 + 1)
 
+                    # RefuseReason constant, RefuseReason.pk=7-10
                     reason_str = string[30]
                     if reason_str == "1":
                         build_refuse(7, 1)
@@ -910,17 +912,18 @@ class Builder(object):
                         build_refuse(9, 3)
 
                     reason_str = string[34:].split("#")[0]
+                    cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
                     if reason_str[-1] == "1" or len(str_ch) > 0:
                         build_refuse(10, 1, str_ch if str_ch else None)
 
-                    string = self.string[10].split("#")[1]
-                    cnt, str_en_num, str_ch = self.counter_en_num(string[1:])
+                    reason_str = self.string[10].split("#")[1]
+                    cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
                     str_ch = str_ch.strip()
                     if reason_str[-1] == "1" or len(str_ch) > 0:
                         build_refuse(10, 2, str_ch if str_ch else None)
 
-                    string = self.string[10].split("#")[2]
-                    cnt, str_en_num, str_ch = self.counter_en_num(string[1:])
+                    reason_str = self.string[10].split("#")[2]
+                    cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
                     str_ch = str_ch.strip()
                     if reason_str[-1] == "1" or len(str_ch) > 0:
                         build_refuse(10, 3, str_ch if str_ch else None)

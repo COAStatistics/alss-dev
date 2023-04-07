@@ -2,7 +2,7 @@ import pytest
 from django.test import TestCase
 
 
-@pytest.mark.s22
+@pytest.mark.s23
 class TestCase(TestCase):
     pass
 

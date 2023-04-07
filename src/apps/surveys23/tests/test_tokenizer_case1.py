@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+0100200170700500090100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01010000100010000000001000000010100#0#1美國農業局#01+稻受雨害影響#宋中積#宋會喬#0330"
+        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+0100200170700500090100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01010000100010000000001000000010100#0其他#1美國農業局#01+稻受雨害影響#宋中積#宋會喬#0330"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -245,6 +245,23 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.subsidy.none_heard_app, True)
         self.assertEqual(len(self.builder.apply), 2)
         self.assertEqual(len(self.builder.refuse), 7)
-        self.assertEqual(self.builder.refuse[0].reason.name, "沒聽過")
-        self.assertEqual(self.builder.refuse[1].reason.name, "無需求")
+        self.assertEqual(self.builder.apply[0].result.pk, 1)
+        self.assertEqual(self.builder.apply[0].method.pk, 1)
+        self.assertEqual(self.builder.apply[1].result.pk, 2)
+        self.assertEqual(self.builder.apply[1].method.pk, 3)
+        self.assertEqual(self.builder.refuse[0].reason.pk, 0)
+        self.assertEqual(self.builder.refuse[0].method.pk, 2)
+        self.assertEqual(self.builder.refuse[1].reason.pk, 1)
+        self.assertEqual(self.builder.refuse[1].method.pk, 1)
+        self.assertEqual(self.builder.refuse[2].reason.pk, 4)
+        self.assertEqual(self.builder.refuse[2].method.pk, 2)
+        self.assertEqual(self.builder.refuse[3].reason.pk, 7)
+        self.assertEqual(self.builder.refuse[3].method.pk, 1)
+        self.assertEqual(self.builder.refuse[4].reason.pk, 9)
+        self.assertEqual(self.builder.refuse[4].method.pk, 2)
+        self.assertEqual(self.builder.refuse[5].reason.pk, 10)
+        self.assertEqual(self.builder.refuse[5].method.pk, 2)
+        self.assertEqual(self.builder.refuse[5].extra, "其他")
+        self.assertEqual(self.builder.refuse[6].reason.pk, 10)
+        self.assertEqual(self.builder.refuse[6].method.pk, 3)
         self.assertEqual(self.builder.refuse[6].extra, "美國農業局")
