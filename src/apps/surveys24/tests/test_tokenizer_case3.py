@@ -44,4 +44,4 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.population[0].birth_year, 93)
         self.assertEqual(self.builder.population[0].education_level.name, "國(初)中")
         self.assertEqual(self.builder.population[0].farmer_work_day.code, 1)
-        self.assertEqual(self.builder.population[0].life_style.name, "學生")
+        self.assertEqual(self.builder.population[0].life_style.name, "求學或準備升學")

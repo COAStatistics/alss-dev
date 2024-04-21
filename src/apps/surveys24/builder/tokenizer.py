@@ -967,29 +967,29 @@ class Builder(object):
                     avg_work_day = int(foreign_labor_str[5:9]) / 10
                     if avg_work_day > 0:
                         hire_type = 1
-                    if month:
-                        foreign_labor_hire = ForeignLaborHire.objects.create(
+                    if avg_work_day > 0 and hire_type == 1 :
+                        obj = ForeignLaborHire.objects.create(
                             survey=self.survey,
                             hire_type=hire_type,
                             month=month,
                             count=count,
                             avg_work_day=avg_work_day,
                         )
-                        self.foreign_labor_hire.append(foreign_labor_hire)
+                        self.foreign_labor_hire.append(obj)
 
                     count = int(foreign_labor_str[9:12])
                     avg_work_day = int(foreign_labor_str[12:]) / 10
                     if avg_work_day > 0:
                         hire_type = 2
-                    if month:
-                        foreign_labor_hire = ForeignLaborHire.objects.create(
+                    if avg_work_day > 0 and hire_type == 2 :
+                        obj = ForeignLaborHire.objects.create(
                             survey=self.survey,
                             hire_type=hire_type,
                             month=month,
                             count=count,
                             avg_work_day=avg_work_day,
                         )
-                        self.foreign_labor_hire.append(foreign_labor_hire)
+                        self.foreign_labor_hire.append(obj)
 
             except ValueError:
                 raise CreateModelError("ForeignLaborHire")
