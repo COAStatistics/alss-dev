@@ -8,7 +8,7 @@ class ModelTestCase(TestCase):
         setup_fixtures()
 
     def setUp(self):
-        self.string = "9800500100020202+++F01肉豬#300009000000050000000G02白肉雞#400100000000097500013+016209331000000000000010+++++++"
+        self.string = "9800500100020202+++F01肉豬#300009000000050000000G02白肉雞#400100000000097500013+016209331000000000000010++++++++"
         self.builder = Builder(self.string)
         self.builder.build_survey()
 

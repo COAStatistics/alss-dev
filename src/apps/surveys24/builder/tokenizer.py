@@ -50,6 +50,7 @@ from apps.surveys24.models import (
     Apply,
     ApplyResult,
     ApplyMethod,
+    ForeignLaborHire,
 )
 
 
@@ -79,6 +80,7 @@ class Builder(object):
         self.subsidy = None
         self.apply = []
         self.refuse = []
+        self.foreign_labor_hire = []
 
         if self.is_first_page:
             for t in string.split(delimiter_plus):
@@ -111,8 +113,10 @@ class Builder(object):
             self.build_no_salary_hire()
             self.build_long_term_lack()
             self.build_short_term_lack()
+            self.build_farm_outsource()
             self.build_lack()
             self.build_subsidy()
+            self.build_foreign_labor_hire()
         except Exception:
             Survey.objects.filter(
                 farmer_id=self.survey.farmer_id,
@@ -125,8 +129,8 @@ class Builder(object):
     def check_string(string):
         delimiter_plus = "+"
         slices_cnt = string.count(delimiter_plus)
-        if slices_cnt != 11:
-            if slices_cnt != 11:
+        if slices_cnt != 12:
+            if slices_cnt != 12:
                 raise SignError("+")
 
         return True, False
@@ -731,11 +735,11 @@ class Builder(object):
         if self.is_first_page is False:
             string = self.string[7]
 
-            if (len(string) - 4) % 9 != 0:
+            if (len(string) - 6) % 9 != 0:
                 raise StringLengthError("NoSalaryHire")
             else:
                 try:
-                    for i in range(0, (len(string) - 4), 9):
+                    for i in range(0, (len(string) - 6), 9):
                         no_salary_str = string[i : i + 9]
                         month_str = no_salary_str[0:2]
                         month = Month.objects.filter(value=month_str).first()
@@ -752,6 +756,20 @@ class Builder(object):
 
                 except ValueError:
                     raise CreateModelError("NoSalaryHire")
+
+    def build_farm_outsource(self):
+        if self.is_first_page is False:
+            string = self.string[7][-6:-4]
+            try:
+                has_farm_outsource = string[0] == "1"
+                non_has_farm_outsource = string[1] == "1"
+
+                self.survey.has_farm_outsource = has_farm_outsource
+                self.survey.non_has_farm_outsource = non_has_farm_outsource
+                self.survey.save()
+
+            except ValueError:
+                raise CreateModelError("Farm outsource")
 
     def build_lack(self):
         if self.is_first_page is False:
@@ -844,32 +862,25 @@ class Builder(object):
         if self.is_first_page is False:
             string = self.string[10].split("#")[0]
             cnt, str_en_num, str_ch = self.counter_en_num(string)
-            if cnt != 35:
+            if cnt != 28:
                 raise StringLengthError("Subsidy")
             else:
                 try:
-                    heard_app_str = self.string[10][-2:-1]
-                    heard_app = heard_app_str == "1"
-
-                    none_heard_app_str = self.string[10][-1:]
-                    none_heard_app = none_heard_app_str == "1"
 
                     subsidy = Subsidy.objects.create(
                         survey=self.survey,
-                        heard_app=heard_app,
-                        none_heard_app=none_heard_app,
                     )
                     self.subsidy = subsidy
 
                     # Build Apply objects.
-                    apply_str = string[3:12]
+                    apply_str = string[2:8]
                     for i, value in enumerate(apply_str):
                         if value != "1":
                             continue
                         apply = Apply.objects.create(
                             subsidy=self.subsidy,
-                            result=ApplyResult.objects.get(id=i // 3 + 1),
-                            method=ApplyMethod.objects.get(id=i % 3 + 1),
+                            result=ApplyResult.objects.get(id=i // 2 + 1),
+                            method=ApplyMethod.objects.get(id=i % 2 + 1),
                         )
                         self.apply.append(apply)
 
@@ -886,52 +897,99 @@ class Builder(object):
                         self.refuse.append(refuse)
 
                     # First row use RefuseReason constant, RefuseReason.pk=0
-                    reason_str = string[0:3]
+                    reason_str = string[0:2]
                     for i, value in enumerate(reason_str):
                         if value != "1":
                             continue
-                        build_refuse(0, i % 3 + 1)
+                        build_refuse(0, i % 2 + 1)
 
                     # RefuseReason constant, RefuseReason.pk=1-6
-                    reason_str = string[12:30]
+                    reason_str = string[8:20]
                     for i, value in enumerate(reason_str):
                         if value != "1":
                             continue
-                        build_refuse(i // 3 + 1, i % 3 + 1)
+                        build_refuse(i // 2 + 1, i % 2 + 1)
 
                     # RefuseReason constant, RefuseReason.pk=7-10
-                    reason_str = string[30]
+                    reason_str = string[20]
                     if reason_str == "1":
                         build_refuse(7, 1)
 
-                    reason_str = string[31]
+                    reason_str = string[21]
                     if reason_str == "1":
                         build_refuse(8, 2)
 
-                    reason_str = string[32]
+                    reason_str = string[22]
                     if reason_str == "1":
                         build_refuse(9, 2)
 
-                    reason_str = string[33]
+                    reason_str = string[23]
                     if reason_str == "1":
-                        build_refuse(9, 3)
+                        build_refuse(10, 2)
 
-                    reason_str = string[34:].split("#")[0]
+                    reason_str = string[24]
+                    if reason_str == "1":
+                        build_refuse(11, 2)
+
+                    reason_str = string[25]
+                    if reason_str == "1":
+                        build_refuse(12, 1)
+
+                    reason_str = string[26]
+                    if reason_str == "1":
+                        build_refuse(12, 2)
+
+                    reason_str = string[26:].split("#")[0]
                     cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
                     if reason_str[-1] == "1" or len(str_ch) > 0:
-                        build_refuse(10, 1, str_ch if str_ch else None)
+                        build_refuse(13, 1, str_ch if str_ch else None)
 
                     reason_str = self.string[10].split("#")[1]
                     cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
                     str_ch = str_ch.strip()
                     if reason_str[-1] == "1" or len(str_ch) > 0:
-                        build_refuse(10, 2, str_ch if str_ch else None)
-
-                    reason_str = self.string[10].split("#")[2]
-                    cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
-                    str_ch = str_ch.strip()
-                    if reason_str[-1] == "1" or len(str_ch) > 0:
-                        build_refuse(10, 3, str_ch if str_ch else None)
+                        build_refuse(13, 2, str_ch if str_ch else None)
 
                 except ValueError:
                     raise CreateModelError("Subsidy")
+
+    def build_foreign_labor_hire(self):
+        string = self.string[11]
+        if (len(string) % 16) != 0:
+            raise StringLengthError("ForeignLaborHire")
+        else:
+            try:
+                for i in range(0, len(string), 16):
+                    foreign_labor_str = string[i: i + 16]
+                    month_str = foreign_labor_str[0:2]
+                    month = Month.objects.filter(value=month_str).first()
+                    count = int(foreign_labor_str[2:5])
+                    avg_work_day = int(foreign_labor_str[5:9]) / 10
+                    if avg_work_day > 0:
+                        hire_type = 1
+                    if month:
+                        foreign_labor_hire = ForeignLaborHire.objects.create(
+                            survey=self.survey,
+                            hire_type=hire_type,
+                            month=month,
+                            count=count,
+                            avg_work_day=avg_work_day,
+                        )
+                        self.foreign_labor_hire.append(foreign_labor_hire)
+
+                    count = int(foreign_labor_str[9:12])
+                    avg_work_day = int(foreign_labor_str[12:]) / 10
+                    if avg_work_day > 0:
+                        hire_type = 2
+                    if month:
+                        foreign_labor_hire = ForeignLaborHire.objects.create(
+                            survey=self.survey,
+                            hire_type=hire_type,
+                            month=month,
+                            count=count,
+                            avg_work_day=avg_work_day,
+                        )
+                        self.foreign_labor_hire.append(foreign_labor_hire)
+
+            except ValueError:
+                raise CreateModelError("ForeignLaborHire")

@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "1000903007800101####張素香/鄰居##056325823/##########0310#雲林#虎尾#0903+00200000000000000000000000100000000#10000000000000+102一期稻作#1002001100000033000020311綠肥作物#1002001n00000000000020+0200000002000000060303+01120460000100010000000023202010000000000001000321044000001001000000004510710010000000001000055107300100000100000000652068100000000000100010+++0001+++00000000000000000000000000000000000#0#0#+二期休耕。#謝孟娟#鄭艾倫#0327"
+        cls.string = "1000903007800101####張素香/鄰居##056325823/##########0310#雲林#虎尾#0903+00200000000000000000000000100000000#10000000000000+102一期稻作#1002001100000033000020311綠肥作物#1002001n00000000000020+0200000002000000060303+01120460000100010000000023202010000000000001000321044000001001000000004510710010000000001000055107300100000100000000652068100000000000100010+++010001+++0000000000000000000000000000#0#+二期休耕。#謝孟娟#鄭艾倫#0327"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -38,6 +38,15 @@ class ModelTestCase(TestCase):
 
     def test_build_management(self):
         self.builder.build_management()
+
+    def test_build_farm_outsource(self):
+        self.builder.build_farm_outsource()
+        self.assertEqual(self.builder.survey.has_farm_outsource, False)
+        self.assertEqual(self.builder.survey.non_has_farm_outsource, True)
+
+    def test_build_lack(self):
+        self.builder.build_lack()
+        self.assertEqual(len(self.builder.survey.lacks.all()), 1)
 
     def test_build_crop_marketing(self):
         self.builder.build_crop_marketing()

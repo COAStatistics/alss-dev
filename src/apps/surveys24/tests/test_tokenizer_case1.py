@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+0100200170700500090100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01010000100010000000001000000010100#0其他#1美國農業局#01+稻受雨害影響#宋中積#宋會喬#0330"
+        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########3701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+010020017070050009100100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+0110010000001001101000000001嘉義鄉農會#0其他#+01005010500000000700000000050155+稻受雨害影響#宋中積#宋會喬#0330"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -175,6 +175,11 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.survey.non_hire, False)
         self.assertEqual(self.builder.survey.hire, True)
 
+    def test_build_farm_outsource(self):
+        self.builder.build_farm_outsource()
+        self.assertEqual(self.builder.survey.has_farm_outsource, True)
+        self.assertEqual(self.builder.survey.non_has_farm_outsource, False)
+
     def test_build_long_term_hire(self):
         self.builder.build_long_term_hire()
         self.assertEqual(len(self.builder.long_term_hire), 2)
@@ -241,27 +246,35 @@ class ModelTestCase(TestCase):
     def test_build_subsidy(self):
         self.builder.build_subsidy()
         self.assertEqual(self.builder.subsidy.survey.farmer_id, "670050010002")
-        self.assertEqual(self.builder.subsidy.heard_app, False)
-        self.assertEqual(self.builder.subsidy.none_heard_app, True)
         self.assertEqual(len(self.builder.apply), 2)
         self.assertEqual(len(self.builder.refuse), 7)
         self.assertEqual(self.builder.apply[0].result.pk, 1)
         self.assertEqual(self.builder.apply[0].method.pk, 1)
         self.assertEqual(self.builder.apply[1].result.pk, 2)
-        self.assertEqual(self.builder.apply[1].method.pk, 3)
+        self.assertEqual(self.builder.apply[1].method.pk, 2)
         self.assertEqual(self.builder.refuse[0].reason.pk, 0)
         self.assertEqual(self.builder.refuse[0].method.pk, 2)
-        self.assertEqual(self.builder.refuse[1].reason.pk, 1)
+        self.assertEqual(self.builder.refuse[1].reason.pk, 3)
         self.assertEqual(self.builder.refuse[1].method.pk, 1)
-        self.assertEqual(self.builder.refuse[2].reason.pk, 4)
-        self.assertEqual(self.builder.refuse[2].method.pk, 2)
-        self.assertEqual(self.builder.refuse[3].reason.pk, 7)
+        self.assertEqual(self.builder.refuse[2].reason.pk, 5)
+        self.assertEqual(self.builder.refuse[2].method.pk, 1)
+        self.assertEqual(self.builder.refuse[3].reason.pk, 6)
         self.assertEqual(self.builder.refuse[3].method.pk, 1)
-        self.assertEqual(self.builder.refuse[4].reason.pk, 9)
+        self.assertEqual(self.builder.refuse[4].reason.pk, 10)
         self.assertEqual(self.builder.refuse[4].method.pk, 2)
+        self.assertEqual(self.builder.refuse[4].extra, "嘉義鄉農會")
         self.assertEqual(self.builder.refuse[5].reason.pk, 10)
-        self.assertEqual(self.builder.refuse[5].method.pk, 2)
+        self.assertEqual(self.builder.refuse[5].method.pk, 3)
         self.assertEqual(self.builder.refuse[5].extra, "其他")
-        self.assertEqual(self.builder.refuse[6].reason.pk, 10)
-        self.assertEqual(self.builder.refuse[6].method.pk, 3)
-        self.assertEqual(self.builder.refuse[6].extra, "美國農業局")
+
+    def test_build_foreign_labor_hire(self):
+        self.builder.foreign_labor_hire()
+        self.assertEqual(len(self.builder.foreign_labor_hire), 2)
+        self.assertEqual(self.builder.foreign_labor_hire[0].month.value, 1)
+        self.assertEqual(self.builder.foreign_labor_hire[0].count, 5)
+        self.assertEqual(self.builder.foreign_labor_hire[0].hire_type, 1)
+        self.assertEqual(self.builder.foreign_labor_hire[0].avg_work_day, 10.5)
+        self.assertEqual(self.builder.foreign_labor_hire[1].month.value, 7)
+        self.assertEqual(self.builder.foreign_labor_hire[1].count, 5)
+        self.assertEqual(self.builder.foreign_labor_hire[1].hire_type, 2)
+        self.assertEqual(self.builder.foreign_labor_hire[1].avg_work_day, 15.5)
