@@ -180,7 +180,7 @@ class Builder(object):
                 interviewee_relationship_str = string.split("/")[1]
                 interviewee_relationship = interviewee_relationship_str.split("#")[0]
                 ori_class_str = string.split("/")[2]
-                ori_class = int(ori_class_str[10:12])
+                ori_class = int(ori_class_str[10:13])
                 string = self.string[-1]
                 note = string.split("#")[0]
                 investigator = string.split("#")[1]
@@ -270,9 +270,9 @@ class Builder(object):
             try:
                 string = self.string[0]
                 string = string.split("/")[2]
-                match_str = string[12:13]
-                mismatch_str = string[13:14]
-                address = string[14:].split("#")[0]
+                match_str = string[13:14]
+                mismatch_str = string[14:15]
+                address = string[15:].split("#")[0]
                 if match_str == "1":
                     match = True
                 if mismatch_str == "1":
