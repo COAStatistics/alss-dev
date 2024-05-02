@@ -2502,15 +2502,15 @@ var PopulationHelper = {
 
                 var con = farmerWorkdayId < 3 && lifeStyleId == 1;
                 var msg = '第<i class="row-index">{0}</i>列全年主要生活型態勾選『自營農牧業工作』，全年從事自家農牧業工作日數應超過30日，惟種稻或果樹採粗放式經營者不在此限'.format(index);
-                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[2], null, false);
+                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[2], guid, false);
 
                 var con = farmerWorkdayId >= 7 && (lifeStyleId == 6 || lifeStyleId == 7);
                 var msg = '第<i class="row-index">{0}</i>列全年主要生活型態勾選『料理家務、育兒』或『其他』，全年從事自家農牧業工作日數應小於180日'.format(index);
-                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[3], null, false);
+                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[3], guid, false);
 
                 var con = birthYear <= 31 && farmerWorkdayId >= 4 && lifeStyleId == 1;
                 var msg = '第<i class="row-index">{0}</i>列超過80歲（出生年次小於32），從事自家農牧業工作日數超過60日，請確認'.format(index);
-                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[4], null, false);
+                Helper.LogHandler.Log(con, PopulationHelper.Info, msg, this.Guids[4], guid, false);
 
             },
         },
@@ -2783,7 +2783,7 @@ var LongTermHireHelper = {
 
                 var con = avgWorkDay > 25;
                 var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認其合理性'.format(index);
-                Helper.LogHandler.Log(con, LongTermHireHelper.Info, msg, this.Guids[1], null, false);
+                Helper.LogHandler.Log(con, LongTermHireHelper.Info, msg, this.Guids[1], guid, false);
             },
         },
         LongTerm: {
@@ -2997,7 +2997,7 @@ var ShortTermHireHelper = {
 
                 var con = avgWorkDay > 25;
                 var msg = '第<i class="row-index">{0}</i>列平均每月工作日數大於25日，請確認其合理性'.format(index);
-                Helper.LogHandler.Log(con, ShortTermHireHelper.Info, msg, this.Guids[1], null, false);
+                Helper.LogHandler.Log(con, ShortTermHireHelper.Info, msg, this.Guids[1], guid, false);
             },
         },
         Over6Month: {
@@ -3341,7 +3341,7 @@ var LongTermLackHelper = {
 
                 con = avgLackDay > 25;
                 msg = '第<i class="row-index">{0}</i>列平均每月短缺日數大於25日，請確認其合理性'.format(index);
-                Helper.LogHandler.Log(con, LongTermLackHelper.Info, msg, this.Guids[1], null, false);
+                Helper.LogHandler.Log(con, LongTermLackHelper.Info, msg, this.Guids[1], guid, false);
             }
         },
         LongTerm: {
@@ -3540,7 +3540,7 @@ var ShortTermLackHelper = {
 
                 con = avgLackDay > 25;
                 msg = '第<i class="row-index">{0}</i>列平均每月短缺日數大於25日，請確認其合理性'.format(index);
-                Helper.LogHandler.Log(con, ShortTermLackHelper.Info, msg, this.Guids[1], null, false);
+                Helper.LogHandler.Log(con, ShortTermLackHelper.Info, msg, this.Guids[1], guid, false);
             }
         },
         Over6Month: {
@@ -3597,6 +3597,7 @@ var SubsidyHelper = {
         }
     },
     Reset: function(){
+        if (this.Alert) { this.Alert.reset(); }
         this.Container.Apply.prop('checked', false);
         this.Container.Apply.attr('data-apply-id', '');
         this.Container.Refuse.prop('checked', false);
