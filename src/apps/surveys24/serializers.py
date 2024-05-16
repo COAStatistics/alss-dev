@@ -507,6 +507,8 @@ class SurveySerializer(ModelSerializer):
         instance.non_main_income_source = validated_data["non_main_income_source"]
         instance.known_subsidy = validated_data["known_subsidy"]
         instance.non_known_subsidy = validated_data["non_known_subsidy"]
+        instance.is_invalid = validated_data["is_invalid"]
+        instance.invalid_reason = validated_data["invalid_reason"]
 
         instance.save()
 
