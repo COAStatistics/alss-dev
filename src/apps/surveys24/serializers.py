@@ -1170,6 +1170,6 @@ class SurveySerializer(ModelSerializer):
                 )
 
         # TODO: enable stratify after validation.
-        async_update_stratify.delay(instance.id)
+        # async_update_stratify.delay(instance.id)
 
         return instance
