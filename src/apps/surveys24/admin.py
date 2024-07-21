@@ -57,17 +57,17 @@ from .models import (
 )
 
 
-def display_note(obj):
-    if obj.sample_count == 0:
-        if obj.sibling.sample_count > 0:
+def display_note(obj, sample_count_method="origin_sample_count"):
+    if getattr(obj, sample_count_method) == 0:
+        if getattr(obj.sibling, sample_count_method) > 0:
             return f"併入{obj.sibling.code}層"
         elif obj.level == MANAGEMENT_LEVEL.small:
-            if obj.upper_sibling.sample_count == 0:
+            if getattr(obj.upper_sibling, sample_count_method) == 0:
                 # 連上層都沒有就併入上層的 sibling
                 return f"併入{obj.upper_sibling.sibling.code}層"
             return f"併入{obj.upper_sibling.code}層"
         elif obj.level == MANAGEMENT_LEVEL.large:
-            if obj.lower_sibling.sample_count == 0:
+            if getattr(obj.lower_sibling, sample_count_method) == 0:
                 # 連下層都沒有就併入下層的 sibling
                 return f"併入{obj.lower_sibling.sibling.code}層"
             return f"併入{obj.lower_sibling.code}層"
@@ -82,8 +82,10 @@ class StratifyResource(ModelResource):
     )
     code = Field(attribute="code", column_name=_("Code"))
     population = Field(attribute="population", column_name=_("Population(Statistic)"))
-    sample_count = Field(column_name=_("Sample Count"))
-    magnification_factor = Field(column_name=_("Magnification Factor"))
+    origin_sample_count = Field(column_name=_("Origin Sample Count"))
+    origin_magnification_factor = Field(column_name=_("Origin Magnification Factor"))
+    mix_sample_count = Field(column_name=_("Mix Sample Count"))
+    mix_magnification_factor = Field(column_name=_("Mix Magnification Factor"))
 
     class Meta:
         model = Stratify
@@ -91,22 +93,37 @@ class StratifyResource(ModelResource):
             "management_type",
             "code",
             "population",
-            "sample_count",
-            "magnification_factor",
-            "note",
+            "origin_sample_count",
+            "origin_magnification_factor",
+            "origin_note",
+            "mix_sample_count",
+            "mix_magnification_factor",
+            "mix_note",
         )
 
-    def dehydrate_sample_count(self, obj):
-        return obj.sample_count
+    def dehydrate_origin_sample_count(self, obj):
+        return obj.origin_sample_count
 
-    def dehydrate_magnification_factor(self, obj):
+    def dehydrate_mix_sample_count(self, obj):
+        return obj.mix_sample_count
+
+    def dehydrate_origin_magnification_factor(self, obj):
         try:
-            return obj.magnification_factor
+            return obj.origin_magnification_factor
         except ZeroDivisionError:
             return "-"
 
-    def dehydrate_note(self, obj):
-        return display_note(obj)
+    def dehydrate_mix_magnification_factor(self, obj):
+        try:
+            return obj.mix_magnification_factor
+        except ZeroDivisionError:
+            return "-"
+
+    def dehydrate_origin_note(self, obj):
+        return display_note(obj, sample_count_method="origin_sample_count")
+
+    def dehydrate_mix_note(self, obj):
+        return display_note(obj, sample_count_method="mix_sample_count")
 
 
 class FarmerStatResource(ModelResource):
@@ -210,29 +227,47 @@ class StratifyAdmin(ExportMixin, admin.ModelAdmin):
         "is_hire",
         "code",
         "population",
-        "sample_count",
         "level",
-        "magnification_factor",
-        "note",
+        "origin_sample_count",
+        "origin_magnification_factor",
+        "origin_note",
+        "mix_sample_count",
+        "mix_magnification_factor",
+        "mix_note",
     )
-    readonly_fields = ("sample_count", "magnification_factor", "note")
+    readonly_fields = ("origin_sample_count", "origin_magnification_factor", "origin_note")
     ordering = ("code",)
 
-    def sample_count(self, obj):
-        return obj.sample_count
+    def origin_sample_count(self, obj):
+        return obj.origin_sample_count
 
-    def magnification_factor(self, obj):
+    def mix_sample_count(self, obj):
+        return obj.mix_sample_count
+
+    def origin_magnification_factor(self, obj):
         try:
-            return obj.magnification_factor
+            return obj.origin_magnification_factor
         except ZeroDivisionError:
             return "-"
 
-    def note(self, obj):
-        return display_note(obj)
+    def mix_magnification_factor(self, obj):
+        try:
+            return obj.mix_magnification_factor
+        except ZeroDivisionError:
+            return "-"
 
-    sample_count.short_description = _("Sample Count")
-    magnification_factor.short_description = _("Magnification Factor")
-    note.short_description = _("Note")
+    def origin_note(self, obj):
+        return display_note(obj, sample_count_method="origin_sample_count")
+
+    def mix_note(self, obj):
+        return display_note(obj, sample_count_method="mix_sample_count")
+
+    origin_sample_count.short_description = _("Origin Sample Count")
+    mix_sample_count.short_description = _("Mix Sample Count")
+    origin_magnification_factor.short_description = _("Origin Magnification Factor")
+    mix_magnification_factor.short_description = _("Mix Magnification Factor")
+    origin_note.short_description = _("Origin Note")
+    mix_note.short_description = _("Mix Note")
 
 
 class FarmerStatAdmin(ExportMixin, admin.ModelAdmin):

@@ -20,3 +20,4 @@ celery==4.4.6
 django-redis==4.11.0
 pyminizip==0.2.4
 sentry-sdk==1.5.12
+jedi==0.17.2

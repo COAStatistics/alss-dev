@@ -159,12 +159,14 @@ def async_export_examination_work_hours(year, email):
     import apps.surveys20.models
     import apps.surveys22.models
     import apps.surveys23.models
+    import apps.surveys24.models
 
     models_map = {
         107: apps.surveys19.models,
         108: apps.surveys20.models,
         110: apps.surveys22.models,
         111: apps.surveys23.models,
+        112: apps.surveys24.models
     }
     try:
         models = models_map.get(year)
@@ -257,6 +259,7 @@ def async_export_farmer_stat(year, email):
     exporter_map = {
         110: farmer_stat.FarmerStatExporter110,
         111: farmer_stat.FarmerStatExporter111,
+        112: farmer_stat.FarmerStatExporter112,
     }
     try:
         exporter = exporter_map.get(year)()
