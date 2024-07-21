@@ -4,7 +4,7 @@ from django.db.transaction import atomic
 from django.utils.translation import ugettext_lazy as _
 from django.utils.dates import MONTHS
 from django.utils.functional import cached_property
-from django.db.models import Count, Max
+from django.db.models import Count, Max, Q
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import (
@@ -1806,7 +1806,7 @@ class FarmerStat(Model):
         )
 
         # Query surveys
-        survey_qs = Survey.objects.exclude(note__icontains="無效戶").filter(
+        survey_qs = Survey.objects.exclude(Q(note__icontains="無效戶") | Q(is_invalid=True)).filter(
             readonly=False, page=1, id__in=valid_management_type_survey_ids
         )
 
