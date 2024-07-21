@@ -51,6 +51,10 @@ FOREIGN_LABOR_HIRE_TYPE = Choices(
     (1, "long_term_labor", _("Long Term Labor")), (2, "short_term_labor", _("Short Term Labor"))
 )
 
+SAMPLE_GROUP = Choices(
+    (1, "origin", _("Origin")), (2, "mix", _("Mix"))
+)
+
 
 class Survey(Model):
     """
@@ -1655,6 +1659,8 @@ class Stratify(Model):
     level = PositiveIntegerField(
         choices=MANAGEMENT_LEVEL, verbose_name=_("Management Level")
     )
+    # 112 新增，區分高齡
+    is_senility = BooleanField(null=True, blank=True, db_index=True, verbose_name=_("Is Senility"))
 
     class Meta:
         verbose_name = _("Stratify")
@@ -1672,6 +1678,7 @@ class Stratify(Model):
             min_revenue=self.min_revenue,
             max_revenue=self.max_revenue,
             is_hire=operator.not_(self.is_hire),
+            is_senility=self.is_senility
         )
 
     @property
@@ -1682,6 +1689,7 @@ class Stratify(Model):
             management_type=self.management_type,
             is_hire=self.is_hire,
             level=self.level + 1,
+            is_senility=self.is_senility
         )
 
     @property
@@ -1692,42 +1700,54 @@ class Stratify(Model):
             management_type=self.management_type,
             is_hire=self.is_hire,
             level=self.level - 1,
+            is_senility=self.is_senility
         )
 
     @cached_property
-    def sample_count(self):
-        return self.farmer_stats.count()
+    def origin_sample_count(self):
+        return self.farmer_stats.filter(sample_group=SAMPLE_GROUP.origin).count()
 
     @cached_property
-    def magnification_factor(self):
+    def mix_sample_count(self):
+        return self.farmer_stats.filter(sample_group=SAMPLE_GROUP.mix).count()
+
+    @cached_property
+    def origin_magnification_factor(self):
+        return self.get_magnification_factor("origin_sample_count")
+
+    @cached_property
+    def mix_magnification_factor(self):
+        return self.get_magnification_factor("mix_sample_count")
+
+    def get_magnification_factor(self, sample_count_method="origin_sample_count"):
         # 各層母體數 / 各層樣本數
         # case a: 小/大型同規模有/無僱合併
         if (
             self.level != MANAGEMENT_LEVEL.middle
-            and self.sibling.sample_count == 0
-            and self.sample_count > 0
+            and getattr(self.sibling, sample_count_method) == 0
+            and getattr(self, sample_count_method) > 0
         ):
-            return (self.population + self.sibling.population) / self.sample_count
+            return (self.population + self.sibling.population) / getattr(self, sample_count_method)
         # case b: 中型要考量更多情況
         elif self.level == MANAGEMENT_LEVEL.middle:
-            population, sample_count = self.population, self.sample_count
+            population, sample_count = self.population, getattr(self, sample_count_method)
             # case b.1: 同規模有/無僱合併
-            if self.sibling.sample_count == 0:
+            if getattr(self.sibling, sample_count_method) == 0:
                 population += self.sibling.population
             # case b.2: 小型併入中型
-            if self.lower_sibling.sample_count == 0:
+            if getattr(self.lower_sibling, sample_count_method) == 0:
                 population += self.lower_sibling.population
                 # case b.2-1: 小型有/無僱皆為0
-                if self.lower_sibling.sibling.sample_count == 0:
+                if getattr(self.lower_sibling.sibling, sample_count_method) == 0:
                     population += self.lower_sibling.sibling.population
             # case b.3: 大型併入中型
-            if self.upper_sibling.sample_count == 0:
+            if getattr(self.upper_sibling, sample_count_method) == 0:
                 population += self.upper_sibling.population
                 # case b.3-1: 大型有/無僱皆為0
-                if self.upper_sibling.sibling.sample_count == 0:
+                if getattr(self.upper_sibling.sibling, sample_count_method) == 0:
                     population += self.upper_sibling.sibling.population
             return population / sample_count
-        return self.population / self.sample_count
+        return self.population / getattr(self, sample_count_method)
 
 
 class FarmerStat(Model):
@@ -1743,6 +1763,12 @@ class FarmerStat(Model):
         related_name="farmer_stats",
         verbose_name=_("Stratify"),
     )
+    is_senility = BooleanField(
+        null=True, blank=True, verbose_name=_("Is Senility")
+    )
+    sample_group = PositiveIntegerField(
+        null=True, blank=True, choices=SAMPLE_GROUP, verbose_name=_("Sample Group")
+    )
     create_time = AutoCreatedField(_("Create Time"))
     update_time = AutoLastModifiedField(_("Update Time"))
 
@@ -1752,6 +1778,22 @@ class FarmerStat(Model):
 
     def __str__(self):
         return str(self.survey)
+
+    @classmethod
+    def get_is_senility(cls, survey: Survey) -> bool:
+        # 高齡：戶內皆為超過65歲(出生年＜47年次)從農者自家農牧業工作一日以上）
+
+        old_worker = young_worker = False
+        for obj in survey.populations.filter(farmer_work_day__id__gt=1):
+            if obj.birth_year < 47:
+                old_worker = True
+            else:
+                young_worker = True
+
+        if old_worker and not young_worker:
+            return True
+
+        return False
 
     @classmethod
     @atomic
@@ -1772,11 +1814,18 @@ class FarmerStat(Model):
         stats = []
         for survey in survey_qs:
             try:
-                stratify = cls.get_stratify(survey)
+                origin_is_senility = survey.origin_class >= 101
+                is_senility = cls.get_is_senility(survey)
+                stratify = cls.get_stratify(survey, is_senility)
                 stats.append(
                     cls(
                         survey=survey,
                         stratify=stratify,
+                        is_senility=is_senility,
+                        sample_group=(
+                            SAMPLE_GROUP.origin if origin_is_senility == is_senility
+                            else SAMPLE_GROUP.mix
+                        )
                     )
                 )
             except Stratify.DoesNotExist:
@@ -1787,7 +1836,7 @@ class FarmerStat(Model):
         cls.objects.bulk_create(stats)
 
     @staticmethod
-    def get_stratify(survey: Survey):
+    def get_stratify(survey: Survey, is_senility: bool):
         management_type = survey.management_types.first()
         survey_ids = Survey.objects.filter(
             readonly=False, farmer_id=survey.farmer_id
@@ -1806,6 +1855,7 @@ class FarmerStat(Model):
                 min_field__lte=total_area,
                 max_field__gt=total_area,
                 is_hire=survey.hire,
+                is_senility=is_senility
             )
         elif management_type.stratify_with == STRATIFY_WITH_CHOICES.revenue:
             # 取得銷售額總計區間
@@ -1818,6 +1868,7 @@ class FarmerStat(Model):
                     min_revenue__lte=avg,
                     max_revenue__gte=avg,
                     is_hire=survey.hire,
+                    is_senility=is_senility
                 )
             else:
                 raise ValueError(f"Survey {survey}'s annual income is missing.")
