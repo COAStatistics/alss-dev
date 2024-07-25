@@ -9,7 +9,8 @@ def async_update_stratify(survey_id):
         FarmerStat.objects.filter(survey=survey).delete()
         return f"Delete {survey} FarmerStat, it's been mark as invalid farmer."
     else:
-        stratify = FarmerStat.get_stratify(survey)
+        is_senility = FarmerStat.get_is_senility(survey)
+        stratify = FarmerStat.get_stratify(survey, is_senility)
         FarmerStat.objects.update_or_create(
             survey=survey, defaults={"stratify": stratify}
         )
