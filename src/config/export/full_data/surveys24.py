@@ -176,6 +176,7 @@ class SurveyRelationGeneratorFactory112:
                 "subsidy__applies__method",
                 "subsidy__refuses__reason",
                 "subsidy__refuses__method",
+                "farmer_stat"
             )
         )
         self.age_scopes = AgeScope.objects.filter(group=1).order_by("id").all()
@@ -401,7 +402,7 @@ class SurveyExportor:
                 # Use built in filter to prevent query.
                 generator=self.subsidy_info_generate(method_id=1),
                 start_col=74,
-                end_col=76,
+                end_col=75,
                 silence=self.survey.page > 1,
             ),
             ReportBlock(
@@ -450,7 +451,7 @@ class SurveyExportor:
             ReportBlock(
                 generator=self.reviewer_generate(),
                 start_col=88,
-                end_col=89,
+                end_col=90,
                 silence=self.survey.page > 1,
             ),
         ]
@@ -500,6 +501,9 @@ class SurveyExportor:
         yield [
             self.survey.investigator,
             self.survey.reviewer,
+            "1"
+            if self.survey.farmer_stat.sample_group == SAMPLE_GROUP.origin
+            else "0",
         ]
 
     def normal_relation_generate(self, relate_name, values_list):
@@ -586,9 +590,6 @@ class SurveyExportor:
                     self.survey.subsidy.applies.all(),
                 )
             )
-            else "0",
-            "1"
-            if self.survey.farmer_stat.sample_group == SAMPLE_GROUP.origin
             else "0",
         ]
 
