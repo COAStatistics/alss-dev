@@ -1638,9 +1638,8 @@ class Stratify(Model):
     field=公畝;revenue=萬元
     """
 
-    management_type = ForeignKey(
+    agg_management_type = ManyToManyField(
         "surveys24.ManagementType",
-        on_delete=CASCADE,
         related_name="stratifies",
         verbose_name=_("Management Type"),
     )
@@ -1662,6 +1661,11 @@ class Stratify(Model):
     # 112 新增，區分高齡
     is_senility = BooleanField(null=True, blank=True, db_index=True, verbose_name=_("Is Senility"))
 
+    def agg_management_type_display(self):
+        return ",".join([obj.name for obj in self.agg_management_type.all()])
+
+    agg_management_type_display.short_description = 'Management Type'
+
     class Meta:
         verbose_name = _("Stratify")
         verbose_name_plural = _("Stratify")
@@ -1671,8 +1675,13 @@ class Stratify(Model):
 
     @property
     def sibling(self):
-        return Stratify.objects.get(
-            management_type=self.management_type,
+        management_type_ids = self.agg_management_type.values_list("pk", flat=True)
+        return Stratify.objects.annotate(
+            b_count=Count('agg_management_type'),
+            matched=Count('agg_management_type', filter=Q(agg_management_type__in=management_type_ids))
+        ).get(
+            b_count=len(management_type_ids),
+            matched=len(management_type_ids),
             min_field=self.min_field,
             max_field=self.max_field,
             min_revenue=self.min_revenue,
@@ -1683,10 +1692,15 @@ class Stratify(Model):
 
     @property
     def upper_sibling(self):
+        management_type_ids = self.agg_management_type.values_list("pk", flat=True)
         if self.level >= MANAGEMENT_LEVEL.large:
             raise ValueError("No upper management level for this stratify.")
-        return Stratify.objects.get(
-            management_type=self.management_type,
+        return Stratify.objects.annotate(
+            b_count=Count('agg_management_type'),
+            matched=Count('agg_management_type', filter=Q(agg_management_type__in=management_type_ids))
+        ).get(
+            b_count=len(management_type_ids),
+            matched=len(management_type_ids),
             is_hire=self.is_hire,
             level=self.level + 1,
             is_senility=self.is_senility
@@ -1694,10 +1708,15 @@ class Stratify(Model):
 
     @property
     def lower_sibling(self):
+        management_type_ids = self.agg_management_type.values_list("pk", flat=True)
         if self.level <= MANAGEMENT_LEVEL.small:
             raise ValueError("No lower management level for this stratify.")
-        return Stratify.objects.get(
-            management_type=self.management_type,
+        return Stratify.objects.annotate(
+            b_count=Count('agg_management_type'),
+            matched=Count('agg_management_type', filter=Q(agg_management_type__in=management_type_ids))
+        ).get(
+            b_count=len(management_type_ids),
+            matched=len(management_type_ids),
             is_hire=self.is_hire,
             level=self.level - 1,
             is_senility=self.is_senility
@@ -1709,7 +1728,8 @@ class Stratify(Model):
 
     @cached_property
     def mix_sample_count(self):
-        return self.farmer_stats.filter(sample_group=SAMPLE_GROUP.mix).count()
+        # don't need to filter by mix, mix means all
+        return self.farmer_stats.count()
 
     @cached_property
     def origin_magnification_factor(self):
@@ -1851,7 +1871,7 @@ class FarmerStat(Model):
             )
             total_area = sum(d["max_value"] for d in land_areas)
             return Stratify.objects.get(
-                management_type=management_type,
+                agg_management_type=management_type,
                 min_field__lte=total_area,
                 max_field__gt=total_area,
                 is_hire=survey.hire,
@@ -1864,7 +1884,7 @@ class FarmerStat(Model):
                 income_range = annual_incomes.first().income_range
                 avg = (income_range.minimum + income_range.maximum) / 2
                 return Stratify.objects.get(
-                    management_type=management_type,
+                    agg_management_type=management_type,
                     min_revenue__lte=avg,
                     max_revenue__gte=avg,
                     is_hire=survey.hire,

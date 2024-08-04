@@ -1,7 +1,7 @@
 - model: surveys24.Stratify
   pk: 1
   fields:
-    management_type: 1
+    agg_management_type: [1]
     is_hire: True
     min_field: 0
     max_field: 175
@@ -14,7 +14,7 @@
 - model: surveys24.Stratify
   pk: 2
   fields:
-    management_type: 1
+    agg_management_type: [1]
     is_hire: False
     min_field: 0
     max_field: 175
@@ -27,7 +27,7 @@
 - model: surveys24.Stratify
   pk: 3
   fields:
-    management_type: 1
+    agg_management_type: [1]
     is_hire: True
     min_field: 175
     max_field: 500
@@ -40,7 +40,7 @@
 - model: surveys24.Stratify
   pk: 4
   fields:
-    management_type: 1
+    agg_management_type: [1]
     is_hire: False
     min_field: 175
     max_field: 500
@@ -52,7 +52,7 @@
 - model: surveys24.Stratify
   pk: 5
   fields:
-    management_type: 1
+    agg_management_type: [1]
     is_hire: True
     min_field: 500
     max_field: 999999999
@@ -64,7 +64,7 @@
 - model: surveys24.Stratify
   pk: 6
   fields:
-    management_type: 1
+    agg_management_type: [1]
     is_hire: False
     min_field: 500
     max_field: 999999999
@@ -76,7 +76,7 @@
 - model: surveys24.Stratify
   pk: 7
   fields:
-    management_type: 2
+    agg_management_type: [2]
     is_hire: True
     min_field: 0
     max_field: 125
@@ -88,7 +88,7 @@
 - model: surveys24.Stratify
   pk: 8
   fields:
-    management_type: 2
+    agg_management_type: [2]
     is_hire: False
     min_field: 0
     max_field: 125
@@ -100,7 +100,7 @@
 - model: surveys24.Stratify
   pk: 9
   fields:
-    management_type: 2
+    agg_management_type: [2]
     is_hire: True
     min_field: 125
     max_field: 500
@@ -112,7 +112,7 @@
 - model: surveys24.Stratify
   pk: 10
   fields:
-    management_type: 2
+    agg_management_type: [2]
     is_hire: False
     min_field: 125
     max_field: 500
@@ -124,7 +124,7 @@
 - model: surveys24.Stratify
   pk: 11
   fields:
-    management_type: 2
+    agg_management_type: [2]
     is_hire: True
     min_field: 500
     max_field: 999999999
@@ -136,7 +136,7 @@
 - model: surveys24.Stratify
   pk: 12
   fields:
-    management_type: 2
+    agg_management_type: [2]
     is_hire: False
     min_field: 500
     max_field: 999999999
@@ -148,7 +148,7 @@
 - model: surveys24.Stratify
   pk: 13
   fields:
-    management_type: 3
+    agg_management_type: [3]
     is_hire: True
     min_field: 0
     max_field: 125
@@ -160,7 +160,7 @@
 - model: surveys24.Stratify
   pk: 14
   fields:
-    management_type: 3
+    agg_management_type: [3]
     is_hire: False
     min_field: 0
     max_field: 125
@@ -172,7 +172,7 @@
 - model: surveys24.Stratify
   pk: 15
   fields:
-    management_type: 3
+    agg_management_type: [3]
     is_hire: True
     min_field: 125
     max_field: 300
@@ -184,7 +184,7 @@
 - model: surveys24.Stratify
   pk: 16
   fields:
-    management_type: 3
+    agg_management_type: [3]
     is_hire: False
     min_field: 125
     max_field: 300
@@ -196,7 +196,7 @@
 - model: surveys24.Stratify
   pk: 17
   fields:
-    management_type: 3
+    agg_management_type: [3]
     is_hire: True
     min_field: 300
     max_field: 999999999
@@ -208,7 +208,7 @@
 - model: surveys24.Stratify
   pk: 18
   fields:
-    management_type: 3
+    agg_management_type: [3]
     is_hire: False
     min_field: 300
     max_field: 999999999
@@ -220,7 +220,7 @@
 - model: surveys24.Stratify
   pk: 19
   fields:
-    management_type: 4
+    agg_management_type: [4]
     is_hire: True
     min_field: 0
     max_field: 100
@@ -232,7 +232,7 @@
 - model: surveys24.Stratify
   pk: 20
   fields:
-    management_type: 4
+    agg_management_type: [4]
     is_hire: False
     min_field: 0
     max_field: 100
@@ -244,7 +244,7 @@
 - model: surveys24.Stratify
   pk: 21
   fields:
-    management_type: 4
+    agg_management_type: [4]
     is_hire: True
     min_field: 100
     max_field: 300
@@ -256,7 +256,7 @@
 - model: surveys24.Stratify
   pk: 22
   fields:
-    management_type: 4
+    agg_management_type: [4]
     is_hire: False
     min_field: 100
     max_field: 300
@@ -268,7 +268,7 @@
 - model: surveys24.Stratify
   pk: 23
   fields:
-    management_type: 4
+    agg_management_type: [4]
     is_hire: True
     min_field: 300
     max_field: 999999999
@@ -280,7 +280,7 @@
 - model: surveys24.Stratify
   pk: 24
   fields:
-    management_type: 4
+    agg_management_type: [4]
     is_hire: False
     min_field: 300
     max_field: 999999999
@@ -292,7 +292,7 @@
 - model: surveys24.Stratify
   pk: 25
   fields:
-    management_type: 5
+    agg_management_type: [5]
     is_hire: True
     min_field: 0
     max_field: 100
@@ -304,7 +304,7 @@
 - model: surveys24.Stratify
   pk: 26
   fields:
-    management_type: 5
+    agg_management_type: [5]
     is_hire: False
     min_field: 0
     max_field: 100
@@ -316,7 +316,7 @@
 - model: surveys24.Stratify
   pk: 27
   fields:
-    management_type: 5
+    agg_management_type: [5]
     is_hire: True
     min_field: 100
     max_field: 250
@@ -328,7 +328,7 @@
 - model: surveys24.Stratify
   pk: 28
   fields:
-    management_type: 5
+    agg_management_type: [5]
     is_hire: False
     min_field: 100
     max_field: 250
@@ -340,7 +340,7 @@
 - model: surveys24.Stratify
   pk: 29
   fields:
-    management_type: 5
+    agg_management_type: [5]
     is_hire: True
     min_field: 250
     max_field: 999999999
@@ -352,7 +352,7 @@
 - model: surveys24.Stratify
   pk: 30
   fields:
-    management_type: 5
+    agg_management_type: [5]
     is_hire: False
     min_field: 250
     max_field: 999999999
@@ -364,7 +364,7 @@
 - model: surveys24.Stratify
   pk: 31
   fields:
-    management_type: 6
+    agg_management_type: [6]
     is_hire: True
     min_field: 0
     max_field: 100
@@ -376,7 +376,7 @@
 - model: surveys24.Stratify
   pk: 32
   fields:
-    management_type: 6
+    agg_management_type: [6]
     is_hire: False
     min_field: 0
     max_field: 100
@@ -388,7 +388,7 @@
 - model: surveys24.Stratify
   pk: 33
   fields:
-    management_type: 6
+    agg_management_type: [6]
     is_hire: True
     min_field: 100
     max_field: 250
@@ -400,7 +400,7 @@
 - model: surveys24.Stratify
   pk: 34
   fields:
-    management_type: 6
+    agg_management_type: [6]
     is_hire: False
     min_field: 100
     max_field: 250
@@ -412,7 +412,7 @@
 - model: surveys24.Stratify
   pk: 35
   fields:
-    management_type: 6
+    agg_management_type: [6]
     is_hire: True
     min_field: 250
     max_field: 999999999
@@ -424,7 +424,7 @@
 - model: surveys24.Stratify
   pk: 36
   fields:
-    management_type: 6
+    agg_management_type: [6]
     is_hire: False
     min_field: 250
     max_field: 999999999
@@ -436,7 +436,7 @@
 - model: surveys24.Stratify
   pk: 37
   fields:
-    management_type: 10
+    agg_management_type: [10]
     is_hire: True
     min_revenue: 0
     max_revenue: 70
@@ -448,7 +448,7 @@
 - model: surveys24.Stratify
   pk: 38
   fields:
-    management_type: 10
+    agg_management_type: [10]
     is_hire: False
     min_revenue: 0
     max_revenue: 70
@@ -460,7 +460,7 @@
 - model: surveys24.Stratify
   pk: 39
   fields:
-    management_type: 10
+    agg_management_type: [10]
     is_hire: True
     min_revenue: 70
     max_revenue: 180
@@ -472,7 +472,7 @@
 - model: surveys24.Stratify
   pk: 40
   fields:
-    management_type: 10
+    agg_management_type: [10]
     is_hire: False
     min_revenue: 70
     max_revenue: 180
@@ -484,7 +484,7 @@
 - model: surveys24.Stratify
   pk: 41
   fields:
-    management_type: 10
+    agg_management_type: [10]
     is_hire: True
     min_revenue: 180
     max_revenue: 999999999
@@ -496,7 +496,7 @@
 - model: surveys24.Stratify
   pk: 42
   fields:
-    management_type: 10
+    agg_management_type: [10]
     is_hire: False
     min_revenue: 180
     max_revenue: 999999999
@@ -508,7 +508,7 @@
 - model: surveys24.Stratify
   pk: 43
   fields:
-    management_type: 7
+    agg_management_type: [7]
     is_hire: True
     min_revenue: 0
     max_revenue: 70
@@ -520,7 +520,7 @@
 - model: surveys24.Stratify
   pk: 44
   fields:
-    management_type: 7
+    agg_management_type: [7]
     is_hire: False
     min_revenue: 0
     max_revenue: 70
@@ -532,7 +532,7 @@
 - model: surveys24.Stratify
   pk: 45
   fields:
-    management_type: 7
+    agg_management_type: [7]
     is_hire: True
     min_revenue: 70
     max_revenue: 180
@@ -544,7 +544,7 @@
 - model: surveys24.Stratify
   pk: 46
   fields:
-    management_type: 7
+    agg_management_type: [7]
     is_hire: False
     min_revenue: 70
     max_revenue: 180
@@ -556,7 +556,7 @@
 - model: surveys24.Stratify
   pk: 47
   fields:
-    management_type: 7
+    agg_management_type: [7]
     is_hire: True
     min_revenue: 180
     max_revenue: 999999999
@@ -568,7 +568,7 @@
 - model: surveys24.Stratify
   pk: 48
   fields:
-    management_type: 7
+    agg_management_type: [7]
     is_hire: False
     min_revenue: 180
     max_revenue: 999999999
@@ -580,7 +580,7 @@
 - model: surveys24.Stratify
   pk: 49
   fields:
-    management_type: 8
+    agg_management_type: [8]
     is_hire: True
     min_field: 0
     max_field: 50
@@ -592,7 +592,7 @@
 - model: surveys24.Stratify
   pk: 50
   fields:
-    management_type: 8
+    agg_management_type: [8]
     is_hire: False
     min_field: 0
     max_field: 50
@@ -604,7 +604,7 @@
 - model: surveys24.Stratify
   pk: 51
   fields:
-    management_type: 8
+    agg_management_type: [8]
     is_hire: True
     min_field: 50
     max_field: 100
@@ -616,7 +616,7 @@
 - model: surveys24.Stratify
   pk: 52
   fields:
-    management_type: 8
+    agg_management_type: [8]
     is_hire: False
     min_field: 50
     max_field: 100
@@ -628,7 +628,7 @@
 - model: surveys24.Stratify
   pk: 53
   fields:
-    management_type: 8
+    agg_management_type: [8]
     is_hire: True
     min_field: 100
     max_field: 999999999
@@ -640,7 +640,7 @@
 - model: surveys24.Stratify
   pk: 54
   fields:
-    management_type: 8
+    agg_management_type: [8]
     is_hire: False
     min_field: 100
     max_field: 999999999
@@ -652,7 +652,7 @@
 - model: surveys24.Stratify
   pk: 55
   fields:
-    management_type: 9
+    agg_management_type: [9]
     is_hire: True
     min_field: 0
     max_field: 50
@@ -664,7 +664,7 @@
 - model: surveys24.Stratify
   pk: 56
   fields:
-    management_type: 9
+    agg_management_type: [9]
     is_hire: False
     min_field: 0
     max_field: 50
@@ -676,7 +676,7 @@
 - model: surveys24.Stratify
   pk: 57
   fields:
-    management_type: 9
+    agg_management_type: [9]
     is_hire: True
     min_field: 50
     max_field: 100
@@ -688,7 +688,7 @@
 - model: surveys24.Stratify
   pk: 58
   fields:
-    management_type: 9
+    agg_management_type: [9]
     is_hire: False
     min_field: 50
     max_field: 100
@@ -700,7 +700,7 @@
 - model: surveys24.Stratify
   pk: 59
   fields:
-    management_type: 9
+    agg_management_type: [9]
     is_hire: True
     min_field: 100
     max_field: 999999999
@@ -712,7 +712,7 @@
 - model: surveys24.Stratify
   pk: 60
   fields:
-    management_type: 9
+    agg_management_type: [9]
     is_hire: False
     min_field: 100
     max_field: 999999999
@@ -724,7 +724,7 @@
 - model: surveys24.Stratify
   pk: 61
   fields:
-    management_type: 11
+    agg_management_type: [11]
     is_hire: True
     min_revenue: 0
     max_revenue: 150
@@ -736,7 +736,7 @@
 - model: surveys24.Stratify
   pk: 62
   fields:
-    management_type: 11
+    agg_management_type: [11]
     is_hire: False
     min_revenue: 0
     max_revenue: 150
@@ -748,7 +748,7 @@
 - model: surveys24.Stratify
   pk: 63
   fields:
-    management_type: 11
+    agg_management_type: [11]
     is_hire: True
     min_revenue: 150
     max_revenue: 500
@@ -760,7 +760,7 @@
 - model: surveys24.Stratify
   pk: 64
   fields:
-    management_type: 11
+    agg_management_type: [11]
     is_hire: False
     min_revenue: 150
     max_revenue: 500
@@ -772,7 +772,7 @@
 - model: surveys24.Stratify
   pk: 65
   fields:
-    management_type: 11
+    agg_management_type: [11]
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
@@ -784,7 +784,7 @@
 - model: surveys24.Stratify
   pk: 66
   fields:
-    management_type: 11
+    agg_management_type: [11]
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999
@@ -796,7 +796,7 @@
 - model: surveys24.Stratify
   pk: 67
   fields:
-    management_type: 12
+    agg_management_type: [12]
     is_hire: True
     min_revenue: 0
     max_revenue: 150
@@ -808,7 +808,7 @@
 - model: surveys24.Stratify
   pk: 68
   fields:
-    management_type: 12
+    agg_management_type: [12]
     is_hire: False
     min_revenue: 0
     max_revenue: 150
@@ -820,7 +820,7 @@
 - model: surveys24.Stratify
   pk: 69
   fields:
-    management_type: 12
+    agg_management_type: [12]
     is_hire: True
     min_revenue: 150
     max_revenue: 500
@@ -832,7 +832,7 @@
 - model: surveys24.Stratify
   pk: 70
   fields:
-    management_type: 12
+    agg_management_type: [12]
     is_hire: False
     min_revenue: 150
     max_revenue: 500
@@ -844,7 +844,7 @@
 - model: surveys24.Stratify
   pk: 71
   fields:
-    management_type: 12
+    agg_management_type: [12]
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
@@ -856,7 +856,7 @@
 - model: surveys24.Stratify
   pk: 72
   fields:
-    management_type: 12
+    agg_management_type: [12]
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999
@@ -868,7 +868,7 @@
 - model: surveys24.Stratify
   pk: 73
   fields:
-    management_type: 13
+    agg_management_type: [13]
     is_hire: True
     min_revenue: 0
     max_revenue: 150
@@ -880,7 +880,7 @@
 - model: surveys24.Stratify
   pk: 74
   fields:
-    management_type: 13
+    agg_management_type: [13]
     is_hire: False
     min_revenue: 0
     max_revenue: 150
@@ -892,7 +892,7 @@
 - model: surveys24.Stratify
   pk: 75
   fields:
-    management_type: 13
+    agg_management_type: [13]
     is_hire: True
     min_revenue: 150
     max_revenue: 500
@@ -904,7 +904,7 @@
 - model: surveys24.Stratify
   pk: 76
   fields:
-    management_type: 13
+    agg_management_type: [13]
     is_hire: False
     min_revenue: 150
     max_revenue: 500
@@ -916,7 +916,7 @@
 - model: surveys24.Stratify
   pk: 77
   fields:
-    management_type: 13
+    agg_management_type: [13]
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
@@ -928,7 +928,7 @@
 - model: surveys24.Stratify
   pk: 78
   fields:
-    management_type: 13
+    agg_management_type: [13]
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999
@@ -940,7 +940,7 @@
 - model: surveys24.Stratify
   pk: 79
   fields:
-    management_type: 14
+    agg_management_type: [14]
     is_hire: True
     min_revenue: 0
     max_revenue: 150
@@ -952,7 +952,7 @@
 - model: surveys24.Stratify
   pk: 80
   fields:
-    management_type: 14
+    agg_management_type: [14]
     is_hire: False
     min_revenue: 0
     max_revenue: 150
@@ -964,7 +964,7 @@
 - model: surveys24.Stratify
   pk: 81
   fields:
-    management_type: 14
+    agg_management_type: [14]
     is_hire: True
     min_revenue: 150
     max_revenue: 500
@@ -976,7 +976,7 @@
 - model: surveys24.Stratify
   pk: 82
   fields:
-    management_type: 14
+    agg_management_type: [14]
     is_hire: False
     min_revenue: 150
     max_revenue: 500
@@ -988,7 +988,7 @@
 - model: surveys24.Stratify
   pk: 83
   fields:
-    management_type: 14
+    agg_management_type: [14]
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
@@ -1000,7 +1000,7 @@
 - model: surveys24.Stratify
   pk: 84
   fields:
-    management_type: 14
+    agg_management_type: [14]
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999

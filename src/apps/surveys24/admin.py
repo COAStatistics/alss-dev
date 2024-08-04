@@ -77,8 +77,8 @@ def display_note(obj, sample_count_method="origin_sample_count"):
 
 
 class StratifyResource(ModelResource):
-    management_type = Field(
-        attribute="management_type", column_name=_("Management Type")
+    agg_management_type_display = Field(
+        attribute="agg_management_type_display", column_name=_("Management Type")
     )
     code = Field(attribute="code", column_name=_("Code"))
     population = Field(attribute="population", column_name=_("Population(Statistic)"))
@@ -90,7 +90,7 @@ class StratifyResource(ModelResource):
     class Meta:
         model = Stratify
         fields = (
-            "management_type",
+            "agg_management_type_display",
             "code",
             "population",
             "origin_sample_count",
@@ -223,7 +223,7 @@ class SurveyAdmin(admin.ModelAdmin):
 class StratifyAdmin(ExportMixin, admin.ModelAdmin):
     resource_class = StratifyResource
     list_display = (
-        "management_type",
+        "agg_management_type_display",
         "is_hire",
         "code",
         "population",
