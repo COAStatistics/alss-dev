@@ -5,7 +5,7 @@ from enum import Enum
 from collections import OrderedDict
 from django.db.models import Q
 
-from apps.surveys24.models import Survey, AgeScope
+from apps.surveys24.models import Survey, AgeScope, SAMPLE_GROUP
 
 logging.getLogger(__file__).setLevel(logging.INFO)
 
@@ -104,6 +104,7 @@ FIELDS = [
     "外籍臨僱平均工作日數",
     "調查員",
     "初審員",
+    "是否為純樣本",
 ]
 
 
@@ -400,7 +401,7 @@ class SurveyExportor:
                 # Use built in filter to prevent query.
                 generator=self.subsidy_info_generate(method_id=1),
                 start_col=74,
-                end_col=75,
+                end_col=76,
                 silence=self.survey.page > 1,
             ),
             ReportBlock(
@@ -585,6 +586,9 @@ class SurveyExportor:
                     self.survey.subsidy.applies.all(),
                 )
             )
+            else "0",
+            "1"
+            if self.survey.farmer_stat.sample_group == SAMPLE_GROUP.origin
             else "0",
         ]
 
