@@ -1754,18 +1754,12 @@ class Stratify(Model):
             # case b.1: 同規模有/無僱合併
             if getattr(self.sibling, sample_count_method) == 0:
                 population += self.sibling.population
-            # case b.2: 小型併入中型
-            if getattr(self.lower_sibling, sample_count_method) == 0:
+            # case b.2: 小型併入中型, 且小型未併入同規模
+            if getattr(self.lower_sibling, sample_count_method) == 0 and getattr(self.lower_sibling.sibling, sample_count_method) == 0:
                 population += self.lower_sibling.population
-                # case b.2-1: 小型有/無僱皆為0
-                if getattr(self.lower_sibling.sibling, sample_count_method) == 0:
-                    population += self.lower_sibling.sibling.population
-            # case b.3: 大型併入中型
-            if getattr(self.upper_sibling, sample_count_method) == 0:
+            # case b.3: 大型併入中型, 且大型未併入同規模
+            if getattr(self.upper_sibling, sample_count_method) == 0 and getattr(self.upper_sibling.sibling, sample_count_method) == 0:
                 population += self.upper_sibling.population
-                # case b.3-1: 大型有/無僱皆為0
-                if getattr(self.upper_sibling.sibling, sample_count_method) == 0:
-                    population += self.upper_sibling.sibling.population
             return population / sample_count
         return self.population / getattr(self, sample_count_method)
 
