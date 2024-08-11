@@ -5,7 +5,7 @@ from apps.surveys22.models import FarmerStat, Survey
 @app.task
 def async_update_stratify(survey_id):
     survey = Survey.objects.get(id=survey_id)
-    if "無效戶" in survey.note:
+    if survey.note and "無效戶" in survey.note:
         FarmerStat.objects.filter(survey=survey).delete()
         return f"Delete {survey} FarmerStat, it's been mark as invalid farmer."
     else:
