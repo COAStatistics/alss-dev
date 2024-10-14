@@ -219,6 +219,7 @@ def async_export_raw_data(year, email):
     exporter_map = {
         110: raw_data.RawDataExporter110,
         111: raw_data.RawDataExporter111,
+        112: raw_data.RawDataExporter112,
     }
     try:
         exporter = exporter_map.get(year)()
