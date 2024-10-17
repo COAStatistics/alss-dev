@@ -260,7 +260,7 @@ class RawDataExporter112:
         for stat in farmer_stats:
             is_senility = FarmerStat.get_is_senility(stat.survey)
             stratify = FarmerStat.get_stratify(stat.survey, is_senility)
-            df2.loc[stat.survey.farmer_id, "field_ab"] = stat.sample_group
+            df2.loc[stat.survey.farmer_id, "field_ab"] = 2 if is_senility else 1
             df2.loc[stat.survey.farmer_id, "field_ac"] = stratify.code
             df2.loc[stat.survey.farmer_id, "field_ad"] = stratify.mix_magnification_factor
 
