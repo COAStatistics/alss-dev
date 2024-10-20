@@ -15,9 +15,12 @@ class StatisticsQueryHelper112(BaseStatisticsQueryHelper):
             .values_list("farmer_id", flat=True)
             .distinct()
         )
-        return Survey.objects.filter(readonly=False).exclude(
+        qs = Survey.objects.filter(readonly=False).exclude(
             farmer_id__in=invalid_farmers
         )
+        # Only export non-senility farmers
+        non_senility = [farmer.farmer_id for farmer in qs if FarmerStat.get_is_senility(farmer) is False]
+        return qs.filter(farmer_id__in=non_senility)
 
     def get_magnification_factor_map(self):
         return {
