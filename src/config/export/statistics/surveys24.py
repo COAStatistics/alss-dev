@@ -3,8 +3,8 @@ import pandas
 from django.db.models import Sum, Count, Q
 from django.conf import settings
 from openpyxl import load_workbook
-from django.core.exceptions import ObjectDoesNotExist
 from functools import lru_cache
+from django.core.exceptions import ObjectDoesNotExist
 from apps.surveys24.models import Lack, Survey, FarmerStat, PRODUCT_TYPE_CHOICES
 from .abc import BaseStatisticsQueryHelper
 
@@ -20,8 +20,7 @@ class StatisticsQueryHelper112(BaseStatisticsQueryHelper):
         qs = Survey.objects.filter(readonly=False).exclude(
             farmer_id__in=invalid_farmers
         )
-        # Only export non-senility farmers
-        non_senility = [farmer.farmer_id for farmer in qs if FarmerStat.get_is_senility(farmer) is False]
+        non_senility = [survey.farmer_id for survey in qs.filter(page=1) if FarmerStat.get_is_senility(survey) is False]
         return qs.filter(farmer_id__in=non_senility)
 
     def get_magnification_factor_map(self):
@@ -37,6 +36,7 @@ class StatisticsQueryHelper112(BaseStatisticsQueryHelper):
         return mapping
 
     def get_survey_map(self):
+
         return {
             survey.farmer_id: survey
             for survey in self.get_survey_qs()
