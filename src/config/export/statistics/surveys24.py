@@ -3,12 +3,14 @@ import pandas
 from django.db.models import Sum, Count, Q
 from django.conf import settings
 from openpyxl import load_workbook
-
+from django.core.exceptions import ObjectDoesNotExist
+from functools import lru_cache
 from apps.surveys24.models import Lack, Survey, FarmerStat, PRODUCT_TYPE_CHOICES
 from .abc import BaseStatisticsQueryHelper
 
 
 class StatisticsQueryHelper112(BaseStatisticsQueryHelper):
+    @lru_cache()
     def get_survey_qs(self):
         invalid_farmers = (
             Survey.objects.filter(Q(note__icontains="無效戶") | Q(is_invalid=True))
@@ -23,17 +25,23 @@ class StatisticsQueryHelper112(BaseStatisticsQueryHelper):
         return qs.filter(farmer_id__in=non_senility)
 
     def get_magnification_factor_map(self):
-        return {
-            obj.survey.farmer_id: obj.stratify.mix_magnification_factor
-            for obj in FarmerStat.objects.all()
-        }
+        mapping = {}
+        no_relation = []
+        for obj in self.get_survey_map().values():
+            try:
+                mapping[obj.farmer_id] = obj.farmer_stat.stratify.mix_magnification_factor
+            except ObjectDoesNotExist:
+                no_relation.append(obj.farmer_id)
+        if no_relation:
+            raise ValueError(f"Survey has no farmer_stat: {no_relation}")
+        return mapping
 
     def get_survey_map(self):
         return {
             survey.farmer_id: survey
             for survey in self.get_survey_qs()
             .prefetch_related(
-                "farm_location", "farm_location__code", "management_types", "lacks"
+                "farm_location", "farm_location__code", "management_types", "lacks", "farmer_stat", "farmer_stat__stratify"
             )
             .filter(page=1)
         }
