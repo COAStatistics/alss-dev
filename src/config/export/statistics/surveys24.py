@@ -69,7 +69,7 @@ class StatisticsExporter112(StatisticsQueryHelper112):
         self.sheet2 = self.wb["表3(對內版)"]
         self.sheet3 = self.wb["表6(發布版)"]
         self.sheet4 = self.wb["表6(對內版)"]
-        self.is_lack_column_map = {1: "DC", 2: "EC", 3: "F", 4: "C"}
+        self.is_lack_column_map = {2: "DC", 3: "EC", 4: "F", 1: "C"}
 
     def get_sheet_1_3_rows(self, sheet_idx, farmer_id):
         mapping = {1: [8, 9, 11, 12, 13, 14], 3: [9, 10, 12, 13, 14, 15]}
