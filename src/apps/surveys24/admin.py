@@ -61,10 +61,18 @@ def display_note(obj, sample_count_method="origin_sample_count"):
     if getattr(obj, sample_count_method) == 0:
         if getattr(obj.sibling, sample_count_method) > 0:
             return f"併入{obj.sibling.code}層"
+        elif obj.level == MANAGEMENT_LEVEL.middle:
+            if getattr(obj.lower_sibling, sample_count_method) == 0:
+                # 中下層都沒有，併入大層
+                return f"併入{obj.upper_sibling.code}層"
+            return f"特殊情況須額外處理"
         elif obj.level == MANAGEMENT_LEVEL.small:
             if getattr(obj.upper_sibling, sample_count_method) == 0:
-                # 連上層都沒有就併入上層的 sibling
-                return f"併入{obj.upper_sibling.sibling.code}層"
+                if getattr(obj.upper_sibling.sibling, sample_count_method) > 0:
+                    # 上層 sibling 有
+                    return f"併入{obj.upper_sibling.sibling.code}層"
+                # 上層 sibling 也沒有，併入大層
+                return f"併入{obj.upper_sibling.upper_sibling.code}層"
             return f"併入{obj.upper_sibling.code}層"
         elif obj.level == MANAGEMENT_LEVEL.large:
             if getattr(obj.lower_sibling, sample_count_method) == 0:
