@@ -1741,8 +1741,15 @@ class Stratify(Model):
 
     def get_magnification_factor(self, sample_count_method="origin_sample_count"):
         # 各層母體數 / 各層樣本數
-        # case a: 小/大型同規模有/無僱合併
+        # case c: 中小規模皆無樣本，合併至大層
         if (
+            self.level == MANAGEMENT_LEVEL.large
+            and getattr(self.lower_sibling, sample_count_method) == 0
+            and getattr(self.lower_sibling.lower_sibling, sample_count_method) == 0
+        ):
+            return (self.population + self.lower_sibling.population + self.lower_sibling.lower_sibling.population) / getattr(self, sample_count_method)
+        # case a: 小/大型同規模有/無僱合併
+        elif (
             self.level != MANAGEMENT_LEVEL.middle
             and getattr(self.sibling, sample_count_method) == 0
             and getattr(self, sample_count_method) > 0
