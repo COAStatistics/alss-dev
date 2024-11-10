@@ -179,7 +179,7 @@ class ProductFilter(SimpleListFilter):
             return queryset
 
 
-class SurveyAdmin(admin.ModelAdmin):
+class SurveyAdmin(ExportMixin, admin.ModelAdmin):
     list_display = (
         "id",
         "farmer_id",
@@ -187,11 +187,13 @@ class SurveyAdmin(admin.ModelAdmin):
         "total_pages",
         "page",
         "readonly",
+        "note",
         "update_time",
     )
     list_filter = (
         "readonly",
         "page",
+        "is_invalid",
         ProductFilter,
         ("update_time", DateRangeFilter),
     )
