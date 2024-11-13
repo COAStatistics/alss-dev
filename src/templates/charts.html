@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_title %}
+歷年趨勢圖
+{% endblock head_title %}
+
+{% block external_css %}
+<style>
+    .chart-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .chart-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+    
+    .chart-item {
+        flex: 1;
+        min-width: 300px;
+        max-width: 100%;
+        margin: 15px;
+        text-align: center;
+    }
+    
+    .chart-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .chart-title {
+        margin-top: 15px;
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+{% endblock external_css %}
+
+{% block content %}
+<div id="wrapper" class="wrapper container">
+    <div class="chart-container">
+        <h2 class="text-center mb-4">歷年農業勞動力調查視覺化查詢</h2>
+        
+        <div class="chart-row">
+            <div class="chart-item">
+                <img src="{% static 'img/total_employment_trends.png' %}" alt="趨勢圖1">
+                <div class="chart-title">歷年短缺員工人次按工作樣態分 (106-112)</div>
+            </div>
+        </div>
+        
+        <div class="chart-row">
+            <div class="chart-item">
+                <img src="{% static 'img/farming_employment_trends.png' %}" alt="趨勢圖2">
+                <div class="chart-title">歷年農耕業短缺員工人次按工作樣態分 (106-112)</div>
+            </div>
+        </div>
+        
+        <div class="chart-row">
+            <div class="chart-item">
+                <img src="{% static 'img/husbandry_employment_trends.png' %}" alt="趨勢圖3">
+                <div class="chart-title">歷年畜牧業短缺員工人次按工作樣態分 (106-112)</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

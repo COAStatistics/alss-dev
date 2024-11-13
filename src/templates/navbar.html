@@ -37,6 +37,7 @@
                 </li>
                 {% if user.is_staff %}
                 <li><a class="nav-link" href="{% url 'admin:index' %}">後台</a></li>
+                <li><a class="nav-link" href="{% url 'charts' %}" target="_blank">視覺化查詢</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">匯出大表
                     <span class="caret"></span></a>
