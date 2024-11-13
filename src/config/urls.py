@@ -15,6 +15,7 @@ Including another URLconf
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.urls import path
+from django.views.generic import TemplateView
 from django.conf.urls import include
 from django.contrib import admin
 from django.conf import settings
@@ -49,6 +50,7 @@ urlpatterns = [
     path("swagger/", schema_view.with_ui("swagger", cache_timeout=0), name="swagger"),
     path("captcha/", include("captcha.urls")),
     path("session-timeout/", SessionTimeout.as_view(), name="sessiontimeout"),
+    path('charts/', TemplateView.as_view(template_name='charts.html'), name='charts'),
 ]
 
 if settings.DEBUG:
