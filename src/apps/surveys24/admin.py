@@ -196,6 +196,7 @@ class SurveyAdmin(ExportMixin, admin.ModelAdmin):
         "page",
         "readonly",
         "note",
+        "invalid_reason",
         "update_time",
     )
     list_filter = (
