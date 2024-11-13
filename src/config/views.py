@@ -24,6 +24,12 @@ class Index(LoginRequiredMixin, TemplateView):
     template_name = "index.html"
 
 
+class Chart(LoginRequiredMixin, TemplateView):
+    login_url = "/users/login/"
+    redirect_field_name = "redirect_to"
+    template_name = "charts.html"
+
+
 class SessionTimeout(TemplateView):
     template_name = "session-timeout.html"
 

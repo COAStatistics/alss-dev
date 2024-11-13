@@ -10,6 +10,7 @@
     .chart-container {
         max-width: 1200px;
         margin: 0 auto;
+        margin-top: 50px;
         padding: 20px;
     }
     
@@ -44,7 +45,9 @@
 {% endblock external_css %}
 
 {% block content %}
+
 <div id="wrapper" class="wrapper container">
+    {% include 'navbar.html' %}
     <div class="chart-container">
         <h2 class="text-center mb-4">歷年農業勞動力調查視覺化查詢</h2>
         
