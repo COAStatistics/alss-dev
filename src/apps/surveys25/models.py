@@ -1399,24 +1399,6 @@ class Subsidy(Model):
         on_delete=CASCADE,
         verbose_name=_("Survey"),
     )
-    hire_channels = ManyToManyField(
-        "surveys25.HireChannelItem",
-        related_name="subsidy",
-        verbose_name=_("Hire Channel"),
-    )
-    hire_channel_extra = CharField(max_length=200, null=True, blank=True, verbose_name=_("Hire Channel Extra"))
-    lack_responses = ManyToManyField(
-        "surveys25.LackResponseItem",
-        related_name="subsidy",
-        verbose_name=_("Lack Response"),
-    )
-    lack_response_extra = CharField(max_length=200, null=True, blank=True, verbose_name=_("Lack Response Extra"))
-    max_hourly_pays = ManyToManyField(
-        "surveys25.MaxHourlyPayItem",
-        related_name="subsidy",
-        verbose_name=_("Max Hourly Pay"),
-    )
-    max_hourly_pay_extra = CharField(max_length=200, null=True, blank=True, verbose_name=_("Max Hourly Pay Extra"))
     update_time = DateTimeField(
         auto_now=True,
         auto_now_add=False,

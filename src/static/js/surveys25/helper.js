@@ -3865,7 +3865,7 @@ var HireChannelHelper = {
         },
     },
     Extra: {
-        Container: $('#panel4 input[name="hirechannel-extra"]'),
+        Container: $('#panel4 input[name="hirechannelitem-extra"]'),
         Set: function(array){
             array.forEach(function(hireChannel, i){
                 HireChannelHelper.Extra.Container
@@ -3995,7 +3995,7 @@ var LackResponseHelper = {
         },
     },
     Extra: {
-        Container: $('#panel4 input[name="lackresponse-extra"]'),
+        Container: $('#panel4 input[name="lackresponseitem-extra"]'),
         Set: function(array){
             array.forEach(function(lackResponse, i){
                 LackResponseHelper.Extra.Container
@@ -4059,7 +4059,7 @@ var LackResponseHelper = {
                 LackResponseHelper.LackResponseItems.Container
                 .filter(':checked')
                 .each(function(){
-                    var hasChannel = $(this).data('has-channel');
+                    var hasChannel = $(this).data('has-response');
                     if(hasChannel) trueChecked = true;
                     else falseChecked = true;
                 })
@@ -4125,7 +4125,7 @@ var MaxHourlyPayHelper = {
         },
     },
     Extra: {
-        Container: $('#panel4 input[name="maxhourlypay-extra"]'),
+        Container: $('#panel4 input[name="maxhourlypayitem-extra"]'),
         Set: function(array){
             array.forEach(function(maxHourlyPay, i){
                 MaxHourlyPayHelper.Extra.Container
@@ -4189,7 +4189,7 @@ var MaxHourlyPayHelper = {
                 MaxHourlyPayHelper.MaxHourlyPayItems.Container
                 .filter(':checked')
                 .each(function(){
-                    var hasChannel = $(this).data('has-channel');
+                    var hasChannel = $(this).data('has-pay');
                     if(hasChannel) trueChecked = true;
                     else falseChecked = true;
                 })

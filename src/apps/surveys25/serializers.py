@@ -52,6 +52,9 @@ from apps.surveys25.models import (
     ApplyResult,
     Month,
     BuilderFile,
+    HireChannel,
+    LackResponse,
+    MaxHourlyPay,
 )
 from .tasks import async_update_stratify
 
@@ -60,7 +63,7 @@ class BuilderFileSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = BuilderFile
         fields = ["token", "datafile", "delete_exist"]
-        ref_name = "112/BuilderFile"
+        ref_name = "113/BuilderFile"
 
     def create(self, validated_data):
         return BuilderFile.objects.create(**validated_data)
@@ -100,7 +103,7 @@ class ContentTypeSerializer(ModelSerializer):
     class Meta:
         model = ContentType
         fields = "__all__"
-        ref_name = "112/ContentType"
+        ref_name = "113/ContentType"
 
 
 class PhoneSerializer(ModelSerializer):
@@ -109,7 +112,7 @@ class PhoneSerializer(ModelSerializer):
     class Meta:
         model = Phone
         fields = "__all__"
-        ref_name = "112/Phone"
+        ref_name = "113/Phone"
 
 
 class AddressMatchSerializer(ModelSerializer):
@@ -119,14 +122,14 @@ class AddressMatchSerializer(ModelSerializer):
         model = AddressMatch
         fields = "__all__"
         extra_kwargs = {"survey": {"validators": []}}
-        ref_name = "112/AddressMatch"
+        ref_name = "113/AddressMatch"
 
 
 class CityTownCodeSerializer(ModelSerializer):
     class Meta:
         model = CityTownCode
         fields = "__all__"
-        ref_name = "112/CityTownCode"
+        ref_name = "113/CityTownCode"
 
 
 class FarmLocationSerializer(ModelSerializer):
@@ -136,7 +139,7 @@ class FarmLocationSerializer(ModelSerializer):
         model = FarmLocation
         fields = "__all__"
         extra_kwargs = {"survey": {"validators": []}}
-        ref_name = "112/FarmLocation"
+        ref_name = "113/FarmLocation"
 
 
 class LandStatusSerializer(ModelSerializer):
@@ -145,7 +148,7 @@ class LandStatusSerializer(ModelSerializer):
     class Meta:
         model = LandStatus
         fields = "__all__"
-        ref_name = "112/LandStatus"
+        ref_name = "113/LandStatus"
 
 
 class LandTypeSerializer(ModelSerializer):
@@ -154,7 +157,7 @@ class LandTypeSerializer(ModelSerializer):
     class Meta:
         model = LandType
         fields = "__all__"
-        ref_name = "112/LandType"
+        ref_name = "113/LandType"
 
 
 class LandAreaSerializer(ModelSerializer):
@@ -163,7 +166,7 @@ class LandAreaSerializer(ModelSerializer):
     class Meta:
         model = LandArea
         fields = "__all__"
-        ref_name = "112/LandArea"
+        ref_name = "113/LandArea"
 
 
 class BusinessSerializer(ModelSerializer):
@@ -173,7 +176,7 @@ class BusinessSerializer(ModelSerializer):
         model = Business
         fields = "__all__"
         extra_kwargs = {"farm_related_business": {"validators": []}}
-        ref_name = "112/Business"
+        ref_name = "113/Business"
 
 
 class FarmRelatedBusinessSerializer(ModelSerializer):
@@ -182,7 +185,7 @@ class FarmRelatedBusinessSerializer(ModelSerializer):
     class Meta:
         model = FarmRelatedBusiness
         fields = "__all__"
-        ref_name = "112/FarmRelatedBusiness"
+        ref_name = "113/FarmRelatedBusiness"
 
 
 class ManagementTypeSerializer(ModelSerializer):
@@ -191,7 +194,7 @@ class ManagementTypeSerializer(ModelSerializer):
     class Meta:
         model = ManagementType
         fields = "__all__"
-        ref_name = "112/BuilderFileSerializer"
+        ref_name = "113/BuilderFileSerializer"
 
 
 class CropMarketingSerializer(ModelSerializer):
@@ -200,7 +203,7 @@ class CropMarketingSerializer(ModelSerializer):
     class Meta:
         model = CropMarketing
         fields = "__all__"
-        ref_name = "112/CropMarketing"
+        ref_name = "113/CropMarketing"
 
 
 class LivestockMarketingSerializer(ModelSerializer):
@@ -209,63 +212,63 @@ class LivestockMarketingSerializer(ModelSerializer):
     class Meta:
         model = LivestockMarketing
         fields = "__all__"
-        ref_name = "112/LivestockMarketing"
+        ref_name = "113/LivestockMarketing"
 
 
 class ProductSerializer(ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
-        ref_name = "112/Product"
+        ref_name = "113/Product"
 
 
 class UnitSerializer(ModelSerializer):
     class Meta:
         model = Unit
         fields = "__all__"
-        ref_name = "112/Unit"
+        ref_name = "113/Unit"
 
 
 class LossSerializer(ModelSerializer):
     class Meta:
         model = Loss
         fields = "__all__"
-        ref_name = "112/Loss"
+        ref_name = "113/Loss"
 
 
 class ContractSerializer(ModelSerializer):
     class Meta:
         model = Contract
         fields = "__all__"
-        ref_name = "112/Contract"
+        ref_name = "113/Contract"
 
 
 class AnnualIncomeSerializer(ModelSerializer):
     class Meta:
         model = AnnualIncome
         fields = "__all__"
-        ref_name = "112/AnnualIncome"
+        ref_name = "113/AnnualIncome"
 
 
 class MarketTypeSerializer(ModelSerializer):
     class Meta:
         model = MarketType
         fields = "__all__"
-        ref_name = "112/MarketType"
+        ref_name = "113/MarketType"
 
 
 class IncomeRangeSerializer(ModelSerializer):
     class Meta:
         model = IncomeRange
         fields = "__all__"
-        ref_name = "112/IncomeRange"
+        ref_name = "113/IncomeRange"
 
 
 class AgeScopeSerializer(ModelSerializer):
     class Meta:
         model = AgeScope
         fields = "__all__"
-        ref_name = "112/AgeScope"
+        ref_name = "113/AgeScope"
 
 
 class PopulationAgeSerializer(ModelSerializer):
@@ -274,7 +277,7 @@ class PopulationAgeSerializer(ModelSerializer):
     class Meta:
         model = PopulationAge
         fields = "__all__"
-        ref_name = "112/PopulationAge"
+        ref_name = "113/PopulationAge"
 
 
 class PopulationSerializer(ModelSerializer):
@@ -283,42 +286,42 @@ class PopulationSerializer(ModelSerializer):
     class Meta:
         model = Population
         fields = "__all__"
-        ref_name = "112/Population"
+        ref_name = "113/Population"
 
 
 class RelationshipSerializer(ModelSerializer):
     class Meta:
         model = Relationship
         fields = "__all__"
-        ref_name = "112/Relationship"
+        ref_name = "113/Relationship"
 
 
 class GenderSerializer(ModelSerializer):
     class Meta:
         model = Gender
         fields = "__all__"
-        ref_name = "112/Gender"
+        ref_name = "113/Gender"
 
 
 class EducationLevelSerializer(ModelSerializer):
     class Meta:
         model = EducationLevel
         fields = "__all__"
-        ref_name = "112/EducationLevel"
+        ref_name = "113/EducationLevel"
 
 
 class FarmerWorkDaySerializer(ModelSerializer):
     class Meta:
         model = FarmerWorkDay
         fields = "__all__"
-        ref_name = "112/FarmerWorkDay"
+        ref_name = "113/FarmerWorkDay"
 
 
 class LifeStyleSerializer(ModelSerializer):
     class Meta:
         model = LifeStyle
         fields = "__all__"
-        ref_name = "112/LifeStyle"
+        ref_name = "113/LifeStyle"
 
 
 class NumberWorkersSerializer(ModelSerializer):
@@ -327,7 +330,7 @@ class NumberWorkersSerializer(ModelSerializer):
     class Meta:
         model = NumberWorkers
         fields = "__all__"
-        ref_name = "112/NumberWorkers"
+        ref_name = "113/NumberWorkers"
 
 
 class LongTermHireSerializer(ModelSerializer):
@@ -337,7 +340,7 @@ class LongTermHireSerializer(ModelSerializer):
     class Meta:
         model = LongTermHire
         fields = "__all__"
-        ref_name = "112/LongTermHire"
+        ref_name = "113/LongTermHire"
 
 
 class ShortTermHireSerializer(ModelSerializer):
@@ -347,7 +350,7 @@ class ShortTermHireSerializer(ModelSerializer):
     class Meta:
         model = ShortTermHire
         fields = "__all__"
-        ref_name = "112/ShortTermHire"
+        ref_name = "113/ShortTermHire"
 
 
 class NoSalaryHireSerializer(ModelSerializer):
@@ -356,14 +359,14 @@ class NoSalaryHireSerializer(ModelSerializer):
     class Meta:
         model = NoSalaryHire
         fields = "__all__"
-        ref_name = "112/NoSalaryHire"
+        ref_name = "113/NoSalaryHire"
 
 
 class LackSerializer(ModelSerializer):
     class Meta:
         model = Lack
         fields = "__all__"
-        ref_name = "112/Lack"
+        ref_name = "113/Lack"
 
 
 class LongTermLackSerializer(ModelSerializer):
@@ -372,7 +375,7 @@ class LongTermLackSerializer(ModelSerializer):
     class Meta:
         model = LongTermLack
         fields = "__all__"
-        ref_name = "112/LongTermLack"
+        ref_name = "113/LongTermLack"
 
 
 class ShortTermLackSerializer(ModelSerializer):
@@ -381,14 +384,14 @@ class ShortTermLackSerializer(ModelSerializer):
     class Meta:
         model = ShortTermLack
         fields = "__all__"
-        ref_name = "112/ShortTermLack"
+        ref_name = "113/ShortTermLack"
 
 
 class WorkTypeSerializer(ModelSerializer):
     class Meta:
         model = WorkType
         fields = "__all__"
-        ref_name = "112/WorkType"
+        ref_name = "113/WorkType"
 
 
 class RefuseSerializer(ModelSerializer):
@@ -398,14 +401,14 @@ class RefuseSerializer(ModelSerializer):
         model = Refuse
         fields = "__all__"
         extra_kwargs = {"reason": {"validators": []}}
-        ref_name = "112/Refuse"
+        ref_name = "113/Refuse"
 
 
 class RefuseReasonSerializer(ModelSerializer):
     class Meta:
         model = RefuseReason
         fields = "__all__"
-        ref_name = "112/RefuseReason"
+        ref_name = "113/RefuseReason"
 
 
 class ApplySerializer(ModelSerializer):
@@ -415,14 +418,14 @@ class ApplySerializer(ModelSerializer):
         model = Apply
         fields = "__all__"
         extra_kwargs = {"reason": {"validators": []}}
-        ref_name = "112/Apply"
+        ref_name = "113/Apply"
 
 
 class ApplyReasonSerializer(ModelSerializer):
     class Meta:
         model = ApplyResult
         fields = "__all__"
-        ref_name = "112/ApplyResult"
+        ref_name = "113/ApplyResult"
 
 
 class SubsidySerializer(ModelSerializer):
@@ -434,14 +437,14 @@ class SubsidySerializer(ModelSerializer):
         model = Subsidy
         fields = "__all__"
         extra_kwargs = {"survey": {"validators": []}}
-        ref_name = "112/Subsidy"
+        ref_name = "113/Subsidy"
 
 
 class MonthSerializer(ModelSerializer):
     class Meta:
         model = Month
         fields = "__all__"
-        ref_name = "112/Month"
+        ref_name = "113/Month"
 
 
 class SurveySimpleSerializer(ModelSerializer):
@@ -449,6 +452,36 @@ class SurveySimpleSerializer(ModelSerializer):
         model = Survey
         fields = "__all__"
         ref_name = None
+
+
+class HireChannelSerializer(ModelSerializer):
+    id = IntegerField(read_only=False)
+
+    class Meta:
+        model = HireChannel
+        fields = "__all__"
+        extra_kwargs = {"hire_channels": {"validators": []}}
+        ref_name = "113/HireChannel"
+
+
+class LackResponseSerializer(ModelSerializer):
+    id = IntegerField(read_only=False)
+
+    class Meta:
+        model = LackResponse
+        fields = "__all__"
+        extra_kwargs = {"lack_responses": {"validators": []}}
+        ref_name = "113/LackResponse"
+
+
+class MaxHourlyPaySerializer(ModelSerializer):
+    id = IntegerField(read_only=False)
+
+    class Meta:
+        model = MaxHourlyPay
+        fields = "__all__"
+        extra_kwargs = {"max_hourly_pays": {"validators": []}}
+        ref_name = "113/MaxHourlyPay"
 
 
 class SurveySerializer(ModelSerializer):
@@ -471,11 +504,14 @@ class SurveySerializer(ModelSerializer):
     long_term_lacks = LongTermLackSerializer(many=True)
     short_term_lacks = ShortTermLackSerializer(many=True)
     farm_location = FarmLocationSerializer(required=False, allow_null=True)
+    hire_channels = HireChannelSerializer(many=True)
+    lack_responses = LackResponseSerializer(many=True)
+    max_hourly_pays = MaxHourlyPaySerializer(many=True)
 
     class Meta:
         model = Survey
         fields = "__all__"
-        ref_name = "112/Survey"
+        ref_name = "113/Survey"
 
     def get_app_label(self, obj):
         return obj._meta.app_label
@@ -1126,6 +1162,78 @@ class SurveySerializer(ModelSerializer):
                         extra=item["extra"] if "extra" in item else None,
                     )
             instance.subsidy.save()
+
+        """Hire Channel"""
+        hire_channel_ids = [
+            item["id"] for item in validated_data["hire_channels"] if "id" in item
+        ]
+        # Delete not included in the request
+        for obj in instance.hire_channels.all():
+            if obj.id not in hire_channel_ids:
+                obj.delete()
+        for item in validated_data["hire_channels"]:
+            if "id" in item.keys():
+                # Update included in the request
+                hire_channel_qs = instance.hire_channels.filter(id=item["id"])
+                if hire_channel_qs:
+                    hire_channel_qs.update(extra=item["extra"] if "extra" in item else None)
+            else:
+                # Create
+                HireChannel.objects.create(
+                    survey=instance,
+                    extra=item["extra"] if "extra" in item else None,
+                    item=item["item"]
+                    if "item" in item
+                    else None,
+                )
+
+        """LackResponse"""
+        lack_response_ids = [
+            item["id"] for item in validated_data["lack_responses"] if "id" in item
+        ]
+        # Delete not included in the request
+        for obj in instance.lack_responses.all():
+            if obj.id not in lack_response_ids:
+                obj.delete()
+        for item in validated_data["lack_responses"]:
+            if "id" in item.keys():
+                # Update included in the request
+                lack_response_qs = instance.lack_responses.filter(id=item["id"])
+                if lack_response_qs:
+                    lack_response_qs.update(extra=item["extra"] if "extra" in item else None)
+            else:
+                # Create
+                LackResponse.objects.create(
+                    survey=instance,
+                    extra=item["extra"] if "extra" in item else None,
+                    item=item["item"]
+                    if "item" in item
+                    else None,
+                )
+
+        """MaxHourlyPay"""
+        max_hourly_pay_ids = [
+            item["id"] for item in validated_data["max_hourly_pays"] if "id" in item
+        ]
+        # Delete not included in the request
+        for obj in instance.max_hourly_pays.all():
+            if obj.id not in max_hourly_pay_ids:
+                obj.delete()
+        for item in validated_data["max_hourly_pays"]:
+            if "id" in item.keys():
+                # Update included in the request
+                max_hourly_pay_qs = instance.max_hourly_pays.filter(id=item["id"])
+                if max_hourly_pay_qs:
+                    max_hourly_pay_qs.update(extra=item["extra"] if "extra" in item else None)
+            else:
+                # Create
+                MaxHourlyPay.objects.create(
+                    survey=instance,
+                    extra=item["extra"] if "extra" in item else None,
+                    item=item["item"]
+                    if "item" in item
+                    else None,
+                )
 
         # TODO: enable stratify after validation.
         # async_update_stratify.delay(instance.id)
