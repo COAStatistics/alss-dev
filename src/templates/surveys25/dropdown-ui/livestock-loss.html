@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="loss">
+    {% for loss in livestock_losses %}
+    <option value="{{ loss.id }}">{{ loss.code }}.{{ loss.name }}</option>
+    {% endfor %}
+</select>

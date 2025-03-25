@@ -1,0 +1,935 @@
+- model: surveys25.Stratify
+  pk: 85
+  fields:
+    agg_management_type: [1]
+    is_hire: True
+    min_field: 0
+    max_field: 175
+    code: 101
+    population: 530
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 86
+  fields:
+    agg_management_type: [1]
+    is_hire: False
+    min_field: 0
+    max_field: 175
+    code: 102
+    population: 1827
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 87
+  fields:
+    agg_management_type: [1]
+    is_hire: True
+    min_field: 175
+    max_field: 500
+    code: 103
+    population: 497
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 88
+  fields:
+    agg_management_type: [1]
+    is_hire: False
+    min_field: 175
+    max_field: 500
+    code: 104
+    population: 1380
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 89
+  fields:
+    agg_management_type: [1]
+    is_hire: True
+    min_field: 500
+    max_field: 999999999
+    code: 105
+    population: 126
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 90
+  fields:
+    agg_management_type: [1]
+    is_hire: False
+    min_field: 500
+    max_field: 999999999
+    code: 106
+    population: 180
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 91
+  fields:
+    agg_management_type: [2]
+    is_hire: True
+    min_field: 0
+    max_field: 125
+    code: 107
+    population: 353
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 92
+  fields:
+    agg_management_type: [2]
+    is_hire: False
+    min_field: 0
+    max_field: 125
+    code: 108
+    population: 409
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 93
+  fields:
+    agg_management_type: [2]
+    is_hire: True
+    min_field: 125
+    max_field: 500
+    code: 109
+    population: 425
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 94
+  fields:
+    agg_management_type: [2]
+    is_hire: False
+    min_field: 125
+    max_field: 500
+    code: 110
+    population: 309
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 95
+  fields:
+    agg_management_type: [2]
+    is_hire: True
+    min_field: 500
+    max_field: 999999999
+    code: 111
+    population: 22
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 96
+  fields:
+    agg_management_type: [2]
+    is_hire: False
+    min_field: 500
+    max_field: 999999999
+    code: 112
+    population: 9
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 97
+  fields:
+    agg_management_type: [3]
+    is_hire: True
+    min_field: 0
+    max_field: 125
+    code: 113
+    population: 222
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 98
+  fields:
+    agg_management_type: [3]
+    is_hire: False
+    min_field: 0
+    max_field: 125
+    code: 114
+    population: 137
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 99
+  fields:
+    agg_management_type: [3]
+    is_hire: True
+    min_field: 125
+    max_field: 300
+    code: 115
+    population: 77
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 100
+  fields:
+    agg_management_type: [3]
+    is_hire: False
+    min_field: 125
+    max_field: 300
+    code: 116
+    population: 47
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 101
+  fields:
+    agg_management_type: [3]
+    is_hire: True
+    min_field: 300
+    max_field: 999999999
+    code: 117
+    population: 29
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 102
+  fields:
+    agg_management_type: [3]
+    is_hire: False
+    min_field: 300
+    max_field: 999999999
+    code: 118
+    population: 19
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 103
+  fields:
+    agg_management_type: [4]
+    is_hire: True
+    min_field: 0
+    max_field: 100
+    code: 119
+    population: 245
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 104
+  fields:
+    agg_management_type: [4]
+    is_hire: False
+    min_field: 0
+    max_field: 100
+    code: 120
+    population: 131
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 105
+  fields:
+    agg_management_type: [4]
+    is_hire: True
+    min_field: 100
+    max_field: 300
+    code: 121
+    population: 281
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 106
+  fields:
+    agg_management_type: [4]
+    is_hire: False
+    min_field: 100
+    max_field: 300
+    code: 122
+    population: 88
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 107
+  fields:
+    agg_management_type: [4]
+    is_hire: True
+    min_field: 300
+    max_field: 999999999
+    code: 123
+    population: 64
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 108
+  fields:
+    agg_management_type: [4]
+    is_hire: False
+    min_field: 300
+    max_field: 999999999
+    code: 124
+    population: 9
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 109
+  fields:
+    agg_management_type: [5]
+    is_hire: True
+    min_field: 0
+    max_field: 100
+    code: 125
+    population: 2014
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 110
+  fields:
+    agg_management_type: [5]
+    is_hire: False
+    min_field: 0
+    max_field: 100
+    code: 126
+    population: 1511
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 111
+  fields:
+    agg_management_type: [5]
+    is_hire: True
+    min_field: 100
+    max_field: 250
+    code: 127
+    population: 1257
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 112
+  fields:
+    agg_management_type: [5]
+    is_hire: False
+    min_field: 100
+    max_field: 250
+    code: 128
+    population: 640
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 113
+  fields:
+    agg_management_type: [5]
+    is_hire: True
+    min_field: 250
+    max_field: 999999999
+    code: 129
+    population: 390
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 114
+  fields:
+    agg_management_type: [5]
+    is_hire: False
+    min_field: 250
+    max_field: 999999999
+    code: 130
+    population: 141
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 115
+  fields:
+    agg_management_type: [6]
+    is_hire: True
+    min_field: 0
+    max_field: 100
+    code: 131
+    population: 3115
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 116
+  fields:
+    agg_management_type: [6]
+    is_hire: False
+    min_field: 0
+    max_field: 100
+    code: 132
+    population: 1972
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 117
+  fields:
+    agg_management_type: [6]
+    is_hire: True
+    min_field: 100
+    max_field: 250
+    code: 133
+    population: 2524
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 118
+  fields:
+    agg_management_type: [6]
+    is_hire: False
+    min_field: 100
+    max_field: 250
+    code: 134
+    population: 1142
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 119
+  fields:
+    agg_management_type: [6]
+    is_hire: True
+    min_field: 250
+    max_field: 999999999
+    code: 135
+    population: 782
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 120
+  fields:
+    agg_management_type: [6]
+    is_hire: False
+    min_field: 250
+    max_field: 999999999
+    code: 136
+    population: 237
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 121
+  fields:
+    agg_management_type: [10]
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 70
+    code: 137
+    population: 3
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 122
+  fields:
+    agg_management_type: [10]
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 70
+    code: 138
+    population: 5
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 123
+  fields:
+    agg_management_type: [10]
+    is_hire: True
+    min_revenue: 70
+    max_revenue: 180
+    code: 139
+    population: 24
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 124
+  fields:
+    agg_management_type: [10]
+    is_hire: False
+    min_revenue: 70
+    max_revenue: 180
+    code: 140
+    population: 9
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 125
+  fields:
+    agg_management_type: [10]
+    is_hire: True
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 141
+    population: 57
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 126
+  fields:
+    agg_management_type: [10]
+    is_hire: False
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 142
+    population: 4
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 127
+  fields:
+    agg_management_type: [7]
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 70
+    code: 143
+    population: 66
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 128
+  fields:
+    agg_management_type: [7]
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 70
+    code: 144
+    population: 82
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 129
+  fields:
+    agg_management_type: [7]
+    is_hire: True
+    min_revenue: 70
+    max_revenue: 180
+    code: 145
+    population: 72
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 130
+  fields:
+    agg_management_type: [7]
+    is_hire: False
+    min_revenue: 70
+    max_revenue: 180
+    code: 146
+    population: 38
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 131
+  fields:
+    agg_management_type: [7]
+    is_hire: True
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 147
+    population: 52
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 132
+  fields:
+    agg_management_type: [7]
+    is_hire: False
+    min_revenue: 180
+    max_revenue: 999999999
+    code: 148
+    population: 17
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 133
+  fields:
+    agg_management_type: [8, 9]
+    is_hire: True
+    min_field: 0
+    max_field: 50
+    code: 149
+    population: 34
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 134
+  fields:
+    agg_management_type: [8, 9]
+    is_hire: False
+    min_field: 0
+    max_field: 50
+    code: 150
+    population: 53
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 135
+  fields:
+    agg_management_type: [8, 9]
+    is_hire: True
+    min_field: 50
+    max_field: 100
+    code: 151
+    population: 15
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 136
+  fields:
+    agg_management_type: [8, 9]
+    is_hire: False
+    min_field: 50
+    max_field: 100
+    code: 152
+    population: 36
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 137
+  fields:
+    agg_management_type: [8, 9]
+    is_hire: True
+    min_field: 100
+    max_field: 999999999
+    code: 153
+    population: 59
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 138
+  fields:
+    agg_management_type: [8, 9]
+    is_hire: False
+    min_field: 100
+    max_field: 999999999
+    code: 154
+    population: 26
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 145
+  fields:
+    agg_management_type: [11]
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 155
+    population: 3
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 146
+  fields:
+    agg_management_type: [11]
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 156
+    population: 1
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 147
+  fields:
+    agg_management_type: [11]
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 157
+    population: 5
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 148
+  fields:
+    agg_management_type: [11]
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 158
+    population: 4
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 149
+  fields:
+    agg_management_type: [11]
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 159
+    population: 22
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 150
+  fields:
+    agg_management_type: [11]
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 160
+    population: 8
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 151
+  fields:
+    agg_management_type: [12]
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 161
+    population: 58
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 152
+  fields:
+    agg_management_type: [12]
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 162
+    population: 126
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 153
+  fields:
+    agg_management_type: [12]
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 163
+    population: 88
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 154
+  fields:
+    agg_management_type: [12]
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 164
+    population: 161
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 155
+  fields:
+    agg_management_type: [12]
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 165
+    population: 128
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 156
+  fields:
+    agg_management_type: [12]
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 166
+    population: 131
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 157
+  fields:
+    agg_management_type: [13]
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 167
+    population: 61
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 158
+  fields:
+    agg_management_type: [13]
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 168
+    population: 63
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 159
+  fields:
+    agg_management_type: [13]
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 169
+    population: 80
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 160
+  fields:
+    agg_management_type: [13]
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 170
+    population: 63
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 161
+  fields:
+    agg_management_type: [13]
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 171
+    population: 165
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 162
+  fields:
+    agg_management_type: [13]
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 172
+    population: 123
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 163
+  fields:
+    agg_management_type: [14]
+    is_hire: True
+    min_revenue: 0
+    max_revenue: 150
+    code: 173
+    population: 65
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 164
+  fields:
+    agg_management_type: [14]
+    is_hire: False
+    min_revenue: 0
+    max_revenue: 150
+    code: 174
+    population: 151
+    level: 1
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 165
+  fields:
+    agg_management_type: [14]
+    is_hire: True
+    min_revenue: 150
+    max_revenue: 500
+    code: 175
+    population: 122
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 166
+  fields:
+    agg_management_type: [14]
+    is_hire: False
+    min_revenue: 150
+    max_revenue: 500
+    code: 176
+    population: 140
+    level: 2
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 167
+  fields:
+    agg_management_type: [14]
+    is_hire: True
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 177
+    population: 35
+    level: 3
+    is_senility: true
+
+- model: surveys25.Stratify
+  pk: 168
+  fields:
+    agg_management_type: [14]
+    is_hire: False
+    min_revenue: 500
+    max_revenue: 999999999
+    code: 178
+    population: 26
+    level: 3
+    is_senility: true

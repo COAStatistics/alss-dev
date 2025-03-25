@@ -1,0 +1,47 @@
+- model: surveys25.Relationship
+  pk: 1
+  fields:
+    code: 1
+    name: 經濟戶長
+
+- model: surveys25.Relationship
+  pk: 2
+  fields:
+    code: 2
+    name: 經濟戶長之配偶
+
+- model: surveys25.Relationship
+  pk: 3
+  fields:
+    code: 3
+    name: 經濟戶長或配偶之父母
+
+- model: surveys25.Relationship
+  pk: 4
+  fields:
+    code: 4
+    name: 經濟戶長或配偶之兄弟姐妹及其配偶
+
+- model: surveys25.Relationship
+  pk: 5
+  fields:
+    code: 5
+    name: 經濟戶長之子女及其配偶
+
+- model: surveys25.Relationship
+  pk: 6
+  fields:
+    code: 6
+    name: 經濟戶長之孫子女及其配偶
+
+- model: surveys25.Relationship
+  pk: 7
+  fields:
+    code: 7
+    name: 經濟戶長或配偶之祖父母
+
+- model: surveys25.Relationship
+  pk: 8
+  fields:
+    code: 8
+    name: 其他親屬

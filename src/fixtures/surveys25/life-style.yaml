@@ -1,0 +1,47 @@
+- model: surveys25.LifeStyle
+  pk: 1
+  fields:
+    code: 1
+    name: 自營農牧業工作
+
+- model: surveys25.LifeStyle
+  pk: 2
+  fields:
+    code: 2
+    name: 受僱農牧業工作
+
+- model: surveys25.LifeStyle
+  pk: 3
+  fields:
+    code: 3
+    name: 受託提供農事及畜牧服務
+
+- model: surveys25.LifeStyle
+  pk: 4
+  fields:
+    code: 4
+    name: 自營農牧業外工作
+
+- model: surveys25.LifeStyle
+  pk: 5
+  fields:
+    code: 5
+    name: 受僱農牧業外工作
+
+- model: surveys25.LifeStyle
+  pk: 6
+  fields:
+    code: 6
+    name: 料理家務、育兒
+
+- model: surveys25.LifeStyle
+  pk: 7
+  fields:
+    code: 7
+    name: 求學或準備升學
+
+- model: surveys25.LifeStyle
+  pk: 8
+  fields:
+    code: 8
+    name: 其他

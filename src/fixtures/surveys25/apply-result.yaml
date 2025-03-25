@@ -1,0 +1,9 @@
+- model: surveys25.ApplyResult
+  pk: 1
+  fields:
+    name: 有申請到
+
+- model: surveys25.ApplyResult
+  pk: 3
+  fields:
+    name: 沒有申請到

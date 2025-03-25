@@ -33,6 +33,9 @@
                         {% if perms.surveys24.view_survey %}
                         <li><a href="{% url 'surveys24:surveys24_index' %}">112年</a></li>
                         {% endif %}
+                        {% if perms.surveys25.view_survey %}
+                        <li><a href="{% url 'surveys25:surveys25_index' %}">113年</a></li>
+                        {% endif %}
                     </ul>
                 </li>
                 {% if user.is_staff %}

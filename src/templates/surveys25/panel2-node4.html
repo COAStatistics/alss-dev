@@ -1,0 +1,53 @@
+<h4>1.6 貴戶全年銷售額
+    <small class="text-muted">（※不扣除各項成本）</small>
+</h4>
+<div name="annualincome" class="alert alert-success"></div>
+<div name="annualincome" class="alert alert-info"></div>
+<div name="annualincome" class="alert alert-danger"></div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="col-md-2">全年收入（萬元）</th>
+                {% for range in income_ranges %}
+                    <th class="col-md-1" data-min="{{ range.min }}" data-max="{{ range.max }}">{{ range.name }}</th>
+                {% endfor %}
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for type in market_types %}
+            <tr>
+                <th scopt="row">{{ type.name }}</th>
+                {% for range in income_ranges %}
+                    <td>
+                        <input type="checkbox" class="w-2 h-2" data-min="{{ range.minimum }}"
+                               data-max="{{ range.maximum }}" data-incomerange-id="{{ range.id }}"
+                               data-markettype-id="{{ type.id }}" name="annualincome">
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<h4>
+    <small class="text-muted">（銷售額總計未滿20萬元者請於附記欄加註原因，如災損、疫病、粗放、縮減經營規模等）</small>
+</h4>
+
+<hr/>
+
+<div class="form-group">
+    <h4>1.7 貴戶113年全年主要淨收入來源情形
+        <small class="text-muted">（限註記一項）</small>
+    </h4>
+    <div name="mainincomesource" class="alert alert-danger"></div>
+    <div>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="mainincomesource" data-field="mainincomesource"/> 1. 以自家農牧業淨收入為主
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="mainincomesource" data-field="nonmainincomesource"/> 2. 以自家農牧業外淨收入為主
+        </label>
+    </div>
+</div>

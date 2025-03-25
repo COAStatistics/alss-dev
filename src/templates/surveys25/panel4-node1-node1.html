@@ -1,0 +1,37 @@
+<label class="control-label">2. 常僱員工
+    <small class="text-muted">（同一人全年僱用6個月以上，不限每月工作日數）</small>
+</label>
+<div name="longtermhire" class="alert alert-info"></div>
+<div name="longtermhire" class="alert alert-danger"></div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover" name="longtermhire">
+        <thead>
+            <tr>
+                <th rowspan="2">列號</th>
+                <th rowspan="2">主要僱用工作類型</th>
+                <th rowspan="2">人數
+                    <small class="text-muted">（人）</small>
+                </th>
+                <th colspan="3">年齡
+                    <small class="text-muted">（人數）</small>
+                </th>
+                <th rowspan="2">僱用月份
+                    <small class="text-muted">（可複選）</small>
+                </th>
+                <th rowspan="2">平均每月工作日數
+                    <small class="text-muted">（日）</small>
+                </th>
+                <th rowspan="2" class="w-50">刪除</th>
+            </tr>
+            <tr>
+                {% for scope in hire_age_scopes %}
+                    <td>{{ scope.name }}</td>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<button class="btn btn-block btn-info js-add-row" name="longtermhire">
+    <i class="fa fa-plus" aria-hidden="true"></i> 新增一筆常僱員工
+</button>

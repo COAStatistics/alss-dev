@@ -1,0 +1,71 @@
+- model: surveys25.RefuseReason
+  pk: 0
+  fields:
+    name: 沒聽過
+
+- model: surveys25.RefuseReason
+  pk: 1
+  fields:
+    name: 無缺工
+
+- model: surveys25.RefuseReason
+  pk: 2
+  fields:
+    name: 所在地區無開團或沒有辦理
+
+- model: surveys25.RefuseReason
+  pk: 3
+  fields:
+    name: 需要工的時候常申請不到
+
+- model: surveys25.RefuseReason
+  pk: 4
+  fields:
+    name: 需要再教一段時間
+
+- model: surveys25.RefuseReason
+  pk: 5
+  fields:
+    name: 工資(費用)高於預期
+
+- model: surveys25.RefuseReason
+  pk: 6
+  fields:
+    name: 工作時間無法配合農場作業時間
+
+- model: surveys25.RefuseReason
+  pk: 7
+  fields:
+    name: 無法指定使用熟悉的人員
+
+- model: surveys25.RefuseReason
+  pk: 8
+  fields:
+    name: 考量語言及文化差異不適合
+
+- model: surveys25.RefuseReason
+  pk: 9
+  fields:
+    name: 資格不符-經營項目尚未開放引進移工
+
+- model: surveys25.RefuseReason
+  pk: 10
+  fields:
+    name: 資格不符-面積/規模不到
+
+- model: surveys25.RefuseReason
+  pk: 11
+  fields:
+    name: 資格不符-無法出具土地證明文件
+
+- model: surveys25.RefuseReason
+  pk: 12
+  fields:
+    name: 申請過程繁瑣
+
+- model: surveys25.RefuseReason
+  pk: 13
+  fields:
+    name: 其他
+    has_extra: True
+

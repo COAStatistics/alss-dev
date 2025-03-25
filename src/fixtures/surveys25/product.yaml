@@ -1,0 +1,1899 @@
+- model: surveys25.Product
+  pk: 2
+  fields:
+    name: 一期稻作
+    code: 102
+    min_hour: 77
+    max_hour: 166
+    type: 1
+    management_type: 1
+
+- model: surveys25.Product
+  pk: 3
+  fields:
+    name: 二期稻作
+    code: 103
+    min_hour: 74
+    max_hour: 173
+    type: 1
+    management_type: 1
+
+- model: surveys25.Product
+  pk: 4
+  fields:
+    name: 硬質玉米（飼料玉米）
+    code: 201
+    min_hour: 35
+    max_hour: 108
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 5
+  fields:
+    name: 食用玉米
+    code: 202
+    min_hour: 324
+    max_hour: 393
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 6
+  fields:
+    name: 麥類（大麥、小麥）
+    code: 203
+    min_hour: 35
+    max_hour: 507
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 7
+  fields:
+    name: 粟（小米）
+    code: 204
+    min_hour: 35
+    max_hour: 507
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 8
+  fields:
+    name: 高粱
+    code: 205
+    min_hour: 72
+    max_hour: 80
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 9
+  fields:
+    name: 大豆
+    code: 206
+    min_hour: 83
+    max_hour: 116
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 10
+  fields:
+    name: 花豆（大紅豆）
+    code: 207
+    min_hour: 83
+    max_hour: 123
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 11
+  fields:
+    name: 紅豆
+    code: 208
+    min_hour: 92
+    max_hour: 123
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 12
+  fields:
+    name: 綠豆
+    code: 209
+    min_hour: 83
+    max_hour: 123
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 13
+  fields:
+    name: 甘藷（地瓜）
+    code: 210
+    min_hour: 452
+    max_hour: 507
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 14
+  fields:
+    name: 落花生（土豆）
+    code: 211
+    min_hour: 230
+    max_hour: 291
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 15
+  fields:
+    name: 薏苡（薏仁）
+    code: 212
+    min_hour: 143
+    max_hour: 223
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 16
+  fields:
+    name: 其他雜糧
+    code: 213
+    min_hour: 35
+    max_hour: 507
+    type: 1
+    management_type: 2
+
+- model: surveys25.Product
+  pk: 17
+  fields:
+    name: 山藥（淮山、紅薯）
+    code: 301
+    min_hour: 1930
+    max_hour: 2065
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 18
+  fields:
+    name: 樹薯（木薯）
+    code: 302
+    min_hour: 1930
+    max_hour: 2065
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 19
+  fields:
+    name: 菸草
+    code: 304
+    min_hour: 951
+    max_hour: 951
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 20
+  fields:
+    name: 芝麻（胡麻）
+    code: 305
+    min_hour: 421
+    max_hour: 530
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 21
+  fields:
+    name: 瓊麻
+    code: 306
+    min_hour: 74
+    max_hour: 173
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 22
+  fields:
+    name: 牧草
+    code: 307
+    min_hour: 74
+    max_hour: 173
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 23
+  fields:
+    name: 桑樹
+    code: 308
+    min_hour: 421
+    max_hour: 1467
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 24
+  fields:
+    name: 荖花（葉）
+    code: 309
+    min_hour: 6143
+    max_hour: 6561
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 25
+  fields:
+    name: 山葵
+    code: 310
+    min_hour: 421
+    max_hour: 1467
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 26
+  fields:
+    name: 綠肥作物
+    code: 311
+    min_hour: 74
+    max_hour: 173
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 27
+  fields:
+    name: 油茶（苦茶樹）
+    code: 312
+    min_hour: 421
+    max_hour: 1467
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 28
+  fields:
+    name: 破布子
+    code: 313
+    min_hour: 421
+    max_hour: 1467
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 29
+  fields:
+    name: 咖啡
+    code: 314
+    min_hour: 1264
+    max_hour: 1897
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 30
+  fields:
+    name: 甘蔗
+    code: 315
+    min_hour: 2855
+    max_hour: 2855
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 31
+  fields:
+    name: 其他特用作物
+    code: 316
+    min_hour: 903
+    max_hour: 1467
+    type: 1
+    management_type: 3
+
+- model: surveys25.Product
+  pk: 32
+  fields:
+    name: 茶（手採）
+    code: 317
+    min_hour: 1631
+    max_hour: 2155
+    type: 1
+    management_type: 4
+
+- model: surveys25.Product
+  pk: 33
+  fields:
+    name: 茶（機採）
+    code: 318
+    min_hour: 371
+    max_hour: 520
+    type: 1
+    management_type: 4
+
+- model: surveys25.Product
+  pk: 34
+  fields:
+    name: 蘿蔔（菜頭）
+    code: 401
+    min_hour: 323
+    max_hour: 425
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 35
+  fields:
+    name: 胡蘿蔔
+    code: 402
+    min_hour: 645
+    max_hour: 787
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 36
+  fields:
+    name: 薑
+    code: 403
+    min_hour: 1745
+    max_hour: 3118
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 37
+  fields:
+    name: 芋
+    code: 404
+    min_hour: 643
+    max_hour: 677
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 38
+  fields:
+    name: 馬鈴薯
+    code: 405
+    min_hour: 354
+    max_hour: 438
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 39
+  fields:
+    name: 牛蒡
+    code: 406
+    min_hour: 561
+    max_hour: 661
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 40
+  fields:
+    name: 蔥
+    code: 407
+    min_hour: 1182
+    max_hour: 1953
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 41
+  fields:
+    name: 蔥頭
+    code: 408
+    min_hour: 770
+    max_hour: 1056
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 42
+  fields:
+    name: 洋蔥
+    code: 409
+    min_hour: 770
+    max_hour: 1056
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 43
+  fields:
+    name: 青蒜
+    code: 410
+    min_hour: 926
+    max_hour: 1099
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 44
+  fields:
+    name: 蒜頭
+    code: 411
+    min_hour: 799
+    max_hour: 869
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 45
+  fields:
+    name: 荸薺
+    code: 412
+    min_hour: 866
+    max_hour: 972
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 46
+  fields:
+    name: 韭
+    code: 413
+    min_hour: 6491
+    max_hour: 7270
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 47
+  fields:
+    name: 竹筍
+    code: 414
+    min_hour: 145
+    max_hour: 1163
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 48
+  fields:
+    name: 蘆筍
+    code: 415
+    min_hour: 1751
+    max_hour: 1859
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 49
+  fields:
+    name: 茭白筍
+    code: 416
+    min_hour: 2224
+    max_hour: 3433
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 50
+  fields:
+    name: 大芥菜
+    code: 417
+    min_hour: 598
+    max_hour: 804
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 51
+  fields:
+    name: 大心芥菜（菜心）
+    code: 418
+    min_hour: 598
+    max_hour: 804
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 52
+  fields:
+    name: 芹菜
+    code: 419
+    min_hour: 1401
+    max_hour: 1401
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 53
+  fields:
+    name: 蕹菜（空心菜）
+    code: 420
+    min_hour: 815
+    max_hour: 1237
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 54
+  fields:
+    name: 甘藍（高麗菜）
+    code: 421
+    min_hour: 598
+    max_hour: 804
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 55
+  fields:
+    name: 芥藍（格藍菜）
+    code: 422
+    min_hour: 855
+    max_hour: 865
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 56
+  fields:
+    name: 球莖甘藍（結頭菜）
+    code: 423
+    min_hour: 548
+    max_hour: 549
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 57
+  fields:
+    name: 結球白菜（包心白菜）
+    code: 424
+    min_hour: 476
+    max_hour: 599
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 58
+  fields:
+    name: 不結球白菜（小白菜、青江菜）
+    code: 425
+    min_hour: 896
+    max_hour: 1047
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 59
+  fields:
+    name: 花椰菜(白花、青花)
+    code: 426
+    min_hour: 594
+    max_hour: 756
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 60
+  fields:
+    name: 菠菜（菠蔆菜）
+    code: 427
+    min_hour: 1204
+    max_hour: 1314
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 61
+  fields:
+    name: 莧菜
+    code: 428
+    min_hour: 896
+    max_hour: 1047
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 62
+  fields:
+    name: 萵苣（Ａ菜、吉康菜）
+    code: 429
+    min_hour: 499
+    max_hour: 537
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 63
+  fields:
+    name: 茼蒿
+    code: 430
+    min_hour: 499
+    max_hour: 537
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 64
+  fields:
+    name: 絲瓜（菜瓜、角瓜）
+    code: 431
+    min_hour: 1640
+    max_hour: 1808
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 65
+  fields:
+    name: 越瓜（醃瓜）
+    code: 432
+    min_hour: 1530
+    max_hour: 2500
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 66
+  fields:
+    name: 胡瓜（莿瓜、小黃瓜）
+    code: 433
+    min_hour: 1530
+    max_hour: 2500
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 67
+  fields:
+    name: 冬瓜
+    code: 434
+    min_hour: 644
+    max_hour: 700
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 68
+  fields:
+    name: 苦瓜
+    code: 435
+    min_hour: 1860
+    max_hour: 2830
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 69
+  fields:
+    name: 扁蒲（蒲子）
+    code: 436
+    min_hour: 1651
+    max_hour: 1784
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 70
+  fields:
+    name: 茄子
+    code: 437
+    min_hour: 2947
+    max_hour: 3395
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 71
+  fields:
+    name: 蕃茄
+    code: 438
+    min_hour: 751
+    max_hour: 10336
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 72
+  fields:
+    name: 番椒（甜椒、辣椒）
+    code: 439
+    min_hour: 1552
+    max_hour: 1760
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 73
+  fields:
+    name: 毛豆
+    code: 440
+    min_hour: 69
+    max_hour: 170
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 74
+  fields:
+    name: 豌豆（荷蘭豆）
+    code: 441
+    min_hour: 1350
+    max_hour: 1617
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 75
+  fields:
+    name: 長豇豆（菜豆）
+    code: 442
+    min_hour: 2107
+    max_hour: 2369
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 76
+  fields:
+    name: 西瓜
+    code: 443
+    min_hour: 457
+    max_hour: 561
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 77
+  fields:
+    name: 香瓜
+    code: 444
+    min_hour: 647
+    max_hour: 773
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 78
+  fields:
+    name: 洋香瓜（哈蜜瓜）
+    code: 445
+    min_hour: 647
+    max_hour: 773
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 79
+  fields:
+    name: 瓜子瓜
+    code: 446
+    min_hour: 647
+    max_hour: 773
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 80
+  fields:
+    name: 草莓
+    code: 447
+    min_hour: 3169
+    max_hour: 3512
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 81
+  fields:
+    name: 地瓜葉
+    code: 448
+    min_hour: 815
+    max_hour: 1237
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 82
+  fields:
+    name: 紅菜
+    code: 449
+    min_hour: 598
+    max_hour: 804
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 83
+  fields:
+    name: 南瓜
+    code: 450
+    min_hour: 1158
+    max_hour: 1249
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 84
+  fields:
+    name: 龍鬚菜
+    code: 451
+    min_hour: 815
+    max_hour: 1237
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 85
+  fields:
+    name: 蓮藕
+    code: 452
+    min_hour: 866
+    max_hour: 972
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 86
+  fields:
+    name: 蕨類（過貓、山蘇）
+    code: 453
+    min_hour: 815
+    max_hour: 1237
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 87
+  fields:
+    name: 豆苗
+    code: 454
+    min_hour: 815
+    max_hour: 1237
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 88
+  fields:
+    name: 菱角
+    code: 455
+    min_hour: 1122
+    max_hour: 1272
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 89
+  fields:
+    name: 金針
+    code: 456
+    min_hour: 786
+    max_hour: 1258
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 90
+  fields:
+    name: 香菜（芫荽）
+    code: 457
+    min_hour: 815
+    max_hour: 1237
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 91
+  fields:
+    name: 蓮子
+    code: 458
+    min_hour: 718
+    max_hour: 811
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 92
+  fields:
+    name: 其他蔬菜
+    code: 459
+    min_hour: 457
+    max_hour: 2369
+    type: 1
+    management_type: 5
+
+- model: surveys25.Product
+  pk: 93
+  fields:
+    name: 香蕉
+    code: 501
+    min_hour: 711
+    max_hour: 1430
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 94
+  fields:
+    name: 鳳梨
+    code: 502
+    min_hour: 1170
+    max_hour: 1278
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 95
+  fields:
+    name: 柑桔類
+    code: 503
+    min_hour: 775
+    max_hour: 2716
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 96
+  fields:
+    name: 柚類
+    code: 504
+    min_hour: 744
+    max_hour: 965
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 97
+  fields:
+    name: 龍眼
+    code: 505
+    min_hour: 367
+    max_hour: 700
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 98
+  fields:
+    name: 芒果
+    code: 506
+    min_hour: 682
+    max_hour: 1178
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 99
+  fields:
+    name: 番石榴
+    code: 507
+    min_hour: 2629
+    max_hour: 2808
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 100
+  fields:
+    name: 蓮霧
+    code: 508
+    min_hour: 2627
+    max_hour: 3054
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 101
+  fields:
+    name: 葡萄
+    code: 509
+    min_hour: 2345
+    max_hour: 3512
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 102
+  fields:
+    name: 枇杷
+    code: 510
+    min_hour: 1351
+    max_hour: 2495
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 103
+  fields:
+    name: 李
+    code: 511
+    min_hour: 774
+    max_hour: 814
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 104
+  fields:
+    name: 桃
+    code: 512
+    min_hour: 1114
+    max_hour: 1535
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 105
+  fields:
+    name: 柿
+    code: 513
+    min_hour: 708
+    max_hour: 1984
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 106
+  fields:
+    name: 梅
+    code: 514
+    min_hour: 224
+    max_hour: 744
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 107
+  fields:
+    name: 荔枝
+    code: 515
+    min_hour: 239
+    max_hour: 1679
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 108
+  fields:
+    name: 橄欖
+    code: 516
+    min_hour: 224
+    max_hour: 3512
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 109
+  fields:
+    name: 楊桃
+    code: 517
+    min_hour: 2262
+    max_hour: 3131
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 110
+  fields:
+    name: 梨
+    code: 518
+    min_hour: 1602
+    max_hour: 2355
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 111
+  fields:
+    name: 蘋果
+    code: 519
+    min_hour: 224
+    max_hour: 3512
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 112
+  fields:
+    name: 木瓜
+    code: 520
+    min_hour: 1956
+    max_hour: 2292
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 113
+  fields:
+    name: 棗
+    code: 521
+    min_hour: 1763
+    max_hour: 2092
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 114
+  fields:
+    name: 番荔枝（釋迦）
+    code: 522
+    min_hour: 1024
+    max_hour: 1267
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 115
+  fields:
+    name: 百香果
+    code: 523
+    min_hour: 1314
+    max_hour: 1496
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 116
+  fields:
+    name: 可可椰子
+    code: 524
+    min_hour: 267
+    max_hour: 696
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 117
+  fields:
+    name: 檳榔
+    code: 525
+    min_hour: 565
+    max_hour: 621
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 118
+  fields:
+    name: 火龍果
+    code: 526
+    min_hour: 1891
+    max_hour: 2451
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 119
+  fields:
+    name: 菠蘿蜜
+    code: 527
+    min_hour: 224
+    max_hour: 3512
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 120
+  fields:
+    name: 酪梨
+    code: 528
+    min_hour: 1082
+    max_hour: 1168
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 121
+  fields:
+    name: 其他果樹
+    code: 529
+    min_hour: 224
+    max_hour: 3512
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 122
+  fields:
+    name: 文旦柚
+    code: 504
+    min_hour: 744
+    max_hour: 965
+    parent: 96
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 123
+  fields:
+    name: 葡萄柚
+    code: 503
+    min_hour: 1136
+    max_hour: 1256
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 124
+  fields:
+    name: 柳橙
+    code: 503
+    min_hour: 986
+    max_hour: 1149
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 125
+  fields:
+    name: 椪柑
+    code: 503
+    min_hour: 1152
+    max_hour: 1230
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 126
+  fields:
+    name: 桶柑
+    code: 503
+    min_hour: 775
+    max_hour: 891
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 127
+  fields:
+    name: 海梨柑
+    code: 503
+    min_hour: 907
+    max_hour: 975
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 128
+  fields:
+    name: 茂谷柑
+    code: 503
+    min_hour: 1325
+    max_hour: 1477
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 129
+  fields:
+    name: 臍橙
+    code: 503
+    min_hour: 782
+    max_hour: 809
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 130
+  fields:
+    name: 金柑
+    code: 503
+    min_hour: 1261
+    max_hour: 1777
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 131
+  fields:
+    name: 檸檬
+    code: 503
+    min_hour: 1473
+    max_hour: 1644
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 132
+  fields:
+    name: 洋菇
+    code: 601
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 10
+
+- model: surveys25.Product
+  pk: 133
+  fields:
+    name: 香菇
+    code: 602
+    min_hour: 7320
+    max_hour: 11313
+    type: 1
+    management_type: 10
+
+- model: surveys25.Product
+  pk: 134
+  fields:
+    name: 金針菇
+    code: 603
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 10
+
+- model: surveys25.Product
+  pk: 135
+  fields:
+    name: 杏鮑菇
+    code: 604
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 10
+
+- model: surveys25.Product
+  pk: 136
+  fields:
+    name: 木耳
+    code: 605
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 10
+
+- model: surveys25.Product
+  pk: 137
+  fields:
+    name: 其他食用菇蕈
+    code: 606
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 10
+
+- model: surveys25.Product
+  pk: 138
+  fields:
+    name: 切花類
+    code: 701
+    min_hour: 990
+    max_hour: 6837
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 139
+  fields:
+    name: 球根類
+    code: 702
+    min_hour: 3
+    max_hour: 1151
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 140
+  fields:
+    name: 盆花類
+    code: 703
+    min_hour: 4
+    max_hour: 6
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 141
+  fields:
+    name: 蘭花
+    code: 704
+    min_hour: 3
+    max_hour: 5477
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 142
+  fields:
+    name: 其他花卉
+    code: 705
+    min_hour: 896
+    max_hour: 2665
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 143
+  fields:
+    name: 洋桔梗
+    code: 701
+    min_hour: 2581
+    max_hour: 3174
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 144
+  fields:
+    name: 香水百合
+    code: 701
+    min_hour: 1203
+    max_hour: 1635
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 145
+  fields:
+    name: 玫瑰
+    code: 701
+    min_hour: 4643
+    max_hour: 4811
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 146
+  fields:
+    name: 火鶴花
+    code: 701
+    min_hour: 3632
+    max_hour: 5156
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 147
+  fields:
+    name: 康乃馨
+    code: 701
+    min_hour: 5243
+    max_hour: 5679
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 148
+  fields:
+    name: 非洲菊
+    code: 701
+    min_hour: 5629
+    max_hour: 6837
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 149
+  fields:
+    name: 夜來香
+    code: 701
+    min_hour: 2665
+    max_hour: 2665
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 150
+  fields:
+    name: 菊花
+    code: 701
+    min_hour: 2845
+    max_hour: 3038
+    parent: 138
+    type: 1
+    management_type: 7
+
+- model: surveys25.Product
+  pk: 151
+  fields:
+    name: 秧苗
+    code: 802
+    min_hour: 1500
+    max_hour: 1700
+    type: 1
+    management_type: 8
+
+- model: surveys25.Product
+  pk: 152
+  fields:
+    name: 食用菇菌種
+    code: 803
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 8
+
+- model: surveys25.Product
+  pk: 153
+  fields:
+    name: 蘭花種苗
+    code: 804
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 8
+
+- model: surveys25.Product
+  pk: 154
+  fields:
+    name: 其他種苗
+    code: 805
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 8
+
+- model: surveys25.Product
+  pk: 155
+  fields:
+    name: 草皮
+    code: 801
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 9
+
+- model: surveys25.Product
+  pk: 156
+  fields:
+    name: 其他作物
+    code: 806
+    min_hour:
+    max_hour:
+    type: 1
+    management_type: 9
+
+- model: surveys25.Product
+  pk: 157
+  fields:
+    name: 肉豬
+    code: F01
+    min_hour: 0.5
+    max_hour: 3.7
+    type: 2
+    management_type: 12
+
+- model: surveys25.Product
+  pk: 158
+  fields:
+    name: 種豬
+    code: F02
+    min_hour: 0.5
+    max_hour: 3.7
+    type: 2
+    management_type: 12
+
+- model: surveys25.Product
+  pk: 159
+  fields:
+    name: 小豬
+    code: F04
+    min_hour: 0.5
+    max_hour: 3.7
+    type: 2
+    management_type: 12
+
+- model: surveys25.Product
+  pk: 160
+  fields:
+    name: 泌乳牛
+    code: J01
+    min_hour: 30
+    max_hour: 154
+    type: 2
+    management_type: 11
+
+- model: surveys25.Product
+  pk: 161
+  fields:
+    name: 乾乳牛
+    code: J02
+    min_hour: 30
+    max_hour: 100
+    type: 2
+    management_type: 11
+
+- model: surveys25.Product
+  pk: 162
+  fields:
+    name: 未產乳牛
+    code: J03
+    min_hour: 30
+    max_hour: 100
+    type: 2
+    management_type: 11
+
+- model: surveys25.Product
+  pk: 163
+  fields:
+    name: 肉牛
+    code: J04
+    min_hour: 31.65
+    max_hour: 37.75
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 164
+  fields:
+    name: 乳公牛(種用)
+    code: J05
+    min_hour: 32
+    max_hour: 38
+    type: 2
+    management_type: 11
+
+- model: surveys25.Product
+  pk: 165
+  fields:
+    name: 牛乳
+    code: J07
+    min_hour:
+    max_hour:
+    type: 2
+    management_type: 11
+
+- model: surveys25.Product
+  pk: 166
+  fields:
+    name: 蛋雞
+    code: G01
+    min_hour: 0.1
+    max_hour: 0.63
+    type: 2
+    management_type: 13
+
+- model: surveys25.Product
+  pk: 167
+  fields:
+    name: 白肉雞
+    code: G02
+    min_hour: 0.01
+    max_hour: 0.06
+    type: 2
+    management_type: 13
+
+- model: surveys25.Product
+  pk: 168
+  fields:
+    name: 有色肉雞
+    code: G03
+    min_hour: 0.06
+    max_hour: 0.13
+    type: 2
+    management_type: 13
+
+- model: surveys25.Product
+  pk: 169
+  fields:
+    name: 肉種雞
+    code: G04
+    min_hour: 0.01
+    max_hour: 0.06
+    type: 2
+    management_type: 13
+
+- model: surveys25.Product
+  pk: 170
+  fields:
+    name: 蛋種雞
+    code: G05
+    min_hour: 0.1
+    max_hour: 0.63
+    type: 2
+    management_type: 13
+
+- model: surveys25.Product
+  pk: 171
+  fields:
+    name: 雞蛋
+    code: G10
+    min_hour:
+    max_hour:
+    type: 2
+    management_type: 13
+
+- model: surveys25.Product
+  pk: 172
+  fields:
+    name: 蛋鴨(菜鴨)
+    code: H09
+    min_hour: 0.52
+    max_hour: 1.21
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 173
+  fields:
+    name: 肉鴨
+    code: H10
+    min_hour: 0.06
+    max_hour: 0.28
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 174
+  fields:
+    name: 肉種鴨
+    code: H11
+    min_hour: 0.06
+    max_hour: 0.28
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 175
+  fields:
+    name: 蛋種鴨
+    code: H12
+    min_hour: 0.52
+    max_hour: 1.21
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 176
+  fields:
+    name: 鴨蛋
+    code: H13
+    min_hour:
+    max_hour:
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 177
+  fields:
+    name: 肉羊
+    code: H01
+    min_hour: 15.03
+    max_hour: 38.4
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 178
+  fields:
+    name: 乳羊(泌乳羊)
+    code: H02
+    min_hour: 25.36
+    max_hour: 57.91
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 179
+  fields:
+    name: 羊乳
+    code: H05
+    min_hour:
+    max_hour:
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 180
+  fields:
+    name: 鹿
+    code: H07
+    min_hour: 32
+    max_hour: 65.58
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 181
+  fields:
+    name: 鹿茸
+    code: H08
+    min_hour:
+    max_hour:
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 182
+  fields:
+    name: 鵝
+    code: H14
+    min_hour: 0.13
+    max_hour: 0.42
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 183
+  fields:
+    name: 火雞
+    code: H15
+    min_hour: 0.01
+    max_hour: 0.63
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 184
+  fields:
+    name: 鴕鳥
+    code: H16
+    min_hour: 0.01
+    max_hour: 0.63
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 185
+  fields:
+    name: 蜜蜂
+    code: H17
+    min_hour: 15
+    max_hour: 25
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 186
+  fields:
+    name: 蜂蜜
+    code: H18
+    min_hour:
+    max_hour:
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 187
+  fields:
+    name: 其他(______)
+    code: H99
+    min_hour: 0.06
+    max_hour: 65.58
+    type: 2
+    management_type: 14
+
+- model: surveys25.Product
+  pk: 188
+  fields:
+    name: 柳丁
+    code: 503
+    min_hour: 987
+    max_hour: 1149
+    parent: 95
+    type: 1
+    management_type: 6
+
+- model: surveys25.Product
+  pk: 189
+  fields:
+    name: 文心蘭
+    code: 704
+    min_hour: 2611
+    max_hour: 5323
+    parent: 141
+    type: 1
+    management_type: 8

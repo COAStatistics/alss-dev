@@ -1,0 +1,116 @@
+- model: surveys25.Unit
+  pk: 1
+  fields:
+    code: 0
+    name: 平方公尺
+    type: 1
+
+- model: surveys25.Unit
+  pk: 2
+  fields:
+    code: 1
+    name: 公斤
+    type: 1
+
+- model: surveys25.Unit
+  pk: 3
+  fields:
+    code: 2
+    name: 箱
+    type: 1
+
+- model: surveys25.Unit
+  pk: 4
+  fields:
+    code: 3
+    name: 打
+    type: 1
+
+- model: surveys25.Unit
+  pk: 5
+  fields:
+    code: 4
+    name: 盆
+    type: 1
+
+- model: surveys25.Unit
+  pk: 6
+  fields:
+    code: 5
+    name: 支
+    type: 1
+
+- model: surveys25.Unit
+  pk: 7
+  fields:
+    code: 6
+    name: 包
+    type: 1
+
+- model: surveys25.Unit
+  pk: 8
+  fields:
+    code: 7
+    name: 把
+    type: 1
+
+- model: surveys25.Unit
+  pk: 9
+  fields:
+    code: 8
+    name: 瓶
+    type: 1
+
+- model: surveys25.Unit
+  pk: 10
+  fields:
+    code: 9
+    name: 株
+    type: 1
+
+- model: surveys25.Unit
+  pk: 11
+  fields:
+    code: 1
+    name: 公斤
+    type: 2
+
+- model: surveys25.Unit
+  pk: 12
+  fields:
+    code: 2
+    name: 箱
+    type: 2
+
+- model: surveys25.Unit
+  pk: 13
+  fields:
+    code: 3
+    name: 頭
+    type: 2
+
+- model: surveys25.Unit
+  pk: 14
+  fields:
+    code: 4
+    name: 隻
+    type: 2
+
+- model: surveys25.Unit
+  pk: 15
+  fields:
+    code: 5
+    name: 兩
+    type: 2
+
+- model: surveys25.Unit
+  pk: 16
+  fields:
+    code: 1
+    name: 坪
+
+- model: surveys25.Unit
+  pk: 17
+  fields:
+    code: 2
+    name: 公畝

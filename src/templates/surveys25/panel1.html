@@ -1,0 +1,78 @@
+<div class="panel panel-primary" id="panel1">
+    <div class="panel-heading">基本資料</div>
+    <div class="panel-body">
+        <div name="survey" class="alert alert-danger"></div>
+        <form class="form-horizontal p-1">
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label class="control-label">調查員</label>
+                    <input type="text" class="form-control" name="investigator" disabled />
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">初審員</label>
+                    <input type="text" class="form-control" name="reviewer" disabled />
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">農戶編號</label>
+                    <input type="text" class="form-control" name="farmerid" disabled />
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">受訪人姓名</label>
+                    <input type="text" class="form-control" name="farmername" />
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">受訪者與名冊戶長關係</label>
+                    <input type="text" class="form-control" name="intervieweerelationship" />
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">連絡電話1</label>
+                    <input type="text" class="form-control" name="phone" />
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">連絡電話2</label>
+                    <input type="text" class="form-control" name="phone" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <label class="control-label">地址</label>
+                    <div class="pb-1">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="addressmatch" data-field="match" /> 與調查名冊相同
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="addressmatch" data-field="mismatch" /> 不同
+                        </label>
+                    </div>
+                    <input type="text" class="form-control" name="address" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <label class="control-label">可耕作地或畜牧用地（場址）所在地區</label>
+                    <div class="form-inline">
+                        <input type="text" class="small form-control" name="city">縣（市）
+                        <input type="text" class="small form-control" name="town">鄉（鎮市區）
+                        代號（見手冊）{% include 'surveys25/dropdown-ui/city-town-code.html' %}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <label class="control-label">備註</label>
+                    <textarea rows="5" class="form-control" name="note"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="pb-1">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="isinvalid" /> 無效戶，原因：
+                        </label>
+                    </div>
+                    <input type="text" class="form-control" name="invalidreason" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

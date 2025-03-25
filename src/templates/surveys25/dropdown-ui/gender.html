@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="gender">
+    {% for gender in genders %}
+    <option value="{{ gender.id }}">{{ gender.name }}</option>
+    {% endfor %}
+</select>

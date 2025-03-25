@@ -1,0 +1,55 @@
+- model: surveys25.LackResponseItem
+  pk: 1
+  fields:
+    code: 1
+    name: 從未遇過
+    has_response: False
+
+- model: surveys25.LackResponseItem
+  pk: 2
+  fields:
+    code: 2
+    name: 提高工資
+
+- model: surveys25.LackResponseItem
+  pk: 3
+  fields:
+    code: 3
+    name: 縮小經營規模
+
+- model: surveys25.LackResponseItem
+  pk: 4
+  fields:
+    code: 4
+    name: 改種其他作物
+
+- model: surveys25.LackResponseItem
+  pk: 5
+  fields:
+    code: 5
+    name: 調整耕種/飼養模式(延後採收或減少除草)
+
+- model: surveys25.LackResponseItem
+  pk: 6
+  fields:
+    code: 6
+    name: 使用省工機械
+
+- model: surveys25.LackResponseItem
+  pk: 7
+  fields:
+    code: 7
+    name: 透過政府協助(人力團或農業外籍移工)
+
+- model: surveys25.LackResponseItem
+  pk: 8
+  fields:
+    code: 8
+    name: 透過農事服務業者(代耕業者)或工頭
+
+- model: surveys25.LackResponseItem
+  pk: 9
+  fields:
+    code: 9
+    name: 其他
+    has_extra: True

@@ -1,0 +1,29 @@
+- model: surveys25.AgeScope
+  pk: 1
+  fields:
+    name: 44歲以下
+    group: 1
+
+- model: surveys25.AgeScope
+  pk: 2
+  fields:
+    name: 45~64歲
+    group: 1
+
+- model: surveys25.AgeScope
+  pk: 3
+  fields:
+    name: 65歲以上
+    group: 1
+
+- model: surveys25.AgeScope
+  pk: 4
+  fields:
+    name: 未滿15歲
+    group: 2
+
+- model: surveys25.AgeScope
+  pk: 5
+  fields:
+    name: 滿15歲以上
+    group: 2

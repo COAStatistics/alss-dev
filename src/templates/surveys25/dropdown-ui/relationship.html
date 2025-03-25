@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="relationship">
+    {% for relationship in relationships %}
+    <option value="{{ relationship.id }}">{{ relationship.code }}.{{ relationship.name }}</option>
+    {% endfor %}
+</select>

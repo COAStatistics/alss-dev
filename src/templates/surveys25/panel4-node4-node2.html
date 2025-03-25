@@ -1,0 +1,80 @@
+
+<table class="table table-striped table-hover ">
+    <tbody>
+        <tr>
+            <th>
+                <div>
+                    <h4>4.2 貴戶113年僱用人力主要是透過什麼管道？</h4>
+                </div>
+            </th>
+            <td>
+                <div name="hirechannel" class="alert alert-info"></div>
+                <div name="hirechannel" class="alert alert-danger"></div>
+                <div class="form-horizontal">
+                    {% for item in hire_channel_items %}
+                    <div class="form-inline col-md-6">
+                        <label class="fw-400">
+                            <input type="checkbox"  data-hirechannelitem-id="{{ item.id }}"
+                                   data-has-channel="{{ item.has_channel|yesno:'true,false' }}" name="hirechannelitem">
+                            {{ item.id }}.{{ item.name }}
+                        </label>
+                        {% if item.has_extra %}
+                        <input class="form-control" type="text"  data-hirechannelitem-id="{{ item.id }}" name="hirechannelitem-extra">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <div>
+                    <h4>4.3 貴戶以往遇到人力短缺情形時如何因應？(可複選)</h4>
+                </div>
+            </th>
+            <td>
+                <div name="lackresponse" class="alert alert-info"></div>
+                <div name="lackresponse" class="alert alert-danger"></div>
+                <div class="form-horizontal">
+                    {% for item in lack_response_items %}
+                    <div class="form-inline col-md-6">
+                        <label class="fw-400">
+                            <input type="checkbox"  data-lackresponseitem-id="{{ item.id }}"
+                                   data-has-response="{{ item.has_response|yesno:'true,false' }}" name="lackresponseitem">
+                            {{ item.id }}.{{ item.name }}
+                        </label>
+                        {% if item.has_extra %}
+                        <input class="form-control" type="text"  data-lackresponseitem-id="{{ item.id }}" name="lackresponseitem-extra">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <div>
+                    <h4>4.4 貴戶於「採收階段」需僱用人力時願意支付多少最高時薪？(限註記一項)</h4>
+                </div>
+            </th>
+            <td>
+                <div name="maxhourlypay" class="alert alert-info"></div>
+                <div name="maxhourlypay" class="alert alert-danger"></div>
+                <div class="form-horizontal">
+                    {% for item in max_hourly_pay_items %}
+                    <div class="form-inline col-md-6">
+                        <label class="fw-400">
+                            <input type="checkbox"  data-maxhourlypayitem-id="{{ item.id }}"
+                                   data-has-response="{{ item.has_pay|yesno:'true,false' }}" name="maxhourlypayitem">
+                            {{ item.id }}.{{ item.name }}
+                        </label>
+                        {% if item.has_extra %}
+                        <input class="form-control" type="text"  data-maxhourlypayitem-id="{{ item.id }}" name="maxhourlypayitem-extra">
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

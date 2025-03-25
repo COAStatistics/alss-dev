@@ -1,0 +1,39 @@
+<h4>2.1 貴戶113年底戶內人口數
+    <small class="text-muted">（指在本戶共同居住並營共同生活之人口）</small>
+</h4>
+<div name="populationage" class="alert alert-danger"></div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="col-md-3">#</th>
+                <th class="col-md-3">合計（人）</th>
+                {% for gender in genders %}
+                    <th class="col-md-3">{{ gender.name }}（人）</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for scope in population_age_scopes %}
+                <tr>
+                    <th class="col-md-3" scopt="row">{{ scope.name }}
+                        {% if scope.id == 4 %}
+                            <small class="text-muted">（99年1月1日以後出生者）</small>
+                        {% elif scope.id == 5 %}
+                            <small class="text-muted">（98年12月31日以前出生者）</small>
+                        {% endif %}
+                    </th>
+                    <td class="col-md-3">
+                        <input class="form-control" type="text" name="sumcount" placeholder="0" disabled>
+                    </td>
+                    {% for gender in genders %}
+                        <td class="col-md-3">
+                            <input type="text" class="form-control" name="populationage" placeholder="0"
+                                   data-gender-id="{{ gender.id }}" data-agescope-id="{{ scope.id }}">
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

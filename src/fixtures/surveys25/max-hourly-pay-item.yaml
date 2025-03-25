@@ -1,0 +1,50 @@
+- model: surveys25.MaxHourlyPayItem
+  pk: 1
+  fields:
+    code: 1
+    name: 無經營農耕業
+    has_pay: False
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 2
+  fields:
+    code: 2
+    name: 無僱用人力
+    has_pay: False
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 3
+  fields:
+    code: 3
+    name: 未滿180元
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 4
+  fields:
+    code: 4
+    name: 180元~未滿240元
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 5
+  fields:
+    code: 5
+    name: 240元~未滿300元
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 6
+  fields:
+    code: 6
+    name: 300元以上
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 7
+  fields:
+    code: 7
+    name: 由契作主或承包商派員採收
+
+- model: surveys25.MaxHourlyPayItem
+  pk: 8
+  fields:
+    code: 8
+    name: 其他
+    has_extra: True

@@ -1,0 +1,177 @@
+<h4>4 附帶調查</h4>
+
+<div class="table-responsive">
+    <label class="control-label">4.1. 貴戶113年是否有聽過或申請以下農業部「改善農業缺工措施」協助缺工方案？</label>
+    <div name="subsidy" class="alert alert-danger"></div>
+    <table class="table table-striped table-hover" name="subsidy">
+        <tbody>
+            <tr>
+                <th colspan="3">改善農業缺工措施</th>
+                <th class="apply-method" data-method-id="{{ apply_methods.0.id }}">{{ apply_methods.0.name }}</th>
+                <th class="apply-method" data-method-id="{{ apply_methods.1.id }}">{{ apply_methods.1.name }}</th>
+            </tr>
+            <tr>
+                <td colspan="3">1. 沒聽過（跳填 4.2）</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.0.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.0.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="16">2. 有聽過</td>
+                <td rowspan="3">有申請(勾選一項)</td>
+                <td>1.1 {{ apply_results.0.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.0.id }}" data-method-id="{{ apply_methods.0.id }}" name="apply">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.0.id }}" data-method-id="{{ apply_methods.1.id }}" name="apply">
+                </td>
+            </tr>
+            <tr>
+                <td>1.2 {{ apply_results.1.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.1.id }}" data-method-id="{{ apply_methods.0.id }}" name="apply">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.1.id }}" data-method-id="{{ apply_methods.1.id }}" name="apply">
+                </td>
+            </tr>
+            <tr>
+                <td>2. {{ apply_results.2.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.2.id }}" data-method-id="{{ apply_methods.0.id }}" name="apply">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.2.id }}" data-method-id="{{ apply_methods.1.id }}" name="apply">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="13">沒有申請(可複選)</td>
+                <td>1. {{ refuse_reasons.1.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.1.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.1.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>2. {{ refuse_reasons.2.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.2.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.2.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>3. {{ refuse_reasons.3.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.3.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.3.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>4. {{ refuse_reasons.4.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.4.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.4.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>5. {{ refuse_reasons.5.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.5.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.5.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>6. {{ refuse_reasons.6.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.6.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.6.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>7. {{ refuse_reasons.7.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.7.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" disabled="disabled" class="w-2 h-2" data-reason-id="{{ refuse_reasons.7.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>8. {{ refuse_reasons.8.name }}</td>
+                <td>
+                    <input type="checkbox" disabled="disabled" class="w-2 h-2" data-reason-id="{{ refuse_reasons.8.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.8.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>9.1 {{ refuse_reasons.9.name }}</td>
+                <td>
+                    <input type="checkbox" disabled="disabled" class="w-2 h-2" data-reason-id="{{ refuse_reasons.9.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.9.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>9.2 {{ refuse_reasons.10.name }}</td>
+                <td>
+                    <input type="checkbox" disabled="disabled" class="w-2 h-2" data-reason-id="{{ refuse_reasons.10.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.10.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>9.3 {{ refuse_reasons.11.name }}</td>
+                <td>
+                    <input type="checkbox" disabled="disabled" class="w-2 h-2" data-reason-id="{{ refuse_reasons.11.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.11.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>10. {{ refuse_reasons.12.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.12.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.12.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                </td>
+            </tr>
+            <tr>
+                <td>11. {{ refuse_reasons.13.name }}</td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.13.id }}" data-method-id="{{ apply_methods.0.id }}" name="refuse">
+                    <input class="form-control" data-reason-id="{{ refuse_reasons.13.id }}" data-method-id="{{ apply_methods.0.id }}" type="text" name="extra">
+                </td>
+                <td>
+                    <input type="checkbox" class="w-2 h-2" data-reason-id="{{ refuse_reasons.13.id }}" data-method-id="{{ apply_methods.1.id }}" name="refuse">
+                    <input class="form-control" data-reason-id="{{ refuse_reasons.13.id }}" data-method-id="{{ apply_methods.1.id }}" type="text" name="extra">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</hr>
+
+{% include 'surveys25/panel4-node4-node2.html' %}

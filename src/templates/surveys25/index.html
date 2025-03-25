@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+113年勞動力調查
+{% endblock head_title%}
+
+{% block external_css %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet">
+<!-- Pace -->
+<link href="{% static 'vendor/pace/pace-theme-loading-bar.css' %}" rel="stylesheet">
+{% endblock external_css %}
+
+{% block external_js %}
+<script src="{% static 'js/utils.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
+{% if perms.surveys25.view_survey %}
+<script src="{% static 'js/surveys25/helper.js' %}"></script>
+{% endif %}
+
+{% endblock external_js %}
+
+{% block content %}
+
+<!-- Hidden Value For UI Elements -->
+<input type="hidden" id="ui" value="{{ ui }}"/>
+<input type="hidden" id="fid" value="{{ fid }}"/>
+
+<div id="wrapper" class="wrapper container">
+    <!-- Navigation-->
+    {% include 'navbar.html' %}
+    <!-- Page Content -->
+    <div class="row">
+        {% if perms.surveys25.view_survey %}
+        <div class="col-md-3 col-lg-2" id="affix-wrapper">
+            <div class="affix" data-spy="affix">
+                <div>
+                    <h4 class="my-3 bold">113年調查表</h4>
+                    <div class="list-group">
+                        <input type="text" class="form-control input-lg" id="farmerId" data-provide="typehead"
+                               placeholder="請輸入農戶編號" autocomplete="off">
+                        <div class="btn-group-vertical flex mt-1" role="group" aria-label="" style="width:100%;">
+                            <button type="button" class="btn btn-success btn-lg js-get-survey"
+                                    data-readonly="false" data-url="{% url 'surveys25:survey-list' %}">查詢</button>
+                            <button type="button" class="btn btn-success btn-lg js-get-survey"
+                                    data-readonly="true" data-url="{% url 'surveys25:survey-list' %}">查詢原始資料</button>
+                        </div>
+                    </div>
+                </div>
+                <div data-partial="survey">
+                    <h3 class="my-3 bold">
+                        <span>調查表</span>
+                        <button class="btn btn-default btn-sm pull-right js-tabs-control" data-target="#panel1,#panel2,#panel3,#panel4">顯示整張</button>
+                    </h3>
+                    <div class="list-group list-group-sm">
+                        <a href="#" class="list-group-item js-tabs-control small" data-target="#panel1">基本資料</a>
+                        <a href="#" class="list-group-item js-tabs-control small" data-target="#panel2">農業經營型態</a>
+                        <a href="#" class="list-group-item js-tabs-control small" data-target="#panel3">戶內人口組成狀況</a>
+                        <a href="#" class="list-group-item js-tabs-control small" data-target="#panel4">農業外僱人力</a>
+                        {% if perms.surveys25.change_survey %}
+                        <button type="button" class="btn btn-info btn-lg btn-block mt-1 js-set-survey"
+                                    data-url="{% url 'surveys25:survey-list' %}">更新調查表</button>
+                        {% else %}
+                        <div class="alert alert-warning">您沒有更新調查表的權限</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <h4 class="my-3 bold">113年審表紀錄</h4>
+                    <div class="list-group">
+                        <div class="btn-group-vertical flex mt-1" role="group" aria-label="" style="width:100%;">
+                            <button type="button" class="btn btn-danger btn-lg js-partial-control"
+                                    data-target="datatable">檢視紀錄</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-lg-10 js-panel-contents" id="survey-wrapper">
+            <div data-partial="about">
+                {% include 'surveys25/about.html' %}
+            </div>
+            <div data-partial="survey">
+                {% include 'surveys25/panel1.html' %}
+                {% include 'surveys25/panel2.html' %}
+                {% include 'surveys25/panel3.html' %}
+                {% include 'surveys25/panel4.html' %}
+            </div>
+            <div data-partial="datatable">
+                {% include 'reviewlog.html' with year="113" app_label="surveys25" %}
+            </div>
+        </div>
+        <!-- /.col-lg-9 -->
+        {% else %}
+        {% include 'permission-deny.html' with permission='檢視113年調查表' %}
+        {% endif %}
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#wrapper -->
+{% endblock content %}

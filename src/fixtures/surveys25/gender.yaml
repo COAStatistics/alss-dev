@@ -1,0 +1,11 @@
+- model: surveys25.Gender
+  pk: 1
+  fields:
+    code: 1
+    name: 男
+
+- model: surveys25.Gender
+  pk: 2
+  fields:
+    code: 2
+    name: 女

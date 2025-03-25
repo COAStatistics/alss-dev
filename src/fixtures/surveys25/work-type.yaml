@@ -1,0 +1,41 @@
+- model: surveys25.WorkType
+  pk: 1
+  fields:
+    code: 11
+    name: 農業機械操作業者
+
+- model: surveys25.WorkType
+  pk: 2
+  fields:
+    code: 12
+    name: 田間勞動技術工
+
+- model: surveys25.WorkType
+  pk: 3
+  fields:
+    code: 13
+    name: 田間勞動體力工
+
+- model: surveys25.WorkType
+  pk: 4
+  fields:
+    code: 14
+    name: 農產品分級、包裝及其他加工
+
+- model: surveys25.WorkType
+  pk: 5
+  fields:
+    code: 21
+    name: 畜牧場專業技術工
+
+- model: surveys25.WorkType
+  pk: 6
+  fields:
+    code: 22
+    name: 畜牧場勞務體力工
+
+- model: surveys25.WorkType
+  pk: 7
+  fields:
+    code: 30
+    name: 協助管理農業經營之主管

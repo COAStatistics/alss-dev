@@ -1,0 +1,23 @@
+- model: surveys25.Lack
+  pk: 1
+  fields:
+    name: 113年人力已足
+    is_lack: false
+
+- model: surveys25.Lack
+  pk: 2
+  fields:
+    name: 113年人力勉強足夠但不穩定或未來有缺工可能
+    is_lack: false
+
+- model: surveys25.Lack
+  pk: 3
+  fields:
+    name: 113年人力勉強足夠但若增加人力可縮短工作日數或擴充產能
+    is_lack: false
+
+- model: surveys25.Lack
+  pk: 4
+  fields:
+    name: 113年有缺工（不含以上兩種隱藏性短缺人力）
+    is_lack: true

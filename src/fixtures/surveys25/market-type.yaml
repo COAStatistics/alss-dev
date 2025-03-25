@@ -1,0 +1,24 @@
+- model: surveys25.MarketType
+  pk: 1
+  fields:
+    name: 農作物及其製品(含生產及加工)
+
+- model: surveys25.MarketType
+  pk: 2
+  fields:
+    name: 畜禽產品及其製品(含生產及加工)
+
+- model: surveys25.MarketType
+  pk: 3
+  fields:
+    name: 受託提供農事及畜牧服務
+
+- model: surveys25.MarketType
+  pk: 4
+  fields:
+    name: 休閒、餐飲及相關事業
+
+- model: surveys25.MarketType
+  pk: 5
+  fields:
+    name: 銷售額總計

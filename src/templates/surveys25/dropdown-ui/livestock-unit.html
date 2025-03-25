@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="unit">
+    {% for unit in livestock_units %}
+    <option value="{{ unit.id }}">{{ unit.code }}.{{ unit.name }}</option>
+    {% endfor %}
+</select>

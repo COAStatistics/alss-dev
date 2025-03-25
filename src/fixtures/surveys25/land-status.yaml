@@ -1,0 +1,14 @@
+- model: surveys25.LandStatus
+  pk: 1
+  fields:
+    name: 自有
+
+- model: surveys25.LandStatus
+  pk: 2
+  fields:
+    name: 租(借)或占用
+
+- model: surveys25.LandStatus
+  pk: 3
+  fields:
+    name: 接受委託經營

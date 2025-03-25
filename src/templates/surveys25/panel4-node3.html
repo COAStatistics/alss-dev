@@ -1,0 +1,22 @@
+<h4>3.4 短缺情形</h4>
+
+<div class="form-group">
+    <label class="control-label">1. 貴戶113農業人力短缺情形</label>
+    <div name="lack" class="alert alert-danger"></div>
+    <div>
+        {% for lack in lacks %}
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="lack" data-lack-id="{{ lack.id }}" data-islack="{{ lack.is_lack|yesno:'true,false' }}">{{ lack.name }}
+                {% if lack.id > 1 %}
+                    <small class="text-muted">（續填3.3.3~3.3.4）</small>
+                {% endif %}
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+    <hr/>
+    {% include 'surveys25/panel4-node3-node1.html' %}
+    <hr />
+    {% include 'surveys25/panel4-node3-node2.html' %}
+</div>

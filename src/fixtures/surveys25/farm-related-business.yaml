@@ -1,0 +1,55 @@
+- model: surveys25.FarmRelatedBusiness
+  pk: 1
+  fields:
+    code: 1
+    name: 無兼營農業相關事業
+    has_business: False
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 2
+  fields:
+    code: 2
+    name: 農產品加工
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 3
+  fields:
+    code: 3
+    name: 休閒農業(含休閒農場、觀光農園、農村民宿)
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 4
+  fields:
+    code: 4
+    name: 網路銷售
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 5
+  fields:
+    code: 5
+    name: 餐廳
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 6
+  fields:
+    code: 6
+    name: 農產品自行外銷出口
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 7
+  fields:
+    code: 7
+    name: 販售門市
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 8
+  fields:
+    code: 8
+    name: 攤販
+
+- model: surveys25.FarmRelatedBusiness
+  pk: 9
+  fields:
+    code: 9
+    name: 其他
+    has_extra: True

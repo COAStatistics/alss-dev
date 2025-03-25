@@ -1,0 +1,23 @@
+<h4>3.1 僱用情形</h4>
+
+<div class="form-group">
+    <div name="hire" class="alert alert-success"></div>
+    <div name="hire" class="alert alert-info"></div>
+    <div name="hire" class="alert alert-danger"></div>
+    <label class="control-label">1. 貴戶是否有運用外僱人力從事自家農牧業工作?</label>
+    <small class="text-muted">（限註記一項）</small>
+    <div>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="hire" data-field="nonhire"/> 無僱用員工及不支薪資人員
+            <small class="text-muted">（跳填【3.3】）</small>
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="hire" data-field="hire"/> 有
+            <small class="text-muted">（請續填）</small>
+        </label>
+    </div>
+    <hr/>
+    {% include 'surveys25/panel4-node1-node1.html' %}
+    <hr/>
+    {% include 'surveys25/panel4-node1-node2.html' %}
+</div>

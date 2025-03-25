@@ -1,0 +1,76 @@
+- model: surveys25.IncomeRange
+  pk: 1
+  fields:
+    name: 未滿20
+    minimum: 0
+    maximum: 20
+
+- model: surveys25.IncomeRange
+  pk: 2
+  fields:
+    name: 20~未滿50
+    minimum: 20
+    maximum: 50
+
+- model: surveys25.IncomeRange
+  pk: 3
+  fields:
+    name: 50~未滿70
+    minimum: 50
+    maximum: 70
+
+- model: surveys25.IncomeRange
+  pk: 4
+  fields:
+    name: 70~未滿100
+    minimum: 70
+    maximum: 100
+
+- model: surveys25.IncomeRange
+  pk: 5
+  fields:
+    name: 100~未滿150
+    minimum: 100
+    maximum: 150
+
+- model: surveys25.IncomeRange
+  pk: 6
+  fields:
+    name: 150~未滿180
+    minimum: 150
+    maximum: 180
+
+- model: surveys25.IncomeRange
+  pk: 7
+  fields:
+    name: 180~未滿200
+    minimum: 180
+    maximum: 200
+
+- model: surveys25.IncomeRange
+  pk: 8
+  fields:
+    name: 200~未滿300
+    minimum: 200
+    maximum: 300
+
+- model: surveys25.IncomeRange
+  pk: 9
+  fields:
+    name: 300~未滿500
+    minimum: 300
+    maximum: 500
+
+- model: surveys25.IncomeRange
+  pk: 10
+  fields:
+    name: 500~未滿1000
+    minimum: 500
+    maximum: 1000
+
+- model: surveys25.IncomeRange
+  pk: 11
+  fields:
+    name: 1000以上
+    minimum: 1000
+    maximum: 999999

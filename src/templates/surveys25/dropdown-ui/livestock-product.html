@@ -1,0 +1,12 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="product">
+    {% for product in livestock_products %}
+    <option value="{{ product.id }}"
+            data-managementtype-id="{{ product.management_type.id }}"
+            data-managementtype-name="{{ product.management_type.name }}"
+            data-name="{{ product.name }}"
+            {% if product.min_hour %}data-min-hour="{{ product.min_hour }}"{% endif %}
+            {% if product.max_hour %}data-max-hour="{{ product.max_hour }}"{% endif %}>
+        {{ product.code }}.{{ product.name }}
+    </option>
+    {% endfor %}
+</select>

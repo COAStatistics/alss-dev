@@ -1,0 +1,9 @@
+- model: surveys25.ApplyMethod
+  pk: 1
+  fields:
+    name: 向農會申請人力團(含機械代耕團)
+
+- model: surveys25.ApplyMethod
+  pk: 2
+  fields:
+    name: 申請農業外籍移工(外展農務、農糧、畜牧及養殖漁業工作)

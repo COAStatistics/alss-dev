@@ -1,0 +1,23 @@
+- model: surveys25.Contract
+  pk: 1
+  fields:
+    code: 1
+    name: 代養
+
+- model: surveys25.Contract
+  pk: 2
+  fields:
+    code: 2
+    name: 保價
+
+- model: surveys25.Contract
+  pk: 3
+  fields:
+    code: 3
+    name: 時價
+
+- model: surveys25.Contract
+  pk: 4
+  fields:
+    code: 0
+    name: 無

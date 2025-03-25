@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="lifestyle">
+    {% for life_style in life_styles %}
+    <option value="{{ life_style.id }}">{{ life_style.code }}.{{ life_style.name }}</option>
+    {% endfor %}
+</select>

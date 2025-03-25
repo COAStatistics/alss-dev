@@ -1,0 +1,71 @@
+- model: surveys25.Month
+  pk: 1
+  fields:
+    name: 1月
+    value: 1
+
+- model: surveys25.Month
+  pk: 2
+  fields:
+    name: 2月
+    value: 2
+
+- model: surveys25.Month
+  pk: 3
+  fields:
+    name: 3月
+    value: 3
+
+- model: surveys25.Month
+  pk: 4
+  fields:
+    name: 4月
+    value: 4
+
+- model: surveys25.Month
+  pk: 5
+  fields:
+    name: 5月
+    value: 5
+
+- model: surveys25.Month
+  pk: 6
+  fields:
+    name: 6月
+    value: 6
+
+- model: surveys25.Month
+  pk: 7
+  fields:
+    name: 7月
+    value: 7
+
+- model: surveys25.Month
+  pk: 8
+  fields:
+    name: 8月
+    value: 8
+
+- model: surveys25.Month
+  pk: 9
+  fields:
+    name: 9月
+    value: 9
+
+- model: surveys25.Month
+  pk: 10
+  fields:
+    name: 10月
+    value: 10
+
+- model: surveys25.Month
+  pk: 11
+  fields:
+    name: 11月
+    value: 11
+
+- model: surveys25.Month
+  pk: 12
+  fields:
+    name: 12月
+    value: 12

@@ -1,0 +1,43 @@
+- model: surveys25.HireChannelItem
+  pk: 1
+  fields:
+    code: 1
+    name: 無僱用人力
+    has_channel: False
+
+- model: surveys25.HireChannelItem
+  pk: 2
+  fields:
+    code: 2
+    name: 自行招募
+
+- model: surveys25.HireChannelItem
+  pk: 3
+  fields:
+    code: 3
+    name: 親友介紹
+
+- model: surveys25.HireChannelItem
+  pk: 4
+  fields:
+    code: 4
+    name: 非戶內親友或換工
+
+- model: surveys25.HireChannelItem
+  pk: 5
+  fields:
+    code: 5
+    name: 政府協助(人力團或農業外籍移工)
+
+- model: surveys25.HireChannelItem
+  pk: 6
+  fields:
+    code: 6
+    name: 農事服務業者(代耕業者)或工頭
+
+- model: surveys25.HireChannelItem
+  pk: 7
+  fields:
+    code: 7
+    name: 其他
+    has_extra: True

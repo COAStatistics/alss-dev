@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="contract">
+    {% for contract in contracts %}
+    <option value="{{ contract.id }}">{{ contract.code }}.{{ contract.name }}</option>
+    {% endfor %}
+</select>

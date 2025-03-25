@@ -1,0 +1,5 @@
+<select class="form-control selectpicker" data-width="100%" title="請選擇" name="foreignlaborhiretype">
+    {% for id, name in foreign_labor_hire_types.items %}
+    <option value="{{ id }}">{{ name }}</option>
+    {% endfor %}
+</select>
