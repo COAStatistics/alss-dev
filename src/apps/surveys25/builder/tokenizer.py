@@ -50,6 +50,9 @@ from apps.surveys25.models import (
     Apply,
     ApplyResult,
     ApplyMethod,
+    HireChannelItem,
+    LackResponseItem,
+    MaxHourlyPayItem,
 )
 
 
@@ -315,7 +318,7 @@ class Builder(object):
         if self.is_first_page is False:
             try:
                 string = self.string[1]
-                area_str = string[0:26]
+                area_str = string[0:31]
             except ValueError:
                 raise StringLengthError("Land Area")
             else:
@@ -433,7 +436,7 @@ class Builder(object):
 
                         if has_facility_str == 1:
                             has_facility = 1
-                        elif has_facility_str == 2:
+                        elif has_facility_str == 0:
                             has_facility = 0
                         else:
                             has_facility = None
@@ -860,8 +863,9 @@ class Builder(object):
         if self.is_first_page is False:
             string = self.string[10].split("#")[0]
             cnt, str_en_num, str_ch = self.counter_en_num(string)
-            if cnt != 28:
+            if cnt != 26:
                 raise StringLengthError("Subsidy")
+
             else:
                 try:
 
@@ -871,13 +875,17 @@ class Builder(object):
                     self.subsidy = subsidy
 
                     # Build Apply objects.
-                    apply_str = string[2:8]
+                    apply_str = string[2:6]
                     for i, value in enumerate(apply_str):
                         if value != "1":
                             continue
+                        if i // 2 == 1:
+                            id_num = 1
+                        else:
+                            id_num = 3
                         apply = Apply.objects.create(
                             subsidy=self.subsidy,
-                            result=ApplyResult.objects.get(id=i // 2 + 1),
+                            result=ApplyResult.objects.get(id=id_num),
                             method=ApplyMethod.objects.get(id=i % 2 + 1),
                         )
                         self.apply.append(apply)
@@ -902,42 +910,42 @@ class Builder(object):
                         build_refuse(0, i % 2 + 1)
 
                     # RefuseReason constant, RefuseReason.pk=1-6
-                    reason_str = string[8:20]
+                    reason_str = string[6:16]
                     for i, value in enumerate(reason_str):
                         if value != "1":
                             continue
                         build_refuse(i // 2 + 1, i % 2 + 1)
 
                     # RefuseReason constant, RefuseReason.pk=7-10
-                    reason_str = string[20]
+                    reason_str = string[17]
                     if reason_str == "1":
                         build_refuse(7, 1)
 
-                    reason_str = string[21]
+                    reason_str = string[18]
                     if reason_str == "1":
                         build_refuse(8, 2)
 
-                    reason_str = string[22]
+                    reason_str = string[19]
                     if reason_str == "1":
                         build_refuse(9, 2)
 
-                    reason_str = string[23]
+                    reason_str = string[20]
                     if reason_str == "1":
                         build_refuse(10, 2)
 
-                    reason_str = string[24]
+                    reason_str = string[21]
                     if reason_str == "1":
                         build_refuse(11, 2)
 
-                    reason_str = string[25]
+                    reason_str = string[22]
                     if reason_str == "1":
                         build_refuse(12, 1)
 
-                    reason_str = string[26]
+                    reason_str = string[23]
                     if reason_str == "1":
                         build_refuse(12, 2)
 
-                    reason_str = string[26:].split("#")[0]
+                    reason_str = string[23:].split("#")[0]
                     cnt, str_en_num, str_ch = self.counter_en_num(reason_str[1:])
                     if reason_str[-1] == "1" or len(str_ch) > 0:
                         build_refuse(13, 1, str_ch if str_ch else None)
@@ -950,3 +958,114 @@ class Builder(object):
 
                 except ValueError:
                     raise CreateModelError("Subsidy")
+
+    def build_hire_channel(self):
+        if self.is_first_page is False:
+            try:
+                string = self.string[11].split("#")[0]
+
+            except ValueError:
+                raise StringLengthError("HireChannel")
+            else:
+                try:
+                    for i in range(0, 6):
+                        if string[i] == "1":
+                            num = i + 1
+                            hire_channels = Subsidy.hire_channels.objects.create(
+                                survey=self.survey,
+                                hire_channels=HireChannelItem.objects.get(
+                                    code=num
+                                ),
+                            )
+                            self.hire_channels.append(hire_channels)
+                    if string[6] == "1":
+                        hire_channels = Subsidy.hire_channels.create(
+                            survey=self.survey,
+                            hire_channels=HireChannelItem.objects.get(
+                                code=7
+                            ),
+                            extra=string[7:],
+                        )
+                        self.hire_channels.append(hire_channels)
+                    elif len(string[6:]) > 2:
+                        hire_channels = Subsidy.hire_channels.create(
+                            survey=self.survey, hire_channel_extra=string[7:]
+                        )
+                        self.hire_channels.append(hire_channels)
+
+                except ValueError:
+                    raise CreateModelError("HireChannel")
+
+    def build_lack_responses(self):
+        if self.is_first_page is False:
+            try:
+                string = self.string[11].split("#")[1]
+
+            except ValueError:
+                raise StringLengthError("LackResponses")
+            else:
+                try:
+                    for i in range(0, 8):
+                        if string[i] == "1":
+                            num = i + 1
+                            lack_responses = Subsidy.lack_responses.objects.create(
+                                survey=self.survey,
+                                lack_responses=LackResponseItem.objects.get(
+                                    code=num
+                                ),
+                            )
+                            self.lack_responses.append(lack_responses)
+                    if string[8] == "1":
+                        lack_responses = Subsidy.lack_responses.create(
+                            survey=self.survey,
+                            lack_responses=LackResponseItem.objects.get(
+                                code=9
+                            ),
+                            extra=string[9:],
+                        )
+                        self.lack_responses.append(lack_responses)
+                    elif len(string[8:]) > 2:
+                        lack_responses = Subsidy.lack_responses.create(
+                            survey=self.survey, extra=string[9:]
+                        )
+                        self.lack_responses.append(lack_responses)
+
+                except ValueError:
+                    raise CreateModelError("LackResponses")
+
+    def build_max_hourly_pays(self):
+        if self.is_first_page is False:
+            try:
+                string = self.string[11].split("#")[2]
+
+            except ValueError:
+                raise StringLengthError("MaxHourlyPayItem")
+            else:
+                try:
+                    for i in range(0, 7):
+                        if string[i] == "1":
+                            num = i + 1
+                            max_hourly_pays = Subsidy.max_hourly_pays.objects.create(
+                                survey=self.survey,
+                                lack_responses=MaxHourlyPayItem.objects.get(
+                                    code=num
+                                ),
+                            )
+                            self.max_hourly_pays.append(max_hourly_pays)
+                    if string[7] == "1":
+                        max_hourly_pays = Subsidy.max_hourly_pays.create(
+                            survey=self.survey,
+                            lack_responses=MaxHourlyPayItem.objects.get(
+                                code=8
+                            ),
+                            max_hourly_pay_extra=string[8:],
+                        )
+                        self.max_hourly_pays.append(max_hourly_pays)
+                    elif len(string[7:]) > 2:
+                        max_hourly_pays = Subsidy.max_hourly_pays.create(
+                            survey=self.survey, max_hourly_pay_extra=string[8:]
+                        )
+                        self.max_hourly_pays.append(max_hourly_pays)
+
+                except ValueError:
+                    raise CreateModelError("MaxHourlyPayItem")

@@ -100,7 +100,7 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.crop_marketing[1].plant_times, 1)
         self.assertEqual(self.builder.crop_marketing[1].unit.code, 1)
         self.assertEqual(self.builder.crop_marketing[1].year_sales, 7200)
-        self.assertEqual(self.builder.crop_marketing[1].has_facility, 0)
+        self.assertEqual(self.builder.crop_marketing[1].has_facility, 1)
         self.assertEqual(self.builder.crop_marketing[1].loss.code, 0)
 
     def test_build_livestock_marketing(self):
