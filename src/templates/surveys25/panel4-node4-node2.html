@@ -65,7 +65,7 @@
                     <div class="form-inline col-md-6">
                         <label class="fw-400">
                             <input type="checkbox"  data-maxhourlypayitem-id="{{ item.id }}"
-                                   data-has-response="{{ item.has_pay|yesno:'true,false' }}" name="maxhourlypayitem">
+                                   data-has-pay="{{ item.has_pay|yesno:'true,false' }}" name="maxhourlypayitem">
                             {{ item.id }}.{{ item.name }}
                         </label>
                         {% if item.has_extra %}

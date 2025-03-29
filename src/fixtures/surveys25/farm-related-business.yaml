@@ -9,7 +9,7 @@
   pk: 2
   fields:
     code: 2
-    name: 農產品加工
+    name: 農(畜)產品加工
 
 - model: surveys25.FarmRelatedBusiness
   pk: 3

@@ -10,7 +10,7 @@
   pk: 2
   fields:
     name: 人工鋪面
-    statuses: [1, 2]
+    statuses: [1, 2, 3]
     unit: 16
 
 
