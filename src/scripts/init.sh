@@ -16,3 +16,5 @@ python manage.py loaddata fixtures/surveys23/*.yaml
 python manage.py loaddata fixtures/surveys23/survey/*.yaml
 python manage.py loaddata fixtures/surveys24/*.yaml
 python manage.py loaddata fixtures/surveys24/survey/*.yaml
+python manage.py loaddata fixtures/surveys25/*.yaml
+python manage.py loaddata fixtures/surveys25/survey/*.yaml
