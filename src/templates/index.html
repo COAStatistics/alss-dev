@@ -289,13 +289,13 @@ window.onload = function() {
         <h1>勞動力</h1>
         <h1>調查平台</h1>
         {% if perms.surveys22.view_survey %}
-        <a href="{% url 'surveys22:surveys22_index' %}">110年</a>
-        {% endif %}
-        {% if perms.surveys22.view_survey %}
         <a href="{% url 'surveys23:surveys23_index' %}">111年</a>
         {% endif %}
         {% if perms.surveys24.view_survey %}
         <a href="{% url 'surveys24:surveys24_index' %}">112年</a>
+        {% endif %}
+        {% if perms.surveys25.view_survey %}
+        <a href="{% url 'surveys25:surveys25_index' %}">113年</a>
         {% endif %}
       </div>
   </div>
