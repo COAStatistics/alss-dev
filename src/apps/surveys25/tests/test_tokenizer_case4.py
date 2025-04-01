@@ -10,7 +10,7 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "1000903007800101####張素香/鄰居##056325823/##########00310#雲林#虎尾#0903+00200000000000000000000000100000000#10000000000000+102一期稻作#1002001100000033000020311綠肥作物#1002001n00000000000020+0200000002000000060303+10+++010001+++0000000000000000000000000000#0#++二期休耕。#謝孟娟#鄭艾倫#0327"
+        cls.string = "1000903007800101####張素香/鄰居##056325823/##########00310#雲林#虎尾#0903+0020000000000000000000000000000100000000#10000000000000+102一期稻作#1002001100000033000000311綠肥作物#1002001n00000000000010+0200000002000000060303+10+++010001+++0000000000000000000000000000#0#++二期休耕。#謝孟娟#鄭艾倫#0327"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -68,5 +68,5 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.crop_marketing[1].plant_times, 1)
         self.assertEqual(self.builder.crop_marketing[1].unit, None)
         self.assertEqual(self.builder.crop_marketing[1].year_sales, 0)
-        self.assertEqual(self.builder.crop_marketing[1].has_facility, 0)
+        self.assertEqual(self.builder.crop_marketing[1].has_facility, 1)
         self.assertEqual(self.builder.crop_marketing[1].loss.code, 0)
