@@ -21,8 +21,8 @@
             </tr>
             <tr>
                 <td rowspan="16">2. 有聽過</td>
-                <td rowspan="3">有申請(勾選一項)</td>
-                <td>1.1 {{ apply_results.0.name }}</td>
+                <td rowspan="2">有申請(勾選一項)</td>
+                <td>1. {{ apply_results.0.name }}</td>
                 <td>
                     <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.0.id }}" data-method-id="{{ apply_methods.0.id }}" name="apply">
                 </td>
@@ -31,21 +31,12 @@
                 </td>
             </tr>
             <tr>
-                <td>1.2 {{ apply_results.1.name }}</td>
+                <td>2. {{ apply_results.1.name }}</td>
                 <td>
                     <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.1.id }}" data-method-id="{{ apply_methods.0.id }}" name="apply">
                 </td>
                 <td>
                     <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.1.id }}" data-method-id="{{ apply_methods.1.id }}" name="apply">
-                </td>
-            </tr>
-            <tr>
-                <td>2. {{ apply_results.2.name }}</td>
-                <td>
-                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.2.id }}" data-method-id="{{ apply_methods.0.id }}" name="apply">
-                </td>
-                <td>
-                    <input type="checkbox" class="w-2 h-2" data-result-id="{{ apply_results.2.id }}" data-method-id="{{ apply_methods.1.id }}" name="apply">
                 </td>
             </tr>
             <tr>
