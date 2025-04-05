@@ -10,7 +10,8 @@ class ModelTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########03701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+010020017070050009100100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+0110010000001001101100000001嘉義鄉農會#0其他+01005010500000000700000000050155+稻受雨害影響#宋中積#宋會喬#0330"
+        #cls.string = "6700500100020101####林阿忠/本人#0912345678/##########03701屏東縣屏東市屏東路2號#台南#官田#6710+00250000000003001000000000100000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100021503桶柑#1003001100000000720020+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+010020017070050009100100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+0110010000001001101100000001嘉義鄉農會#0其他+01005010500000000700000000050155+稻受雨害影響#宋中積#宋會喬#0330"
+        cls.string = "6700500100020101####林阿忠/本人#0912345678/##########03701屏東縣屏東市屏東路2號#台南#官田#6710+0025000000000300100000000022500010000001農所實驗#00000000000100+102稻作(一期)#1004201100000002100001503桶柑#1003001100000000720010+F02泌乳牛#300009000000000500000F01肉牛#300100000000001500003101000041010020101080404+01110302000000101000000002220322000001001000000001+120040020010011010000000000005220040020010011111111111110010+0100900000500412130000000000000004010001005004142100000000000080+010020017070050009100100+220011010000000000135140011111111111110080+香菇#A02130021100000000000060芒果#C06120010001100000000130+01100100001001101100000001嘉義鄉農會#0其他+0110000#000100001大學合作實習#10000000#+稻受雨害影響#宋中積#宋會喬#0330"
         cls.builder = Builder(cls.string)
         cls.builder.build_survey()
 
@@ -52,7 +53,7 @@ class ModelTestCase(TestCase):
 
     def test_build_land_area(self):
         self.builder.build_land_area()
-        self.assertEqual(len(self.builder.land_area), 3)
+        self.assertEqual(len(self.builder.land_area), 4)
 
         self.assertEqual(self.builder.land_area[0].value, 250)
         self.assertEqual(self.builder.land_area[0].type.name, "可耕作地")
@@ -66,11 +67,15 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.land_area[2].type.name, "人工鋪面")
         self.assertEqual(self.builder.land_area[2].status.name, "自有")
 
+        self.assertEqual(self.builder.land_area[3].value, 2250)
+        self.assertEqual(self.builder.land_area[3].type.name, "人工鋪面")
+        self.assertEqual(self.builder.land_area[3].status.name, "接受委託經營")
+
     def test_build_business(self):
         self.builder.build_business()
         self.assertEqual(len(self.builder.business), 2)
         self.assertEqual(
-            self.builder.business[0].farm_related_business.name, "無兼營農業相關事業"
+            self.builder.business[0].farm_related_business.name, "農(畜)產品加工"
         )
         self.assertEqual(self.builder.business[1].farm_related_business.name, "其他")
         self.assertEqual(self.builder.business[1].extra, "農所實驗")
@@ -100,7 +105,7 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.crop_marketing[1].plant_times, 1)
         self.assertEqual(self.builder.crop_marketing[1].unit.code, 1)
         self.assertEqual(self.builder.crop_marketing[1].year_sales, 7200)
-        self.assertEqual(self.builder.crop_marketing[1].has_facility, 0)
+        self.assertEqual(self.builder.crop_marketing[1].has_facility, 1)
         self.assertEqual(self.builder.crop_marketing[1].loss.code, 0)
 
     def test_build_livestock_marketing(self):
@@ -250,7 +255,7 @@ class ModelTestCase(TestCase):
         self.assertEqual(len(self.builder.refuse), 8)
         self.assertEqual(self.builder.apply[0].result.pk, 1)
         self.assertEqual(self.builder.apply[0].method.pk, 1)
-        self.assertEqual(self.builder.apply[1].result.pk, 2)
+        self.assertEqual(self.builder.apply[1].result.pk, 3)
         self.assertEqual(self.builder.apply[1].method.pk, 2)
         self.assertEqual(self.builder.refuse[0].reason.pk, 0)
         self.assertEqual(self.builder.refuse[0].method.pk, 2)
@@ -271,14 +276,28 @@ class ModelTestCase(TestCase):
         self.assertEqual(self.builder.refuse[7].method.pk, 2)
         self.assertEqual(self.builder.refuse[7].extra, "其他")
 
-    def test_build_foreign_labor_hire(self):
-        self.builder.build_foreign_labor_hire()
-        self.assertEqual(len(self.builder.foreign_labor_hire), 2)
-        self.assertEqual(self.builder.foreign_labor_hire[0].month.value, 1)
-        self.assertEqual(self.builder.foreign_labor_hire[0].count, 5)
-        self.assertEqual(self.builder.foreign_labor_hire[0].hire_type, 1)
-        self.assertEqual(self.builder.foreign_labor_hire[0].avg_work_day, 10.5)
-        self.assertEqual(self.builder.foreign_labor_hire[1].month.value, 7)
-        self.assertEqual(self.builder.foreign_labor_hire[1].count, 5)
-        self.assertEqual(self.builder.foreign_labor_hire[1].hire_type, 2)
-        self.assertEqual(self.builder.foreign_labor_hire[1].avg_work_day, 15.5)
+    def test_build_hire_channel(self):
+        self.builder.build_hire_channel()
+        self.assertEqual(len(self.builder.hire_channel), 2)
+        self.assertEqual(
+            self.builder.hire_channel[0].item.name, "自行招募"
+        )
+        self.assertEqual(
+            self.builder.hire_channel[1].item.name, "親友介紹"
+        )
+
+    def test_build_lack_responses(self):
+        self.builder.build_lack_responses()
+        self.assertEqual(len(self.builder.lack_response), 2)
+        self.assertEqual(
+            self.builder.lack_response[0].item.name, "改種其他作物"
+        )
+        self.assertEqual(self.builder.lack_response[1].item.name, "其他")
+        self.assertEqual(self.builder.lack_response[1].extra, "大學合作實習")
+
+    def test_build_max_hourly_pays(self):
+            self.builder.build_max_hourly_pays()
+            self.assertEqual(len(self.builder.max_hourly_pay), 1)
+            self.assertEqual(
+                self.builder.max_hourly_pay[0].item.name, "無經營農耕業"
+            )
