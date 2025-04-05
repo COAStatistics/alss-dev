@@ -12,6 +12,7 @@ from apps.surveys20.models import Survey as Survey20
 from apps.surveys22.models import Survey as Survey22
 from apps.surveys23.models import Survey as Survey23
 from apps.surveys24.models import Survey as Survey24
+from apps.surveys25.models import Survey as Survey25
 
 
 class ContentObjectRelatedField(RelatedField):
@@ -25,7 +26,7 @@ class ContentObjectRelatedField(RelatedField):
         """
         if any(
             isinstance(value, cls)
-            for cls in (Survey18, Survey19, Survey20, Survey22, Survey23, Survey24)
+            for cls in (Survey18, Survey19, Survey20, Survey22, Survey23, Survey24, Survey25)
         ):
             return value.farmer_id
         raise Exception("Unexpected type of content object")
