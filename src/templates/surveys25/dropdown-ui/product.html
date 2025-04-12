@@ -1,8 +1,8 @@
 <select class="form-control selectpicker" data-width="100%" title="請選擇" name="product">
     {% for product in crop_products %}
-    <option value="{{ product.id }}">{{ product.code }}.{{ product.name }}</option>
+    <option value="{{ product.id }}" data-code="{{ product.code }}">{{ product.code }}.{{ product.name }}</option>
     {% endfor %}
     {% for product in livestock_products %}
-    <option value="{{ product.id }}">{{ product.code }}.{{ product.name }}</option>
+    <option value="{{ product.id }}" data-code="{{ product.code }}">{{ product.code }}.{{ product.name }}</option>
     {% endfor %}
 </select>
