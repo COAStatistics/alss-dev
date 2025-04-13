@@ -62,21 +62,21 @@
     type: 1
     stratify_with: 1
 
-- model: surveys25.ManagementType
+- model: surveys24.ManagementType
   pk: 9
-  fields:
-    code: 10
-    name: 其他農作物
-    type: 1
-    stratify_with: 1
-
-- model: surveys25.ManagementType
-  pk: 10
   fields:
     code: 9
     name: 食用菇蕈
     type: 1
     stratify_with: 2
+
+- model: surveys24.ManagementType
+  pk: 10
+  fields:
+    code: 10
+    name: 其他農作物
+    type: 1
+    stratify_with: 1
 
 - model: surveys25.ManagementType
   pk: 11
