@@ -4064,7 +4064,13 @@ var HireChannelHelper = {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function(){
                 var itemChecked = HireChannelHelper.HireChannelItems.Container.filter('[data-hirechannelitem-id="5"]').prop('checked');
-                var hasApply = SubsidyHelper.Container.Apply.filter('[ data-result-id="1"]').prop('checked');
+                var hasApply = false;
+                SubsidyHelper.Container.Apply.filter('[ data-result-id="1"]').each(function(){
+                    if($(this).prop("checked")){
+                        hasApply = true;
+                        return false;
+                    }
+                })
                 var con = !itemChecked && hasApply;
                 var msg = '若【問項4.1】註記「有申請到」人力團或農業外籍移工，應有勾選「5.政府協助」。';
                 Helper.LogHandler.Log(con, HireChannelHelper.Alert, msg, this.Guids[0], null, false);

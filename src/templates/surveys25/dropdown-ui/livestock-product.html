@@ -4,6 +4,7 @@
             data-managementtype-id="{{ product.management_type.id }}"
             data-managementtype-name="{{ product.management_type.name }}"
             data-name="{{ product.name }}"
+            data-code="{{ product.code }}"
             {% if product.min_hour %}data-min-hour="{{ product.min_hour }}"{% endif %}
             {% if product.max_hour %}data-max-hour="{{ product.max_hour }}"{% endif %}>
         {{ product.code }}.{{ product.name }}
