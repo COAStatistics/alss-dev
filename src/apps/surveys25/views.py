@@ -128,7 +128,7 @@ class Surveys2025Index(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         # template render objects
         context["farm_related_businesses"] = FarmRelatedBusiness.objects.all()
-        context["management_types"] = ManagementType.objects.all()
+        context["management_types"] = ManagementType.objects.all().order_by("id")
         context["land_types"] = LandType.objects.all()
         context["income_ranges"] = IncomeRange.objects.all().order_by("minimum")
         context["market_types"] = MarketType.objects.all()
