@@ -62,7 +62,7 @@
     type: 1
     stratify_with: 1
 
-- model: surveys24.ManagementType
+- model: surveys25.ManagementType
   pk: 9
   fields:
     code: 9
@@ -70,7 +70,7 @@
     type: 1
     stratify_with: 2
 
-- model: surveys24.ManagementType
+- model: surveys25.ManagementType
   pk: 10
   fields:
     code: 10

@@ -1316,7 +1316,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 10
+    management_type: 9
 
 - model: surveys25.Product
   pk: 133
@@ -1326,7 +1326,7 @@
     min_hour: 7320
     max_hour: 11313
     type: 1
-    management_type: 10
+    management_type: 9
 
 - model: surveys25.Product
   pk: 134
@@ -1336,7 +1336,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 10
+    management_type: 9
 
 - model: surveys25.Product
   pk: 135
@@ -1346,7 +1346,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 10
+    management_type: 9
 
 - model: surveys25.Product
   pk: 136
@@ -1356,7 +1356,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 10
+    management_type: 9
 
 - model: surveys25.Product
   pk: 137
@@ -1366,7 +1366,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 10
+    management_type: 9
 
 - model: surveys25.Product
   pk: 138
@@ -1554,7 +1554,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 9
+    management_type: 10
 
 - model: surveys25.Product
   pk: 156
@@ -1564,7 +1564,7 @@
     min_hour:
     max_hour:
     type: 1
-    management_type: 9
+    management_type: 10
 
 - model: surveys25.Product
   pk: 157

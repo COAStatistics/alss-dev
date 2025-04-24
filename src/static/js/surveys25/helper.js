@@ -639,6 +639,9 @@ var SurveyHelper = {
         },
         Set: function(obj){
             this.Container.val(obj.invalid_reason);
+             if(Helper.LogHandler.ValidationActive) {
+                SurveyHelper.IsInvalid.Validation.ReasonProvided.Validate();
+             }
         },
         Reset: function(){
             this.Container.val('');
@@ -4053,9 +4056,10 @@ var HireChannelHelper = {
             Guids: Helper.Guid.CreateMulti(),
             Validate: function(){
                 var itemChecked = HireChannelHelper.HireChannelItems.Container.filter('[data-hirechannelitem-id="5"]').prop('checked');
-                var noLongTermHireExists = LongTermHireHelper.LongTermHire.Container.find('tr').length > 0;
-                var noShortTermHireExists = ShortTermHireHelper.ShortTermHire.Container.find('tr').length > 0
-                var con = itemChecked && noLongTermHireExists && noShortTermHireExists;
+                var longTermHireCount = LongTermHireHelper.LongTermHire.Container.find('tr').length;
+                var shortTermHireCount = ShortTermHireHelper.ShortTermHire.Container.find('tr').length;
+                var noHire = (longTermHireCount + shortTermHireCount) == 0;
+                var con = itemChecked && noHire;
                 var msg = '若有勾選「5. 政府協助」，【問項 3.1.2~3.1.3】應有填僱用人力。';
                 Helper.LogHandler.Log(con, HireChannelHelper.Alert, msg, this.Guids[0], null, false);
             },
