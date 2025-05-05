@@ -3143,6 +3143,7 @@ var NoSalaryHireHelper = {
                         if(Helper.LogHandler.ValidationActive){
                             Helper.LogHandler.DeleteRow(NoSalaryHireHelper.Alert, $tr, $nextAll);
                             SurveyHelper.Hire.Validation.HireExist.Validate();
+                            HireChannelHelper.Validation.ConflictToNoSalaryHire.Validate();
                         }
                     })
                 }
@@ -3188,6 +3189,7 @@ var NoSalaryHireHelper = {
                     NoSalaryHireHelper.NoSalaryHire.Container[0].refreshIndex();
                     if(Helper.LogHandler.ValidationActive){
                         NoSalaryHireHelper.Validation.Required.Validate($row);
+                        HireChannelHelper.Validation.ConflictToNoSalaryHire.Validate();
                     }
                 }
             })
@@ -3926,6 +3928,7 @@ var HireChannelHelper = {
                 HireChannelHelper.Validation.Empty.Validate();
                 HireChannelHelper.Validation.Duplicate.Validate();
                 HireChannelHelper.Validation.ConflictToHire.Validate();
+                HireChannelHelper.Validation.ConflictToNoSalaryHire.Validate();
                 HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                 HireChannelHelper.Validation.ConflictToApply.Validate();
                 HireChannelHelper.Validation.ConflictHasFarmOutSource.Validate();
@@ -3949,6 +3952,7 @@ var HireChannelHelper = {
                         HireChannelHelper.Validation.Empty.Validate();
                         HireChannelHelper.Validation.Duplicate.Validate();
                         HireChannelHelper.Validation.ConflictToHire.Validate();
+                        HireChannelHelper.Validation.ConflictToNoSalaryHire.Validate();
                         HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                         HireChannelHelper.Validation.ConflictToApply.Validate();
                         HireChannelHelper.Validation.ConflictHasFarmOutSource.Validate();
@@ -3977,6 +3981,7 @@ var HireChannelHelper = {
                         HireChannelHelper.Validation.Empty.Validate();
                         HireChannelHelper.Validation.Duplicate.Validate();
                         HireChannelHelper.Validation.ConflictToHire.Validate();
+                        HireChannelHelper.Validation.ConflictToNoSalaryHire.Validate();
                         HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                         HireChannelHelper.Validation.ConflictToApply.Validate();
                         HireChannelHelper.Validation.ConflictHasFarmOutSource.Validate();
@@ -4049,6 +4054,16 @@ var HireChannelHelper = {
                 })
                 var con = itemChecked && nonHireChecked;
                 var msg = '若有勾選「2. 自行招募」、「3. 親友介紹」、「4. 非戶內親友或換工」，【問項 3.1】不可勾選「無僱用員工及不支薪資人員」。';
+                Helper.LogHandler.Log(con, HireChannelHelper.Alert, msg, this.Guids[0], null, false);
+            },
+        },
+        ConflictToNoSalaryHire: {
+            Guids: Helper.Guid.CreateMulti(),
+            Validate: function(){
+                var hasNoSalaryHire = NoSalaryHireHelper.NoSalaryHire.Container.find('tr').length > 0;
+                var itemChecked = HireChannelHelper.HireChannelItems.Container.filter('[data-hirechannelitem-id="4"]').prop('checked');
+                var con = hasNoSalaryHire && !itemChecked;
+                var msg = '若【問項 3.2】有不支薪人員，應有勾選「4. 非戶內親友或換工」。';
                 Helper.LogHandler.Log(con, HireChannelHelper.Alert, msg, this.Guids[0], null, false);
             },
         },
