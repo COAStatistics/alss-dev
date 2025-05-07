@@ -2650,7 +2650,6 @@ var LongTermHireHelper = {
                 LongTermHireHelper.Validation.LongTerm.Validate($(this));
             })
             CropMarketingHelper.Validation.WorkHourRange.Validate();
-            MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
             HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
         }
     },
@@ -2715,7 +2714,6 @@ var LongTermHireHelper = {
                         LongTermHireHelper.Validation.GreaterThanZero.Validate($(this));
                     })
                     CropMarketingHelper.Validation.WorkHourRange.Validate();
-                    MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                 }
             })
             $row.find('button[name="remove"]').click(function(){
@@ -2734,7 +2732,6 @@ var LongTermHireHelper = {
                             LongTermHireHelper.Alert.alert();
                             SurveyHelper.Hire.Validation.HireExist.Validate();
                             CropMarketingHelper.Validation.WorkHourRange.Validate();
-                            MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                             HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                         }
                     })
@@ -2762,7 +2759,6 @@ var LongTermHireHelper = {
                         LongTermHireHelper.Validation.AvgWorkDay.Validate($tr);
                         LongTermHireHelper.Validation.LongTerm.Validate($tr);
                         CropMarketingHelper.Validation.WorkHourRange.Validate();
-                        MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                     }
                 }
             })
@@ -2786,7 +2782,6 @@ var LongTermHireHelper = {
                     if(Helper.LogHandler.ValidationActive){
                         LongTermHireHelper.Validation.Required.Validate($row);
                         SurveyHelper.Hire.Validation.HireExist.Validate();
-                        MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                         HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                     }
                 }
@@ -2875,7 +2870,6 @@ var ShortTermHireHelper = {
             })
             ShortTermHireHelper.Validation.Over6Month.Validate();
             CropMarketingHelper.Validation.WorkHourRange.Validate();
-            MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
             HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
         }
     },
@@ -2937,7 +2931,6 @@ var ShortTermHireHelper = {
                         ShortTermHireHelper.Validation.GreaterThanZero.Validate($(this));
                     })
                     CropMarketingHelper.Validation.WorkHourRange.Validate();
-                    MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                 }
 
             })
@@ -2956,7 +2949,6 @@ var ShortTermHireHelper = {
                             SurveyHelper.Hire.Validation.HireExist.Validate();
                             ShortTermHireHelper.Validation.Over6Month.Validate();
                             CropMarketingHelper.Validation.WorkHourRange.Validate();
-                            MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                             HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                         }
                     })
@@ -2982,7 +2974,6 @@ var ShortTermHireHelper = {
                         ShortTermHireHelper.Validation.GreaterThanZero.Validate($tr);
                         ShortTermHireHelper.Validation.AvgWorkDay.Validate($tr);
                         CropMarketingHelper.Validation.WorkHourRange.Validate();
-                        MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                     }
                 }
             })
@@ -3008,7 +2999,6 @@ var ShortTermHireHelper = {
                         ShortTermHireHelper.Validation.GreaterThanZero.Validate($row);
                         ShortTermHireHelper.Validation.Over6Month.Validate();
                         SurveyHelper.Hire.Validation.HireExist.Validate();
-                        MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                         HireChannelHelper.Validation.ConflictToLongShortTermHire.Validate();
                     }
                 }
@@ -4268,7 +4258,6 @@ var MaxHourlyPayHelper = {
                 MaxHourlyPayHelper.Validation.Empty.Validate();
                 MaxHourlyPayHelper.Validation.Duplicate.Validate();
                 MaxHourlyPayHelper.Validation.ConflictToCropMarketing.Validate();
-                MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
             }
         },
         Reset: function(){
@@ -4289,7 +4278,6 @@ var MaxHourlyPayHelper = {
                         MaxHourlyPayHelper.Validation.Empty.Validate();
                         MaxHourlyPayHelper.Validation.Duplicate.Validate();
                         MaxHourlyPayHelper.Validation.ConflictToCropMarketing.Validate();
-                        MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                     }
                 }
             })
@@ -4315,7 +4303,6 @@ var MaxHourlyPayHelper = {
                         MaxHourlyPayHelper.Validation.Empty.Validate();
                         MaxHourlyPayHelper.Validation.Duplicate.Validate();
                         MaxHourlyPayHelper.Validation.ConflictToCropMarketing.Validate();
-                        MaxHourlyPayHelper.Validation.ConflictToHire.Validate();
                     }
                 }
             })
@@ -4369,17 +4356,6 @@ var MaxHourlyPayHelper = {
                 var itemChecked = MaxHourlyPayHelper.MaxHourlyPayItems.Container.filter('[data-maxhourlypayitem-id="1"]').prop('checked');
                 var con = itemChecked && hasCropMarketing;
                 var msg = '【問項1.4】有生產農產品者，不可勾選「1.無經營農耕業」。';
-                Helper.LogHandler.Log(con, MaxHourlyPayHelper.Alert, msg, this.Guids[0], null, false);
-            },
-        },
-        ConflictToHire: {
-            Guids: Helper.Guid.CreateMulti(),
-            Validate: function(){
-                var hasShortTermHire = ShortTermHireHelper.ShortTermHire.Container.find('tr').length > 0;
-                var hasLongTermHIre = LongTermHireHelper.LongTermHire.Container.find('tr').length > 0;
-                var itemChecked = MaxHourlyPayHelper.MaxHourlyPayItems.Container.filter('[data-maxhourlypayitem-id="2"]').prop('checked');
-                var con = itemChecked && (hasShortTermHire || hasLongTermHIre);
-                var msg = '【問項3.1.2或問項3.1.3】若有僱用常僱或臨時員工，不可勾選「2.無僱用人力」。';
                 Helper.LogHandler.Log(con, MaxHourlyPayHelper.Alert, msg, this.Guids[0], null, false);
             },
         },
