@@ -4031,7 +4031,7 @@ var HireChannelHelper = {
             },
         },
         ConflictToHire: {
-            Guids: Helper.Guid.CreateMulti(),
+            Guids: Helper.Guid.CreateMulti(1),
             Validate: function(){
                 var nonHireChecked = SurveyHelper.Hire.Container.filter('[data-field="nonhire"]').prop('checked');
                 var itemChecked = false;
@@ -4045,6 +4045,12 @@ var HireChannelHelper = {
                 var con = itemChecked && nonHireChecked;
                 var msg = '若有勾選「2. 自行招募」、「3. 親友介紹」、「4. 非戶內親友或換工」，【問項 3.1】不可勾選「無僱用員工及不支薪資人員」。';
                 Helper.LogHandler.Log(con, HireChannelHelper.Alert, msg, this.Guids[0], null, false);
+
+                var hireChecked = SurveyHelper.Hire.Container.filter('[data-field="hire"]').prop('checked');
+                var itemChecked = HireChannelHelper.HireChannelItems.Container.filter('[data-hirechannelitem-id="1"]').prop('checked');
+                var msg = "【問項 3.1】勾選有僱用員工及不支薪資人員，不可勾選「1. 無僱用人力」"
+                var con = hireChecked && itemChecked;
+                Helper.LogHandler.Log(con, HireChannelHelper.Alert, msg, this.Guids[1], null, false);
             },
         },
         ConflictToNoSalaryHire: {
