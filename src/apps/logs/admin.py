@@ -14,8 +14,8 @@ from .models import ReviewLog
 YEAR_APP_MAP = {}
 APP_YEAR_MAP = {}
 for year, app in zip(
-    ("106", "107", "108", "110", "111", "112"),
-    ("surveys18", "surveys19", "surveys20", "surveys22", "surveys23", "surveys24"),
+    ("106", "107", "108", "110", "111", "112", "113"),
+    ("surveys18", "surveys19", "surveys20", "surveys22", "surveys23", "surveys24", "surveys25"),
 ):
     YEAR_APP_MAP[year] = app
     APP_YEAR_MAP[app] = year
