@@ -1125,7 +1125,7 @@ var LandAreaHelper = {
                 var cropMarketingAreaSum = Object.values(cropMarketingAreaMap).length > 0 ? Object.values(cropMarketingAreaMap).reduce((a,b)=>a+b) : 0;
 
                 var con = landAreaSum < cropMarketingAreaSum;
-                var msg = '【問項1.1】年底耕作地面積總和({0}公畝)應大於或等於【問項1.5】總種植面積({1}公畝)'.format(landAreaSum, cropMarketingAreaSum);
+                var msg = '【問項1.1】年底耕作地面積總和({0}公畝)應大於或等於【問項1.4】總種植面積({1}公畝)'.format(landAreaSum, cropMarketingAreaSum);
                 Helper.LogHandler.Log(con, LandAreaHelper.Alert, msg, this.Guids[0]);
             },
         },
