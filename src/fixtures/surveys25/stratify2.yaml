@@ -6,7 +6,7 @@
     min_field: 0
     max_field: 175
     code: 101
-    population: 530
+    population: 504
     level: 1
     is_senility: true
 
@@ -18,7 +18,7 @@
     min_field: 0
     max_field: 175
     code: 102
-    population: 1827
+    population: 2963
     level: 1
     is_senility: true
 
@@ -30,7 +30,7 @@
     min_field: 175
     max_field: 500
     code: 103
-    population: 497
+    population: 247
     level: 2
     is_senility: true
 
@@ -42,7 +42,7 @@
     min_field: 175
     max_field: 500
     code: 104
-    population: 1380
+    population: 1001
     level: 2
     is_senility: true
 
@@ -54,7 +54,7 @@
     min_field: 500
     max_field: 999999999
     code: 105
-    population: 126
+    population: 70
     level: 3
     is_senility: true
 
@@ -66,7 +66,7 @@
     min_field: 500
     max_field: 999999999
     code: 106
-    population: 180
+    population: 105
     level: 3
     is_senility: true
 
@@ -78,7 +78,7 @@
     min_field: 0
     max_field: 125
     code: 107
-    population: 353
+    population: 296
     level: 1
     is_senility: true
 
@@ -90,7 +90,7 @@
     min_field: 0
     max_field: 125
     code: 108
-    population: 409
+    population: 527
     level: 1
     is_senility: true
 
@@ -102,7 +102,7 @@
     min_field: 125
     max_field: 500
     code: 109
-    population: 425
+    population: 221
     level: 2
     is_senility: true
 
@@ -114,7 +114,7 @@
     min_field: 125
     max_field: 500
     code: 110
-    population: 309
+    population: 267
     level: 2
     is_senility: true
 
@@ -126,7 +126,7 @@
     min_field: 500
     max_field: 999999999
     code: 111
-    population: 22
+    population: 15
     level: 3
     is_senility: true
 
@@ -138,7 +138,7 @@
     min_field: 500
     max_field: 999999999
     code: 112
-    population: 9
+    population: 11
     level: 3
     is_senility: true
 
@@ -150,7 +150,7 @@
     min_field: 0
     max_field: 125
     code: 113
-    population: 222
+    population: 276
     level: 1
     is_senility: true
 
@@ -162,7 +162,7 @@
     min_field: 0
     max_field: 125
     code: 114
-    population: 137
+    population: 801
     level: 1
     is_senility: true
 
@@ -174,7 +174,7 @@
     min_field: 125
     max_field: 300
     code: 115
-    population: 77
+    population: 70
     level: 2
     is_senility: true
 
@@ -186,7 +186,7 @@
     min_field: 125
     max_field: 300
     code: 116
-    population: 47
+    population: 120
     level: 2
     is_senility: true
 
@@ -198,7 +198,7 @@
     min_field: 300
     max_field: 999999999
     code: 117
-    population: 29
+    population: 20
     level: 3
     is_senility: true
 
@@ -210,7 +210,7 @@
     min_field: 300
     max_field: 999999999
     code: 118
-    population: 19
+    population: 24
     level: 3
     is_senility: true
 
@@ -222,7 +222,7 @@
     min_field: 0
     max_field: 100
     code: 119
-    population: 245
+    population: 191
     level: 1
     is_senility: true
 
@@ -234,7 +234,7 @@
     min_field: 0
     max_field: 100
     code: 120
-    population: 131
+    population: 168
     level: 1
     is_senility: true
 
@@ -246,7 +246,7 @@
     min_field: 100
     max_field: 300
     code: 121
-    population: 281
+    population: 167
     level: 2
     is_senility: true
 
@@ -258,7 +258,7 @@
     min_field: 100
     max_field: 300
     code: 122
-    population: 88
+    population: 58
     level: 2
     is_senility: true
 
@@ -270,7 +270,7 @@
     min_field: 300
     max_field: 999999999
     code: 123
-    population: 64
+    population: 39
     level: 3
     is_senility: true
 
@@ -282,7 +282,7 @@
     min_field: 300
     max_field: 999999999
     code: 124
-    population: 9
+    population: 8
     level: 3
     is_senility: true
 
@@ -294,7 +294,7 @@
     min_field: 0
     max_field: 100
     code: 125
-    population: 2014
+    population: 1781
     level: 1
     is_senility: true
 
@@ -306,7 +306,7 @@
     min_field: 0
     max_field: 100
     code: 126
-    population: 1511
+    population: 3837
     level: 1
     is_senility: true
 
@@ -318,7 +318,7 @@
     min_field: 100
     max_field: 250
     code: 127
-    population: 1257
+    population: 710
     level: 2
     is_senility: true
 
@@ -330,7 +330,7 @@
     min_field: 100
     max_field: 250
     code: 128
-    population: 640
+    population: 772
     level: 2
     is_senility: true
 
@@ -342,7 +342,7 @@
     min_field: 250
     max_field: 999999999
     code: 129
-    population: 390
+    population: 216
     level: 3
     is_senility: true
 
@@ -354,7 +354,7 @@
     min_field: 250
     max_field: 999999999
     code: 130
-    population: 141
+    population: 162
     level: 3
     is_senility: true
 
@@ -366,7 +366,7 @@
     min_field: 0
     max_field: 100
     code: 131
-    population: 3115
+    population: 3028
     level: 1
     is_senility: true
 
@@ -378,7 +378,7 @@
     min_field: 0
     max_field: 100
     code: 132
-    population: 1972
+    population: 5635
     level: 1
     is_senility: true
 
@@ -390,7 +390,7 @@
     min_field: 100
     max_field: 250
     code: 133
-    population: 2524
+    population: 1626
     level: 2
     is_senility: true
 
@@ -402,7 +402,7 @@
     min_field: 100
     max_field: 250
     code: 134
-    population: 1142
+    population: 1686
     level: 2
     is_senility: true
 
@@ -414,7 +414,7 @@
     min_field: 250
     max_field: 999999999
     code: 135
-    population: 782
+    population: 479
     level: 3
     is_senility: true
 
@@ -426,7 +426,7 @@
     min_field: 250
     max_field: 999999999
     code: 136
-    population: 237
+    population: 302
     level: 3
     is_senility: true
 
@@ -438,7 +438,7 @@
     min_revenue: 0
     max_revenue: 70
     code: 137
-    population: 3
+    population: 5
     level: 1
     is_senility: true
 
@@ -450,7 +450,7 @@
     min_revenue: 0
     max_revenue: 70
     code: 138
-    population: 5
+    population: 8
     level: 1
     is_senility: true
 
@@ -462,7 +462,7 @@
     min_revenue: 70
     max_revenue: 180
     code: 139
-    population: 24
+    population: 11
     level: 2
     is_senility: true
 
@@ -474,7 +474,7 @@
     min_revenue: 70
     max_revenue: 180
     code: 140
-    population: 9
+    population: 6
     level: 2
     is_senility: true
 
@@ -486,7 +486,7 @@
     min_revenue: 180
     max_revenue: 999999999
     code: 141
-    population: 57
+    population: 36
     level: 3
     is_senility: true
 
@@ -498,7 +498,7 @@
     min_revenue: 180
     max_revenue: 999999999
     code: 142
-    population: 4
+    population: 2
     level: 3
     is_senility: true
 
@@ -510,7 +510,7 @@
     min_revenue: 0
     max_revenue: 70
     code: 143
-    population: 66
+    population: 79
     level: 1
     is_senility: true
 
@@ -522,7 +522,7 @@
     min_revenue: 0
     max_revenue: 70
     code: 144
-    population: 82
+    population: 154
     level: 1
     is_senility: true
 
@@ -534,7 +534,7 @@
     min_revenue: 70
     max_revenue: 180
     code: 145
-    population: 72
+    population: 42
     level: 2
     is_senility: true
 
@@ -546,7 +546,7 @@
     min_revenue: 70
     max_revenue: 180
     code: 146
-    population: 38
+    population: 30
     level: 2
     is_senility: true
 
@@ -558,7 +558,7 @@
     min_revenue: 180
     max_revenue: 999999999
     code: 147
-    population: 52
+    population: 27
     level: 3
     is_senility: true
 
@@ -570,7 +570,7 @@
     min_revenue: 180
     max_revenue: 999999999
     code: 148
-    population: 17
+    population: 10
     level: 3
     is_senility: true
 
@@ -582,7 +582,7 @@
     min_field: 0
     max_field: 50
     code: 149
-    population: 34
+    population: 35
     level: 1
     is_senility: true
 
@@ -594,7 +594,7 @@
     min_field: 0
     max_field: 50
     code: 150
-    population: 53
+    population: 182
     level: 1
     is_senility: true
 
@@ -606,7 +606,7 @@
     min_field: 50
     max_field: 100
     code: 151
-    population: 15
+    population: 31
     level: 2
     is_senility: true
 
@@ -618,7 +618,7 @@
     min_field: 50
     max_field: 100
     code: 152
-    population: 36
+    population: 112
     level: 2
     is_senility: true
 
@@ -630,7 +630,7 @@
     min_field: 100
     max_field: 999999999
     code: 153
-    population: 59
+    population: 45
     level: 3
     is_senility: true
 
@@ -642,79 +642,7 @@
     min_field: 100
     max_field: 999999999
     code: 154
-    population: 26
-    level: 3
-    is_senility: true
-
-- model: surveys25.Stratify
-  pk: 145
-  fields:
-    agg_management_type: [11]
-    is_hire: True
-    min_revenue: 0
-    max_revenue: 150
-    code: 155
-    population: 3
-    level: 1
-    is_senility: true
-
-- model: surveys25.Stratify
-  pk: 146
-  fields:
-    agg_management_type: [11]
-    is_hire: False
-    min_revenue: 0
-    max_revenue: 150
-    code: 156
-    population: 1
-    level: 1
-    is_senility: true
-
-- model: surveys25.Stratify
-  pk: 147
-  fields:
-    agg_management_type: [11]
-    is_hire: True
-    min_revenue: 150
-    max_revenue: 500
-    code: 157
-    population: 5
-    level: 2
-    is_senility: true
-
-- model: surveys25.Stratify
-  pk: 148
-  fields:
-    agg_management_type: [11]
-    is_hire: False
-    min_revenue: 150
-    max_revenue: 500
-    code: 158
-    population: 4
-    level: 2
-    is_senility: true
-
-- model: surveys25.Stratify
-  pk: 149
-  fields:
-    agg_management_type: [11]
-    is_hire: True
-    min_revenue: 500
-    max_revenue: 999999999
-    code: 159
-    population: 22
-    level: 3
-    is_senility: true
-
-- model: surveys25.Stratify
-  pk: 150
-  fields:
-    agg_management_type: [11]
-    is_hire: False
-    min_revenue: 500
-    max_revenue: 999999999
-    code: 160
-    population: 8
+    population: 60
     level: 3
     is_senility: true
 
@@ -724,9 +652,9 @@
     agg_management_type: [12]
     is_hire: True
     min_revenue: 0
-    max_revenue: 150
+    max_revenue: 155
     code: 161
-    population: 58
+    population: 28
     level: 1
     is_senility: true
 
@@ -736,9 +664,9 @@
     agg_management_type: [12]
     is_hire: False
     min_revenue: 0
-    max_revenue: 150
+    max_revenue: 155
     code: 162
-    population: 126
+    population: 103
     level: 1
     is_senility: true
 
@@ -749,8 +677,8 @@
     is_hire: True
     min_revenue: 150
     max_revenue: 500
-    code: 163
-    population: 88
+    code: 157
+    population: 44
     level: 2
     is_senility: true
 
@@ -761,8 +689,8 @@
     is_hire: False
     min_revenue: 150
     max_revenue: 500
-    code: 164
-    population: 161
+    code: 158
+    population: 74
     level: 2
     is_senility: true
 
@@ -773,8 +701,8 @@
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
-    code: 165
-    population: 128
+    code: 159
+    population: 63
     level: 3
     is_senility: true
 
@@ -785,8 +713,8 @@
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999
-    code: 166
-    population: 131
+    code: 160
+    population: 66
     level: 3
     is_senility: true
 
@@ -797,8 +725,8 @@
     is_hire: True
     min_revenue: 0
     max_revenue: 150
-    code: 167
-    population: 61
+    code: 161
+    population: 36
     level: 1
     is_senility: true
 
@@ -809,8 +737,8 @@
     is_hire: False
     min_revenue: 0
     max_revenue: 150
-    code: 168
-    population: 63
+    code: 162
+    population: 71
     level: 1
     is_senility: true
 
@@ -821,8 +749,8 @@
     is_hire: True
     min_revenue: 150
     max_revenue: 500
-    code: 169
-    population: 80
+    code: 163
+    population: 40
     level: 2
     is_senility: true
 
@@ -833,8 +761,8 @@
     is_hire: False
     min_revenue: 150
     max_revenue: 500
-    code: 170
-    population: 63
+    code: 164
+    population: 36
     level: 2
     is_senility: true
 
@@ -845,8 +773,8 @@
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
-    code: 171
-    population: 165
+    code: 165
+    population: 81
     level: 3
     is_senility: true
 
@@ -857,79 +785,79 @@
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999
-    code: 172
-    population: 123
+    code: 166
+    population: 71
     level: 3
     is_senility: true
 
 - model: surveys25.Stratify
   pk: 163
   fields:
-    agg_management_type: [14]
+    agg_management_type: [11, 14]
     is_hire: True
     min_revenue: 0
     max_revenue: 150
-    code: 173
-    population: 65
+    code: 167
+    population: 46
     level: 1
     is_senility: true
 
 - model: surveys25.Stratify
   pk: 164
   fields:
-    agg_management_type: [14]
+    agg_management_type: [11, 14]
     is_hire: False
     min_revenue: 0
     max_revenue: 150
-    code: 174
-    population: 151
+    code: 168
+    population: 138
     level: 1
     is_senility: true
 
 - model: surveys25.Stratify
   pk: 165
   fields:
-    agg_management_type: [14]
+    agg_management_type: [11, 14]
     is_hire: True
     min_revenue: 150
     max_revenue: 500
-    code: 175
-    population: 122
+    code: 169
+    population: 57
     level: 2
     is_senility: true
 
 - model: surveys25.Stratify
   pk: 166
   fields:
-    agg_management_type: [14]
+    agg_management_type: [11, 14]
     is_hire: False
     min_revenue: 150
     max_revenue: 500
-    code: 176
-    population: 140
+    code: 170
+    population: 83
     level: 2
     is_senility: true
 
 - model: surveys25.Stratify
   pk: 167
   fields:
-    agg_management_type: [14]
+    agg_management_type: [11, 14]
     is_hire: True
     min_revenue: 500
     max_revenue: 999999999
-    code: 177
-    population: 35
+    code: 171
+    population: 29
     level: 3
     is_senility: true
 
 - model: surveys25.Stratify
   pk: 168
   fields:
-    agg_management_type: [14]
+    agg_management_type: [11, 14]
     is_hire: False
     min_revenue: 500
     max_revenue: 999999999
-    code: 178
-    population: 26
+    code: 172
+    population: 25
     level: 3
     is_senility: true

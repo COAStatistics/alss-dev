@@ -27,6 +27,7 @@ def async_export_full_data(year, email):
         110: full_data.SurveyRelationGeneratorFactory110,
         111: full_data.SurveyRelationGeneratorFactory111,
         112: full_data.SurveyRelationGeneratorFactory112,
+        113: full_data.SurveyRelationGeneratorFactory113
     }
     try:
         factory = factory_map.get(year)(excludes={"note__icontains": "無效戶"})
@@ -162,13 +163,15 @@ def async_export_examination_work_hours(year, email):
     import apps.surveys22.models
     import apps.surveys23.models
     import apps.surveys24.models
+    import apps.surveys25.models
 
     models_map = {
         107: apps.surveys19.models,
         108: apps.surveys20.models,
         110: apps.surveys22.models,
         111: apps.surveys23.models,
-        112: apps.surveys24.models
+        112: apps.surveys24.models,
+        113: apps.surveys25.models,
     }
     try:
         models = models_map.get(year)
@@ -263,6 +266,7 @@ def async_export_farmer_stat(year, email):
         110: farmer_stat.FarmerStatExporter110,
         111: farmer_stat.FarmerStatExporter111,
         112: farmer_stat.FarmerStatExporter112,
+        113: farmer_stat.FarmerStatExporter113,
     }
     try:
         exporter = exporter_map.get(year)()

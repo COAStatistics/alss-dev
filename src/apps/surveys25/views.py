@@ -67,7 +67,6 @@ from apps.surveys25.models import (
     Month,
     BuilderFile,
     PRODUCT_TYPE_CHOICES,
-    FOREIGN_LABOR_HIRE_TYPE,
 )
 
 from apps.surveys25.serializers import (

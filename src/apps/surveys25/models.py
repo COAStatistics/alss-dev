@@ -1,4 +1,5 @@
 import operator
+import logging
 from django.conf import settings
 from django.db.transaction import atomic
 from django.utils.translation import ugettext_lazy as _
@@ -7,6 +8,7 @@ from django.utils.functional import cached_property
 from django.db.models import Count, Max, Q
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import (
     Model,
     CASCADE,
@@ -28,6 +30,7 @@ from model_utils import Choices
 from model_utils.fields import AutoCreatedField, AutoLastModifiedField
 from apps.logs.models import ReviewLog
 
+logger = logging.getLogger(__file__)
 
 YES_NO_CHOICES = Choices((0, "No"), (1, "Yes"))
 
@@ -45,10 +48,6 @@ NUMBER_WORKERS_CHOICES = Q(app_label="surveys25", model="longtermhire") | Q(
 
 MANAGEMENT_LEVEL = Choices(
     (1, "small", _("Small")), (2, "middle", _("Middle")), (3, "large", _("Large"))
-)
-
-FOREIGN_LABOR_HIRE_TYPE = Choices(
-    (1, "long_term_labor", _("Long Term Labor")), (2, "short_term_labor", _("Short Term Labor"))
 )
 
 SAMPLE_GROUP = Choices(
@@ -1866,20 +1865,45 @@ class Stratify(Model):
 
     @property
     def sibling(self):
-        management_type_ids = self.agg_management_type.values_list("pk", flat=True)
-        return Stratify.objects.annotate(
-            b_count=Count('agg_management_type'),
-            matched=Count('agg_management_type', filter=Q(agg_management_type__in=management_type_ids))
-        ).get(
+        management_type_ids = list(
+            self.agg_management_type.values_list("pk", flat=True)
+        )
+
+        qs = Stratify.objects.annotate(
+            b_count=Count("agg_management_type"),
+            matched=Count(
+                "agg_management_type",
+                filter=Q(agg_management_type__in=management_type_ids),
+            ),
+        ).filter(
             b_count=len(management_type_ids),
             matched=len(management_type_ids),
             min_field=self.min_field,
             max_field=self.max_field,
             min_revenue=self.min_revenue,
             max_revenue=self.max_revenue,
-            is_hire=operator.not_(self.is_hire),
-            is_senility=self.is_senility
+            is_hire=not self.is_hire,
+            is_senility=self.is_senility,
         )
+
+        try:
+            return qs.get()
+
+        except ObjectDoesNotExist as exc:
+            detail = {
+                "self_pk": self.pk,
+                "agg_management_type_ids": management_type_ids,
+                "min_field": self.min_field,
+                "max_field": self.max_field,
+                "min_revenue": self.min_revenue,
+                "max_revenue": self.max_revenue,
+                "level": self.level,
+                "is_hire(self)": self.is_hire,
+                "need_is_hire": not self.is_hire,
+                "is_senility": self.is_senility,
+                "candidate_count": qs.count(),
+            }
+            raise ValueError(f"[Stratify sibling] 找不到對偶層: {detail}") from exc
 
     @property
     def upper_sibling(self):
