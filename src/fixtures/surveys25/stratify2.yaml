@@ -433,7 +433,7 @@
 - model: surveys25.Stratify
   pk: 121
   fields:
-    agg_management_type: [10]
+    agg_management_type: [9]
     is_hire: True
     min_revenue: 0
     max_revenue: 70
@@ -445,7 +445,7 @@
 - model: surveys25.Stratify
   pk: 122
   fields:
-    agg_management_type: [10]
+    agg_management_type: [9]
     is_hire: False
     min_revenue: 0
     max_revenue: 70
@@ -457,7 +457,7 @@
 - model: surveys25.Stratify
   pk: 123
   fields:
-    agg_management_type: [10]
+    agg_management_type: [9]
     is_hire: True
     min_revenue: 70
     max_revenue: 180
@@ -469,7 +469,7 @@
 - model: surveys25.Stratify
   pk: 124
   fields:
-    agg_management_type: [10]
+    agg_management_type: [9]
     is_hire: False
     min_revenue: 70
     max_revenue: 180
@@ -481,7 +481,7 @@
 - model: surveys25.Stratify
   pk: 125
   fields:
-    agg_management_type: [10]
+    agg_management_type: [9]
     is_hire: True
     min_revenue: 180
     max_revenue: 999999999
@@ -493,7 +493,7 @@
 - model: surveys25.Stratify
   pk: 126
   fields:
-    agg_management_type: [10]
+    agg_management_type: [9]
     is_hire: False
     min_revenue: 180
     max_revenue: 999999999
@@ -577,7 +577,7 @@
 - model: surveys25.Stratify
   pk: 133
   fields:
-    agg_management_type: [8, 9]
+    agg_management_type: [8, 10]
     is_hire: True
     min_field: 0
     max_field: 50
@@ -589,7 +589,7 @@
 - model: surveys25.Stratify
   pk: 134
   fields:
-    agg_management_type: [8, 9]
+    agg_management_type: [8, 10]
     is_hire: False
     min_field: 0
     max_field: 50
@@ -601,7 +601,7 @@
 - model: surveys25.Stratify
   pk: 135
   fields:
-    agg_management_type: [8, 9]
+    agg_management_type: [8, 10]
     is_hire: True
     min_field: 50
     max_field: 100
@@ -613,7 +613,7 @@
 - model: surveys25.Stratify
   pk: 136
   fields:
-    agg_management_type: [8, 9]
+    agg_management_type: [8, 10]
     is_hire: False
     min_field: 50
     max_field: 100
@@ -625,7 +625,7 @@
 - model: surveys25.Stratify
   pk: 137
   fields:
-    agg_management_type: [8, 9]
+    agg_management_type: [8, 10]
     is_hire: True
     min_field: 100
     max_field: 999999999
@@ -637,7 +637,7 @@
 - model: surveys25.Stratify
   pk: 138
   fields:
-    agg_management_type: [8, 9]
+    agg_management_type: [8, 10]
     is_hire: False
     min_field: 100
     max_field: 999999999
