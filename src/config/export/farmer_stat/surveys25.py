@@ -22,10 +22,6 @@ class FarmerStatExporter113:
             readonly=False, id__in=valid_management_type_survey_ids,
         ).exclude(
             farmer_id__in=invalid_farmers,
-        ).exclude(
-            Q(farmer_stat__isnull=True) |
-            Q(review_logs__isnull=True) |
-            Q(review_logs__current_errors__gt=0)
         ))
 
     @staticmethod
