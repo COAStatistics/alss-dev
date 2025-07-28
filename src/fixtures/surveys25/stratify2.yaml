@@ -653,7 +653,7 @@
     is_hire: True
     min_revenue: 0
     max_revenue: 155
-    code: 161
+    code: 155
     population: 28
     level: 1
     is_senility: true
@@ -665,7 +665,7 @@
     is_hire: False
     min_revenue: 0
     max_revenue: 155
-    code: 162
+    code: 156
     population: 103
     level: 1
     is_senility: true
