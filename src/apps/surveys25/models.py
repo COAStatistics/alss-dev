@@ -2017,11 +2017,11 @@ class FarmerStat(Model):
 
     @classmethod
     def get_is_senility(cls, survey: Survey) -> bool:
-        # 高齡：戶內皆為超過65歲(出生年＜47年次)從農者自家農牧業工作一日以上）
+        # 高齡：戶內皆為超過65歲(出生年＜49年次)從農者自家農牧業工作一日以上）
 
         old_worker = young_worker = False
         for obj in survey.populations.filter(farmer_work_day__id__gt=1):
-            if obj.birth_year < 47:
+            if obj.birth_year < 49:
                 old_worker = True
             else:
                 young_worker = True
