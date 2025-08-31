@@ -4,6 +4,7 @@ from .surveys20 import StatisticsQueryHelper108, StatisticsExporter108
 from .surveys22 import StatisticsQueryHelper110, StatisticsExporter110
 from .surveys23 import StatisticsQueryHelper111, StatisticsExporter111
 from .surveys24 import StatisticsQueryHelper112, StatisticsExporter112
+from .surveys25 import StatisticsQueryHelper113, StatisticsExporter113
 
 
 __all__ = [
@@ -18,5 +19,7 @@ __all__ = [
     "StatisticsQueryHelper111",
     "StatisticsExporter111",
     "StatisticsQueryHelper112",
-    "StatisticsExporter112"
+    "StatisticsExporter112",
+    "StatisticsQueryHelper112",
+    "StatisticsExporter113"
 ]

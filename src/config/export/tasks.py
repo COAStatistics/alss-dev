@@ -77,7 +77,8 @@ def async_export_statistics(year, email):
         108: statistics.StatisticsExporter108,
         110: statistics.StatisticsExporter110,
         111: statistics.StatisticsExporter111,
-        112: statistics.StatisticsExporter112
+        112: statistics.StatisticsExporter112,
+        113: statistics.StatisticsExporter113
     }
     try:
         exporter = exporter_map.get(year)()
