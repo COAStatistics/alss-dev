@@ -62,7 +62,7 @@ class StatisticsQueryHelper113(BaseStatisticsQueryHelper):
 
     def get_lack_farmer_ids(self):
         return (
-            Lack.objects.get(id=3)
+            Lack.objects.get(id=4)
             .surveys.filter(readonly=False)
             .values_list("farmer_id", flat=True)
         )
